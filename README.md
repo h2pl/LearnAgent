@@ -1,10 +1,8 @@
 <div align="center">
 
-# LearnAgent
+# AgentDevGuide
 
-**AI Agent 系统化学习指南**
-
-从模型接入到产品交付 · 13 章递进式学习 · 每章标注前置依赖
+**AI Agent 开发指南**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
@@ -16,28 +14,28 @@
 ## 学习路线
 
 <div align="center">
-<img src="./assets/roadmap.svg" alt="LearnAgent 学习路线图" width="100%"/>
+<img src="./assets/roadmap.svg" alt="AgentDevGuide 学习路线图" width="100%"/>
 </div>
 
 ---
 
 ## 目录
 
-| # | 章节 | 依赖 | 核心问题 | 产出 |
-|:---:|------|:---:|---------|------|
-| 00 | [生态认知](./docs/00-landscape/README.md) | — | Agent 和 Chatbot / Workflow / RAG 有什么区别？ | Agent 生态全景图 |
-| 01 | [模型接入](./docs/01-model-access/README.md) | 00 | 怎么调用 LLM？模型之间有什么差异？ | 多模型切换对话服务 |
-| 02 | [Prompt 工程](./docs/02-prompt-engineering/README.md) | 01 | 怎么精确控制 LLM 输出？ | 结构化输出 + CoT demo |
-| 03 | [工具调用](./docs/03-tool-use/README.md) | 02 | LLM 怎么调用外部函数？ | 多工具对话 demo |
-| 04 | [Agent 循环](./docs/04-agent-loop/README.md) | 03 | Agent 的核心循环怎么工作？ | ⭐ 最小 ReAct Agent |
-| 05 | [知识检索](./docs/05-rag-pipeline/README.md) | 02 | 怎么让 Agent 基于外部知识回答？ | RAG 问答系统 |
-| 06 | [框架与编排](./docs/06-framework/README.md) | 04 | 怎么用框架管理复杂 Agent？ | LangGraph Agent |
-| 07 | [记忆与上下文](./docs/07-memory-context/README.md) | 06 | Agent 怎么记住之前的事？ | 带记忆的 Agent |
-| 08 | [扩展协议与标准](./docs/08-protocols/README.md) | 04 | MCP / Skills / AGENTS.md 是什么？ | MCP Server + Skill |
-| 09 | [多 Agent 协作](./docs/09-multi-agent/README.md) | 06 | 多个 Agent 怎么协作？ | 多 Agent 系统 |
-| 10 | [评测与可观测](./docs/10-eval-trace/README.md) | 06 | 怎么知道 Agent 好不好？ | 评测集 + Trace |
-| 11 | [安全与治理](./docs/11-safety/README.md) | 06 | 怎么防止 Agent 越权？ | 安全加固方案 |
-| 12 | [产品交付](./docs/12-ship-to-prod/README.md) | 10, 11 | 怎么部署上线？ | 🎯 可部署的 Agent 系统 |
+| # | 章节 | 核心问题 | 产出 |
+|:---:|------|---------|------|
+| 00 | [生态认知](./docs/00-landscape/README.md) | Agent 和 Chatbot / Workflow / RAG 有什么区别？ | Agent 生态全景图 |
+| 01 | [模型接入](./docs/01-model-access/README.md) | 怎么调用 LLM？模型之间有什么差异？ | 多模型切换对话服务 |
+| 02 | [Prompt 工程](./docs/02-prompt-engineering/README.md) | 怎么精确控制 LLM 输出？ | 结构化输出 + CoT demo |
+| 03 | [工具调用](./docs/03-tool-use/README.md) | LLM 怎么调用外部函数？ | 多工具对话 demo |
+| 04 | [Agent 循环](./docs/04-agent-loop/README.md) | Agent 的核心循环怎么工作？ | ⭐ 最小 ReAct Agent |
+| 05 | [知识检索](./docs/05-rag-pipeline/README.md) | 怎么让 Agent 基于外部知识回答？ | RAG 问答系统 |
+| 06 | [框架与编排](./docs/06-framework/README.md) | 怎么用框架管理复杂 Agent？ | LangGraph Agent |
+| 07 | [记忆与上下文](./docs/07-memory-context/README.md) | Agent 怎么记住之前的事？ | 带记忆的 Agent |
+| 08 | [扩展协议与标准](./docs/08-protocols/README.md) | MCP / Skills / AGENTS.md 是什么？ | MCP Server + Skill |
+| 09 | [多 Agent 协作](./docs/09-multi-agent/README.md) | 多个 Agent 怎么协作？ | 多 Agent 系统 |
+| 10 | [评测与可观测](./docs/10-eval-trace/README.md) | 怎么知道 Agent 好不好？ | 评测集 + Trace |
+| 11 | [安全与治理](./docs/11-safety/README.md) | 怎么防止 Agent 越权？ | 安全加固方案 |
+| 12 | [产品交付](./docs/12-ship-to-prod/README.md) | 怎么部署上线？ | 🎯 可部署的 Agent 系统 |
 
 ---
 

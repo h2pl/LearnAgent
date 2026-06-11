@@ -1,29 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 920" font-family="'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" font-family="'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
-    </linearGradient>
-    <linearGradient id="phase1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#6366f1"/>
-    </linearGradient>
-    <linearGradient id="phase2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#f97316"/>
-    </linearGradient>
-    <linearGradient id="phase3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#14b8a6"/>
-    </linearGradient>
-    <linearGradient id="phase4" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#a855f7"/>
-    </linearGradient>
-    <linearGradient id="phase5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#f43f5e"/>
-    </linearGradient>
     <filter id="shadow">
       <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
     </filter>
@@ -34,155 +10,80 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1100" height="920" fill="url(#bg)" rx="12"/>
+  <rect width="1100" height="780" fill="#0f172a" rx="12"/>
 
   <!-- Title -->
-  <text x="550" y="52" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">LearnAgent — AI Agent 系统化学习路线</text>
-  <text x="550" y="78" text-anchor="middle" fill="#94a3b8" font-size="14">从模型接入到产品交付 · 13 章递进式学习 · 每章标注前置依赖</text>
+  <text x="550" y="48" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">AgentDevGuide — AI Agent 开发指南</text>
+  <text x="550" y="74" text-anchor="middle" fill="#94a3b8" font-size="14">从 LLM 基础到可部署的 Agent 系统</text>
 
   <!-- ===== Phase 1: 打基础 ===== -->
-  <text x="60" y="125" fill="#60a5fa" font-size="13" font-weight="bold">阶段一 · 打基础</text>
+  <text x="60" y="118" fill="#60a5fa" font-size="13" font-weight="bold">阶段一 · 打基础</text>
 
-  <!-- 00 -->
-  <rect x="60" y="138" width="230" height="62" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="78" y="163" fill="#60a5fa" font-size="13" font-weight="bold">00 生态认知</text>
-  <text x="78" y="183" fill="#94a3b8" font-size="11">概念辨析 · 全景图 · 技术演进</text>
+  <rect x="60" y="132" width="230" height="56" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="78" y="155" fill="#60a5fa" font-size="13" font-weight="bold">00 生态认知</text>
+  <text x="78" y="175" fill="#94a3b8" font-size="11">概念辨析 · 全景图 · 技术演进</text>
 
-  <!-- 01 -->
-  <rect x="320" y="138" width="230" height="62" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="338" y="163" fill="#60a5fa" font-size="13" font-weight="bold">01 模型接入</text>
-  <text x="338" y="183" fill="#94a3b8" font-size="11">LLM API · 流式输出 · 模型选型</text>
+  <rect x="320" y="132" width="230" height="56" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="338" y="155" fill="#60a5fa" font-size="13" font-weight="bold">01 模型接入</text>
+  <text x="338" y="175" fill="#94a3b8" font-size="11">LLM 基础 · API 调用 · 模型选型</text>
 
-  <!-- 02 -->
-  <rect x="580" y="138" width="230" height="62" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="598" y="163" fill="#60a5fa" font-size="13" font-weight="bold">02 Prompt 工程</text>
-  <text x="598" y="183" fill="#94a3b8" font-size="11">结构化输出 · CoT · System Prompt</text>
+  <rect x="580" y="132" width="230" height="56" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="598" y="155" fill="#60a5fa" font-size="13" font-weight="bold">02 Prompt 工程</text>
+  <text x="598" y="175" fill="#94a3b8" font-size="11">结构化输出 · CoT · System Prompt</text>
 
-  <!-- 03 -->
-  <rect x="840" y="138" width="200" height="62" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="858" y="163" fill="#60a5fa" font-size="13" font-weight="bold">03 工具调用</text>
-  <text x="858" y="183" fill="#94a3b8" font-size="11">Function Calling 基础</text>
-
-  <!-- Arrows Phase 1 -->
-  <line x1="290" y1="169" x2="320" y2="169" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="550" y1="169" x2="580" y2="169" stroke="#475569" stroke-width="2"/>
-  <line x1="810" y1="169" x2="840" y2="169" stroke="#475569" stroke-width="2"/>
-  <!-- arrowheads -->
-  <polygon points="320,164 310,169 320,174" fill="#475569"/>
-  <polygon points="580,164 570,169 580,174" fill="#475569"/>
-  <polygon points="840,164 830,169 840,174" fill="#475569"/>
+  <rect x="840" y="132" width="200" height="56" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="858" y="155" fill="#60a5fa" font-size="13" font-weight="bold">03 工具调用</text>
+  <text x="858" y="175" fill="#94a3b8" font-size="11">Function Calling 基础</text>
 
   <!-- ===== Phase 2: 建 Agent ===== -->
-  <text x="60" y="255" fill="#fbbf24" font-size="13" font-weight="bold">阶段二 · 建 Agent</text>
+  <text x="60" y="235" fill="#fbbf24" font-size="13" font-weight="bold">阶段二 · 建 Agent</text>
 
-  <!-- 04 (star milestone) -->
-  <rect x="60" y="268" width="980" height="72" rx="10" fill="#422006" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
-  <text x="550" y="296" text-anchor="middle" fill="#fbbf24" font-size="18" font-weight="bold" filter="url(#glow)">04 Agent 循环 ⭐ 里程碑：构建第一个 Agent</text>
-  <text x="550" y="320" text-anchor="middle" fill="#d4a373" font-size="13">ReAct 模式 · observe → think → act → observe · 最小 Agent · 停止条件</text>
-
-  <!-- Arrow from 03 down to 04 -->
-  <line x1="940" y1="200" x2="940" y2="268" stroke="#f59e0b" stroke-width="2"/>
-  <polygon points="935,268 940,278 945,268" fill="#f59e0b"/>
+  <rect x="60" y="248" width="980" height="66" rx="10" fill="#422006" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="550" y="274" text-anchor="middle" fill="#fbbf24" font-size="18" font-weight="bold" filter="url(#glow)">04 Agent 循环 ⭐ 里程碑：构建第一个 Agent</text>
+  <text x="550" y="298" text-anchor="middle" fill="#d4a373" font-size="13">ReAct 模式 · observe → think → act → observe · 最小 Agent · 停止条件</text>
 
   <!-- ===== Phase 3: 增强 Agent ===== -->
-  <text x="60" y="395" fill="#34d399" font-size="13" font-weight="bold">阶段三 · 增强 Agent</text>
+  <text x="60" y="365" fill="#34d399" font-size="13" font-weight="bold">阶段三 · 增强 Agent</text>
 
-  <!-- 05 -->
-  <rect x="60" y="408" width="310" height="72" rx="8" fill="#0f3328" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="78" y="433" fill="#34d399" font-size="13" font-weight="bold">05 知识检索（RAG）</text>
-  <text x="78" y="453" fill="#94a3b8" font-size="11">文档分块 · Embedding · 向量库</text>
-  <text x="78" y="468" fill="#94a3b8" font-size="11">混合检索 · Reranking · Agentic RAG</text>
+  <rect x="60" y="378" width="310" height="66" rx="8" fill="#0f3328" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="78" y="403" fill="#34d399" font-size="13" font-weight="bold">05 知识检索（RAG）</text>
+  <text x="78" y="423" fill="#94a3b8" font-size="11">文档分块 · Embedding · 向量库 · Agentic RAG</text>
 
-  <!-- 06 -->
-  <rect x="400" y="408" width="310" height="72" rx="8" fill="#0f3328" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="418" y="433" fill="#34d399" font-size="13" font-weight="bold">06 框架与编排</text>
-  <text x="418" y="453" fill="#94a3b8" font-size="11">LangGraph · 状态持久化 · 错误处理</text>
-  <text x="418" y="468" fill="#94a3b8" font-size="11">Human-in-the-loop · 条件路由</text>
+  <rect x="400" y="378" width="310" height="66" rx="8" fill="#0f3328" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="418" y="403" fill="#34d399" font-size="13" font-weight="bold">06 框架与编排</text>
+  <text x="418" y="423" fill="#94a3b8" font-size="11">LangGraph · 状态持久化 · Human-in-the-loop</text>
 
-  <!-- 07 -->
-  <rect x="740" y="408" width="300" height="72" rx="8" fill="#0f3328" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="758" y="433" fill="#34d399" font-size="13" font-weight="bold">07 记忆与上下文</text>
-  <text x="758" y="453" fill="#94a3b8" font-size="11">短期 / 工作 / 长期记忆</text>
-  <text x="758" y="468" fill="#94a3b8" font-size="11">上下文工程 · 压缩 · 成本控制</text>
-
-  <!-- Arrows from 04 down to 05, 06, 07 -->
-  <line x1="215" y1="340" x2="215" y2="408" stroke="#10b981" stroke-width="1.5"/>
-  <polygon points="210,408 215,418 220,408" fill="#10b981"/>
-  <line x1="555" y1="340" x2="555" y2="408" stroke="#10b981" stroke-width="1.5"/>
-  <polygon points="550,408 555,418 560,408" fill="#10b981"/>
-  <line x1="890" y1="340" x2="890" y2="408" stroke="#10b981" stroke-width="1.5"/>
-  <polygon points="885,408 890,418 895,408" fill="#10b981"/>
+  <rect x="740" y="378" width="300" height="66" rx="8" fill="#0f3328" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="758" y="403" fill="#34d399" font-size="13" font-weight="bold">07 记忆与上下文</text>
+  <text x="758" y="423" fill="#94a3b8" font-size="11">记忆三层模型 · 上下文工程 · 成本控制</text>
 
   <!-- ===== Phase 4: 扩展与治理 ===== -->
-  <text x="60" y="535" fill="#a78bfa" font-size="13" font-weight="bold">阶段四 · 扩展与治理</text>
+  <text x="60" y="495" fill="#a78bfa" font-size="13" font-weight="bold">阶段四 · 扩展与治理</text>
 
-  <!-- 08 -->
-  <rect x="60" y="548" width="235" height="72" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="78" y="573" fill="#a78bfa" font-size="13" font-weight="bold">08 扩展协议与标准</text>
-  <text x="78" y="593" fill="#94a3b8" font-size="11">MCP · Skills · AGENTS.md</text>
-  <text x="78" y="608" fill="#94a3b8" font-size="11">协议选择决策</text>
+  <rect x="60" y="508" width="235" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="78" y="533" fill="#a78bfa" font-size="13" font-weight="bold">08 扩展协议与标准</text>
+  <text x="78" y="553" fill="#94a3b8" font-size="11">MCP · Skills · AGENTS.md</text>
 
-  <!-- 09 -->
-  <rect x="320" y="548" width="235" height="72" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="338" y="573" fill="#a78bfa" font-size="13" font-weight="bold">09 多 Agent 协作</text>
-  <text x="338" y="593" fill="#94a3b8" font-size="11">Sub-agent · 协作模式 · A2A</text>
-  <text x="338" y="608" fill="#94a3b8" font-size="11">任务分解 · 上下文传递</text>
+  <rect x="320" y="508" width="235" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="338" y="533" fill="#a78bfa" font-size="13" font-weight="bold">09 多 Agent 协作</text>
+  <text x="338" y="553" fill="#94a3b8" font-size="11">Sub-agent · 协作模式 · A2A</text>
 
-  <!-- 10 -->
-  <rect x="580" y="548" width="235" height="72" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="598" y="573" fill="#a78bfa" font-size="13" font-weight="bold">10 评测与可观测</text>
-  <text x="598" y="593" fill="#94a3b8" font-size="11">Eval · Trace · LLM-as-Judge</text>
-  <text x="598" y="608" fill="#94a3b8" font-size="11">调试方法论 · 成本监控</text>
+  <rect x="580" y="508" width="235" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="598" y="533" fill="#a78bfa" font-size="13" font-weight="bold">10 评测与可观测</text>
+  <text x="598" y="553" fill="#94a3b8" font-size="11">Eval · Trace · LLM-as-Judge</text>
 
-  <!-- 11 -->
-  <rect x="840" y="548" width="200" height="72" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="858" y="573" fill="#a78bfa" font-size="13" font-weight="bold">11 安全与治理</text>
-  <text x="858" y="593" fill="#94a3b8" font-size="11">权限控制 · 注入防御</text>
-  <text x="858" y="608" fill="#94a3b8" font-size="11">沙箱 · 审计</text>
-
-  <!-- Arrows from Phase 3 to Phase 4 -->
-  <line x1="178" y1="480" x2="178" y2="548" stroke="#8b5cf6" stroke-width="1.5"/>
-  <polygon points="173,548 178,558 183,548" fill="#8b5cf6"/>
-  <line x1="438" y1="480" x2="438" y2="548" stroke="#8b5cf6" stroke-width="1.5"/>
-  <polygon points="433,548 438,558 443,548" fill="#8b5cf6"/>
-  <line x1="698" y1="480" x2="698" y2="548" stroke="#8b5cf6" stroke-width="1.5"/>
-  <polygon points="693,548 698,558 703,548" fill="#8b5cf6"/>
-  <line x1="940" y1="480" x2="940" y2="548" stroke="#8b5cf6" stroke-width="1.5"/>
-  <polygon points="935,548 940,558 945,548" fill="#8b5cf6"/>
+  <rect x="840" y="508" width="200" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="858" y="533" fill="#a78bfa" font-size="13" font-weight="bold">11 安全与治理</text>
+  <text x="858" y="553" fill="#94a3b8" font-size="11">权限控制 · 注入防御 · 沙箱</text>
 
   <!-- ===== Phase 5: 产品交付 ===== -->
-  <text x="60" y="675" fill="#f87171" font-size="13" font-weight="bold">阶段五 · 产品交付</text>
+  <text x="60" y="625" fill="#f87171" font-size="13" font-weight="bold">阶段五 · 产品交付</text>
 
-  <!-- 12 -->
-  <rect x="60" y="688" width="980" height="72" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
-  <text x="550" y="716" text-anchor="middle" fill="#f87171" font-size="18" font-weight="bold" filter="url(#glow)">12 产品交付 🎯 终点：可部署的 Agent 系统</text>
-  <text x="550" y="740" text-anchor="middle" fill="#d4a0a0" font-size="13">FastAPI 服务化 · Docker 部署 · 监控告警 · 成本控制 · ACP</text>
-
-  <!-- Arrows from Phase 4 to 12 -->
-  <line x1="550" y1="620" x2="550" y2="688" stroke="#ef4444" stroke-width="2"/>
-  <polygon points="545,688 550,698 555,688" fill="#ef4444"/>
-
-  <!-- ===== Legend ===== -->
-  <rect x="60" y="795" width="980" height="100" rx="8" fill="#1a2332" stroke="#334155" stroke-width="1"/>
-  <text x="80" y="820" fill="#cbd5e1" font-size="12" font-weight="bold">依赖说明</text>
-
-  <!-- Legend items -->
-  <rect x="80" y="835" width="14" height="14" rx="3" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
-  <text x="102" y="847" fill="#94a3b8" font-size="11">00→01→02→03 线性依赖</text>
-
-  <rect x="280" y="835" width="14" height="14" rx="3" fill="#422006" stroke="#f59e0b" stroke-width="1"/>
-  <text x="302" y="847" fill="#94a3b8" font-size="11">04 依赖 03（工具调用）</text>
-
-  <rect x="480" y="835" width="14" height="14" rx="3" fill="#0f3328" stroke="#10b981" stroke-width="1"/>
-  <text x="502" y="847" fill="#94a3b8" font-size="11">05 依赖 02 / 06-07 依赖 04</text>
-
-  <rect x="710" y="835" width="14" height="14" rx="3" fill="#2e1065" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="732" y="847" fill="#94a3b8" font-size="11">08 依赖 04 / 09-11 依赖 06</text>
-
-  <rect x="940" y="835" width="14" height="14" rx="3" fill="#450a0a" stroke="#ef4444" stroke-width="1"/>
-  <text x="962" y="847" fill="#94a3b8" font-size="11">12 依赖 10+11</text>
+  <rect x="60" y="638" width="980" height="66" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+  <text x="550" y="664" text-anchor="middle" fill="#f87171" font-size="18" font-weight="bold" filter="url(#glow)">12 产品交付 🎯 终点：可部署的 Agent 系统</text>
+  <text x="550" y="688" text-anchor="middle" fill="#d4a0a0" font-size="13">FastAPI 服务化 · Docker 部署 · 监控告警 · 成本控制</text>
 
   <!-- Bottom tagline -->
-  <text x="550" y="880" text-anchor="middle" fill="#475569" font-size="11">github.com/你的用户名/LearnAgent · MIT License</text>
+  <text x="550" y="745" text-anchor="middle" fill="#475569" font-size="11">github.com/h2pl/AgentDevGuide · MIT License</text>
 
 </svg>
