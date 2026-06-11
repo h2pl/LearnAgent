@@ -2,31 +2,47 @@
 
 > 依赖：06 · 预计：3-4 天
 
-## 学习目标
+## 目录
 
-- 设计 Agent 评测集
-- 实现全链路 Trace
-- 掌握 LLM-as-Judge 方法
+- [概述](#概述)
+- [Agent 评测方法](#agent-评测方法)
+- [评测集构建](#评测集构建)
+- [LLM-as-Judge](#llm-as-judge)
+- [全链路 Trace](#全链路-trace)
+- [调试方法论](#调试方法论)
+- [成本监控](#成本监控)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: 没有评测的 Agent 只是 demo -->
 
-## 动手练习
+## Agent 评测方法
 
-为之前构建的 Agent 搭建评测和可观测体系：
-- 构建 20+ 条评测用例
-- 接入 Trace 系统（如 LangSmith / Langfuse）
-- 实现 LLM-as-Judge 自动评分
+<!-- TODO: 任务成功率、工具调用准确率、端到端指标 -->
 
-## 推荐阅读
+## 评测集构建
+
+<!-- TODO: 固定测试集、回归测试、golden dataset -->
+
+## LLM-as-Judge
+
+<!-- TODO: 用 LLM 做自动评分，评分 prompt 设计 -->
+
+## 全链路 Trace
+
+<!-- TODO: 中间步骤可视化、决策日志、LangSmith / Langfuse 接入 -->
+
+## 调试方法论
+
+<!-- TODO: 定位失败在 prompt / 工具 / 检索 / 模型哪一环 -->
+
+## 成本监控
+
+<!-- TODO: token 用量统计、模型调用成本分析 -->
+
+## 参考链接
 
 - [Anthropic — Evaluating AI Agents](https://www.anthropic.com/engineering/evaluating-ai-agents)
 - [LangSmith Documentation](https://docs.smith.langchain.com/)
 - [Langfuse](https://langfuse.com/docs)
-
-## 完成标志
-
-- [ ] 构建了评测集并能跑通自动评测
-- [ ] 接入了 Trace 系统，能追踪每一步决策
-- [ ] 能通过 Trace 定位失败原因（prompt / 工具 / 检索 / 模型）

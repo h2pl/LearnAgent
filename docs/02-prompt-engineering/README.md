@@ -2,29 +2,36 @@
 
 > 依赖：01 · 预计：2-3 天
 
-## 学习目标
+## 目录
 
-- 掌握核心 Prompt 设计模式
-- 实现结构化输出（JSON schema）
-- 设计 System Prompt 定义 Agent 行为边界
+- [概述](#概述)
+- [Prompt 设计模式](#prompt-设计模式)
+- [结构化输出](#结构化输出)
+- [System Prompt 设计](#system-prompt-设计)
+- [Prompt 鲁棒性](#prompt-鲁棒性)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: Prompt 不只是"写好提示词"，而是 Agent 行为控制的系统方法 -->
 
-## 动手练习
+## Prompt 设计模式
 
-- 让 LLM 严格输出指定 JSON schema
-- 用 CoT 完成一个多步推理任务
-- 设计一个 System Prompt，定义 Agent 的角色和行为边界
+<!-- TODO: Zero-shot / Few-shot / Chain-of-Thought / 角色设定 -->
 
-## 推荐阅读
+## 结构化输出
+
+<!-- TODO: JSON mode、schema 约束、输出解析 -->
+
+## System Prompt 设计
+
+<!-- TODO: 如何定义 Agent 的角色、行为边界、输出规范 -->
+
+## Prompt 鲁棒性
+
+<!-- TODO: 幻觉控制、边界处理、一致性验证 -->
+
+## 参考链接
 
 - [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
 - [Anthropic Prompt Engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/)
-
-## 完成标志
-
-- [ ] 能让 LLM 稳定输出指定 JSON 格式
-- [ ] 理解 CoT / Few-shot / Zero-shot 的适用场景
-- [ ] 能设计一个控制 Agent 行为的 System Prompt

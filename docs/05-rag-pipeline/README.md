@@ -2,31 +2,41 @@
 
 > 依赖：02 · 预计：4-5 天
 
-## 学习目标
+## 目录
 
-- 掌握 RAG 全流程：文档处理 → Embedding → 检索 → 生成
-- 理解不同检索策略的 trade-off
-- 将 RAG 集成为 Agent 的工具
+- [概述](#概述)
+- [文档处理与分块](#文档处理与分块)
+- [Embedding 与向量数据库](#embedding-与向量数据库)
+- [检索策略](#检索策略)
+- [RAG 完整流程](#rag-完整流程)
+- [高级 RAG](#高级-rag)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: RAG 是给 Agent 加外部知识的核心能力，也可以作为 Agent 的一个工具 -->
 
-## 动手练习
+## 文档处理与分块
 
-构建一个完整的 RAG 问答系统：
-- 文档加载与分块
-- 向量数据库存储与检索
-- 混合检索（向量 + BM25）
-- 回答生成与引用标注
+<!-- TODO: 文档解析、分块策略（固定 / 语义 / 递归）及 trade-off -->
 
-## 推荐阅读
+## Embedding 与向量数据库
+
+<!-- TODO: Embedding 模型选型、Milvus / Qdrant / pgvector 对比 -->
+
+## 检索策略
+
+<!-- TODO: 向量检索、BM25、混合检索、Reranking -->
+
+## RAG 完整流程
+
+<!-- TODO: query → retrieve → augment → generate 端到端实现 -->
+
+## 高级 RAG
+
+<!-- TODO: query 改写、多路召回、Agentic RAG -->
+
+## 参考链接
 
 - [LangChain RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/)
 - [Pinecone — RAG Guide](https://www.pinecone.io/learn/retrieval-augmented-generation/)
-
-## 完成标志
-
-- [ ] 实现了端到端的 RAG 问答系统
-- [ ] 理解分块策略对检索质量的影响
-- [ ] 能对比向量检索和混合检索的效果差异

@@ -2,30 +2,41 @@
 
 > 依赖：06 · 预计：3-4 天
 
-## 学习目标
+## 目录
 
-- 判断何时需要多 Agent vs 单 Agent
-- 掌握常见协作模式
-- 理解 A2A 协议
+- [概述](#概述)
+- [单 Agent vs 多 Agent 决策](#单-agent-vs-多-agent-决策)
+- [常见协作模式](#常见协作模式)
+- [Sub-agent 与任务委派](#sub-agent-与任务委派)
+- [A2A 协议](#a2a-协议)
+- [常见问题与对策](#常见问题与对策)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: 多 Agent 是协调问题，不是魔法 -->
 
-## 动手练习
+## 单 Agent vs 多 Agent 决策
 
-构建一个多 Agent 协作系统（如 research → write → review）：
-- 至少 3 个角色分工的 Agent / Sub-agent
-- 明确的任务分解和交接机制
-- 处理循环和任务漂移问题
+<!-- TODO: 何时单 Agent 足够、何时需要拆分、决策依据 -->
 
-## 推荐阅读
+## 常见协作模式
+
+<!-- TODO: supervisor、planner-executor、reviewer-critic 模式详解 -->
+
+## Sub-agent 与任务委派
+
+<!-- TODO: 角色专业化、任务分解、上下文传递 -->
+
+## A2A 协议
+
+<!-- TODO: Agent-to-Agent 标准化通信协议 -->
+
+## 常见问题与对策
+
+<!-- TODO: 循环、争论、任务漂移、上下文膨胀 -->
+
+## 参考链接
 
 - [LangGraph — Multi-Agent](https://langchain-ai.github.io/langgraph/concepts/multi_agent/)
 - [Google A2A Protocol](https://github.com/google/A2A)
-
-## 完成标志
-
-- [ ] 实现了一个多 Agent 协作系统
-- [ ] 能说清楚 supervisor / planner-executor / reviewer 模式的区别
-- [ ] 理解 A2A 协议的设计目标

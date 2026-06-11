@@ -2,31 +2,41 @@
 
 > 依赖：03 · 预计：3-4 天
 
-## 学习目标
+## 目录
 
-- 理解 Agent 与 Chatbot / Workflow 的本质区别
-- 掌握 ReAct 模式：observe → think → act
-- 从零构建一个最小 Agent
+- [概述](#概述)
+- [Agent 与 Chatbot / Workflow 的区别](#agent-与-chatbot--workflow-的区别)
+- [Agent 核心循环](#agent-核心循环)
+- [ReAct 模式](#react-模式)
+- [停止条件设计](#停止条件设计)
+- [从零实现最小 Agent](#从零实现最小-agent)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: 这是整个学习路线的核心里程碑——学完这章你将拥有第一个能自主决策的 Agent -->
 
-## 动手练习
+## Agent 与 Chatbot / Workflow 的区别
 
-从零实现一个最小 ReAct Agent（不使用框架），要求：
-- 能接收用户目标
-- 自主决定使用哪个工具
-- 观察结果后决定下一步
-- 有明确的停止条件
+<!-- TODO: 本质区别：Agent 有自主决策循环，能根据观察动态调整行动 -->
 
-## 推荐阅读
+## Agent 核心循环
+
+<!-- TODO: observe → think → act → observe 循环详解 -->
+
+## ReAct 模式
+
+<!-- TODO: 推理与行动交替、思维链驱动决策 -->
+
+## 停止条件设计
+
+<!-- TODO: 最大步数、超时、目标达成判定、异常退出 -->
+
+## 从零实现最小 Agent
+
+<!-- TODO: 不使用框架，纯代码实现一个最小 ReAct Agent -->
+
+## 参考链接
 
 - [ReAct: Synergizing Reasoning and Acting](https://arxiv.org/abs/2210.03629)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
-
-## 完成标志
-
-- [ ] 能说清楚 Agent 和 Chatbot 的核心区别
-- [ ] 实现了一个不依赖框架的最小 ReAct Agent
-- [ ] Agent 能自主完成至少一个多步骤任务

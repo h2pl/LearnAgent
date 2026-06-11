@@ -2,26 +2,31 @@
 
 > 依赖：无 · 预计：1 天
 
-## 学习目标
+## 目录
 
-- 区分 5 种应用形态：Chatbot / Workflow / RAG / Agent / Multi-Agent
-- 理解 Agent 系统分层架构
-- 了解 2023→2026 技术演进路线
+- [概述](#概述)
+- [五种应用形态辨析](#五种应用形态辨析)
+- [Agent 系统分层架构](#agent-系统分层架构)
+- [技术演进路线](#技术演进路线)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: 本章总体概述 -->
 
-## 动手练习
+## 五种应用形态辨析
 
-画出你自己理解的 Agent 技术全景图（可以手绘或用工具），标注每一层的职责。
+<!-- TODO: Chatbot / Workflow / RAG / Agent / Multi-Agent 的定义、区别与适用场景 -->
 
-## 推荐阅读
+## Agent 系统分层架构
+
+<!-- TODO: 模型 → 工具 → 循环 → 框架 → 记忆 → 治理 → 交付 各层职责 -->
+
+## 技术演进路线
+
+<!-- TODO: 2023 Prompt Engineering → 2024 Function Calling & RAG → 2025 Agent Framework → 2026 Harness & Standards -->
+
+## 参考链接
 
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [O'Reilly — The AI Agents Stack (2026)](https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/)
-
-## 完成标志
-
-- [ ] 能说清楚 Chatbot、Workflow、RAG、Agent、Multi-Agent 的区别
-- [ ] 能画出 Agent 系统的分层架构图

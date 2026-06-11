@@ -2,30 +2,41 @@
 
 > 依赖：04 · 预计：4-5 天
 
-## 学习目标
+## 目录
 
-- 理解框架选型：Provider SDK vs LangGraph vs 自建
-- 掌握 LangGraph 状态图、节点、条件路由
-- 实现状态持久化和 Human-in-the-loop
+- [概述](#概述)
+- [框架选型](#框架选型)
+- [LangGraph 核心概念](#langgraph-核心概念)
+- [状态管理与持久化](#状态管理与持久化)
+- [错误处理框架](#错误处理框架)
+- [Human-in-the-loop](#human-in-the-loop)
+- [参考链接](#参考链接)
 
-## 内容大纲
+## 概述
 
-<!-- TODO -->
+<!-- TODO: 用框架管理 Agent 的复杂性，把 demo 变成可靠系统 -->
 
-## 动手练习
+## 框架选型
 
-用 LangGraph 重构第 04 章的最小 Agent：
-- 定义状态图和条件路由
-- 实现 checkpoint 持久化（中断后可恢复）
-- 加入 Human-in-the-loop 审批节点
+<!-- TODO: Provider SDK vs LangGraph vs 自建的 trade-off -->
 
-## 推荐阅读
+## LangGraph 核心概念
+
+<!-- TODO: 状态图、节点、边、条件路由 -->
+
+## 状态管理与持久化
+
+<!-- TODO: checkpoint、session store、中断恢复 -->
+
+## 错误处理框架
+
+<!-- TODO: 重试、降级、熔断（对标后端微服务模式） -->
+
+## Human-in-the-loop
+
+<!-- TODO: 关键决策点的人类审批机制 -->
+
+## 参考链接
 
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [LangGraph — How-to Guides](https://langchain-ai.github.io/langgraph/how-tos/)
-
-## 完成标志
-
-- [ ] 能用 LangGraph 构建有状态的 Agent
-- [ ] 实现了 checkpoint 持久化
-- [ ] 实现了 Human-in-the-loop 审批节点
