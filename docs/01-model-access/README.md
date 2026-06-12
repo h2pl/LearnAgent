@@ -12,11 +12,13 @@ LLM 是 Agent 的大脑，这一章的目标是从应用开发者视角彻底搞
 
 | # | 文章 | 内容 |
 |---|------|------|
-| 01 | [LLM 概述](./llm-basics/01-llm-overview.md) | LLM 的定义、与传统 NLP 的区别、发展脉络 |
-| 02 | [Token 与 Embedding](./llm-basics/02-token-and-embedding.md) | 文本如何变成数字、语义向量、为什么 Token 是一切的基础 |
-| 03 | [Transformer 架构直觉](./llm-basics/03-transformer-intuition.md) | 注意力机制、自回归生成、位置编码——只讲直觉不推公式 |
-| 04 | [模型训练流程概览](./llm-basics/04-training-pipeline.md) | 预训练 → 指令微调(SFT) → 对齐(RLHF)，知道模型是怎么来的 |
-| 05 | [能力与局限](./llm-basics/05-capabilities-and-limits.md) | 幻觉、知识截止、上下文限制、偏见 |
+| 01 | [LLM 概述](./llm-basics/01-llm-overview.md) | LLM 的定义、核心原理、主流模型 |
+| 02 | [从 NLP 到 Transformer](./llm-basics/02-nlp-to-transformer.md) | 规则→统计→深度学习→Transformer，LLM 之前的技术演进 |
+| 03 | [LLM 发展简史](./llm-basics/03-llm-evolution.md) | 预训练范式 → 规模涌现 → RLHF 对齐 → ChatGPT → Agent 时代 |
+| 04 | [Token 与 Embedding](./llm-basics/04-token-and-embedding.md) | 文本如何变成数字、语义向量、为什么 Token 是一切的基础 |
+| 05 | [Transformer 架构直觉](./llm-basics/05-transformer-intuition.md) | 注意力机制、自回归生成、位置编码——只讲直觉不推公式 |
+| 06 | [模型训练流程概览](./llm-basics/06-training-pipeline.md) | 预训练 → 指令微调(SFT) → 对齐(RLHF)，知道模型是怎么来的 |
+| 07 | [能力与局限](./llm-basics/07-capabilities-and-limits.md) | 幻觉、知识截止、上下文限制、偏见 |
 
 ### 模型选型与 API 调用
 
