@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="280" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">NLP → LLM 演进时间线</text>
+  <line x1="260" y1="46" x2="540" y2="46" stroke="#e94560" stroke-width="2" opacity="0.5"/>
+
+  <!-- Timeline bar -->
+  <line x1="60" y1="130" x2="760" y2="130" stroke="#ffffff" stroke-width="3" opacity="0.15"/>
+
+  <!-- Arrow on right -->
+  <line x1="755" y1="130" x2="760" y2="130" stroke="#e94560" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Node: 规则时代 -->
+  <circle cx="130" cy="130" r="16" fill="#0f3460" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="130" cy="130" r="6" fill="#1a5276"/>
+  <text x="130" y="95" text-anchor="middle" fill="#a8d8ea" font-size="11" opacity="0.6">1950s-1990s</text>
+  <text x="130" y="170" text-anchor="middle" fill="#a8d8ea" font-size="13" font-weight="bold">规则时代</text>
+  <text x="130" y="188" text-anchor="middle" fill="#a8d8ea" font-size="10" opacity="0.7">手工编写 if-else</text>
+
+  <!-- Node: 统计学习 -->
+  <circle cx="300" cy="130" r="16" fill="#0f3460" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="300" cy="130" r="6" fill="#1a5276"/>
+  <text x="300" y="95" text-anchor="middle" fill="#a8d8ea" font-size="11" opacity="0.6">1990s-2013</text>
+  <text x="300" y="170" text-anchor="middle" fill="#a8d8ea" font-size="13" font-weight="bold">统计学习</text>
+  <text x="300" y="188" text-anchor="middle" fill="#a8d8ea" font-size="10" opacity="0.7">特征工程 + 分类器</text>
+
+  <!-- Node: 深度学习 -->
+  <circle cx="470" cy="130" r="16" fill="#0f3460" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="470" cy="130" r="6" fill="#1a5276"/>
+  <text x="470" y="95" text-anchor="middle" fill="#a8d8ea" font-size="11" opacity="0.6">2013-2017</text>
+  <text x="470" y="170" text-anchor="middle" fill="#a8d8ea" font-size="13" font-weight="bold">深度学习</text>
+  <text x="470" y="188" text-anchor="middle" fill="#a8d8ea" font-size="10" opacity="0.7">Word2Vec / RNN / LSTM</text>
+
+  <!-- Node: Transformer -->
+  <circle cx="640" cy="130" r="20" fill="#533483" stroke="#7b5ea7" stroke-width="2.5"/>
+  <circle cx="640" cy="130" r="8" fill="#e94560"/>
+  <text x="640" y="90" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">2017</text>
+  <text x="640" y="170" text-anchor="middle" fill="#e94560" font-size="14" font-weight="bold">Transformer</text>
+  <text x="640" y="188" text-anchor="middle" fill="#a8d8ea" font-size="10" opacity="0.7">Self-Attention</text>
+  <text x="640" y="203" text-anchor="middle" fill="#ffd700" font-size="10" opacity="0.9">⬤ 转折点</text>
+
+  <!-- Connecting arcs -->
+  <path d="M 146 130 Q 220 60 284 130" fill="none" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+  <path d="M 316 130 Q 390 60 454 130" fill="none" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+  <path d="M 486 130 Q 560 60 620 130" fill="none" stroke="#7b5ea7" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+
+  <!-- Key insight -->
+  <rect x="140" y="218" width="520" height="40" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#e94560" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="400" y="243" text-anchor="middle" fill="#e94560" font-size="13">核心变化：从"人工写规则" → "人工设计特征" → "机器自动学特征" → "注意力机制"</text>
+</svg>

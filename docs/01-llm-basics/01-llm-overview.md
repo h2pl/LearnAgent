@@ -18,19 +18,49 @@
 
 **大语言模型是一类基于深度神经网络（主要是 Transformer 架构）的语言模型，通过在海量文本数据上进行预训练，获得了通用的语言理解和生成能力。**
 
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/dvgodoy/dl-visuals/Transformers/full_transformer.png" alt="Transformer 完整架构" width="80%"/>
+  <br/>
+  <em>Transformer 架构图 — 现代 LLM 的基石（<a href="https://github.com/dvgodoy/dl-visuals" target="_blank">dvgodoy / CC BY</a>）</em>
+</p>
+
 拆开来理解：
 
 ### "大"（Large）
 
 指的是模型参数量巨大。GPT-3 有 1750 亿参数，GPT-4 的参数量未公开但估计在万亿级别。参数可以理解为模型"记忆"和"推理"的载体——参数越多，模型能学到的语言模式就越复杂。
 
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/dvgodoy/dl-visuals/Transformers/stacked_layers.png" alt="堆叠的 Transformer 层" width="65%"/>
+  <br/>
+  <em>多层 Transformer 堆叠 — "大"不仅体现在参数量，也体现在网络的深度（<a href="https://github.com/dvgodoy/dl-visuals" target="_blank">dvgodoy / CC BY</a>）</em>
+</p>
+
 但"大"的意义不只是"更强"，而是**质变**。研究人员发现了一个令人惊讶的现象：当模型参数量跨过某个阈值后，它会突然具备小模型完全没有的能力——比如做数学推理、写代码、理解幽默。这被称为**涌现能力（Emergent Abilities）**，就像水温降到 0 度突然结冰一样，量变引发了质变。
 
 这也是为什么整个行业都在"堆参数"——不是因为我们喜欢大，而是因为**不够大就不行**。
 
+<p align="center">
+  <img src="../../assets/01-llm-basics/emergence.svg" alt="涌现能力示意图" width="90%"/>
+  <br/>
+  <em>涌现能力：当模型参数量跨过阈值，能力从量变到质变</em>
+</p>
+
 ### "语言模型"（Language Model）
 
 本质上是一个概率模型——给定一段文本，预测下一个最可能出现的词（token）。这个看似简单的任务，在足够大的模型和足够多的数据上训练后，涌现出了令人惊讶的能力。
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/dvgodoy/dl-visuals/Attention/attention.png" alt="注意力机制示意图" width="75%"/>
+  <br/>
+  <em>注意力机制（Attention）— 让模型在预测每个 token 时关注上下文中的相关信息（<a href="https://github.com/dvgodoy/dl-visuals" target="_blank">dvgodoy / CC BY</a>）</em>
+</p>
+
+<p align="center">
+  <img src="../../assets/01-llm-basics/autoregressive.svg" alt="自回归生成示意图" width="90%"/>
+  <br/>
+  <em>自回归生成：LLM 逐个预测 token 的过程</em>
+</p>
 
 关于这个核心原理，我们在后面会深入展开。
 
@@ -51,6 +81,12 @@
 2. **知识截止（Knowledge Cutoff）**：模型的知识停留在它完成预训练的那一天。问它昨天发生的新闻，它要么说不知道，要么胡编乱造。
 3. **精确计算与严格逻辑的弱点**：让 LLM 算 `34598 × 23489`，它很可能给出一个看起来像正确答案的错误数字。Token 机制导致它无法做精确的符号运算。
 4. **上下文窗口限制**：虽然现在的模型支持 200K 甚至 2M 的上下文，但塞给它一本厚书然后问中间的细节，它很可能会忽略——这被称为"迷失在中间"现象。
+
+<p align="center">
+  <img src="../../assets/01-llm-basics/llm-capabilities.svg" alt="LLM 能力全景图" width="90%"/>
+  <br/>
+  <em>LLM 不是万能的——理解它能做什么、不能做什么，是做产品决策的基础</em>
+</p>
 
 ### 一句话总结
 
@@ -121,6 +157,12 @@ LLM 领域正在经历几个重要趋势：
 > 模型迭代非常快，以上排名随时可能变化。实时排行请参考 [Arena Leaderboard](https://arena.ai/leaderboard)、[LLM Stats](https://llm-stats.com/leaderboards/llm-leaderboard) 或 [LMSYS Chatbot Arena](https://chat.lmsys.org/)。
 
 LLM 不是凭空出现的——它背后是几十年 NLP（自然语言处理）技术的积累，从手写规则到统计学习，再到深度学习，最终 Transformer 架构的出现让一切质变。理解这段演进史，你就能明白 LLM 为什么是今天这个样子。
+
+<p align="center">
+  <img src="../../assets/01-llm-basics/timeline.svg" alt="NLP 到 LLM 演进时间线" width="90%"/>
+  <br/>
+  <em>从规则系统到 Transformer 的 NLP 演进之路</em>
+</p>
 
 > 接下来请阅读 [从 NLP 到 Transformer](./02-nlp-to-transformer.md)，了解 LLM 之前的技术演进，以及 Transformer 如何改变了一切。
 
