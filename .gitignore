@@ -10,4 +10,5 @@ Thumbs.db
 # 工具脚本在 E:\projects\my-tools（独立私有 repo）
 .qoder/
 .trae/
+.guidelines/
 *.html

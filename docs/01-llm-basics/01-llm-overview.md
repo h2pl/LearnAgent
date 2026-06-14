@@ -157,7 +157,7 @@ LLM 不是凭空出现的——它背后是几十年 NLP（自然语言处理）
   <em>从规则系统到 Transformer 的 NLP 演进之路</em>
 </p>
 
-> 接下来请阅读 [从 NLP 到 Transformer](./02-nlp-to-transformer.md)，了解 LLM 之前的技术演进，以及 Transformer 如何改变了一切。
+> 接下来请阅读 [LLM 的技术根基：从 NLP 到 Transformer](./02-nlp-to-transformer.md)，了解 LLM 之前的技术演进，以及 Transformer 如何改变了一切。
 
 ## 参考链接
 
