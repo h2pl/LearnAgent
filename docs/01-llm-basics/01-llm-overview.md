@@ -35,7 +35,7 @@
 这也是为什么整个行业都在"堆参数"——不是因为我们喜欢大，而是因为**不够大就不行**。
 
 <p align="center">
-  <img src="../../assets/01-llm-basics/emergence.svg" alt="涌现能力示意图" width="90%"/>
+  <img src="../../assets/01-llm-basics/emergence.png" alt="涌现能力示意图" width="90%"/>
   <br/>
   <em>涌现能力：当模型参数量跨过阈值，能力从量变到质变</em>
 </p>
@@ -49,7 +49,7 @@ LLM 的生成过程是**自回归（autoregressive）**的：每生成一个 tok
 举个例子，输入 `"中国的首都是"`，LLM 会这样一步步生成：
 
 <p align="center">
-  <img src="../../assets/01-llm-basics/autoregressive.svg" alt="自回归生成示意图" width="90%"/>
+  <img src="../../assets/01-llm-basics/autoregressive.png" alt="自回归生成示意图" width="90%"/>
   <br/>
   <em>自回归生成：LLM 逐个预测 token 的过程</em>
 </p>
@@ -76,9 +76,9 @@ LLM 的生成过程是**自回归（autoregressive）**的：每生成一个 tok
 4. **上下文窗口限制**：虽然现在的模型支持 200K 甚至 2M 的上下文，但塞给它一本厚书然后问中间的细节，它很可能会忽略——这被称为"迷失在中间"现象。
 
 <p align="center">
-  <img src="../../assets/01-llm-basics/llm-capabilities.svg" alt="LLM 能力全景图" width="90%"/>
+  <img src="../../assets/01-llm-basics/llm-capabilities.png" alt="LLM 能力全景图" width="90%"/>
   <br/>
-  <em>LLM 不是万能的——理解它能做什么、不能做什么，是做产品决策的基础</em>
+  <em>LLM 能力全景图</em>
 </p>
 
 ### 一句话总结
@@ -152,7 +152,7 @@ LLM 领域正在经历几个重要趋势：
 LLM 不是凭空出现的——它背后是几十年 NLP（自然语言处理）技术的积累，从手写规则到统计学习，再到深度学习，最终 Transformer 架构的出现让一切质变。理解这段演进史，你就能明白 LLM 为什么是今天这个样子。
 
 <p align="center">
-  <img src="../../assets/01-llm-basics/timeline.svg" alt="NLP 到 LLM 演进时间线" width="90%"/>
+  <img src="../../assets/01-llm-basics/timeline.png" alt="NLP 到 LLM 演进时间线" width="90%"/>
   <br/>
   <em>从规则系统到 Transformer 的 NLP 演进之路</em>
 </p>
