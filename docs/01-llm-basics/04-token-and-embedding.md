@@ -1,16 +1,15 @@
 # Token 与 Embedding
 
+> LLM 处理文本的最小单位不是"字"也不是"词"，而是 Token。本文从分词原理讲到 Embedding 向量化，帮你建立对 LLM 成本、上下文窗口和语义理解的完整认知。
+
 ## 目录
 
-- [概述](#概述)
 - [什么是 Token](#什么是-token)
 - [Tokenization 过程](#tokenization-过程)
 - [Token 与成本、性能的关系](#token-与成本性能的关系)
 - [Embedding：从文本到向量](#embedding从文本到向量)
 - [总结](#总结)
 - [参考链接](#参考链接)
-
-## 概述
 
 在 [LLM 发展简史](./03-llm-evolution.md) 之后，这一篇从最微观的视角切入——LLM 处理文字时，看到的不是"字"或"词"，而是 **Token（词元）**。
 
