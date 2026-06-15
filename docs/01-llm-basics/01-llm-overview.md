@@ -12,6 +12,7 @@
 - [主流模型概览](#主流模型概览)
   - [闭源模型](#闭源模型)
   - [开源 / 开放权重模型](#开源--开放权重模型)
+- [总结](#总结)
 - [参考链接](#参考链接)
 
 ## 概述
@@ -149,7 +150,15 @@ LLM 领域正在经历几个重要趋势：
 
 > 模型迭代非常快，以上排名随时可能变化。实时排行请参考 [Arena Leaderboard](https://arena.ai/leaderboard)、[LLM Stats](https://llm-stats.com/leaderboards/llm-leaderboard) 或 [LMSYS Chatbot Arena](https://chat.lmsys.org/)。
 
-LLM 不是凭空出现的——它背后是几十年 NLP（自然语言处理）技术的积累，从手写规则到统计学习，再到深度学习，最终 Transformer 架构的出现让一切质变。理解这段演进史，你就能明白 LLM 为什么是今天这个样子。
+## 总结
+
+这一篇建立了你对 LLM 的基本认知框架：
+
+- **本质**：LLM 是基于 Transformer 架构、通过海量文本预训练获得通用语言能力的大模型。"大"体现在参数量（数十亿到万亿）和训练数据（万亿 token）两个维度。
+- **能力与局限**：它擅长文本生成、理解、推理和少样本学习，但存在幻觉、知识过时、上下文有限等问题。这些局限正是后续 RAG、工具调用、记忆系统等技术要解决的。
+- **模型选择**：闭源模型（Claude、GPT、Gemini）综合能力最强；开源模型（Kimi、DeepSeek、Qwen）在成本、隐私和定制化方面不可替代。作为 Agent 开发者，你需要根据场景在两者之间做权衡。
+
+这些概念是后续所有文章的基础。接下来我们回到更底层——LLM 的技术根基是什么？
 
 <p align="center">
   <img src="../../assets/01-llm-basics/timeline.png" alt="NLP 到 LLM 演进时间线" width="90%"/>
