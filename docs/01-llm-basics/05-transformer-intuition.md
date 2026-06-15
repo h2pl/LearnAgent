@@ -2,15 +2,12 @@
 
 ## 目录
 
-- [概述](#概述)
 - [为什么是 Transformer](#为什么是-transformer)
 - [自注意力机制](#自注意力机制)
 - [自回归生成](#自回归生成)
 - [位置编码](#位置编码)
 - [Encoder vs Decoder](#encoder-vs-decoder)
 - [参考链接](#参考链接)
-
-## 概述
 
 作为应用开发者，你不需要能手写一个 Transformer，也不需要推导复杂的数学公式。但你需要建立对 Transformer 架构的**直觉**。
 
