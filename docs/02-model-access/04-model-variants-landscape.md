@@ -31,7 +31,7 @@
 
 | # | 维度 | 解决的问题 | 典型变体 |
 |---|------|----------|---------|
-| 1 | **训练阶段** | 让模型从"续写句子"变成"听话做事" | Base / Instruct / Chat / Reasoning |
+| 1 | **训练阶段** | 让模型从"续写句子"变成"听话做事" | Base / Instruct / Chat（开源仍用三分法）|
 | 2 | **能力专精** | 某个能力做到极致 | Code / Math / Vision / Function Calling 专用 |
 | 3 | **部署形态** | 适配不同硬件和资源 | 量化、蒸馏、合并、剪枝 |
 | 4 | **专用模型家族** | 不同任务用不同范式 | Embedding / Rerank / STT / TTS |
@@ -59,14 +59,51 @@
 | **Instruct 模型** | 预训练 + SFT | 听指令，能问答，但可能不够安全或礼貌 | ✅ 基础可用 |
 | **Chat 模型** | 预训练 + SFT + RLHF/DPO | 安全、有用、诚实，经过人类偏好对齐 | ✅ **生产首选** |
 
-### 第四种变体：Reasoning（推理模型）
+### 第四种变体？——已经不存在了
 
-Base / Instruct / Chat 是"传统三分法"，但 2024 年后多了一种——**推理模型**（Reasoning）：
+2024 年中确实多出"Reasoning"作为独立变体（o1、R1 是独立 SKU）。但**到 2026 年 6 月，主流闭源模型已全部"统一"**——没有"独立推理模型"了：
 
-- 训练方法：在 Chat 模型基础上用**强化学习 + 思维链**继续训练
-- 代表：OpenAI o1/o3、DeepSeek R1、Claude Extended Thinking、Gemini Flash Thinking
-- 特点：内部有长链推理过程（CoT），专门解决数学/逻辑/代码问题
-- **详细机制见 [推理模型专题](./05-reasoning-models.md)**
+| 厂商 | 模型 | 思考控制参数 | 默认值 |
+|------|------|------------|-------|
+| **OpenAI** | GPT-5.5 / GPT-5.5 Pro（2026-04） | `reasoning_effort` (none/low/medium/high/xhigh) | medium |
+| **Anthropic** | Claude Opus 4.6/4.7/4.8 + Sonnet 4.6 + Claude 5 | `effort` (low/medium/high/max)，**adaptive thinking** | 4.6/4.7/Sonnet 4.6 auto；4.8/5 默认 high |
+| **Google** | Gemini 3 Flash / 3 Pro / 3.1 Pro | `reasoning_effort` (low/medium/high) | low |
+| **DeepSeek** | V4-Pro / V4-Flash（2026-04） | `reasoning_effort` (high/xhigh) | high |
+| **阿里** | Qwen3.5 / 3.6 / 3.7-Max | 内置 thinking mode + 思考 budget 跨会话保留 | 开 |
+| **xAI** | Grok 4.20 Multi-Agent Beta | `reasoning_effort` | 跟随模型 |
+
+**关键变化**：
+
+- 过去：选 o1（强制深度思考）或 GPT-4o（不思考）——两个 SKU
+- 现在：选 GPT-5.5 + `reasoning_effort=high` 或 `=low`——**一个 SKU，参数控制**
+- 开源端保留"独立推理模型"传统（DeepSeek V4-Flash 是普快、V4-Pro 是高推理），但也用 `reasoning_effort` 切档
+
+**特别说明 Claude 5**：思考**始终开启**，不能关闭。`reasoning_effort=none` 不会关闭思考。
+
+**为什么这么演进**：
+
+1. **用户体验**：用户不想"这个问题要不要思考"——他们要"给我最好的答案"
+2. **模型自适应**：训练好的统一模型能自己判断"这个问题需不需要想"
+3. **成本透明**：调用方精确控制思考预算，账单可预测
+
+**对 Agent 的影响**：
+
+```python
+# 过去：路由选模型
+if is_hard_problem(q):
+    model = "o1"           # 强制深度思考
+else:
+    model = "gpt-4o"       # 不思考
+
+# 现在：调一个参数
+response = client.chat.completions.create(
+    model="gpt-5.5",
+    reasoning_effort="high" if is_hard_problem else "low",
+    messages=[{"role": "user", "content": q}]
+)
+```
+
+**详细机制见 [推理模型专题](./05-reasoning-models.md)**。
 
 ### 实际影响
 
@@ -87,11 +124,11 @@ Base / Instruct / Chat 是"传统三分法"，但 2024 年后多了一种——*
 
 | 模型 | 来源 | 规模 | 特点 | Agent 用途 |
 |------|------|------|------|----------|
-| **Codestral** | Mistral | 7B / 22B | 开源，工具调用友好 | IDE 补全、代码 Agent |
-| **DeepSeek-Coder-V2** | DeepSeek | 16B / 236B MoE | 中英双语代码，SWE-bench 强 | 复杂重构、跨文件理解 |
-| **Qwen2.5-Coder** | 阿里 | 0.5B-32B | 尺寸齐全，可本地部署 | 多场景覆盖 |
-| **Code Llama** | Meta | 7B / 13B / 34B / 70B | 经典选择 | 已逐渐被新一代取代 |
-| **GPT-5.4 / Claude Sonnet** | 商用 API | — | 综合能力含代码 | 中等代码任务 |
+| **Codestral 2** | Mistral | 7B / 22B | 开源，工具调用友好 | IDE 补全、代码 Agent |
+| **DeepSeek-Coder-V3** | DeepSeek | 16B / 236B MoE | 中英双语代码，SWE-bench 强 | 复杂重构、跨文件理解 |
+| **Qwen3.6-Coder** | 阿里 | 0.5B-32B | 尺寸齐全，可本地部署 | 多场景覆盖 |
+| **Code Llama 4** | Meta | 7B / 13B / 34B / 70B | 经典选择 | 已逐渐被新一代取代 |
+| **GPT-5.5 / Claude Opus 4.7** | 商用 API | — | 综合能力含代码 | 中等代码任务 |
 
 **什么时候用 Code 专用模型？**
 
@@ -109,11 +146,11 @@ Base / Instruct / Chat 是"传统三分法"，但 2024 年后多了一种——*
 
 | 模型 | 规模 | 特点 | 适用 |
 |------|------|------|------|
-| **Qwen2.5-Math** | 1.5B / 7B / 72B | 中文数学题解强 | 教学、题库 |
-| **NuminaMath** | 7B | 竞赛数学 | 数学竞赛 |
-| **DeepSeek-Math** | 7B | 学术数学 | 论文级数学 |
+| **Qwen3.6-Math** | 1.5B / 7B / 72B | 中文数学题解强 | 教学、题库 |
+| **NuminaMath-2** | 7B | 竞赛数学 | 数学竞赛 |
+| **DeepSeek-Math-V2** | 7B | 学术数学 | 论文级数学 |
 
-**重要提醒**：o1、R1、Gemini Thinking 这类**推理模型**就是 Math/Logic 推理的通用版，能力远超专门的 Math 模型。Math 专用模型适合**离线 + 推理成本极度敏感**的场景，否则优先用推理模型。
+**重要提醒**：GPT-5.5 / Claude Opus 4.7 / DeepSeek V4-Pro 等闭源旗舰**默认就是 Math/Logic 推理能力**——通过 `reasoning_effort=high` 或 `effort=max` 启用深度思考后，能力远超专门 Math 模型。Math 专用模型适合**离线 + 推理成本极度敏感**的场景，否则直接用闭源旗舰 + 深度思考。
 
 ### 多模态变体（Vision）
 
@@ -121,12 +158,11 @@ Base / Instruct / Chat 是"传统三分法"，但 2024 年后多了一种——*
 
 | 模型 | 视觉能力 | 上下文 | 适合场景 |
 |------|---------|-------|---------|
-| **GPT-4V / GPT-5 Vision** | ★★★★★ | 128K | 通用图文理解 |
-| **Claude 3/4 Sonnet/Opus** | ★★★★★ | 200K | 文档+图片分析 |
-| **Gemini 2.5 Pro** | ★★★★★ | 1M | 长视频、超长文档 |
-| **Qwen2.5-VL** | ★★★★ | 32K | 国产开源首选 |
-| **LLaVA** | ★★★ | 4K | 本地部署 |
-| **InternVL** | ★★★★ | 8K-32K | 国产开源，强 OCR |
+| **GPT-5.5**（Vision） | ★★★★★ | 1M | 通用图文理解 + 思考 |
+| **Claude Opus 4.7 / Sonnet 4.6** | ★★★★★ | 1M | 文档+图片分析 + adaptive thinking |
+| **Gemini 3.1 Pro** | ★★★★★ | 1M+ | 长视频、超长文档 + 推理 |
+| **Qwen3.6-VL** | ★★★★ | 262K | 国产开源首选，多模态 |
+| **LLaVA-NeXT** | ★★★ | 32K | 本地部署 |
 
 > 注意：**不是所有同族模型都支持 Vision**。例如 Llama 3 纯文本版不支持图片，Llama 3.2 Vision 才支持。选型时要看清楚能力矩阵。
 
@@ -136,12 +172,12 @@ Base / Instruct / Chat 是"传统三分法"，但 2024 年后多了一种——*
 
 | 模型 | 工具调用能力 | JSON 稳定性 |
 |------|------------|------------|
-| **GPT-4o / GPT-5 系列** | ★★★★★ | 99%+ |
-| **Claude Sonnet / Opus** | ★★★★★ | 99%+ |
-| **Gemini 2.5 Flash** | ★★★★ | 95%+ |
-| **Qwen2.5 / DeepSeek V3** | ★★★★ | 90%+ |
-| **Llama 3.1 8B** | ★★★ | 80-85% |
-| **Mistral 7B** | ★★ | 70-80% |
+| **GPT-5.5 系列** | ★★★★★ | 99%+ |
+| **Claude Opus 4.7 / Sonnet 4.6** | ★★★★★ | 99%+ |
+| **Gemini 3 Flash / Pro** | ★★★★★ | 99%+ |
+| **Qwen3.6 / DeepSeek V4** | ★★★★ | 95%+ |
+| **Llama 4 Scout / Maverick** | ★★★ | 90%+ |
+| **Mistral Large 3** | ★★★ | 85%+ |
 
 **Agent 框架（LangChain、AutoGen）对工具调用格式要求严格**——某个 JSON 字段写错就解析失败。建议优先选择 ★★★★ 及以上的模型；如果只能选小模型，**用专门微调过的 Function Calling 版本**（如 Hermes 系列、ToolACE）。
 
@@ -177,10 +213,10 @@ Base / Instruct / Chat 是"传统三分法"，但 2024 年后多了一种——*
 
 把大模型的能力"传授"给更小的模型，让小模型"继承"大模型的部分能力。
 
-- **DeepSeek-R1-Distill-Qwen-7B / 1.5B** → 把 R1 的推理能力蒸馏到 7B / 1.5B 模型
-- **Qwen2.5 系列** → 阿里用 72B 蒸馏出 0.5B/1.5B/7B/14B/32B 全家桶
-- **Phi-3.5 / Phi-4 系列** → 微软用 GPT-4 类模型蒸馏出 3.8B/14B 小模型，性能惊人
-- **TinyLlama** → 用 Llama 2 7B 蒸馏到 1.1B
+- **DeepSeek-V4-Distill-Qwen / Llama 系列** → DeepSeek 把 R1/V4 的推理能力蒸馏到 7B / 32B 模型
+- **Qwen3.x 系列** → 阿里用旗舰蒸馏出 0.5B/1.5B/7B/14B/32B/72B 全家桶
+- **Phi-4 / Phi-5 系列** → 微软用旗舰模型蒸馏出 3.8B/14B 小模型，性能惊人
+- **SmolLM3** → HuggingFace 用 Llama 4 蒸馏到 1.7B/3B
 
 **优势**：同参数量下能力更强（小而精）
 **劣势**：能力上限受限于教师模型
@@ -294,16 +330,16 @@ Rerank 模型比直接用 LLM 精排**快 10-100 倍**，且更准。
 | **金融** | BloombergGPT、FinGPT、轩辕 | 财报分析、风险评估 |
 | **医疗** | Med-PaLM 2、扁鹊（HuaTuo）、DISC-MedLLM | 临床问答、影像 |
 | **法律** | ChatLaw、通义法睿、LawGPT | 法规检索、合同分析 |
-| **代码** | StarCoder、Code Llama、DeepSeek-Coder | 已是细分方向 |
+| **代码** | Qwen3.6-Coder、DeepSeek-Coder-V3 | 已是细分方向 |
 | **教育** | 智谱 EduAgent、作业帮系列 | K12 辅导 |
 
-**经验**：通用模型（GPT-4o/Claude/DeepSeek）在大多数场景已足够，**行业模型只在合规要求严格、专业知识密度极高的场景才有必要**（如三甲医院、金融监管）。
+**经验**：通用模型（GPT-5.5 / Claude Opus 4.7 / DeepSeek V4）在大多数场景已足够，**行业模型只在合规要求严格、专业知识密度极高的场景才有必要**（如三甲医院、金融监管）。
 
 ### 区域 / 语言变体
 
-- **国产模型**：Qwen、DeepSeek、GLM、Kimi、文心、豆包——中文优化 + 数据合规
-- **多语言模型**：Llama 3.1（8 语言）、Qwen2.5（29 语言）、Mixtral
-- **区域合规模型**：Falcon（阿联酋）、Jais（阿拉伯语）
+- **国产模型**：Qwen3.x、DeepSeek V4、GLM-5.1、Kimi K2.6、文心 5.1、豆包 2.0——中文优化 + 数据合规
+- **多语言模型**：Llama 4 Scout（100+ 语言）、Qwen3.6（201 语言）、Mixtral 8x22B
+- **区域合规模型**：Falcon 3（阿联酋）、Jais 2（阿拉伯语）
 
 > 国内业务**优先选国产开源模型**——中文能力强、推理速度快、数据不出境、可商用。
 

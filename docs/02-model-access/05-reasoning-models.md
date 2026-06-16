@@ -4,9 +4,10 @@
 
 ## 目录
 
+- [思考能力的参数化趋势（2026 现状）](#思考能力的参数化趋势2026-现状)
 - [什么是推理模型](#什么是推理模型)
 - [推理模型 vs 普通 LLM：本质区别](#推理模型-vs-普通-llm本质区别)
-- [主流推理模型一览](#主流推理模型一览)
+- [主流推理模型一览（2026 现状）](#主流推理模型一览2026-现状)
 - [如何调用推理模型](#如何调用推理模型)
 - [什么时候该用推理模型](#什么时候该用推理模型)
 - [什么时候不该用](#什么时候不该用)
@@ -14,9 +15,55 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。[模型尺寸、变体与上下文](./03-model-variants.md)讲了同一家族不同大小的模型以及上下文窗口的差异。但有一类模型，它们不是靠"更大"来变强，而是靠**"想得更久"**来变强。
+你好，我是江小湖。[模型尺寸与上下文窗口](./03-model-sizes-and-context.md)讲了同一家族不同大小的模型以及上下文窗口的差异。但有一类模型，它们不是靠"更大"来变强，而是靠**"想得更久"**来变强。
 
-这就是**推理模型（Reasoning Model）**——2024 年底到 2025 年最重要的技术方向之一。OpenAI 的 o 系列、DeepSeek R1、Claude Extended Thinking 都属于这一类。它们在回答之前会先"思考"一段相当长的时间，然后才给出最终答案。
+这就是**推理模型（Reasoning Model）**——2024 年底开始崛起、2025-2026 年成为主流模型标配的能力。**重要变化**：到 2026 年 6 月，主流闭源厂商已全部采用"统一模型 + `reasoning_effort` 参数"模式——不再有独立的"推理模型" SKU，思考深度由参数控制。
+
+## 思考能力的参数化趋势（2026 现状）
+
+**先讲最重要的趋势**：到 2026 年 6 月，主流闭源模型已经**没有"独立推理模型" SKU**——所有旗舰都是"统一模型 + 思考参数"。
+
+| 时间 | 模式 | 代表 |
+|------|------|------|
+| 2024-2025 早期 | 两个独立 SKU：推理 vs 不推理 | GPT-4o vs o1、DeepSeek V3 vs R1 |
+| **2025 末-2026** | **统一 SKU + 思考参数** | GPT-5.5 / Claude Opus 4.7 / Gemini 3.x / DeepSeek V4-Pro |
+
+**2026 年 6 月统一状态**：
+
+| 厂商 | 模型 | 思考控制 | 默认值 | 备注 |
+|------|------|---------|-------|------|
+| **OpenAI** | GPT-5.5 / GPT-5.5 Pro | `reasoning_effort`: none/low/medium/high/xhigh | medium | 5 档 |
+| **Anthropic** | Claude Opus 4.6/4.7/4.8 / Sonnet 4.6 / Claude 5 | `effort`: low/medium/high/max，**adaptive thinking** | 4.6/4.7/Sonnet 4.6 auto；4.8/5 默认 high | **Claude 5 思考始终开启，不能关** |
+| **Google** | Gemini 3 Flash / 3 Pro / 3.1 Pro | `reasoning_effort`: low/medium/high | low | 3 档 |
+| **DeepSeek** | V4-Pro / V4-Flash | `reasoning_effort`: high/xhigh | high | 2 档，xhigh=最大思考 |
+| **阿里** | Qwen3.5 / 3.6 / 3.7-Max | 内置 thinking mode，**思考上下文跨会话保留** | 开 | Apache 2.0 |
+| **xAI** | Grok 4.20 Multi-Agent Beta | `reasoning_effort` | 跟随模型 | 256K 上下文 |
+| **Meta** | Llama 4 Scout / Maverick | 内置思考，可配置 budget | 开 | 10M 上下文 |
+
+**三巨头设计哲学**：
+
+- **OpenAI**：5 档最精细，提供 `none`（彻底不思考）和 `xhigh`（极致思考）
+- **Anthropic**：`max` 档独家，**adaptive thinking** 让模型自己决定怎么用预算；Claude 5 强制开启
+- **Google**：3 档最简，依赖模型本身的原始速度优势
+
+**对 Agent 框架的影响**：
+
+```python
+# 过去的 Agent：路由选模型
+if is_hard_problem(q):
+    model = "o1"           # 强制深度思考
+else:
+    model = "gpt-4o"       # 不思考
+
+# 2026 年的 Agent：调一个参数
+response = client.chat.completions.create(
+    model="gpt-5.5",
+    reasoning_effort="high" if is_hard_problem else "low",
+    messages=[{"role": "user", "content": q}]
+)
+```
+
+> 详细对比表见 [主流推理模型一览](#主流推理模型一览-2026-现状)
 
 ## 什么是推理模型
 
@@ -34,7 +81,7 @@
 用户问题 → [思考阶段：多步推理] → [回答阶段：基于推理结果输出]
 ```
 
-这个"思考阶段"可能是几百个 Token 到几万个 Token 不等，取决于问题的复杂度。关键是：**这些思考 Token 是模型在内部生成的，用于辅助最终答案的生成，而不是直接展示给用户的**（虽然也可以选择展示）。
+这个"思考阶段"可能是几百个 Token 到几万个 Token 不等，取决于问题的复杂度和 `reasoning_effort` 档位。**思考 Token 通常计为输出 token 单价**——这是成本的主要来源。
 
 ## 推理模型 vs 普通 LLM：本质区别
 
@@ -66,76 +113,82 @@
   <em>推理模型 vs 普通模型：单次生成 vs 多步思维链</em>
 </p>
 
-## 主流推理模型一览
+## 主流推理模型一览（2026 现状）
 
-### OpenAI o 系列（o1 / o3 / o4-mini / GPT-5.2 Thinking）
+### OpenAI：GPT-5.5 / GPT-5.5 Pro
 
-OpenAI 是推理模型的先驱。o1 于 2024 年发布，是第一个大规模商用的推理模型系列。到 2025 年底，OpenAI 已将推理能力整合进 GPT-5.2 的 Thinking 模式中。
+OpenAI 是推理模型的先驱，o1 是第一个大规模商用的推理模型（2024-09）。到 2026 年 6 月，**整个 o 产品线已并入 GPT-5.5 主线**——不再有独立的"o 系列"。
 
-**核心机制**：在训练阶段使用强化学习（RL），让模型学会"在回答之前先生成推理链"。推理过程中模型会产生内部的"思考 Token"（thinking tokens），这些 Token 不对用户可见（除非特别请求）。
+**当前状态（GPT-5.5，2026-04 发布）**：
 
-**关键 API 参数**：`reasoning_effort`，控制模型"想多久"：
+- **5 档 `reasoning_effort`**：none / low / medium / high / xhigh
+- **默认 medium**——大多数请求自动启用"思考"
+- **GPT-5.5 Pro**：高阶版本，提供更激进的思考深度
+
+**调用示例**：
 
 ```python
 from openai import OpenAI
-
 client = OpenAI()
 
-# 低推理努力模式：快速但深度有限
-response_low = client.chat.completions.create(
-    model="o4-mini",
-    messages=[{"role": "user", "content": "15 * 27 + 13 * 8 = ?"}],
-    reasoning_effort="low"   # low / medium / high
+# 低档思考：快速分类、提取
+resp = client.chat.completions.create(
+    model="gpt-5.5",
+    messages=[{"role": "user", "content": "判断这段文本情感极性"}],
+    reasoning_effort="low"
 )
 
-# 高推理努力模式：更慢但更准确
-response_high = client.chat.completions.create(
-    model="o4-mini",
-    messages=[{"role": "user", "content": "证明根号2是无理数"}],
+# 高档思考：复杂推理
+resp = client.chat.completions.create(
+    model="gpt-5.5",
+    messages=[{"role": "user", "content": "证明根号 2 是无理数"}],
     reasoning_effort="high"
 )
+
+# 极致思考：异步任务、关键决策
+resp = client.chat.completions.create(
+    model="gpt-5.5-pro",
+    messages=[{"role": "user", "content": "为一个 7x7 棋盘设计最优开局策略"}}],
+    reasoning_effort="xhigh"
+)
 ```
 
-**GPT-5.2 的进化**：GPT-5.2 将推理模式整合为三个变体——Instant（速度优先）、Thinking（深度推理，默认）、Pro（精度最高）。不再需要单独的 o 系列产品线，一个模型通过参数切换即可适配不同场景。
+**注意**：默认 medium 意味着**每个普通请求都会思考**——计算成本比 2024 年的 GPT-4o 高。预算敏感场景需要显式设 `reasoning_effort="low"`。
 
-### DeepSeek R1 系列
+### Anthropic：Claude Opus 4.6/4.7/4.8 + Sonnet 4.6 + Claude 5
 
-DeepSeek R1 是开源推理模型的代表，其训练方法尤为值得关注。
+Anthropic 的方案叫 **Extended Thinking（扩展思考）**。到 2026 年，**整个 Claude 4.6+ 系列都使用 adaptive thinking**——你设预算，模型自己决定怎么花。
 
-**R1-Zero：纯 RL 的奇迹**。DeepSeek 先用纯强化学习（GRPO 算法）在一个 Base 模型上训练，**不使用任何 SFT 数据**。令人惊讶的是，模型自发地学会了生成长思维链——它自己"发现"了"先想再做"能提高正确率。AIME 2024 数学竞赛成绩从 15.6% 飙升到 71.0%。
+**当前状态**：
 
-**R1：生产版本**。R1-Zero 虽然推理能力强，但输出可读性差（语言混杂、格式混乱）。R1 在此基础上加入了：
-- **冷启动 SFT**：少量高质量 (思维链, 答案) 对，规范输出格式
-- **通用领域 SFT**：写作、事实问答等非推理任务的对齐数据
-- **最终 RL 微调**：兼顾推理能力和通用表现
+| 模型 | `effort` 档位 | 默认 | 关键特性 |
+|------|-------------|------|---------|
+| **Claude Opus 4.6** | low/medium/high/max | auto | adaptive thinking 首发 |
+| **Claude Opus 4.7** | low/medium/high/max/xhigh | auto | 加 xhigh 档 |
+| **Claude Opus 4.8** | low/medium/high/max/xhigh | high | 默认 high |
+| **Claude Sonnet 4.6** | low/medium/high | auto | 中端平衡 |
+| **Claude 5** | low/medium/high/max | high | **思考始终开启，无法关闭** |
 
-**API 调用特点**：DeepSeek R1 的推理过程用 ` thinker` 标签包裹：
-
-```
-<thinkuser>让我仔细算一下这个问题...</thinkuser>
-
-答案是 610。
-```
-
-`<thinkuser>` 内的内容就是模型的思维链，你可以选择是否向用户展示。
-
-### Claude Extended Thinking
-
-Anthropic 的方案叫 **Extended Thinking（扩展思考）**，通过 API 参数启用：
+**调用示例（Opus 4.7）**：
 
 ```python
 import anthropic
-
 client = anthropic.Anthropic()
 
+# 简单任务：low effort，几乎不思考
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-opus-4-7",
+    max_tokens=4096,
+    thinking={"type": "enabled", "budget_tokens": 1024},  # ~1K token 思考预算
+    messages=[{"role": "user", "content": "提取这段文本的所有 URL"}]
+)
+
+# 复杂任务：high effort，让模型用满预算
+message = client.messages.create(
+    model="claude-opus-4-7",
     max_tokens=16000,
-    thinking={
-        "type": "enabled",
-        "budget_tokens": 10000   # 分配给思考的 Token 预算
-    },
-    messages=[{"role": "user", "content": "分析这段代码的时间复杂度"}]
+    thinking={"type": "enabled", "budget_tokens": 16000},
+    messages=[{"role": "user", "content": "分析这段代码的并发安全 bug"}]
 )
 
 # 思维块和正文分开返回
@@ -146,149 +199,209 @@ for block in message.content:
         print(f"[回答]: {block.text}")
 ```
 
-Claude 的设计特点是**显式预算控制**：你告诉模型"最多想多少个 Token"，模型在这个预算内自主决定怎么分配思考深度。
+**adaptive thinking 的特别说明**：你给的是**预算（budget_tokens）**，不是"思考 X 步"。模型自己决定用多少。给 16K 不代表一定用 16K——可能简单问题只用了 2K，难题用满。
 
-### 其他重要推理模型
+**特别说明 Claude 5**：思考**始终开启**，无法关闭。`effort=none` 不会关闭思考，模型继续以服务端默认思考。
 
-除了上述三家，2025 年还有多个值得关注的推理模型：
+### Google：Gemini 3 Flash / 3 Pro / 3.1 Pro
 
-#### Google Gemini Deep Think / Flash Thinking
+Google 的方案最简洁——3 档 `reasoning_effort`：
 
-Google 在 Gemini 2.5 Pro 和 Flash 中都集成了思考模式：
+| 变体 | 上下文 | 档位 | 适用 |
+|------|--------|------|------|
+| **Gemini 3 Flash** | 1M | minimal/low/medium/high | 速度之王，284 token/s |
+| **Gemini 3 Pro** | 1M | low/medium/high | 长上下文 + 推理 |
+| **Gemini 3.1 Pro** | 1M+ | low/medium/high | 2026 年中最新 |
 
-| 变体 | 特点 | 上下文窗口 | 适用场景 |
-|------|------|-----------|---------|
-| **Gemini 2.5 Pro Deep Think** | 最强推理之一，支持 1M 超长上下文 | 1,000,000 | 复杂研究、长文档分析 |
-| **Gemini 2.5 Flash Thinking** | 快速+轻量推理，性价比极高 | 1,000,000 | 高吞吐量推理任务 |
-
-Gemini 的独特优势是**超长上下文 + 推理结合**——其他推理模型的窗口大多在 128K-200K，而 Gemini 可以在 1M Token 的上下文中进行思维链推理，这对处理整本书或大型代码库的场景是独家的。
+**调用示例**：
 
 ```python
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key="...")
+client = genai.Client(api_key="...")
 
-model = genai.GenerativeModel("gemini-2.5-flash-thinking-exp")
-
-response = model.generate_content(
-    "分析这个 500 页 PDF 中的所有法律风险",
-    generation_config=genai.types.GenerationConfig(
-        # Flash Thinking 会自动启用思考模式
-        max_output_tokens=8192,
-    )
+# 低档思考
+resp = client.models.generate_content(
+    model="gemini-3-flash",
+    contents="总结这篇文章",
+    config={"reasoning_effort": "low"}
 )
 
-# thought_parts 包含推理过程，text_parts 包含最终答案
-for part in response.candidates[0].content.parts:
-    if hasattr(part, 'thought'):
-        print(f"[思考]: {part.text[:200]}")
+# 高档 + 超长上下文
+resp = client.models.generate_content(
+    model="gemini-3-pro",
+    contents="分析这份 500 页 PDF 的所有法律风险",
+    config={"reasoning_effort": "high"}
+)
 ```
 
-#### QwQ（阿里通义千问）
+**Gemini 3.5 Flash 优势**：速度是 GPT-5.5 的 4 倍（284 vs 75 token/s）+ 极低成本（输入 $1.5/M）。高并发低延迟场景首选。
 
-QwQ 是阿里巴巴开源的推理模型，基于 Qwen 架构：
+### DeepSeek V4-Pro / V4-Flash（2026-04）
 
-- **完全开源**：可在 HuggingFace 免费下载权重
-- **擅长数学和编程**：在 AIME 和 Codeforces 上表现优异
-- **中文能力强**：相比 R1，QwQ 在中文推理任务上更有优势
-- **适合本地部署**：有蒸馏版（32B/7B），消费级 GPU 可跑
+开源端仍然保留"普快 vs 高推理"双 SKU 模式，但**也用 `reasoning_effort` 切档**：
 
-#### Kimi-k1.5（月之暗面）
+| 模型 | 激活参数 | 上下文 | 价格（输出 \$/M）| reasoning_effort |
+|------|---------|--------|----------------|-----------------|
+| **V4-Pro** | 1.6T 总 / 49B 激活 | 1M | $2.60 | high / xhigh（xhigh=max）|
+| **V4-Flash** | 284B 总 / 13B 激活 | 1M | $0.20 | high / xhigh |
 
-Kimi-k1.5 是一个**多模态推理模型**（文本+视觉）：
+**调用示例**：
 
-- **多模态思维链**：能同时处理图片和文字的混合推理
-- **长上下文 RL**：支持 128K Token 上下文的强化学习
-- **Partial Rollouts（部分展开）**：可以复用之前推理轨迹的大部分内容，减少重复计算
-- **Long-to-Short 迁移**：先在大模型上训练推理策略，再迁移到小模型
+```python
+from openai import OpenAI  # 兼容 OpenAI API
+client = OpenAI(base_url="https://api.deepseek.com/v1")
 
-#### Grok 思考模式（xAI）
+resp = client.chat.completions.create(
+    model="deepseek-v4-pro",
+    messages=[{"role": "user", "content": "..."}],
+    reasoning_effort="xhigh"  # max reasoning
+)
+# 响应中 reasoning_content 字段包含思维链
+print(resp.choices[0].message.reasoning_content)  # 思考过程
+print(resp.choices[0].message.content)           # 最终答案
+```
 
-xAI 的 Grok-3/Grok-4 也推出了思考模式：
+**R1 的历史价值**：R1（2025-01）首创纯 RL（GRPO）训练，证明了"无需 SFT 也能涌现长思维链"——这个发现影响了整个行业。R1 已并入 V4-Pro。
 
-- **256K 上下文窗口**：比大多数推理模型更大
-- **实时信息优势**：Grok 接入 X/Twitter 数据，适合需要时事信息的推理任务
-- **Fast Reasoning 变体**：针对延迟敏感场景优化
+### 阿里 Qwen3.5 / 3.6 / 3.7-Max
 
-#### 豆包 1.5 Pro 思考模式（字节跳动）
+阿里保留独立推理模型系列（**Qwen3.7-Max** 为 2026 国产新王者），同时在普通版本里内置 thinking mode：
 
-字节跳动的豆包 1.5 Pro 在港大评测中跻身多模态推理全球前五：
+| 模型 | 特点 | 推理能力 | 开源 |
+|------|------|---------|------|
+| **Qwen3.5-397B** | 17B 激活 MoE + GDN | 内置思考 | Apache 2.0 |
+| **Qwen3.6 27B** | 密集 27B + 多模态 | **思考上下文跨会话保留** | Apache 2.0 |
+| **Qwen3.6-Max-Preview** | 闭源旗舰 | 顶级 | 闭源 |
+| **Qwen3.7-Max** | 2026-05 阿里云峰会发布，国产 Arena 第一 | 顶级 | 闭源 |
 
-- **通用模式和思考模式差距极小**：说明底层推理能力已经内化
-- **多模态推理强项**：文本+图像的综合分析能力突出
-- **国产推理模型标杆**：在中文语境下是重要的选择
+**Qwen3.6 27B 独特卖点**：思考上下文**跨会话保留**——你下午开始的思考，明天打开继续。这是其他模型没有的。
 
-### 推理模型全景对比
+### 其他重要模型
 
-| 模型 | 厂商 | 开源 | 上下文窗口 | 核心特色 |
-|------|------|------|-----------|---------|
-| GPT-5.2 Thinking | OpenAI | 否 | 400K | 综合最强，三档模式切换 |
-| o4-mini | OpenAI | 否 | 200K | 性价比推理首选 |
-| DeepSeek R1 | DeepSeek | 是 | 128K | 开源标杆，纯 RL 训练 |
-| Claude Extended Thinking | Anthropic | 否 | 200K | 显式预算控制 |
-| Gemini 2.5 Pro Deep Think | Google | 否 | **1M** | 超长上下文+推理 |
-| QwQ | 阿里 | 是 | 32K | 中文推理强，开源 |
-| Kimi-k1.5 | 月之暗面 | 部分 | 128K | 多模态推理 |
-| Grok-4 Thinking | xAI | 否 | 256K | 实时信息+大窗口 |
-| 豆包 1.5 Pro 思考 | 字节跳动 | 否 | — | 中文多模态 TOP5 |
+#### Kimi K2.6（月之暗面）
+
+Kimi K2.6 是开源长文本标杆：
+
+- **1T 总 / 32B 激活 MoE**，1M 上下文
+- **AA Intelligence Index 开源第一**
+- **200 万 token 上下文**（Kimi 自家闭源版本）
+- 价格 ~$2.50/M 输出
+
+#### Grok 4.20 Multi-Agent Beta（xAI）
+
+- **多智能体协作**：内置 4 个 Grok 实例互相辩论，输出更鲁棒
+- **256K 上下文**
+- **幻觉率最低**之一（"hallucination-resistant research agents"）
+
+#### GLM-5.1（智谱）
+
+- **最大 MIT 协议开源旗舰**
+- 企业级推理 + 中文技术场景强
+
+#### Llama 4 Scout / Maverick（Meta）
+
+- **10M token 上下文**（Scout）——史上最长
+- 内置思考 + 1000 万 token 让"整库单次推理"成为可能
+
+### 推理模型全景对比（2026-06）
+
+| 模型 | 厂商 | 思考参数 | 档位 | 上下文 | 价格（输出 \$/M）| 核心特色 |
+|------|------|---------|------|--------|----------------|---------|
+| **GPT-5.5** | OpenAI | `reasoning_effort` | 5 档 | 1M | $30 | 三巨头最精细档位 |
+| **GPT-5.5 Pro** | OpenAI | `reasoning_effort` | 5 档 + xhigh | 1M | $180 | 极致思考 |
+| **Claude Opus 4.7** | Anthropic | `effort` | 4 档 + xhigh | 1M | $25 | adaptive thinking + max 档 |
+| **Claude 5** | Anthropic | `effort` | 4 档 | — | — | 思考始终开启 |
+| **Gemini 3 Pro** | Google | `reasoning_effort` | 3 档 | 1M | — | 长文档推理 |
+| **Gemini 3.5 Flash** | Google | `reasoning_effort` | 4 档（含 minimal）| 1M | $1.5 | **速度之王** 284 t/s |
+| **DeepSeek V4-Pro** | DeepSeek | `reasoning_effort` | 2 档 | 1M | $2.60 | **最强开源** |
+| **DeepSeek V4-Flash** | DeepSeek | `reasoning_effort` | 2 档 | 1M | $0.20 | **极致性价比** |
+| **Qwen3.7-Max** | 阿里 | 内置 | — | 1M | — | 国产 Arena 第一 |
+| **Qwen3.6 27B** | 阿里 | 内置 | — | 262K | $3.20 | 思考跨会话保留 |
+| **Kimi K2.6** | 月之暗面 | 内置 | — | 1M | $2.50 | AA Index 开源第一 |
+| **Grok 4.20** | xAI | `reasoning_effort` | — | 256K | — | 多智能体辩论 |
+| **Llama 4 Scout** | Meta | 内置 | budget 控制 | **10M** | 自部署 | 史上最长上下文 |
+| **GLM-5.1** | 智谱 | 内置 | — | 200K | — | MIT 协议 |
 
 <p align="center">
   <img src="../../assets/02-model-access/reasoning-models-landscape.png" alt="推理模型全景图" width="90%"/>
   <br/>
-  <em>2025 推理模型全景图</em>
+  <em>2026 推理模型全景图</em>
 </p>
 
 ## 如何调用推理模型
 
-### 统一调用模式
+### 统一调用模式（2026 版）
 
-虽然各家实现不同，但调用推理模型的核心模式是一致的：
+**核心原则**：到 2026 年 6 月，调用推理模型的统一模式是——**选一个支持 `reasoning_effort` 的旗舰模型 + 设置档位**。
 
 ```python
-def call_reasoning_model(provider, question, effort="medium"):
+def call_with_reasoning(model, question, effort="medium"):
     """
-    统一调用推理模型的封装
-    provider: "openai" | "deepseek" | "anthropic"
-    effort: "low" | "medium" | "high"
+    2026 年统一调用模式：模型 + reasoning_effort
+    model: "gpt-5.5" | "claude-opus-4-7" | "gemini-3-pro" | "deepseek-v4-pro"
+    effort: "none" / "low" / "medium" / "high" / "xhigh"
     """
-    if provider == "openai":
-        from openai import OpenAI
-        client = OpenAI()
-        resp = client.chat.completions.create(
-            model="o4-mini",
-            messages=[{"role": "user", "content": question}],
-            reasoning_effort=effort
-        )
-        return resp.choices[0].message.content
+    from openai import OpenAI
+    client = OpenAI()
 
-    elif provider == "deepseek":
-        from openai import OpenAI  # DeepSeek 兼容 OpenAI 格式
-        client = OpenAI(base_url="https://api.deepseek.com/v1")
-        resp = client.chat.completions.create(
-            model="deepseek-reasoner",
-            messages=[{"role": "user", "content": question}]
-        )
-        # DeepSeek R1 返回中包含 thinkuser 标签
-        return resp.choices[0].message.content
+    resp = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": question}],
+        reasoning_effort=effort
+    )
 
-    elif provider == "anthropic":
-        import anthropic
-        client = anthropic.Anthropic()
-        budget = {"low": 3000, "medium": 8000, "high": 15000}[effort]
-        resp = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=16000,
-            thinking={"type": "enabled", "budget_tokens": budget},
-            messages=[{"role": "user", "content": question}]
-        )
-        return next(b.text for b in resp.content if b.type == "text")
+    # OpenAI 兼容格式：reasoning_content（思考）+ content（答案）
+    if hasattr(resp.choices[0].message, 'reasoning_content'):
+        print(f"[思考]: {resp.choices[0].message.reasoning_content[:200]}...")
+
+    return resp.choices[0].message.content
+
+
+# 调用示例
+print(call_with_reasoning("gpt-5.5", "证明根号 2 是无理数", effort="high"))
+print(call_with_reasoning("gemini-3-flash", "总结这段文本", effort="low"))
+```
+
+### Anthropic 特殊处理（adaptive thinking）
+
+Anthropic 用 `budget_tokens` 而非档位：
+
+```python
+import anthropic
+
+client = anthropic.Anthropic()
+
+# 简单任务：1K token 预算
+message = client.messages.create(
+    model="claude-opus-4-7",
+    max_tokens=4096,
+    thinking={"type": "enabled", "budget_tokens": 1024},
+    messages=[{"role": "user", "content": "提取 URL"}]
+)
+
+# 复杂任务：16K token 预算
+message = client.messages.create(
+    model="claude-opus-4-7",
+    max_tokens=16000,
+    thinking={"type": "enabled", "budget_tokens": 16000},
+    messages=[{"role": "user", "content": "分析并发 bug"}]
+)
+
+# 思维块单独返回
+for block in message.content:
+    if block.type == "thinking":
+        print(f"[思考]: {block.thinking[:200]}...")
+    elif block.type == "text":
+        print(f"[回答]: {block.text}")
 ```
 
 ### 注意事项
 
-- **推理 Token 也计费**：DeepSeek R1 的推理 Token 价格是普通 Token 的约 3 倍。OpenAI 的 o 系列推理 Token 单独计费。不要忽略这部分成本。
-- **延迟显著更高**：一个复杂问题可能需要 10-30 秒才能得到回答（普通模型通常 1-3 秒）。实时交互场景需谨慎使用。
-- **Temperature 建议**：推理模型建议设为 0 或接近 0。高 Temperature 会干扰推理链的一致性。
+- **思考 Token 按输出 token 计费**：所有主流厂商都把思考 token 计入输出 token 价格。`reasoning_effort=high` 的成本可能是 `=low` 的 5-10 倍。
+- **延迟差异显著**：`=low` 几秒，`=xhigh` 可能 30-60 秒。异步任务用高档，同步任务用低档。
+- **Temperature 必须低**：推理模型建议 `temperature=0` 或接近 0——高 temperature 干扰推理链一致性。
+- **不要手动写 CoT**：2026 年的模型已经会自己思考，prompt 里写"step by step"反而**干扰内部推理**——浪费 thinking budget。
 
 ## 什么时候该用推理模型
 
@@ -345,31 +458,53 @@ def agent_loop(user_input):
 
 ## 成本与延迟的权衡
 
-用一个具体例子说明成本差异：
+用一个具体例子说明成本差异（基于 2026-06 数据）：
 
 假设你的 Agent 每天处理 1000 个查询，其中 20% 需要深度推理：
 
 | 方案 | 推理查询成本 | 普通查询成本 | 日总成本 | 平均延迟 |
 |------|------------|------------|---------|---------|
-| 全用 GPT-5.4（普通） | $0.75 | $3.00 | $3.75 | ~2s |
-| 全用 o4-mini（推理） | $2.50 | $2.50 | $5.00 | ~8s |
-| **混合策略**（推理+普通） | $2.50（200个） | $2.40（800个） | **$4.90** | ~4s |
+| **全用 GPT-5.5 @ low** | $0.75 | $3.00 | $3.75 | ~2s |
+| **全用 GPT-5.5 @ high** | $7.50 | $7.50 | $15.00 | ~25s |
+| **全用 DeepSeek V4-Flash** | $0.20 | $0.20 | $0.20 | ~3s |
+| **混合策略**（GPT-5.5 high + Flash） | $7.50（200个）| $0.20（800个）| **$7.70** | ~8s |
+| **全用 Claude Opus 4.7** | $6.25 | $6.25 | $6.25 | ~15s |
 
-混合策略的成本介于两者之间，但**关键任务的质量显著提升**。这就是为什么生产环境的 Agent 系统几乎都采用多模型路由。
+**关键洞察**：
+
+- **DeepSeek V4-Flash** 是极致性价比——同能力下比 GPT-5.5 便宜 30-150 倍
+- **混合策略** 比"全用旗舰"更经济——用 Flash 处理 80% 普通任务，用 GPT-5.5 high 处理 20% 关键任务
+- **思考 budget 是最大成本杠杆**——同一模型，`high` 比 `low` 贵 10 倍
+
+**生产环境 Agent 系统几乎都采用多模型路由**——按问题难度动态分配模型和 effort 档位。
 
 ## 总结
 
-- **推理模型的核心创新**是在回答之前先执行多步思维链，用更多计算换取更高准确率
-- **不止三家**：除了 OpenAI（reasoning_effort）、DeepSeek R1（纯 RL + thinker 标签）、Claude（budget_tokens 预算），还有 Gemini Deep Think（1M 超长上下文推理）、QwQ（开源中文强）、Kimi-k1.5（多模态推理）、Grok（实时信息+大窗口）、豆包思考模式（中文多模态 TOP5）
-- **Agent 最佳实践**：推理模型放在规划层，工具提取用小模型，汇总用中模型
+- **核心趋势（2026 现状）**：主流闭源模型已**没有"独立推理模型" SKU**——所有旗舰都是"统一模型 + `reasoning_effort` 参数"
+- **三巨头档位设计**：OpenAI 5 档（none/xhigh）、Anthropic 4 档 + adaptive thinking（max 档独家，Claude 5 思考始终开启）、Google 3 档最简
+- **三档映射**：
+  - **GPT-5.5 / 5.5 Pro**（OpenAI）— 5 档最精细，Pro 提供 $180/M 极致档
+  - **Claude Opus 4.6/4.7/4.8 + Sonnet 4.6 + Claude 5**（Anthropic）— adaptive thinking 首发
+  - **Gemini 3 Flash / 3 Pro / 3.1 Pro**（Google）— 3 档最简，Flash 速度之王（284 t/s）
+- **开源三强**：
+  - **DeepSeek V4-Pro**（最强开源，$2.60/M）+ **V4-Flash**（极致性价比，$0.20/M）
+  - **Qwen3.7-Max**（国产 Arena 第一）+ **Qwen3.6 27B**（Apache 2.0，思考跨会话保留）
+  - **Kimi K2.6**（AA Index 开源第一，1M 上下文）
+  - **Llama 4 Scout**（史上最长 10M 上下文）
+- **其他重要模型**：Grok 4.20（多智能体辩论）、GLM-5.1（最大 MIT 开源旗舰）
+- **Agent 最佳实践**：用旗舰模型 + `reasoning_effort` 动态调节，不路由不同模型
 - **不该用的场景**：简单问答、文本生成、高并发低延迟、创意任务——用了就是浪费
-- **成本意识**：推理 Token 单独计费且更贵，延迟比普通模型高 3-10 倍
+- **成本意识**：思考 Token 按输出计费，`high` 比 `low` 贵 5-10 倍；DeepSeek V4-Flash 比 GPT-5.5 便宜 30-150 倍
+- **Prompt 警告**：不要在 prompt 里写"step by step"——会干扰 2026 模型的内部推理，浪费 thinking budget
 
 > 掌握了模型选型和推理模型的使用，云端 API 也已经会调了。但如果你的数据不能出内网呢？请前往 [本地部署实战](./06-local-deployment.md)。
 
 ## 参考链接
 
-- [OpenAI — Reasoning Models Guide](https://platform.openai.com/docs/guides/reasoning) — o 系列官方指南
-- [DeepSeek-R1 Technical Report](https://arxiv.org/abs/2501.12948) — R1 的完整技术论文
-- [Anthropic — Extended Thinking](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) — Claude 扩展思考官方文档
-- [Reasoning Models Guide (myengineeringpath.dev)](https://myengineeringpath.dev/genai-engineer/reasoning-models/) — 推理模型综合对比教程
+- [OpenAI — Reasoning Models Guide](https://platform.openai.com/docs/guides/reasoning) — GPT-5.5 reasoning_effort 官方指南
+- [Anthropic — Adaptive Thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking) — Claude 4.6+ adaptive thinking 文档
+- [Anthropic — Extended Thinking](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) — Claude 旧版扩展思考文档
+- [Google — Gemini Thinking](https://ai.google.dev/gemini-api/docs/thinking) — Gemini 3.x 思考模式文档
+- [DeepSeek-R1 Technical Report](https://arxiv.org/abs/2501.12948) — R1 纯 RL 训练的原始论文
+- [Inspect AI — Reasoning](https://inspect.aisi.org.uk/reasoning.html) — 跨厂商 reasoning_effort 映射参考
+- [Best LLMs May 2026](https://futureagi.com/blog/best-llms-may-2026) — 2026 年 5 月模型对比快照
