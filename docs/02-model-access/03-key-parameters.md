@@ -1,20 +1,22 @@
 # 关键参数与调优
 
+> Temperature、Top_p、max_tokens、stop 序列——这些参数怎么影响模型输出？本文逐一拆解，帮你避开常见坑。
+
 ## 目录
 
-- [概述](#概述)
 - [Temperature（温度）](#temperature温度)
 - [Top_p（核采样）](#top_p核采样)
 - [Max_tokens（最大输出长度）](#max_tokens最大输出长度)
 - [Stop Sequences（停止词）](#stop-sequences停止词)
 - [Frequency / Presence Penalty（惩罚项）](#frequency--presence-penalty惩罚项)
+- [总结](#总结)
 - [参考链接](#参考链接)
 
-## 概述
+你好，我是江小湖。代码调通了，但模型输出的质量可能还不稳定。这时候你需要认识 API 上的几个关键参数。
 
-在调用 LLM API 时，除了传入 Prompt，你还可以设置一系列参数。这些参数就像是收音机上的旋钮，能精细地调节模型输出的"风格"和"行为"。
+在调用 LLM API 时，除了传入 Prompt，你还可以设置一系列参数。这些参数就像是收音机上的旋钮，能精细地调节模型输出的“风格”和“行为”。
 
-对于 Agent 开发者来说，最常犯的错误就是**在需要严谨逻辑的地方使用了过高的 Temperature，导致模型胡言乱语**。
+对于 Agent 开发者来说，最常犯的错误就是**在需要严谨逻辑的地方使用了过高的 Temperature，导致模型胡言乱造**。
 
 ## Temperature（温度）
 
@@ -76,8 +78,7 @@
 - **防止破产**：设置合理的 `max_tokens`
 - **控制流程**：善用 `stop` 序列
 
-> 至此，我们完成了【02 — 模型接入】的所有内容。你现在已经具备了调用 LLM 的扎实基础。
-> 接下来，我们将进入 Agent 开发的灵魂环节：如何通过文字精确控制模型的行为。请前往 [03 — Prompt 工程](../03-prompt-engineering/README.md)。
+> 至此，你已经具备了调用 LLM 的扎实基础。接下来进入 Agent 开发的灵魂环节：如何通过文字精确控制模型行为。请前往 [03 — Prompt 工程](../03-prompt-engineering/README.md)。
 
 ## 参考链接
 

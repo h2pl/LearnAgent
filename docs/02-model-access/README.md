@@ -8,6 +8,8 @@
 
 | # | 文章 | 内容 |
 |---|------|------|
-| 01 | [主流模型对比与选型](./model-comparison.md) | GPT-4o / Claude / Qwen / Llama / DeepSeek 对比、选型决策 |
-| 02 | [LLM API 调用实战](./api-calling.md) | OpenAI SDK、流式输出、多模型统一接口、代码示例 |
-| 03 | [关键参数与调优](./key-parameters.md) | temperature / top_p / max_tokens 的实际效果、常见踩坑 |
+| 01 | [主流模型对比与选型](./01-model-comparison.md) | GPT-4o / Claude / Qwen / Llama / DeepSeek 对比、选型决策 |
+| 02 | [LLM API 调用实战](./02-api-calling.md) | OpenAI SDK、流式输出、多模型统一接口、代码示例 |
+| 03 | [关键参数与调优](./03-key-parameters.md) | temperature / top_p / max_tokens 的实际效果、常见踩坑 |
+
+> 学完本章后，请继续阅读 [03 — Prompt 工程](../03-prompt-engineering/README.md)，学习如何通过文字精确控制模型行为。
