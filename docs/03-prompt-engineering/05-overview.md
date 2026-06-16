@@ -28,6 +28,12 @@
 
 Prompt 工程是承上启下的一章——知道了 LLM 能做什么、怎么接入，现在要解决**怎么控制它**的问题。而学完这一章，你就掌握了让 Agent "听你的话"的能力，接下来才能进入工具调用——因为工具调用的输入和输出，本质上是 Prompt 工程的延伸应用。
 
+<p align="center">
+  <img src="../../assets/03-prompt-engineering/prompt-engineering-workflow.png" alt="Prompt 工程全景图" width="90%"/>
+  <br/>
+  <em>Prompt 工程全景：从模式选择到鲁棒性保障的完整链路</em>
+</p>
+
 ## 四篇文章的关系
 
 本章四篇文章不是并列关系，而是从**粗到细、从前到后**的递进体系：

@@ -34,6 +34,12 @@
 
 **Prompt 鲁棒性不是让 Prompt 更"强硬"，而是建立一个多层防御体系。** 单靠 Prompt 中写一句"不要编造"解决不了幻觉，你需要从 Prompt 约束、后处理验证、测试用例三个层面协同防御。
 
+<p align="center">
+  <img src="../../assets/03-prompt-engineering/prompt-injection-defense.png" alt="Prompt 注入防御体系" width="90%"/>
+  <br/>
+  <em>Prompt 注入防御体系：输入校验 → 上下文隔离 → 意图验证 → 输出过滤</em>
+</p>
+
 ## 幻觉控制：让模型少"编造"
 
 **幻觉（Hallucination）是 LLM 最棘手的问题——模型会极其自信地生成不存在的 API、伪造的论文引用、错误的数字。** 控制幻觉不能靠一句"别编造"，需要系统的约束策略。
@@ -84,6 +90,12 @@ Level 3 — 不确定：超出知识范围或信息矛盾
 ## 边界处理：异常不崩溃
 
 **边界处理解决的是"用户输入了不该输入的东西"——恶意注入、越狱尝试、无意义输入、或超出 Agent 能力范围的请求。** 处理策略分为两层：输入校验 + 拒绝模板。
+
+<p align="center">
+  <img src="../../assets/03-prompt-engineering/prompt-engineering-workflow.png" alt="鲁棒性测试流程" width="90%"/>
+  <br/>
+  <em>鲁棒性测试流程：异常输入 → 校验拦截 → 拒绝响应</em>
+</p>
 
 ### 输入校验
 

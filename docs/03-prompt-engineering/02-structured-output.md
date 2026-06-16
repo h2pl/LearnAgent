@@ -40,6 +40,12 @@
 
 **如果 LLM 不结构化，Agent 就不可靠。** 自由文本你需要正则、if-else 甚至再调一次 LLM 来解析——每一步都在引入不确定性。结构化输出让你能用 `json.loads()` 一行代码搞定，确定性 100%。
 
+<p align="center">
+  <img src="../../assets/03-prompt-engineering/parsing-defense.png" alt="结构化输出三层防御" width="90%"/>
+  <br/>
+  <em>结构化输出三层防御：JSON Mode → Schema 约束 → 输出解析</em>
+</p>
+
 ## JSON Mode：让模型只输出 JSON
 
 **JSON Mode 是各 LLM 平台提供的推理参数，强制模型输出合法的 JSON。** 这是结构化输出的第一道防线——从"大概率是 JSON"变成"保证是 JSON"。

@@ -50,6 +50,12 @@
 - **举例**：如果 `Top_p = 0.1`，模型只会在概率最高的前 10% 的词里选，输出非常稳定。
 - **最佳实践**：**官方强烈建议，Temperature 和 Top_p 只调其中一个，另一个保持默认。** 绝大多数开发者习惯只调 Temperature。
 
+<p align="center">
+  <img src="../../assets/02-model-access/top-p-sampling.png" alt="Top_p 核采样原理" width="90%"/>
+  <br/>
+  <em>Top_p 核采样：动态选择概率累积达到阈值的词汇集合</em>
+</p>
+
 ## Max_tokens（最大输出长度）
 
 **控制模型最多能生成多少个 Token。**

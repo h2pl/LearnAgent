@@ -33,6 +33,12 @@
 
 **System Prompt 不是 User Prompt 的"升级版"——它解决的是另外的问题。** User Prompt 解决"这次要做什么"，System Prompt 解决"在这个 Agent 的世界里，什么是允许的、什么是期望的、什么是禁止的"。
 
+<p align="center">
+  <img src="../../assets/03-prompt-engineering/system-prompt-structure.png" alt="System Prompt 四段式结构" width="90%"/>
+  <br/>
+  <em>System Prompt 四段式结构：角色 → 规则 → 边界 → 输出</em>
+</p>
+
 ## 结构化 System Prompt 设计
 
 **写得好的 System Prompt 不是一大段散文，而是结构化的指令文档。** 结构化的好处是：模型更容易解析、优先级更明确、修改更精准。
@@ -54,6 +60,12 @@
 ```
 
 一个完整的四段式 System Prompt 示例：
+
+<p align="center">
+  <img src="../../assets/03-prompt-engineering/prompt-engineering-workflow.png" alt="Prompt 工程工作流程" width="90%"/>
+  <br/>
+  <em>Prompt 工程工作流程：从设计到测试的迭代循环</em>
+</p>
 
 ```python
 system_prompt = """## 角色

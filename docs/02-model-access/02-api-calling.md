@@ -121,6 +121,12 @@ response2 = completion(
 
 在构建复杂的 Agent 系统时，LiteLLM 能帮你极大地简化模型路由（Model Routing）的代码。
 
+<p align="center">
+  <img src="../../assets/02-model-access/api-call-flow.png" alt="API 调用流程" width="90%"/>
+  <br/>
+  <em>API 调用流程：从客户端请求到模型响应</em>
+</p>
+
 ## 错误处理与重试
 
 在生产环境中调用 API，网络波动和限流（Rate Limit）是家常便饭。你必须加上重试机制。
