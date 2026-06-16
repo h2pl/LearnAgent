@@ -275,6 +275,6 @@ Transformer 解决了前面所有方法的核心瓶颈：
 
 理解这条演进线，你就明白了为什么 LLM 选择 Transformer 而不是 RNN——不是 RNN 不够好，而是它在根本架构上不支持大规模并行训练。
 
-> 接下来请阅读 [LLM 发展简史](./03-llm-evolution.md)，了解从 Transformer 到 ChatGPT 再到 Agent 时代的完整脉络。
+> 接下来请阅读 [LLM 发展简史：从 BERT 到推理模型的十年](./03-llm-evolution.md)，了解从 Transformer 到 ChatGPT 再到 Agent 时代的完整脉络。
 >
 > 关于 Transformer 架构的技术细节（多头注意力、因果掩码、KV Cache），请参考 [Transformer 内部是怎样工作的](./07-transformer-internals.md)。

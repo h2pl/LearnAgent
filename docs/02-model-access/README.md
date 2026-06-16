@@ -10,9 +10,9 @@
 |---|------|------|
 | 01 | [主流模型对比与选型](./01-model-comparison.md) | GPT / Claude / Qwen / DeepSeek 对比、选型决策框架 |
 | 02 | [LLM API 调用实战](./02-api-calling.md) | 调用层级概览（SDK/HTTP/CLI/中间商）、OpenAI SDK 基础调用、流式输出、多模型统一接口、错误处理 |
-| 03 | [模型尺寸、变体与上下文](./03-model-variants.md) | 同一家族的不同尺寸（Haiku/Sonnet/Opus）、上下文窗口对比、Base/Instruct/Chat 区分 |
-| 04 | [推理模型专题](./04-reasoning-models.md) | o1/R1/Gemini Thinking/QwQ 等推理模型的机制、何时用、怎么调用 |
-| 05 | [本地部署实战](./05-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
-| 06 | [关键参数与调优](./06-key-parameters.md) | temperature / top_p / max_tokens 的实际效果、Agent 调参模板 |
+| 03 | [模型尺寸、变体与上下文：选型时容易踩的坑](./03-model-variants.md) | 同一家族的不同尺寸（Haiku/Sonnet/Opus）、上下文窗口对比、Base/Instruct/Chat 区分 |
+| 04 | [推理模型专题：o1、R1、QwQ 的机制与调用](./04-reasoning-models.md) | o1/R1/Gemini Thinking/QwQ 等推理模型的机制、何时用、怎么调用 |
+| 05 | [本地部署实战：用 Ollama 与 vLLM 跑开源模型](./05-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
+| 06 | [关键参数与调优：temperature、top_p 如何影响输出](./06-key-parameters.md) | temperature / top_p / max_tokens 的实际效果、Agent 调参模板 |
 
 > 学完本章后，请继续阅读 [03 — Prompt 工程](../03-prompt-engineering/README.md)，学习如何通过文字精确控制模型行为。

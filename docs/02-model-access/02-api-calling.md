@@ -16,7 +16,7 @@
 
 好消息：你不需要为每个厂商学一套新 API。在 LLM 领域，**OpenAI 的 Chat Completions 格式已经是事实上的行业标准**。OpenAI、DeepSeek、硅基流动、Groq、甚至本地的 Ollama/vLLM——全都兼容这套格式。
 
-> **模型跑在哪里？** 这是另一个问题。大多数情况下你会先调云端 API 快速原型；如果数据不能出内网或成本太高，再考虑本地部署（详见 [本地部署实战](./05-local-deployment.md)）。无论模型跑在哪，底层都是 HTTP 请求到某个端点——区别只在于你用什么方式发这个请求。
+> **模型跑在哪里？** 这是另一个问题。大多数情况下你会先调云端 API 快速原型；如果数据不能出内网或成本太高，再考虑[本地部署实战：用 Ollama 与 vLLM 跑开源模型](./05-local-deployment.md)。无论模型跑在哪，底层都是 HTTP 请求到某个端点——区别只在于你用什么方式发这个请求。
 
 ## 你有几种方式发起这个请求
 
@@ -221,7 +221,7 @@ result = call_llm_with_retry([{"role": "user", "content": "你好"}])
 - **LiteLLM 解决多模型统一调用**——换个模型名就能切换 Claude/GPT/Gemini
 - **生产环境必须加重试**——网络波动和限流是家常便饭，指数退避是标配
 
-> 代码调通了，但你可能注意到了 `temperature`、`max_tokens` 这些参数。它们到底怎么影响模型输出？请前往 [关键参数与调优](./06-key-parameters.md)。
+> 代码调通了，但你可能注意到了 `temperature`、`max_tokens` 这些参数。它们到底怎么影响模型输出？请前往 [关键参数与调优：temperature、top_p 如何影响输出](./06-key-parameters.md)。
 
 ## 参考链接
 

@@ -1,4 +1,4 @@
-# 关键参数与调优
+# 关键参数与调优：temperature、top_p 如何影响输出
 
 > Temperature、Top_p、max_tokens、stop 序列——这些参数怎么影响模型输出？本文逐一拆解，帮你避开常见坑。
 
