@@ -68,9 +68,9 @@
 
 ## 主流推理模型一览
 
-### OpenAI o 系列（o1 / o3 / o4-mini）
+### OpenAI o 系列（o1 / o3 / o4-mini / GPT-5.2 Thinking）
 
-OpenAI 是推理模型的先驱。o1 于 2024 年发布，是第一个大规模商用的推理模型系列。
+OpenAI 是推理模型的先驱。o1 于 2024 年发布，是第一个大规模商用的推理模型系列。到 2025 年底，OpenAI 已将推理能力整合进 GPT-5.2 的 Thinking 模式中。
 
 **核心机制**：在训练阶段使用强化学习（RL），让模型学会"在回答之前先生成推理链"。推理过程中模型会产生内部的"思考 Token"（thinking tokens），这些 Token 不对用户可见（除非特别请求）。
 
@@ -96,7 +96,7 @@ response_high = client.chat.completions.create(
 )
 ```
 
-`reasoning_effort` 是推理模型独有的参数——它让你在**速度和准确率之间做细粒度调节**，这是普通模型做不到的。
+**GPT-5.2 的进化**：GPT-5.2 将推理模式整合为三个变体——Instant（速度优先）、Thinking（深度推理，默认）、Pro（精度最高）。不再需要单独的 o 系列产品线，一个模型通过参数切换即可适配不同场景。
 
 ### DeepSeek R1 系列
 
@@ -147,6 +147,96 @@ for block in message.content:
 ```
 
 Claude 的设计特点是**显式预算控制**：你告诉模型"最多想多少个 Token"，模型在这个预算内自主决定怎么分配思考深度。
+
+### 其他重要推理模型
+
+除了上述三家，2025 年还有多个值得关注的推理模型：
+
+#### Google Gemini Deep Think / Flash Thinking
+
+Google 在 Gemini 2.5 Pro 和 Flash 中都集成了思考模式：
+
+| 变体 | 特点 | 上下文窗口 | 适用场景 |
+|------|------|-----------|---------|
+| **Gemini 2.5 Pro Deep Think** | 最强推理之一，支持 1M 超长上下文 | 1,000,000 | 复杂研究、长文档分析 |
+| **Gemini 2.5 Flash Thinking** | 快速+轻量推理，性价比极高 | 1,000,000 | 高吞吐量推理任务 |
+
+Gemini 的独特优势是**超长上下文 + 推理结合**——其他推理模型的窗口大多在 128K-200K，而 Gemini 可以在 1M Token 的上下文中进行思维链推理，这对处理整本书或大型代码库的场景是独家的。
+
+```python
+import google.generativeai as genai
+
+genai.configure(api_key="...")
+
+model = genai.GenerativeModel("gemini-2.5-flash-thinking-exp")
+
+response = model.generate_content(
+    "分析这个 500 页 PDF 中的所有法律风险",
+    generation_config=genai.types.GenerationConfig(
+        # Flash Thinking 会自动启用思考模式
+        max_output_tokens=8192,
+    )
+)
+
+# thought_parts 包含推理过程，text_parts 包含最终答案
+for part in response.candidates[0].content.parts:
+    if hasattr(part, 'thought'):
+        print(f"[思考]: {part.text[:200]}")
+```
+
+#### QwQ（阿里通义千问）
+
+QwQ 是阿里巴巴开源的推理模型，基于 Qwen 架构：
+
+- **完全开源**：可在 HuggingFace 免费下载权重
+- **擅长数学和编程**：在 AIME 和 Codeforces 上表现优异
+- **中文能力强**：相比 R1，QwQ 在中文推理任务上更有优势
+- **适合本地部署**：有蒸馏版（32B/7B），消费级 GPU 可跑
+
+#### Kimi-k1.5（月之暗面）
+
+Kimi-k1.5 是一个**多模态推理模型**（文本+视觉）：
+
+- **多模态思维链**：能同时处理图片和文字的混合推理
+- **长上下文 RL**：支持 128K Token 上下文的强化学习
+- **Partial Rollouts（部分展开）**：可以复用之前推理轨迹的大部分内容，减少重复计算
+- **Long-to-Short 迁移**：先在大模型上训练推理策略，再迁移到小模型
+
+#### Grok 思考模式（xAI）
+
+xAI 的 Grok-3/Grok-4 也推出了思考模式：
+
+- **256K 上下文窗口**：比大多数推理模型更大
+- **实时信息优势**：Grok 接入 X/Twitter 数据，适合需要时事信息的推理任务
+- **Fast Reasoning 变体**：针对延迟敏感场景优化
+
+#### 豆包 1.5 Pro 思考模式（字节跳动）
+
+字节跳动的豆包 1.5 Pro 在港大评测中跻身多模态推理全球前五：
+
+- **通用模式和思考模式差距极小**：说明底层推理能力已经内化
+- **多模态推理强项**：文本+图像的综合分析能力突出
+- **国产推理模型标杆**：在中文语境下是重要的选择
+
+### 推理模型全景对比
+
+| 模型 | 厂商 | 开源 | 上下文窗口 | 核心特色 |
+|------|------|------|-----------|---------|
+| GPT-5.2 Thinking | OpenAI | 否 | 400K | 综合最强，三档模式切换 |
+| o4-mini | OpenAI | 否 | 200K | 性价比推理首选 |
+| DeepSeek R1 | DeepSeek | 是 | 128K | 开源标杆，纯 RL 训练 |
+| Claude Extended Thinking | Anthropic | 否 | 200K | 显式预算控制 |
+| Gemini 2.5 Pro Deep Think | Google | 否 | **1M** | 超长上下文+推理 |
+| QwQ | 阿里 | 是 | 32K | 中文推理强，开源 |
+| Kimi-k1.5 | 月之暗面 | 部分 | 128K | 多模态推理 |
+| Grok-4 Thinking | xAI | 否 | 256K | 实时信息+大窗口 |
+| 豆包 1.5 Pro 思考 | 字节跳动 | 否 | — | 中文多模态 TOP5 |
+
+<p align="center">
+  <img src="../../assets/02-model-access/reasoning-models-landscape.png" alt="推理模型全景图" width="90%"/>
+  <br/>
+  <em>2025 推理模型全景图</em>
+</p>
 
 ## 如何调用推理模型
 
@@ -270,7 +360,7 @@ def agent_loop(user_input):
 ## 总结
 
 - **推理模型的核心创新**是在回答之前先执行多步思维链，用更多计算换取更高准确率
-- **三家主流方案**：OpenAI o 系列（reasoning_effort 控制）、DeepSeek R1（纯 RL 训练 + thinker 标签）、Claude Extended Thinking（budget_tokens 显式预算）
+- **不止三家**：除了 OpenAI（reasoning_effort）、DeepSeek R1（纯 RL + thinker 标签）、Claude（budget_tokens 预算），还有 Gemini Deep Think（1M 超长上下文推理）、QwQ（开源中文强）、Kimi-k1.5（多模态推理）、Grok（实时信息+大窗口）、豆包思考模式（中文多模态 TOP5）
 - **Agent 最佳实践**：推理模型放在规划层，工具提取用小模型，汇总用中模型
 - **不该用的场景**：简单问答、文本生成、高并发低延迟、创意任务——用了就是浪费
 - **成本意识**：推理 Token 单独计费且更贵，延迟比普通模型高 3-10 倍
