@@ -14,5 +14,6 @@
 | 04 | [推理模型专题](./04-reasoning-models.md) | o1/R1/Gemini Thinking/QwQ 等推理模型的机制、何时用、怎么调用 |
 | 05 | [本地部署实战](./05-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
 | 06 | [关键参数与调优](./06-key-parameters.md) | temperature / top_p / max_tokens 的实际效果、Agent 调参模板 |
+| 07 | [模型变体速查](./07-model-variants.md) | 能力专精（Code/Math/Vision）、部署形态（量化/蒸馏/合并）、专用家族（Embedding/Rerank/语音）、行业场景 |
 
 > 学完本章后，请继续阅读 [03 — Prompt 工程](../03-prompt-engineering/README.md)，学习如何通过文字精确控制模型行为。
