@@ -16,7 +16,7 @@
 
 你好，我是江小湖。从 BERT 到 ChatGPT 再到今天的 Agent，LLM 只用了几年就走完了从"文本补全器"到"能调用工具的助手"这条路。这篇带你快速回顾这段历史，理解了它，很多技术选型的答案自然就清楚了。
 
-[上一篇](./02-nlp-to-transformer.md)我们讲到 2017 年 Transformer 架构的诞生，它解决了 RNN 的遗忘和并行两大难题。但 Transformer 只是一个架构——就像发明了发动机，还不等于造出了汽车。
+[LLM 的技术根基：从 NLP 到 Transformer](./02-nlp-to-transformer.md)我们讲到 2017 年 Transformer 架构的诞生，它解决了 RNN 的遗忘和并行两大难题。但 Transformer 只是一个架构——就像发明了发动机，还不等于造出了汽车。
 
 从 Transformer 到今天的 LLM，中间经历了一系列关键突破。这篇文章用 15 分钟帮你建立一条完整的时间线：LLM 是怎么一步步从"文本补全器"变成"能调用工具的 Agent"的。这些背景直接影响你今天的开发决策——比如为什么选 Instruct 模型而不是 Base 模型，为什么开源模型值得认真对待。
 
@@ -83,7 +83,7 @@ OpenAI 用 **基于人类反馈的强化学习（RLHF, Reinforcement Learning fr
 
 这样训练出来的 **InstructGPT** 让模型从"文本补全器"变成了"遵循指令的助手"。2022 年 11 月，基于同样技术的 **ChatGPT** 发布，两个月内用户突破 1 亿，成为史上增长最快的消费级应用。
 
-这个阶段确立了现代 LLM 的三步训练流程：**预训练 → 指令微调（SFT）→ 人类对齐（RLHF）**，后续的 [训练流程概览](./08-training-pipeline.md) 会详细展开。
+这个阶段确立了现代 LLM 的三步训练流程：**预训练 → 指令微调（SFT）→ 人类对齐（RLHF）**，后续的 [从 Base 到 Chat：模型训练三阶段](./08-training-pipeline.md) 会详细展开。
 
 **对开发者意味着什么**：这就是为什么你在 HuggingFace 上会看到同一个模型有 `Base` 和 `Instruct` 两个版本。Base 模型是预训练完的半成品，不会听指令；Instruct 模型才是你开发 Agent 时应该用的版本。选错了，后面全白搭。
 
