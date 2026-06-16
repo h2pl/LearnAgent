@@ -1,40 +1,15 @@
 # 05 — Agent 循环 ⭐
 
+Agent 的核心是自主决策循环——本章带你从"理解区别"到"从零实现"，掌握 Agent 最关键的设计范式。
+
 ## 目录
 
-- [概述](#概述)
-- [Agent 与 Chatbot / Workflow 的区别](#agent-与-chatbot--workflow-的区别)
-- [Agent 核心循环](#agent-核心循环)
-- [ReAct 模式](#react-模式)
-- [停止条件设计](#停止条件设计)
-- [从零实现最小 Agent](#从零实现最小-agent)
-- [参考链接](#参考链接)
+| # | 文章 | 内容 |
+|---|------|------|
+| 01 | [Agent 与 Chatbot / Workflow 的区别](./01-agent-vs-chatbot-workflow.md) | 三种形态的本质区别，何时用 Agent |
+| 02 | [Agent 核心循环](./02-agent-core-loop.md) | Observe → Think → Act → Observe 四阶段详解 |
+| 03 | [ReAct 模式](./03-react-pattern.md) | 推理与行动交替的 Agent 设计范式 |
+| 04 | [停止条件设计](./04-stop-conditions.md) | 目标达成、最大步数、超时的组合策略 |
+| 05 | [从零实现最小 Agent](./05-minimal-agent.md) | 不用框架，纯代码实现 ReAct Agent |
 
-## 概述
-
-<!-- TODO: 这是整个学习路线的核心里程碑——学完这章你将拥有第一个能自主决策的 Agent -->
-
-## Agent 与 Chatbot / Workflow 的区别
-
-<!-- TODO: 本质区别：Agent 有自主决策循环，能根据观察动态调整行动 -->
-
-## Agent 核心循环
-
-<!-- TODO: observe → think → act → observe 循环详解 -->
-
-## ReAct 模式
-
-<!-- TODO: 推理与行动交替、思维链驱动决策 -->
-
-## 停止条件设计
-
-<!-- TODO: 最大步数、超时、目标达成判定、异常退出 -->
-
-## 从零实现最小 Agent
-
-<!-- TODO: 不使用框架，纯代码实现一个最小 ReAct Agent -->
-
-## 参考链接
-
-- [ReAct: Synergizing Reasoning and Acting](https://arxiv.org/abs/2210.03629)
-- [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+> 学完本章后，请继续阅读 [06 — RAG 管线](../06-rag-pipeline/README.md)，让 Agent 基于外部知识库回答问题。

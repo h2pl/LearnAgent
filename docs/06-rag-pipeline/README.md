@@ -1,40 +1,14 @@
 # 06 — 知识检索（RAG）
 
+RAG 是给 Agent 加外部知识的核心能力——本章带你从"理解原理"到"评测优化"，掌握 RAG 全流程。
+
 ## 目录
 
-- [概述](#概述)
-- [文档处理与分块](#文档处理与分块)
-- [Embedding 与向量数据库](#embedding-与向量数据库)
-- [检索策略](#检索策略)
-- [RAG 完整流程](#rag-完整流程)
-- [高级 RAG](#高级-rag)
-- [参考链接](#参考链接)
+| # | 文章 | 内容 |
+|---|------|------|
+| 01 | [RAG 概述](./01-rag-overview.md) | LLM 的知识困境与 RAG 的核心思想 |
+| 02 | [文档切分与向量化](./02-chunking-embedding.md) | 切分策略、Embedding 模型、向量数据库选型 |
+| 03 | [检索与重排序](./03-retrieval-reranking.md) | 向量检索、BM25、混合检索、Reranker |
+| 04 | [RAG 评测与优化](./04-evaluation-optimization.md) | 检索/生成指标、评测框架、优化技巧 |
 
-## 概述
-
-<!-- TODO: RAG 是给 Agent 加外部知识的核心能力，也可以作为 Agent 的一个工具 -->
-
-## 文档处理与分块
-
-<!-- TODO: 文档解析、分块策略（固定 / 语义 / 递归）及 trade-off -->
-
-## Embedding 与向量数据库
-
-<!-- TODO: Embedding 模型选型、Milvus / Qdrant / pgvector 对比 -->
-
-## 检索策略
-
-<!-- TODO: 向量检索、BM25、混合检索、Reranking -->
-
-## RAG 完整流程
-
-<!-- TODO: query → retrieve → augment → generate 端到端实现 -->
-
-## 高级 RAG
-
-<!-- TODO: query 改写、多路召回、Agentic RAG -->
-
-## 参考链接
-
-- [LangChain RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/)
-- [Pinecone — RAG Guide](https://www.pinecone.io/learn/retrieval-augmented-generation/)
+> 学完本章后，请继续阅读 [07 — 框架](../07-framework/README.md)，用 LangGraph 等框架管理复杂的 Agent 流程。
