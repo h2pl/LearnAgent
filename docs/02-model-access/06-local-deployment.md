@@ -263,7 +263,7 @@ print(response.choices[0].message.content)
 - **vLLM 适合生产环境**：PagedAttention + 连续批处理，高并发吞吐量是 Ollama 的 5-12 倍
 - **两者 API 都兼容 OpenAI 格式**，切换只需改 `base_url`
 
-> 本地模型跑起来了，API 也通了，接下来看看那些控制模型行为的关键参数。请前往 [关键参数与调优](./06-key-parameters.md)。
+> 本地模型跑起来了，API 也通了，接下来看看那些控制模型行为的关键参数。请前往 [关键参数与调优](./07-key-parameters.md)。
 
 ## 参考链接
 

@@ -1,12 +1,12 @@
 # 模型尺寸与上下文窗口
 
-> 同一家族模型有多个尺寸和变体（Haiku/Sonnet/Opus、Flash/Pro），本文帮你理解尺寸差异的本质、小模型什么时候够用、以及如何为 Agent 系统选择合适的模型尺寸。
+> 同一家族模型有多个尺寸（Haiku/Sonnet/Opus、Flash/Pro），本文帮你理解尺寸差异的本质、小模型什么时候够用、以及如何为 Agent 系统选择合适的模型尺寸。训练阶段变体（Base/Instruct/Chat）请参考 [变体速查](./04-model-variants-landscape.md)。
 
 ## 目录
 
 - [为什么同一家族有多个尺寸](#为什么同一家族有多个尺寸)
 - [主流家族的尺寸矩阵](#主流家族的尺寸矩阵)
-- [Base 模型 vs Instruct 模型 vs Chat 模型](#base-模型-vs-instruct-模型-vs-chat-模型)
+- [上下文窗口：另一个关键维度](#上下文窗口另一个关键维度)
 - [小模型什么时候够用](#小模型什么时候够用)
 - [Agent 场景的尺寸选型策略](#agent-场景的尺寸选型策略)
 - [总结](#总结)
@@ -153,27 +153,6 @@ RAG 场景中，你需要把检索到的文档片段塞进上下文：
   <em>2025 年主流模型上下文窗口对比</em>
 </p>
 
-## Base 模型 vs Instruct 模型 vs Chat 模型
-
-除了尺寸之分，同一模型还有**训练阶段变体**的区别。这在 HuggingFace 上下载开源模型时尤其重要。
-
-### 三种变体的含义
-
-| 变体 | 训练阶段 | 能力特点 | 能否直接用于 Agent |
-|------|---------|---------|------------------|
-| **Base 模型** | 仅预训练 | 有知识，但不听指令。给它"写一首诗"，它会续写成"写一首散文、写一部小说..." | 不能 |
-| **Instruct 模型** | 预训练 + SFT | 听指令，能问答，但可能不够安全或礼貌 | 可以，基础可用 |
-| **Chat 模型** | 预训练 + SFT + RLHF/DPO | 安全、有用、诚实，经过人类偏好对齐 | 推荐，生产首选 |
-
-### 实际影响
-
-以 Llama 3 为例，HuggingFace 上你会看到：
-- `Meta-Llama-3-8B` → Base 模型（研究用）
-- `Meta-Llama-3-8B-Instruct` → 经过指令微调（Agent 开发用这个）
-- `Meta-Llama-3-8B-Instruct-GGUF` → 量化版本（本地部署用）
-
-**永远下载 Instruct 或 Chat 版本**。Base 模型是给研究人员做进一步微调的半成品，它在 Agent 框架中的表现会让你怀疑人生——它不会回答你的问题，只会续写你的句子。
-
 ## 小模型什么时候够用
 
 这是 Agent 开发中最常遇到的决策点。以下是一个实用的判断框架：
@@ -273,11 +252,10 @@ for model, stats in results.items():
 - **不确定时用数据说话**：拿你的真实测试集跑一遍对比，比看 Benchmark 可靠得多
 - **Agent 最佳实践是按角色分配模型尺寸**：规划用大的、提取用小的、汇总用中的
 
-> 知道了模型尺寸和上下文窗口怎么选，接下来有一类特殊的模型值得单独讨论——它们不是靠"更大"来变强，而是靠"想得更久"。请前往 [推理模型专题](./04-reasoning-models.md)。
+> 知道了模型尺寸和上下文窗口怎么选，接下来有一类特殊的模型值得单独讨论——它们不是靠"更大"来变强，而是靠"想得更久"。请前往 [推理模型专题](./05-reasoning-models.md)。
 
 ## 参考链接
 
 - [Anthropic — Model Comparison](https://docs.anthropic.com/en/docs/about-claude/models) — Claude 各变体官方对比
 - [OpenAI — Model Overview](https://platform.openai.com/docs/models) — GPT 家族各版本说明
 - [LLM Stats](https://llm-stats.com/) — 300+ 模型的详细规格、价格、性能数据
-- [Llama Model Card (Meta)](https://ai.meta.com/blog/meta-llama-3/) — Llama 3 Base vs Instruct 区分说明
