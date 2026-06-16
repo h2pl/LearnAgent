@@ -271,7 +271,7 @@ Transformer 解决了前面所有方法的核心瓶颈：
 
 > 接下来请阅读 [LLM 发展简史](./03-llm-evolution.md)，了解从 Transformer 到 ChatGPT 再到 Agent 时代的完整脉络。
 >
-> 关于 Transformer 架构的技术细节（多头注意力、因果掩码、KV Cache），请参考 [Transformer 内部机制](./07-transformer-internals.md)。
+> 关于 Transformer 架构的技术细节（多头注意力、因果掩码、KV Cache），请参考 [Transformer 内部是怎样工作的](./07-transformer-internals.md)。
 
 ## 参考链接
 

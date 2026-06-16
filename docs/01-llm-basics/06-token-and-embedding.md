@@ -340,7 +340,7 @@ for i in range(len(texts)):
 
 理解这两者，你就知道：**写 Agent 时，Token 是你的预算，Embedding 是你的武器。** 前者决定了你能不能跑得起来，后者决定了你跑得好不好。
 
-> 理解了 Token 和 Embedding，接下来我们拆开 Transformer 看看内部的齿轮是怎么咬合的。请阅读 [Transformer 内部机制](./07-transformer-internals.md)。
+> 理解了 Token 和 Embedding，接下来我们拆开 Transformer 看看内部的齿轮是怎么咬合的。请阅读 [Transformer 内部是怎样工作的](./07-transformer-internals.md)。
 
 ## 参考链接
 
