@@ -228,6 +228,8 @@ Prompt: "
 ← 格式完全一致，字段名稳定
 ```
 
+![Few-Shot Prompting 结构示意](../../assets/01-llm-basics/few-shot-prompting.jpg)
+
 ### 为什么少样本有效
 
 这个能力的来源是 **Transformer 的自注意力机制**（07 会详细讲）。
