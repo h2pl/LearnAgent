@@ -9,7 +9,7 @@
 | # | 文章 | 内容 |
 |---|------|------|
 | 01 | [主流模型对比与选型](./01-model-comparison.md) | GPT / Claude / Qwen / DeepSeek 对比、选型决策框架 |
-| 02 | [调用方式与 API 实战](./02-api-calling.md) | 四种调用方式总览、OpenAI SDK、流式输出、多模型统一接口、错误处理 |
+| 02 | [LLM API 调用实战](./02-api-calling.md) | OpenAI 兼容格式标准、SDK 基础调用、流式输出、多模型统一接口、错误处理 |
 | 03 | [模型尺寸、变体与上下文](./03-model-variants.md) | 同一家族的不同尺寸（Haiku/Sonnet/Opus）、上下文窗口对比、Base/Instruct/Chat 区分 |
 | 04 | [推理模型专题](./04-reasoning-models.md) | o1/R1/Gemini Thinking/QwQ 等推理模型的机制、何时用、怎么调用 |
 | 05 | [本地部署实战](./05-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
