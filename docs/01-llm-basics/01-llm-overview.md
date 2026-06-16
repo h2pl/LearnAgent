@@ -159,13 +159,7 @@ LLM 领域正在经历几个重要趋势：
 - **能力与局限**：它擅长文本生成、理解、推理和少样本学习，但存在幻觉、知识过时、上下文有限等问题。这些局限正是后续 RAG、工具调用、记忆系统等技术要解决的。
 - **模型选择**：闭源模型（Claude、GPT、Gemini）综合能力最强；开源模型（Kimi、DeepSeek、Qwen）在成本、隐私和定制化方面不可替代。作为 Agent 开发者，你需要根据场景在两者之间做权衡。
 
-这些概念是后续所有文章的基础。接下来我们回到更底层——LLM 的技术根基是什么？
-
-<p align="center">
-  <img src="../../assets/01-llm-basics/timeline.png" alt="NLP 到 LLM 演进时间线" width="90%"/>
-  <br/>
-  <em>从规则系统到 Transformer 的 NLP 演进之路</em>
-</p>
+这些概念是后续所有文章的基础。接下来回到更底层——LLM 的技术根基是什么？
 
 > 接下来请阅读 [LLM 的技术根基：从 NLP 到 Transformer](./02-nlp-to-transformer.md)，了解 LLM 之前的技术演进，以及 Transformer 如何改变了一切。
 
