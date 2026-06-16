@@ -12,7 +12,7 @@
 | 02 | [LLM API 调用实战](./02-api-calling.md) | 调用层级概览（SDK/HTTP/CLI/中间商）、OpenAI SDK 基础调用、流式输出、多模型统一接口、错误处理 |
 | 03 | [模型尺寸与上下文窗口](./03-model-sizes-and-context.md) | 同一家族的不同尺寸（Haiku/Sonnet/Opus）、上下文窗口对比、小模型何时够用 |
 | 04 | [模型变体速查](./04-model-variants-landscape.md) | 训练阶段（Base/Instruct/Chat/Reasoning）、能力专精（Code/Math/Vision/Function Calling）、部署形态（量化/蒸馏/合并/剪枝）、专用家族（Embedding/Rerank/语音）、行业场景 |
-| 05 | [推理模型专题](./05-reasoning-models.md) | o1/R1/Gemini Thinking/QwQ 等推理模型的机制、何时用、怎么调用 |
+| 05 | [深度思考与推理能力](./05-reasoning-models.md) | `reasoning_effort` 参数调用、成本权衡、Agent 规划层最佳实践 |
 | 06 | [本地部署实战](./06-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
 | 07 | [关键参数与调优](./07-key-parameters.md) | temperature / top_p / max_tokens 的实际效果、Agent 调参模板 |
 

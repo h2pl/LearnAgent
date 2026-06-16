@@ -148,53 +148,7 @@ RLHF/DPO 再次改变了目标函数。不再优化"回答像不像示范数据"
 - **SFT 阶段**：训练数据不是普通的 `(问题, 回答)` 对，而是 `(问题, 详细思维链, 回答)` 三元组。模型被要求先输出内部思考过程（"让我先分析...""我需要考虑..."），再给出最终答案。
 - **对齐阶段**：奖励模型不是评估"回答是否礼貌/有用"，而是评估**最终答案的正确性**。强化学习优化的目标是"思考过程是否导向了正确答案"，而非"思考过程本身是否优美"。
 
-到 2026 年，这种能力已统一进主流模型（通过 `reasoning_effort` 参数控制），但训练原理仍然适用：推理能力是从**特殊的思维链 SFT 数据**和**以正确性为导向的对齐目标**中涌现的。
-
-### 第四种变体？——已经不存在了
-
-2024 年中确实多出"Reasoning"作为独立变体（o1、R1 是独立 SKU）。但**到 2026 年 6 月，主流闭源模型已全部"统一"**——没有"独立推理模型"了：
-
-| 厂商 | 模型 | 思考控制参数 | 默认值 |
-|------|------|------------|-------|
-| **OpenAI** | GPT-5.5 / GPT-5.5 Pro（2026-04） | `reasoning_effort` (none/low/medium/high/xhigh) | medium |
-| **Anthropic** | Claude Opus 4.6/4.7/4.8 + Sonnet 4.6 + Claude 5 | `effort` (low/medium/high/max)，**adaptive thinking** | 4.6/4.7/Sonnet 4.6 auto；4.8/5 默认 high |
-| **Google** | Gemini 3 Flash / 3 Pro / 3.1 Pro | `reasoning_effort` (low/medium/high) | low |
-| **DeepSeek** | V4-Pro / V4-Flash（2026-04） | `reasoning_effort` (high/xhigh) | high |
-| **阿里** | Qwen3.5 / 3.6 / 3.7-Max | 内置 thinking mode + 思考 budget 跨会话保留 | 开 |
-| **xAI** | Grok 4.20 Multi-Agent Beta | `reasoning_effort` | 跟随模型 |
-
-**关键变化**：
-
-- 过去：选 o1（强制深度思考）或 GPT-4o（不思考）——两个 SKU
-- 现在：选 GPT-5.5 + `reasoning_effort=high` 或 `=low`——**一个 SKU，参数控制**
-- 开源端保留"独立推理模型"传统（DeepSeek V4-Flash 是普快、V4-Pro 是高推理），但也用 `reasoning_effort` 切档
-
-**特别说明 Claude 5**：思考**始终开启**，不能关闭。`reasoning_effort=none` 不会关闭思考。
-
-**为什么这么演进**：
-
-1. **用户体验**：用户不想"这个问题要不要思考"——他们要"给我最好的答案"
-2. **模型自适应**：训练好的统一模型能自己判断"这个问题需不需要想"
-3. **成本透明**：调用方精确控制思考预算，账单可预测
-
-**对 Agent 的影响**：
-
-```python
-# 过去：路由选模型
-if is_hard_problem(q):
-    model = "o1"           # 强制深度思考
-else:
-    model = "gpt-4o"       # 不思考
-
-# 现在：调一个参数
-response = client.chat.completions.create(
-    model="gpt-5.5",
-    reasoning_effort="high" if is_hard_problem else "low",
-    messages=[{"role": "user", "content": q}]
-)
-```
-
-**详细机制见 [推理模型专题](./05-reasoning-models.md)**。
+到 2026 年，这种能力已统一进主流模型（通过 `reasoning_effort` 参数控制），但训练原理仍然适用：推理能力是从**特殊的思维链 SFT 数据**和**以正确性为导向的对齐目标**中涌现的。详细的调用方式、成本权衡和 Agent 规划层实践见 [深度思考与推理能力](./05-reasoning-models.md)。
 
 ### 实际影响
 
