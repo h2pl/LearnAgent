@@ -171,7 +171,7 @@ result = call_llm_with_retry([{"role": "user", "content": "你好"}])
 - **LiteLLM 解决多模型统一调用**——换个模型名就能切换 Claude/GPT/Gemini
 - **生产环境必须加重试**——网络波动和限流是家常便饭，指数退避是标配
 
-> 代码调通了，但你可能注意到了 `temperature`、`max_tokens` 这些参数。它们到底怎么影响模型输出？请前往 [关键参数与调优](./03-key-parameters.md)。
+> 代码调通了，但你可能注意到了 `temperature`、`max_tokens` 这些参数。它们到底怎么影响模型输出？请前往 [关键参数与调优](./06-key-parameters.md)。
 
 ## 参考链接
 
