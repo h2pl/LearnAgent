@@ -1,4 +1,4 @@
-# LLM 的技术根基：从 NLP 到 Transformer
+# LLM 的技术根基
 
 > 从规则系统到统计学习再到深度学习，NLP 六十年的积累最终催生了 Transformer。本文梳理这段技术演进，帮你理解 LLM 架构的来龙去脉。
 
@@ -28,7 +28,7 @@
 
 你好，我是江小湖。翻开手机里的智能输入法，每一次联想都藏着自然语言处理（NLP）的影子。而今天我们熟悉的 AI 对话、翻译甚至写作，都源于一个更底层的技术跃迁——Transformer。这篇就从 NLP 聊起，看看 LLM 的根基究竟扎在哪里。
 
-在[认识大语言模型：LLM 的定义、原理与生态全景](./01-llm-overview.md)中我们知道了 LLM 的本质是"预测下一个词"。但 LLM 不是凭空出现的——在它之前，人类已经花了几十年教机器"读懂文字"。**这篇文章回答的问题是：LLM 之前的技术到底卡在哪里？Transformer 又是怎么解决这些问题的？** 理解这段演进，你才能真正明白 LLM 为什么是今天这个样子，以及为什么 Transformer 是一切的基础。
+在[认识大语言模型（LLM）](./01-llm-overview.md)中我们知道了 LLM 的本质是"预测下一个词"。但 LLM 不是凭空出现的——在它之前，人类已经花了几十年教机器"读懂文字"。**这篇文章回答的问题是：LLM 之前的技术到底卡在哪里？Transformer 又是怎么解决这些问题的？** 理解这段演进，你才能真正明白 LLM 为什么是今天这个样子，以及为什么 Transformer 是一切的基础。
 
 ## 什么是 NLP
 
@@ -275,6 +275,6 @@ Transformer 解决了前面所有方法的核心瓶颈：
 
 理解这条演进线，你就明白了为什么 LLM 选择 Transformer 而不是 RNN——不是 RNN 不够好，而是它在根本架构上不支持大规模并行训练。
 
-> 接下来请阅读 [LLM 发展简史：从 BERT 到推理模型的十年](./03-llm-evolution.md)，了解从 Transformer 到 ChatGPT 再到 Agent 时代的完整脉络。
+> 接下来请阅读 [LLM 发展简史](./03-llm-evolution.md)，了解从 Transformer 到 ChatGPT 再到 Agent 时代的完整脉络。
 >
-> 关于 Transformer 架构的技术细节（多头注意力、因果掩码、KV Cache），请参考 [Transformer 内部原理：自注意力、因果掩码与 KV Cache](./07-transformer-internals.md)。
+> 关于 Transformer 架构的技术细节（多头注意力、因果掩码、KV Cache），请参考 [Transformer 内部原理](./07-transformer-internals.md)。

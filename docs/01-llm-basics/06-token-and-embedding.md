@@ -13,7 +13,7 @@
 
 你好，我是江小湖。你可能经常听人聊"这个模型上下文有多少 token"、"API 按 token 计费"，但 token 到底是什么？跟字数什么关系？这篇彻底帮你搞清楚。
 
-在 [LLM 发展简史：从 BERT 到推理模型的十年](./03-llm-evolution.md) 之后，这一篇从最微观的视角切入——LLM 处理文字时，看到的不是"字"或"词"，而是 **Token（词元）**。
+在 [LLM 发展简史](./03-llm-evolution.md) 之后，这一篇从最微观的视角切入——LLM 处理文字时，看到的不是"字"或"词"，而是 **Token（词元）**。
 
 理解 Token 和 **Embedding（嵌入）** 是理解 LLM 所有后续概念的基础：
 - **Token** 决定了 LLM 的输入输出粒度、成本、上下文窗口长度
@@ -340,7 +340,7 @@ for i in range(len(texts)):
 
 理解这两者，你就知道：**写 Agent 时，Token 是你的预算，Embedding 是你的武器。** 前者决定了你能不能跑得起来，后者决定了你跑得好不好。
 
-> 理解了 Token 和 Embedding，接下来我们拆开 Transformer 看看内部的齿轮是怎么咬合的。请阅读 [Transformer 内部原理：自注意力、因果掩码与 KV Cache](./07-transformer-internals.md)。
+> 理解了 Token 和 Embedding，接下来我们拆开 Transformer 看看内部的齿轮是怎么咬合的。请阅读 [Transformer 内部原理](./07-transformer-internals.md)。
 
 ## 参考链接
 
