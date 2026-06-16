@@ -16,7 +16,7 @@
 
 你好，我是江小湖。从 BERT 到 ChatGPT 再到今天的 Agent，LLM 只用了几年就走完了从"文本补全器"到"能调用工具的助手"这条路。这篇带你快速回顾这段历史，理解了它，很多技术选型的答案自然就清楚了。
 
-[LLM 的技术根基：从 NLP 到 Transformer](./02-nlp-to-transformer.md)我们讲到 2017 年 Transformer 架构的诞生，它解决了 RNN 的遗忘和并行两大难题。但 Transformer 只是一个架构——就像发明了发动机，还不等于造出了汽车。
+在[LLM 的技术根基：从 NLP 到 Transformer](./02-nlp-to-transformer.md)中我们讲到 2017 年 Transformer 架构的诞生，它解决了 RNN 的遗忘和并行两大难题。但 Transformer 只是一个架构——就像发明了发动机，还不等于造出了汽车。
 
 从 Transformer 到今天的 LLM，中间经历了一系列关键突破。这篇文章用 15 分钟帮你建立一条完整的时间线：LLM 是怎么一步步从"文本补全器"变成"能调用工具的 Agent"的。这些背景直接影响你今天的开发决策——比如为什么选 Instruct 模型而不是 Base 模型，为什么开源模型值得认真对待。
 
