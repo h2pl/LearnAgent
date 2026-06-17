@@ -210,3 +210,6 @@ elif is_complex_task(task):
 - [ReWOO: Decoupling Reasoning from Observations](https://arxiv.org/abs/2305.18323)
 - [LATS: Language Agent Tree Search](https://arxiv.org/abs/2310.04406)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+
+
+> 下一页请阅读：[ReAct 模式](./04-react-pattern.md)

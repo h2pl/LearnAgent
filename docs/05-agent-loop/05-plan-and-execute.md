@@ -246,3 +246,6 @@ def plan_and_execute_with_replan(user_input, max_replans=2):
 - [LangGraph — Plan-and-Execute](https://langchain-ai.github.io/langgraph/tutorials/plan-and-execute/plan-and-execute/)
 - [Chain-of-Thought Prompting](https://arxiv.org/abs/2201.11903)
 - [ReAct 论文](https://arxiv.org/abs/2210.03629)
+
+
+> 下一页请阅读：[Reflexion 与其他 Agent 模式](./06-reflexion-and-other-patterns.md)

@@ -259,3 +259,6 @@ def agent_loop(user_input: str, tools: dict, max_steps: int = 10):
 - [LangChain — How agents work](https://python.langchain.com/docs/concepts/how_agents_work/)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [OpenAI — A practical guide to building agents](https://platform.openai.com/docs/guides/agents)
+
+
+> 下一页请阅读：[Agent 模式全景](./03-agent-patterns-overview.md)

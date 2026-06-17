@@ -256,3 +256,6 @@ E3 = Tool[args3]
 - [Tree of Thoughts (ToT)](https://arxiv.org/abs/2305.10601)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [OpenAI — A practical guide to building agents](https://platform.openai.com/docs/guides/agents)
+
+
+> 下一页请阅读：[停止条件设计](./07-stop-conditions.md)

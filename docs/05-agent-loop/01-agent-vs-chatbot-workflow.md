@@ -160,3 +160,6 @@ def agent(user_input: str):
 - [OpenAI — A practical guide to building agents](https://platform.openai.com/docs/guides/agents)
 - [LangChain — What is an Agent?](https://python.langchain.com/docs/concepts/agents/)
 - [Google — What are AI agents?](https://cloud.google.com/discover/what-are-ai-agents)
+
+
+> 下一页请阅读：[Agent 核心循环](./02-agent-core-loop.md)

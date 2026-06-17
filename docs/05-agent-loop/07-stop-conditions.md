@@ -206,3 +206,6 @@ class StopConditionChecker:
 - [LangChain — How agents work](https://python.langchain.com/docs/concepts/how_agents_work/)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [OpenAI — A practical guide to building agents](https://platform.openai.com/docs/guides/agents)
+
+
+> 下一页请阅读：[从零实现最小 Agent](./08-minimal-agent.md)
