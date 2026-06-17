@@ -1,40 +1,16 @@
 # 07 — 框架与编排
 
+用框架管理 Agent 的复杂性，把 demo 变成可靠系统。
+
 ## 目录
 
-- [概述](#概述)
-- [框架选型](#框架选型)
-- [LangGraph 核心概念](#langgraph-核心概念)
-- [状态管理与持久化](#状态管理与持久化)
-- [错误处理框架](#错误处理框架)
-- [Human-in-the-loop](#human-in-the-loop)
-- [参考链接](#参考链接)
+| # | 文章 | 内容 |
+|---|------|------|
+| 01 | [框架概述与选型](./01-framework-overview.md) | 为什么需要框架、主流框架对比、选型决策 |
+| 02 | LangGraph 详解 | 状态图、节点、边、条件路由、Checkpoint、HITL |
+| 03 | CrewAI 详解 | 多 Agent 协作、角色定义、任务编排 |
+| 04 | 错误处理与可靠性模式 | 重试、降级、熔断（框架无关） |
 
-## 概述
+> 02-04 待编写，完成后更新此目录。
 
-<!-- TODO: 用框架管理 Agent 的复杂性，把 demo 变成可靠系统 -->
-
-## 框架选型
-
-<!-- TODO: Provider SDK vs LangGraph vs 自建的 trade-off -->
-
-## LangGraph 核心概念
-
-<!-- TODO: 状态图、节点、边、条件路由 -->
-
-## 状态管理与持久化
-
-<!-- TODO: checkpoint、session store、中断恢复 -->
-
-## 错误处理框架
-
-<!-- TODO: 重试、降级、熔断（对标后端微服务模式） -->
-
-## Human-in-the-loop
-
-<!-- TODO: 关键决策点的人类审批机制 -->
-
-## 参考链接
-
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-- [LangGraph — How-to Guides](https://langchain-ai.github.io/langgraph/how-tos/)
+> 学完本章后，请继续阅读 [08 — 记忆与上下文](../08-memory-context/README.md)，让 Agent 记住之前的对话。
