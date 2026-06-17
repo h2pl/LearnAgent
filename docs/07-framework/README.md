@@ -7,9 +7,10 @@
 | # | 文章 | 内容 |
 |---|------|------|
 | 01 | [框架概述与选型](./01-framework-overview.md) | 为什么需要框架、主流框架对比、选型决策 |
-| 02 | LangGraph 详解 | 状态图、节点、边、条件路由、Checkpoint、HITL |
-| 03 | CrewAI 详解 | 多 Agent 协作、角色定义、任务编排 |
-| 04 | 错误处理与可靠性模式 | 重试、降级、熔断（框架无关） |
+| 02 | [LangChain 详解](./02-langchain.md) | 核心概念、LCEL 组合语言、工具集成 |
+| 03 | LangGraph 详解 | 状态图、节点、边、条件路由、Checkpoint、HITL |
+| 04 | CrewAI 详解 | 多 Agent 协作、角色定义、任务编排 |
+| 05 | AutoGen 详解 | 对话驱动、代码执行、多 Agent 协作 |
 
 > 02-04 待编写，完成后更新此目录。
 
