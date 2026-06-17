@@ -1,6 +1,6 @@
 # MCP 与工具生态
 
-> MCP（Model Context Protocol）用一年时间从 Anthropic 的实验项目变成 AI 工具层的事实标准。2026 年，10,000+ 公共服务器、9700 万月 SDK 下载——它正在解决困扰行业多年的 N×M 工具集成问题。
+> MCP（Model Context Protocol）用一年时间从 Anthropic 的实验项目变成 AI 工具层的事实标准。2026 年，8,000+ 有效 Server、9700 万月 SDK 下载——它正在解决困扰行业多年的 N×M 工具集成问题。
 
 ## 目录
 
@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在 [多工具编排](./03-multi-tool-orchestration.md) 中，你学会了让多个工具协同工作。但所有工具都是自己写的——每新增一个外部能力（GitHub、Slack、数据库），你都要重新实现一套集成代码。这篇文章解决核心问题：**MCP 如何让你写一次工具，到处复用，把 N×M 的集成地狱变成 N+M 的简单加法**。
+你好，我是江小湖。在 [多工具编排](./03-multi-tool-orchestration.md) 中，你了解了如何让多个工具协同工作。但所有工具都是自己写的——每新增一个外部能力（GitHub、Slack、数据库），你都要重新实现一套集成代码。这篇文章解决核心问题：**MCP 如何让你写一次工具，到处复用，把 N×M 的集成地狱变成 N+M 的简单加法**。
 
 **Model Context Protocol（MCP）** 是 Anthropic 于 2024 年 11 月发布的开放标准，定义了 AI 应用如何连接外部工具和数据源。2025 年 12 月，Anthropic 将它捐赠给 Linux 基金会，成为 Agentic AI Foundation 的创始项目。到 2026 年中，MCP 已经是工具层的事实标准——Claude、ChatGPT、Cursor、Gemini、VS Code 都原生支持。
 
@@ -25,9 +25,9 @@
 - M 个外部工具（GitHub、Slack、Postgres、Stripe...）
 - 需要写 **N×M** 套适配代码
 
-每个客户端集成 GitHub 都要重写一遍。GitHub 的 API 没变，但 Claude 的 Function Calling 格式和 Gemini 的格式不同，Cursor 的又不一样。结果就是：GitHub 集成被重复写了 5 次，且每次都有 Bug。
+重复劳动的根源不只是"写很多代码"，而是**每个客户端的 Function Calling 格式不同**。Claude 用 `user` role + `tool_result` 消息块，GPT 用 `tool` role，Gemini 用 `functionResponse`——同样是"调用 GitHub API 搜索 issue"，你需要为三个客户端写三套格式适配，且每套都要处理错误、超时、认证。GitHub 的 API 没变，但对接层被重复写了 N 次，每次都可能引入不同的 Bug。
 
-MCP 的思路是：**你写一次 MCP 服务器（Server），任何 MCP 客户端（Client）都能用**。N+M 套代码，而不是 N×M。
+MCP 的思路是在 LLM 的 Function Calling 和外部工具之间插入一个**标准协议层**：Server 用 JSON-RPC 2.0 暴露标准接口，Client 负责把 JSON-RPC 转换为各平台原生格式。**你写一次 Server，任何 MCP 客户端都能用**。N+M 套代码，而不是 N×M。
 
 ## MCP 是什么
 
@@ -158,7 +158,7 @@ Demo 中的 type hint 不等于安全。生产 Server 需要：
 
 ### 3. 错误处理
 
-工具调用失败时，返回结构化的错误信息，让模型知道"发生了什么"和"怎么修正"。
+工具调用失败时，返回结构化的错误信息，让模型能据此判断"出了什么错"并调整下一次调用的参数。
 
 ```python
 @mcp.tool()
@@ -183,11 +183,13 @@ def query_database(sql: str) -> str:
 
 | 指标 | 数据（2026年中） |
 |------|----------------|
-| 公共 Server | 10,000+（活跃约 2,300） |
+| 有效 Server | 8,060（注册表 16,950 条中去重后的有效项目，仅 40.9% 在 90 天内有更新） |
 | 月 SDK 下载 | 约 9,700 万 |
 | 支持的客户端 | Claude、ChatGPT、Cursor、Gemini、VS Code、Zed、Windsurf 等 |
 | 协议版本 | 2025-11（Linux 基金会捐赠版） |
 | 官方 SDK | Python、TypeScript |
+
+> 数据来源：[A Measurement Study of Model Context Protocol](https://arxiv.org/abs/2509.25292)（arXiv:2509.25292），覆盖 6 个 MCP 注册表。
 
 **一个值得注意的现象**：52% 的注册 Server 是"死亡状态"——只做了 12 行 Demo，没加认证、没做错误处理、没维护。这和 npm 包的生态类似：数量多，但生产可用的少。选择 Server 时，优先看官方维护的（Anthropic、OpenAI、社区核心团队）或 Star 数高的。
 
@@ -199,16 +201,16 @@ def query_database(sql: str) -> str:
 - **三大原语**：Tools（可调用）、Resources（只读数据）、Prompts（模板）。不是只有工具调用。
 - **Sampling 和 Roots 是关键设计**：Server 可以请求 Client 代调用 LLM，且只能访问用户授权的资源。
 - **生产 Server 不等于 Demo**：需要认证、输入验证、错误处理、网关层。52% 的社区 Server 是死亡状态。
-- **2026 年 MCP 是事实标准**：Claude、ChatGPT、Cursor、Gemini、VS Code 都原生支持，生态超过 10,000 Server。
+- **2026 年 MCP 是事实标准**：Claude、ChatGPT、Cursor、Gemini、VS Code 都原生支持，注册表有效 Server 超过 8,000 个。
 
-> 学会了工具调用，你的 Agent 已经能查数据、调 API、操作外部系统。但 Agent 怎么知道"什么时候该做什么事"？怎么自主规划多步任务？请继续阅读 [05 — Agent 循环](../05-agent-loop/README.md)，了解 Agent 的核心架构。
+> 掌握了工具调用，你的 Agent 已经能查数据、调 API、操作外部系统。但 Agent 怎么知道"什么时候该做什么事"？怎么自主规划多步任务？请继续阅读 [05 — Agent 循环](../05-agent-loop/README.md)，了解 Agent 的核心架构。
 
 ## 参考链接
 
 - [MCP Specification](https://modelcontextprotocol.io/)
 - [MCP Servers Registry](https://github.com/modelcontextprotocol/servers)
 - [Anthropic MCP Introduction](https://www.anthropic.com/news/model-context-protocol)
+- [A Measurement Study of Model Context Protocol (arXiv:2509.25292)](https://arxiv.org/abs/2509.25292)
 - [OpenAI Agents SDK MCP Support](https://github.com/openai/openai-agents-python)
 - [Linux Foundation Agentic AI Foundation](https://www.linuxfoundation.org/press/press-release/)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-- [Simon Willison: MCP Code Execution](https://simonwillison.net/2025/)
