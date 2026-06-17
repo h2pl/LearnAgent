@@ -272,7 +272,7 @@ def get_system_prompt(version: str = "v2.0") -> str:
 
 下一篇，我们讨论 Prompt 工程的最后一个核心话题——鲁棒性：当用户输入千奇百怪，你的 Prompt 怎么保持稳定。
 
-> System Prompt 定义了 Agent 的"常态"，但真实世界的用户输入从不"正常"。接下来请阅读 [Prompt 鲁棒性：应对意外输入](./04-prompt-robustness.md)，学习如何让 Prompt 在边界情况和恶意输入下依然坚挺。
+> System Prompt 定义了 Agent 的"常态"，但真实世界的用户输入从不"正常"。接下来请阅读 [Prompt 鲁棒性：应对意外输入](./05-prompt-robustness.md)，学习如何让 Prompt 在边界情况和恶意输入下依然坚挺。
 
 ## 参考链接
 

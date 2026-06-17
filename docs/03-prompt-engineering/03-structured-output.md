@@ -299,7 +299,7 @@ print(f"意图: {result.intent}, 置信度: {result.confidence}")
 
 结构化输出是 Agent 从"生成文本"到"执行操作"的桥梁。下一篇，我们把目光移到 System Prompt——如何从结构层面定义你的 Agent 的核心行为。
 
-> 结构化输出解决了"输出格式"，但 Agent 的角色、边界和行为规范在哪里定义？接下来请阅读 [System Prompt 设计：定义 Agent 的核心行为](./03-system-prompt.md)。
+> 结构化输出解决了"输出格式"，但 Agent 的角色、边界和行为规范在哪里定义？接下来请阅读 [System Prompt 设计：定义 Agent 的核心行为](./04-system-prompt.md)。
 
 ## 参考链接
 

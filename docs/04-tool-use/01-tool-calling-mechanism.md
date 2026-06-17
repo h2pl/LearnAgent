@@ -141,7 +141,7 @@ response = client.chat.completions.create(
 
 3. **状态变更**：从"查询"到"操作"——发邮件、创建工单、修改配置。这是 Agent 从被动响应转向主动执行的关键。
 
-**工具调用与 Prompt 工程的关系**：在 [Prompt 设计模式](../03-prompt-engineering/01-prompt-design-patterns.md) 中，你学习了 Few-shot 和 CoT。工具调用本质上是一种**强约束的结构化输出**——你通过 JSON Schema 强制模型按特定格式输出，这比纯文本 Prompt 的约束力强 10 倍。当任务的精确度要求很高时（如参数必须合法、格式必须标准），工具调用比 Prompt 工程更可靠。
+**工具调用与 Prompt 工程的关系**：在 [Prompt 设计模式](../03-prompt-engineering/02-prompt-design-patterns.md) 中，你学习了 Few-shot 和 CoT。工具调用本质上是一种**强约束的结构化输出**——你通过 JSON Schema 强制模型按特定格式输出，这比纯文本 Prompt 的约束力强 10 倍。当任务的精确度要求很高时（如参数必须合法、格式必须标准），工具调用比 Prompt 工程更可靠。
 
 ## 总结
 
