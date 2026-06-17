@@ -36,6 +36,12 @@
 | **ReAct 循环** | Think → Act → Observe 循环 | `react_loop()` |
 | **停止条件** | 判断何时停止 | `should_stop()` |
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/minimal-agent-architecture.png" alt="最小 Agent 架构" width="95%"/>
+  <br/>
+  <em>最小 Agent 架构：五大组件</em>
+</p>
+
 ## 完整实现代码
 
 以下是完整的最小 Agent 实现，约 150 行代码：
@@ -289,6 +295,12 @@ Agent：北京今天晴，25°C，湿度 45%
 | **测试与评估** | 改一行 prompt 不知道是变好还是变坏 |
 | **多租户隔离** | 用户 A 的状态不能被用户 B 看到 |
 | **工具沙箱** | 工具执行失败可能搞坏整个进程 |
+
+<p align="center">
+  <img src="../../assets/05-agent-loop/minimal-vs-production.png" alt="最小 Agent vs 生产系统" width="95%"/>
+  <br/>
+  <em>最小 Agent vs 生产系统：差距不止 30 倍</em>
+</p>
 
 下面逐项展开。
 

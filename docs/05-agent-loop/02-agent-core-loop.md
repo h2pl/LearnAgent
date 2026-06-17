@@ -23,6 +23,12 @@ Agent 核心循环是一个闭环，包含四个阶段：
 Observe（观察）→ Think（决策）→ Act（行动）→ Observe（观察）→ ...
 ```
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/core-loop-four-stages.png" alt="Agent 核心循环四阶段" width="95%"/>
+  <br/>
+  <em>Agent 核心循环四阶段闭环</em>
+</p>
+
 | 阶段 | 输入 | 输出 | 负责方 |
 |------|------|------|--------|
 | **Observe** | 环境状态 | 结构化观察 | Agent 代码 |
@@ -231,6 +237,12 @@ def agent_loop(user_input: str, tools: dict, max_steps: int = 10):
 2. **阶段分离**：每个阶段独立函数，便于测试和替换
 3. **终止控制**：通过 `should_continue` 统一管理终止条件
 4. **历史记录**：保存每一步的决策和结果，便于调试和审计
+
+<p align="center">
+  <img src="../../assets/05-agent-loop/agent-architecture.png" alt="Agent 系统架构" width="95%"/>
+  <br/>
+  <em>Agent 系统架构：五大组件协同</em>
+</p>
 
 ## 总结
 

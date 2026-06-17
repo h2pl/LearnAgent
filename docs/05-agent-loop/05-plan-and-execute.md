@@ -58,6 +58,12 @@ Plan-and-Execute 把 Agent 拆成两个角色：
 - Executor 只负责"按步骤干活"，不重新规划
 - 两者通过**结构化的计划**（JSON / 步骤列表）通信
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/plan-execute-flow.png" alt="Plan-and-Execute 流程" width="95%"/>
+  <br/>
+  <em>Plan-and-Execute：规划与执行解耦</em>
+</p>
+
 ```
 用户任务
    │
@@ -97,6 +103,12 @@ Step 4: summarize  → 输出 500 字简介 ✅
 ```
 
 **注意**：Step 1 → Step 4 是**顺序执行**的，但 Executor 在每步内部**仍然可以用 ReAct** 完成子任务（比如"搜索时该用什么关键词"是子级 ReAct）。这是 Plan-and-Execute 与 ReAct 的常见嵌套方式：**外层规划，内层反应**。
+
+<p align="center">
+  <img src="../../assets/05-agent-loop/plan-execute-example.png" alt="Plan-and-Execute 实例" width="95%"/>
+  <br/>
+  <em>Plan-and-Execute 实例：4 步研究 RAG</em>
+</p>
 
 ## 最小实现
 

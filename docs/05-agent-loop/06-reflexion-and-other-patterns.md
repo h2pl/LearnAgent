@@ -99,6 +99,12 @@ def reflexion_agent(task, max_trials=3):
 - ❌ 多了一次 LLM 调用（生成反思）
 - ❌ 反思质量依赖 LLM 能力
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/reflexion-loop.png" alt="Reflexion 反思循环" width="95%"/>
+  <br/>
+  <em>Reflexion：失败 → 反思 → 记忆 → 再试</em>
+</p>
+
 ## ReWOO：去工具化推理，省 Token
 
 **ReWOO**（Reasoning WithOut Observation，论文：[ReWOO: Decoupling Reasoning from Observations for Augmented Language Models](https://arxiv.org/abs/2305.18323)）观察到 ReAct 的一个**浪费**：
@@ -132,6 +138,12 @@ E3 = Tool[args3]
 
 **实战用法**：当你有 N 个**互相独立**的查询（"查 A 城市的天气、B 城市的天气、C 城市的天气"），用 ReWOO 一次出计划、并行执行，比 ReAct 快 N 倍。
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/rewoo-flow.png" alt="ReWOO 流程" width="95%"/>
+  <br/>
+  <em>ReWOO：批量规划 + 并行执行</em>
+</p>
+
 ## LATS：树搜索 + 反思的结合
 
 **LATS**（Language Agent Tree Search，论文：[LATS: Language Agent Tree Search Unifies Reasoning, Acting, and Planning](https://arxiv.org/abs/2310.04406)）把 ReAct 升级成**树搜索**：
@@ -160,6 +172,12 @@ E3 = Tool[args3]
 - ❌ 实现复杂，需要树搜索框架
 
 **适用场景**：计算成本不敏感、任务高价值的场景（自动化研究、企业级代码 Agent）。
+
+<p align="center">
+  <img src="../../assets/05-agent-loop/lats-tree-search.png" alt="LATS 树搜索" width="95%"/>
+  <br/>
+  <em>LATS：树搜索 + 反思的结合</em>
+</p>
 
 ## 其他值得了解的变体
 

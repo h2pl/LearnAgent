@@ -37,6 +37,12 @@ Agent 的停止条件分为三类，按优先级从高到低：
 
 **设计原则**：目标达成是主条件，最大步数和超时是安全网。Agent 应该尽可能通过目标达成停止，只有在异常情况下才触发兜底条件。
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/stop-conditions-flowchart.png" alt="停止条件流程" width="95%"/>
+  <br/>
+  <em>Agent 停止条件：3 种判断 + 组合策略</em>
+</p>
+
 ## 目标达成判定
 
 目标达成是最理想的停止条件——Agent 自主判断任务完成，返回最终答案。但"任务完成"的判定需要明确的标准。
@@ -179,6 +185,12 @@ class StopConditionChecker:
 | 多步推理 | 10-15 | 2min | 平衡质量和速度 |
 | 复杂任务 | 20-30 | 5min | 允许深度思考 |
 | 探索性任务 | 50+ | 10min | 需要大量工具调用 |
+
+<p align="center">
+  <img src="../../assets/05-agent-loop/stop-state-machine.png" alt="Agent 状态机" width="95%"/>
+  <br/>
+  <em>Agent 状态机：5 个状态 + 转移条件</em>
+</p>
 
 ## 总结
 

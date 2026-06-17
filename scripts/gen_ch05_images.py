@@ -330,54 +330,88 @@ def make_patterns_landscape():
                 fontsize=8, color='white', style='italic', zorder=6)
 
     # 底部说明
-    ax.text(0, -5.5, 'ReAct 是基座，其他 4 个在其上扩展',
+    ax.text(0, -5.5, '五种模式回答同一个问题：怎么让循环更聪明、更稳、更快',
             ha='center', fontsize=12, color=C['text'], style='italic')
 
     save(fig, 'agent-patterns-landscape.png')
 
 
 def make_pattern_relationships():
-    """模式关系图：ReAct 基座 + 扩展"""
+    """模式关系图：三种设计哲学对应五种具体实现"""
     fig, ax = plt.subplots(figsize=(14, 9))
     ax.set_xlim(0, 14)
     ax.set_ylim(0, 9)
     ax.axis('off')
-    ax.set_title('Agent 模式关系图：ReAct 是基座，其他在其上扩展',
+    ax.set_title('Agent 模式关系图：三种设计哲学对应五种实现',
                  fontsize=15, fontweight='bold', pad=20)
 
-    # 中心 ReAct
-    box(ax, 7, 5, 3.2, 1.4, C['primary'],
-        'ReAct（基座）',
-        ['推理 + 行动交替'], fontsize=13)
-
-    # 四个扩展
-    extensions = [
-        (2.5, 7.5, C['success'], 'Plan-and-Execute',
-         '+ 一次性规划', '长链任务'),
-        (11.5, 7.5, C['secondary'], 'Reflexion',
-         '+ 失败反思', '可重试'),
-        (2.5, 2.5, C['warning'], 'ReWOO',
-         '+ 并行执行', '省 Token'),
-        (11.5, 2.5, C['pink'], 'LATS',
-         '+ 树搜索', '高价值'),
+    # 三个哲学层（顶部）
+    philosophies = [
+        (2.5, 7.5, C['primary'], '反应式\n(reactive)',
+         ['走一步看一步', '短链、动态']),
+        (7, 7.5, C['success'], '深思熟虑\n(deliberative)',
+         ['先想后做', '长链、结构化']),
+        (11.5, 7.5, C['secondary'], '反复试错\n(iterative)',
+         ['错了再反思', '高价值、可重试']),
     ]
-    for x, y, color, name, ext, use in extensions:
-        box(ax, x, y, 3, 1.2, color, name, [ext, use], fontsize=11)
-        # 连线到 ReAct
-        ax.plot([7, x], [5, y], color=C['muted'],
+    for x, y, color, name, lines in philosophies:
+        rect = FancyBboxPatch(
+            (x - 1.8, y - 0.7), 3.6, 1.4,
+            boxstyle="round,pad=0.08",
+            facecolor=color, edgecolor='white',
+            linewidth=2, alpha=0.9,
+        )
+        ax.add_patch(rect)
+        ax.text(x, y + 0.2, name, ha='center', va='center',
+                fontsize=12, fontweight='bold', color='white')
+        for i, line in enumerate(lines):
+            ax.text(x, y - 0.15 - i * 0.22, line,
+                    ha='center', va='center', fontsize=9, color='white')
+
+    # 五种模式（底部）
+    patterns = [
+        (2.5, 4, C['primary'], 'ReAct',
+         ['推理+行动\n交替']),
+        (5.5, 2.5, C['success'], 'Plan-and-Execute',
+         ['先规划\n后执行']),
+        (7, 4, C['warning'], 'ReWOO',
+         ['批量规划\n并行执行']),
+        (10, 2.5, C['secondary'], 'Reflexion',
+         ['失败\n自我反思']),
+        (11.5, 4, C['pink'], 'LATS',
+         ['树搜索\n多分支']),
+    ]
+    for x, y, color, name, lines in patterns:
+        rect = FancyBboxPatch(
+            (x - 1.2, y - 0.6), 2.4, 1.2,
+            boxstyle="round,pad=0.08",
+            facecolor=color, edgecolor='white',
+            linewidth=2, alpha=0.9,
+        )
+        ax.add_patch(rect)
+        ax.text(x, y + 0.15, name, ha='center', va='center',
+                fontsize=11, fontweight='bold', color='white')
+        for i, line in enumerate(lines):
+            ax.text(x, y - 0.15 - i * 0.18, line,
+                    ha='center', va='center', fontsize=8, color='white')
+
+    # 映射线：哲学 → 模式
+    mappings = [
+        (2.5, 6.8, 2.5, 4.6, C['primary']),
+        (7, 6.8, 5.5, 3.1, C['success']),
+        (7, 6.8, 7, 4.6, C['warning']),
+        (11.5, 6.8, 10, 3.1, C['secondary']),
+        (11.5, 6.8, 11.5, 4.6, C['pink']),
+    ]
+    for x1, y1, x2, y2, color in mappings:
+        ax.plot([x1, x2], [y1, y2], color=color,
                 linewidth=1.5, alpha=0.5, zorder=0)
-        ax.text((7 + x)/2 + 0.3, (5 + y)/2, '扩展',
-                fontsize=9, color=C['muted'], style='italic',
-                bbox=dict(boxstyle='round,pad=0.2',
-                          facecolor='white', edgecolor=C['muted'], alpha=0.8))
 
-    # 顶部说明
-    ax.text(7, 8.5, '每种模式都在 ReAct 的某个环节做增强',
-            ha='center', fontsize=12, color=C['text'], style='italic')
-
-    # 底部说明
-    ax.text(7, 0.8, '实战中常混用：外层规划 + 内层反应 + 失败反思',
+    # 组合标注
+    ax.text(7, 1.0, '实战中常混用：外层规划 + 内层反应 + 失败反思',
             ha='center', fontsize=12, color=C['success'], fontweight='bold')
+    ax.text(7, 0.3, 'ReWOO = Plan 的工程优化版  │  LATS = Reflexion 的搜索扩展版',
+            ha='center', fontsize=10, color=C['muted'], style='italic')
 
     save(fig, 'pattern-relationships.png')
 
