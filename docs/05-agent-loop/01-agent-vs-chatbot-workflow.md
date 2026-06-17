@@ -26,6 +26,12 @@ Chatbot、Workflow、Agent 的区别不是技术高低，而是**决策权的归
 
 **关键洞察**：这三种形态是递进关系——Chatbot + 工具调用 = 能行动的 Chatbot，但还不是 Agent。Agent 的核心是**自主决策循环**：模型根据观察动态决定下一步做什么，而不是执行预设流程。
 
+<p align="center">
+  <img src="../../assets/05-agent-loop/three-forms-comparison.png" alt="三种应用形态对比" width="95%"/>
+  <br/>
+  <em>Chatbot / Workflow / Agent：决策权归属递进</em>
+</p>
+
 ## Chatbot：一问一答的文本生成器
 
 Chatbot 是最简单的形态：用户输入一段文本，LLM 生成一段回复。没有记忆、没有行动、没有循环。
@@ -44,6 +50,12 @@ chatbot("北京今天天气怎么样？")
 **Chatbot 的本质**：每次调用都是独立的，不依赖历史对话。用户问什么，LLM 根据概率分布生成最可能的回复。没有外部工具，没有记忆，输出完全由 Prompt 和模型参数决定。
 
 **局限**：Chatbot 无法执行任何操作——不能查天气、不能调 API、不能操作数据库。它只是一个文本生成器，输出的是"关于"某个话题的文本，而不是"执行"某个操作。
+
+<p align="center">
+  <img src="../../assets/05-agent-loop/decision-power-diagram.png" alt="决策权归属示意" width="85%"/>
+  <br/>
+  <em>从 Chatbot 到 Agent：决策权从用户→流程→模型</em>
+</p>
 
 ## Workflow：预设流程的自动化
 

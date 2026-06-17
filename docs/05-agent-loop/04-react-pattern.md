@@ -1,9 +1,10 @@
 # ReAct 模式
 
-> ReAct（Reasoning + Acting）是 Agent 最经典的设计模式——模型交替进行推理（Thought）和行动（Action），用思维链驱动每一步决策，让 Agent"边想边做"。
+> **ReAct** = **Re**(asoning) + **Act**(ing)，是 Agent 最经典的设计模式——模型交替进行推理（Thought）和行动（Action），用思维链驱动每一步决策，让 Agent"边想边做"。
 
 ## 目录
 
+- [ReAct 命名由来](#react-命名由来)
 - [ReAct 的核心思想](#react-的核心思想)
 - [Thought：思维链驱动决策](#thought思维链驱动决策)
 - [Action：执行具体操作](#action执行具体操作)
@@ -14,6 +15,15 @@
 - [参考链接](#参考链接)
 
 你好，我是江小湖。在 [Agent 核心循环](./02-agent-core-loop.md) 中，你理解了 Observe → Think → Act 的基本循环。ReAct 模式是这个循环的具体实现——**Thought（推理）和 Action（行动）交替进行**，让 Agent 每一步都有明确的推理过程。这是目前最主流的 Agent 设计范式。
+
+## ReAct 命名由来
+
+**ReAct** 是一个合成词，由两部分组成：
+
+- **Re** —— 取自 **Reasoning**（推理）
+- **Act** —— 取自 **Acting**（行动）
+
+把两个词的"主干"拼起来就是 **ReAct**：
 
 ## ReAct 的核心思想
 
