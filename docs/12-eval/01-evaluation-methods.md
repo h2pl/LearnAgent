@@ -33,7 +33,7 @@
 ## 三层评测体系
 
 <p align="center">
-  <img src="../../assets/12-eval-trace/eval-three-layers.svg" alt="三层评测体系" width="95%"/>
+  <img src="../../assets/12-eval/eval-three-layers.svg" alt="三层评测体系" width="95%"/>
 </p>
 
 我们推荐将评测拆为三个层次，**每层回答不同问题**：

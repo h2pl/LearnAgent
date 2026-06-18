@@ -14,7 +14,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。前面两篇文章解决了"Agent 好不好"和"谁来评"的问题。但当你发现指标变差了，**怎么知道是哪个环节出了问题？**
+你好，我是江小湖。上一章解决了"Agent 好不好"和"谁来评"的问题。但当你发现指标变差了，**怎么知道是哪个环节出了问题？**
 
 这就是可观测性 (Observability) 的战场。不是简单的日志，而是让系统的内部状态——每一步的输入、输出、耗时、代价——对开发者完全透明。
 
@@ -74,7 +74,7 @@ Trace: "用户请求：查询订单状态"
 ## 追踪架构
 
 <p align="center">
-  <img src="../../assets/12-eval-trace/trace-architecture.svg" alt="追踪系统架构" width="95%"/>
+  <img src="../../assets/13-observability/trace-architecture.svg" alt="追踪系统架构" width="95%"/>
 </p>
 
 ### 数据流
@@ -155,18 +155,12 @@ from langfuse.decorators import observe
 
 @observe()
 def my_agent(user_input: str):
-    # 自动生成 trace
-    result = llm_call(user_input)  # 自动生成 span
-    tool_result = call_tool(result)  # 自动生成 span
+    result = llm_call(user_input)
+    tool_result = call_tool(result)
     return final_response(tool_result)
 ```
 
-一个 `@observe` 装饰器就能完成基础追踪。它自动捕获：
-
-- 函数调用链（嵌套函数自动成为父子 span）
-- 参数和返回值
-- 执行耗时和错误信息
-- LLM 调用的 token 数和模型名
+一个 `@observe` 装饰器就能完成基础追踪。它自动捕获函数调用链、参数和返回值、执行耗时和错误信息、LLM 调用的 token 数和模型名。
 
 ### OpenTelemetry
 
@@ -208,8 +202,6 @@ flowchart TD
 
 **第二步：看耗时分布**
 
-如果 Agent 没报错但太慢了，看各个 Span 的耗时：
-
 - **LLM 调用占 >80% 总时间**：正常，考虑换更快的模型
 - **工具调用占 >50% 总时间**：外部 API 慢了，考虑加缓存或超时
 - **检索占 >30% 总时间**：向量数据库响应慢了，考虑优化索引
@@ -231,8 +223,6 @@ flowchart TD
 ## 生产环境最佳实践
 
 ### 采样策略
-
-全量追踪所有请求在早期是必要的，但在大规模生产环境中成本过高。推荐分层采样策略：
 
 - **所有失败请求**：采样率 100%
 - **新功能请求**：采样率 100%（上线前 3 天）
@@ -262,7 +252,7 @@ LLM 的 prompt 中也包含用户输入，同样需要脱敏。**不脱敏的追
 
 核心原则：Trace ID 贯穿全流程、每个 LLM 调用记录完整 prompt+响应、用采样策略控制成本、建立标准化的故障定位流程。
 
-**下一篇**：成本监控与性能优化——当 Agent 跑起来之后，怎么让它在预算内高效运行。
+**下一篇**：[成本监控与性能优化](02-cost-monitoring.md)——当 Agent 跑起来之后，怎么让它在预算内高效运行。
 
 ## 参考链接
 
