@@ -472,7 +472,7 @@ chain_with_fallback = primary_chain.with_fallbacks([fallback_chain])
 - **错误处理**：内置重试、超时、降级链
 - **适用场景**：快速原型、多工具集成、团队协作、生产系统
 
-> 下一篇，我们将深入 LangGraph——当 LangChain 的线性链路不够用时，用状态图定义更复杂的 Agent 流程。
+> 下一篇 [LangGraph 详解（一）](./03-langgraph-1.md)——当 LangChain 的线性链路不够用时，用状态图定义更复杂的 Agent 流程。
 
 ## 参考链接
 

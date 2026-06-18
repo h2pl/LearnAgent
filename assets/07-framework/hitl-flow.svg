@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 350" font-family="'Microsoft YaHei', 'PingFang SC', sans-serif">
+  <defs>
+    <marker id="arr3" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <text x="325" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">Human-in-the-Loop 流程</text>
+
+  <!-- START -->
+  <circle cx="80" cy="100" r="18" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="80" y="104" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">START</text>
+
+  <line x1="98" y1="100" x2="135" y2="100" stroke="#2563eb" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <!-- Prepare node -->
+  <rect x="140" y="75" width="100" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="190" y="97" text-anchor="middle" font-size="13" fill="#0c4a6e">准备操作</text>
+  <text x="190" y="113" text-anchor="middle" font-size="10" fill="#0369a1">生成邮件/转账</text>
+
+  <line x1="240" y1="100" x2="280" y2="100" stroke="#2563eb" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <!-- Approval node (with interrupt) -->
+  <rect x="285" y="70" width="110" height="60" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="340" y="95" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">审批节点</text>
+  <text x="340" y="113" text-anchor="middle" font-size="10" fill="#a16207">interrupt() 暂停</text>
+
+  <!-- Pause indicator -->
+  <rect x="300" y="145" width="80" height="25" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="340" y="162" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">⏸ 暂停等待</text>
+  <line x1="340" y1="130" x2="340" y2="143" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Human box -->
+  <rect x="255" y="210" width="170" height="55" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="340" y="235" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">👤 人类审批</text>
+  <text x="340" y="253" text-anchor="middle" font-size="11" fill="#15803d">Command(resume="批准/拒绝")</text>
+
+  <!-- Arrows from human -->
+  <line x1="340" y1="210" x2="340" y2="172" stroke="#16a34a" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <!-- Approve branch -->
+  <line x1="395" y1="100" x2="475" y2="100" stroke="#16a34a" stroke-width="2" marker-end="url(#arr3)"/>
+  <text x="430" y="90" font-size="11" fill="#16a34a">批准</text>
+
+  <!-- Execute node -->
+  <rect x="480" y="75" width="80" height="50" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="520" y="103" text-anchor="middle" font-size="13" fill="#166534">执行</text>
+
+  <line x1="560" y1="100" x2="595" y2="100" stroke="#2563eb" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <!-- END (approve) -->
+  <circle cx="615" cy="100" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="615" y="104" text-anchor="middle" font-size="10" font-weight="bold" fill="#166534">END</text>
+
+  <!-- Reject branch -->
+  <path d="M 340 70 L 340 40 L 520 40 L 520 58" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="430" y="35" text-anchor="middle" font-size="11" fill="#dc2626">拒绝</text>
+
+  <!-- Cancel node -->
+  <rect x="480" y="10" width="80" height="35" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="520" y="32" text-anchor="middle" font-size="12" fill="#991b1b">取消</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="'Microsoft YaHei', 'PingFang SC', sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">ReAct Agent 状态图</text>
+
+  <!-- START -->
+  <circle cx="300" cy="70" r="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="300" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">START</text>
+
+  <!-- Arrow: START → Agent -->
+  <line x1="300" y1="90" x2="300" y2="135" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Agent Node -->
+  <rect x="220" y="140" width="160" height="55" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="300" y="165" text-anchor="middle" font-size="15" font-weight="bold" fill="#92400e">Agent 节点</text>
+  <text x="300" y="183" text-anchor="middle" font-size="11" fill="#a16207">调用 LLM，决定下一步</text>
+
+  <!-- Conditional routing diamond -->
+  <polygon points="300,225 340,255 300,285 260,255" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="300" y="253" text-anchor="middle" font-size="10" fill="#1d4ed8">条件</text>
+  <text x="300" y="265" text-anchor="middle" font-size="10" fill="#1d4ed8">路由</text>
+
+  <!-- Arrow: Agent → condition -->
+  <line x1="300" y1="195" x2="300" y2="223" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Left branch: has tool_calls → Tools -->
+  <line x1="260" y1="255" x2="155" y2="255" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="200" y="245" text-anchor="middle" font-size="11" fill="#2563eb">有工具调用</text>
+
+  <!-- Tools Node -->
+  <rect x="60" y="230" width="90" height="50" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="2.5"/>
+  <text x="105" y="252" text-anchor="middle" font-size="14" font-weight="bold" fill="#9d174d">Tools</text>
+  <text x="105" y="268" text-anchor="middle" font-size="10" fill="#be185d">执行工具</text>
+
+  <!-- Loop: Tools → Agent (going up) -->
+  <path d="M 105 230 L 105 167 L 218 167" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="80" y="195" font-size="11" fill="#2563eb">结果反馈</text>
+
+  <!-- Right branch: no tool_calls → END -->
+  <line x1="340" y1="255" x2="450" y2="255" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="395" y="245" text-anchor="middle" font-size="11" fill="#2563eb">直接回答</text>
+
+  <!-- END -->
+  <circle cx="480" cy="255" r="20" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="480" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">END</text>
+
+  <!-- Legend -->
+  <rect x="140" y="340" width="320" height="60" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="160" y="362" font-size="11" fill="#666">■ 黄色 = LLM 决策节点</text>
+  <text x="160" y="382" font-size="11" fill="#666">■ 粉色 = 工具执行节点</text>
+  <text x="340" y="362" font-size="11" fill="#666">◇ 蓝色 = 条件路由</text>
+  <text x="340" y="382" font-size="11" fill="#666">● 绿/红 = START / END</text>
+</svg>
