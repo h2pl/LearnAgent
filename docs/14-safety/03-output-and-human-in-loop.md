@@ -182,7 +182,7 @@ deactivate_user(user_id) → 7 天内可恢复
 └─ 输出层: 输出过滤 + 人工审批 + 回滚
 ```
 
-**下一篇**：[架构设计与 API 服务化](../15-ship-to-prod/01-architecture-and-api.md)——从安全转向产品交付。
+**下一篇**：[安全实现：构建纵深防御系统](04-security-implementation.md)——把前三篇的理论落地为代码。
 
 ## 参考链接
 
