@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="8" filter="url(#shadow)"/>
+  <text x="480" y="35" font-family="PingFang SC, Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">Agent 系统参考架构</text>
+
+  <!-- Layer 1: API Layer -->
+  <rect x="60" y="55" width="840" height="70" rx="8" fill="#FFF" stroke="#2563EB" stroke-width="1.5"/>
+  <rect x="60" y="55" width="160" height="70" rx="8" fill="#2563EB"/>
+  <text x="140" y="85" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">API 层</text>
+  <text x="140" y="110" font-family="Segoe UI, sans-serif" font-size="10" fill="#BFDBFE" text-anchor="middle">API Layer</text>
+
+  <rect x="250" y="65" width="180" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="340" y="84" font-family="Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">REST (同步)</text>
+
+  <rect x="450" y="65" width="180" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="540" y="84" font-family="Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">WebSocket / SSE (流式)</text>
+
+  <rect x="650" y="65" width="180" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="740" y="84" font-family="Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">限流 / 认证 / 版本</text>
+
+  <line x1="480" y1="125" x2="480" y2="145" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: Orchestration -->
+  <rect x="60" y="150" width="840" height="80" rx="8" fill="#FFF" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="60" y="150" width="160" height="80" rx="8" fill="#D97706"/>
+  <text x="140" y="180" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">编排层</text>
+  <text x="140" y="210" font-family="Segoe UI, sans-serif" font-size="10" fill="#FEF3C7" text-anchor="middle">Orchestration</text>
+
+  <rect x="250" y="160" width="135" height="28" rx="6" fill="#FFFBEB"/>
+  <text x="317" y="179" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#92400E" text-anchor="middle">意图识别</text>
+
+  <rect x="395" y="160" width="135" height="28" rx="6" fill="#FFFBEB"/>
+  <text x="462" y="179" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#92400E" text-anchor="middle">上下文组装</text>
+
+  <rect x="540" y="160" width="135" height="28" rx="6" fill="#FFFBEB"/>
+  <text x="607" y="179" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#92400E" text-anchor="middle">工具调度</text>
+
+  <rect x="685" y="160" width="135" height="28" rx="6" fill="#FFFBEB"/>
+  <text x="752" y="179" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#92400E" text-anchor="middle">响应生成</text>
+
+  <text x="480" y="215" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">LangGraph / CrewAI / 自研引擎</text>
+
+  <line x1="480" y1="230" x2="480" y2="255" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: Capabilities -->
+  <rect x="60" y="260" width="840" height="100" rx="8" fill="#FFF" stroke="#059669" stroke-width="1.5"/>
+  <rect x="60" y="260" width="160" height="100" rx="8" fill="#059669"/>
+  <text x="140" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">能力层</text>
+  <text x="140" y="325" font-family="Segoe UI, sans-serif" font-size="10" fill="#A7F3D0" text-anchor="middle">Capabilities</text>
+
+  <!-- LLM Pool -->
+  <rect x="250" y="275" width="170" height="75" rx="6" fill="#D1FAE5"/>
+  <text x="335" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">LLM 池</text>
+  <text x="270" y="315" font-family="Segoe UI, sans-serif" font-size="10" fill="#047857">GPT-4o / Claude Opus</text>
+  <text x="270" y="335" font-family="Segoe UI, sans-serif" font-size="10" fill="#047857">DeepSeek / ……</text>
+
+  <!-- Tools Pool -->
+  <rect x="435" y="275" width="170" height="75" rx="6" fill="#D1FAE5"/>
+  <text x="520" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">工具池</text>
+  <text x="455" y="315" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#047857">MCP Server</text>
+  <text x="455" y="335" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#047857">工具白名单 + 参数约束</text>
+
+  <!-- Retrieval Pool -->
+  <rect x="620" y="275" width="130" height="75" rx="6" fill="#D1FAE5"/>
+  <text x="685" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">检索池</text>
+  <text x="640" y="315" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#047857">向量搜索</text>
+  <text x="640" y="335" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#047857">全文搜索</text>
+
+  <!-- Memory Pool -->
+  <rect x="765" y="275" width="115" height="75" rx="6" fill="#D1FAE5"/>
+  <text x="822" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">记忆池</text>
+  <text x="785" y="315" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#047857">对话历史</text>
+  <text x="785" y="335" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#047857">长期记忆</text>
+
+  <line x1="480" y1="360" x2="480" y2="385" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 4: Infrastructure -->
+  <rect x="60" y="390" width="840" height="85" rx="8" fill="#FFF" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="60" y="390" width="160" height="85" rx="8" fill="#7C3AED"/>
+  <text x="140" y="425" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">基础设施层</text>
+  <text x="140" y="455" font-family="Segoe UI, sans-serif" font-size="10" fill="#EDE9FE" text-anchor="middle">Infrastructure</text>
+
+  <rect x="250" y="405" width="130" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="315" y="424" font-family="Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">PostgreSQL</text>
+
+  <rect x="395" y="405" width="130" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="460" y="424" font-family="Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">Redis</text>
+
+  <rect x="540" y="405" width="130" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="605" y="424" font-family="Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">Qdrant</text>
+
+  <rect x="685" y="405" width="130" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="750" y="424" font-family="Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">Prometheus + Grafana</text>
+
+  <text x="480" y="465" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">每层独立部署、独立扩展、独立演进</text>
+</svg>

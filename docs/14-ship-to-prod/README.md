@@ -1,40 +1,19 @@
-# 13 — 产品交付 🎯
+# 14 — 产品交付
 
-## 目录
+> 综合运用所有知识，交付一个可部署的 Agent 系统。从架构设计到部署运维，从监控告警到项目文档。
 
-- [概述](#概述)
-- [架构设计](#架构设计)
-- [API 服务化](#api-服务化)
-- [部署方案](#部署方案)
-- [监控与运维](#监控与运维)
-- [项目文档](#项目文档)
-- [参考链接](#参考链接)
+## 文章列表
 
-## 概述
-
-<!-- TODO: 综合运用所有知识，交付一个可部署的 Agent 系统 -->
-
-## 架构设计
-
-<!-- TODO: 从需求到技术选型的决策过程 -->
-
-## API 服务化
-
-<!-- TODO: FastAPI 后端、API 设计、WebSocket / SSE 流式 -->
-
-## 部署方案
-
-<!-- TODO: Docker 容器化、CI/CD、环境管理 -->
-
-## 监控与运维
-
-<!-- TODO: 日志、监控、告警、成本控制 -->
-
-## 项目文档
-
-<!-- TODO: README、架构图、工作流图、技术选型说明 -->
+| # | 文章 | 核心内容 |
+|---|------|---------|
+| 01 | [架构设计与 API 服务化](01-architecture-and-api.md) | 分层架构、Agent 引擎循环、REST/SSE API |
+| 02 | [部署方案](02-deployment.md) | Docker 容器化、多环境管理、CI/CD 流水线 |
+| 03 | [监控运维与项目文档](03-monitoring-and-docs.md) | 黄金指标、告警策略、项目文档体系、系列总结 |
 
 ## 参考链接
 
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Docker Documentation](https://docs.docker.com/)
+- [Google SRE Book](https://sre.google/sre-book/table-of-contents/)
+- [12-Factor App](https://12factor.net/)
+- [ADR — Architecture Decision Records](https://adr.github.io/)
