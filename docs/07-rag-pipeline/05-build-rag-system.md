@@ -19,7 +19,7 @@
 
 你好，我是江小湖。前四篇我们讲了 RAG 的原理、切分策略、检索方法和评估指标。这一篇，我们**动手写代码**，从零搭建一个能用的 RAG 系统。
 
-<img src="../../assets/06-rag-pipeline/build-rag-system.svg" alt="实战 RAG 系统架构：LangChain + ChromaDB + OpenAI" width="95%"/>
+<img src="../../assets/07-rag-pipeline/build-rag-system.svg" alt="实战 RAG 系统架构：LangChain + ChromaDB + OpenAI" width="95%"/>
 
 读完本文，你将拥有一个可以回答"基于你的私有文档"问题的 AI 助手，并且理解每一步在做什么。
 

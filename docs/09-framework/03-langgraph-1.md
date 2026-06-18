@@ -55,7 +55,7 @@ while True:
 用 if-else 和 while 循环手写当然可以，但当流程变得更复杂——多个分支嵌套、需要中断恢复、多用户状态隔离——手写代码会迅速膨胀。**状态图**用图结构显式定义流程：节点是处理步骤，边是流转路径，条件边实现动态路由。分支、循环、并行都变成了图的拓扑结构，一眼就能看清。
 
 <p align="center">
-  <img src="../../assets/07-framework/linear-vs-stategraph.svg" alt="LCEL 线性管道与 LangGraph 状态图对比" width="90%"/>
+  <img src="../../assets/09-framework/linear-vs-stategraph.svg" alt="LCEL 线性管道与 LangGraph 状态图对比" width="90%"/>
   <br/>
   <em>LCEL 线性管道 vs LangGraph 状态图</em>
 </p>
@@ -208,7 +208,7 @@ graph.add_edge(START, "node_b")
 - **条件边**：根据 LLM 输出决定是执行工具还是直接回答
 
 <p align="center">
-  <img src="../../assets/07-framework/react-agent-graph.svg" alt="ReAct Agent 状态图结构" width="70%"/>
+  <img src="../../assets/09-framework/react-agent-graph.svg" alt="ReAct Agent 状态图结构" width="70%"/>
   <br/>
   <em>ReAct Agent 的状态图结构</em>
 </p>

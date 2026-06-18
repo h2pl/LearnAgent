@@ -34,7 +34,7 @@ RAG 系统有两个阶段需要评测：
 
 检索阶段评测“找对了没有”：
 
-<img src="../../assets/06-rag-pipeline/rag-evaluation-metrics.svg" alt="RAG 评测指标体系：检索评测 + 生成评测" width="95%"/>
+<img src="../../assets/07-rag-pipeline/rag-evaluation-metrics.svg" alt="RAG 评测指标体系：检索评测 + 生成评测" width="95%"/>
 
 | 指标 | 定义 | 适用场景 |
 |------|------|----------|

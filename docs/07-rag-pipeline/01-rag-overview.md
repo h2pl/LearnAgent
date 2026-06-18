@@ -174,7 +174,7 @@ RAG 和微调是两种不同的"给 LLM 加知识"的方法，理解它们的区
 
 RAG 的完整流程包含三个阶段，每个阶段都有多种策略选择：
 
-<img src="../../assets/06-rag-pipeline/rag-pipeline-overview.svg" alt="RAG 完整流程：索引→检索→生成三阶段" width="95%"/>
+<img src="../../assets/07-rag-pipeline/rag-pipeline-overview.svg" alt="RAG 完整流程：索引→检索→生成三阶段" width="95%"/>
 
 ```
 文档 → 切分 → 向量化 → 存入向量数据库

@@ -53,7 +53,7 @@ def parse_pdf(file_path: str) -> list[dict]:
 
 切分策略决定文档被分割成多大的片段，直接影响检索效果：
 
-<img src="../../assets/06-rag-pipeline/chunking-strategies.svg" alt="文档切分策略对比：固定长度 vs 语义边界 vs 递归切分" width="95%"/>
+<img src="../../assets/07-rag-pipeline/chunking-strategies.svg" alt="文档切分策略对比：固定长度 vs 语义边界 vs 递归切分" width="95%"/>
 
 | 策略 | 优点 | 缺点 | 适用场景 |
 |------|------|------|----------|

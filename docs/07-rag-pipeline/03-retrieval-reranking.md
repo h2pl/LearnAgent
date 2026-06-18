@@ -88,7 +88,7 @@ def bm25_search(query: str, documents: list[str], n_results: int = 5):
 
 混合检索结合向量检索和 BM25 的优势，用 RRF（Reciprocal Rank Fusion）融合两路结果：
 
-<img src="../../assets/06-rag-pipeline/hybrid-retrieval-flow.svg" alt="混合检索流程：向量检索 + BM25 + RRF 融合 + Reranker" width="95%"/>
+<img src="../../assets/07-rag-pipeline/hybrid-retrieval-flow.svg" alt="混合检索流程：向量检索 + BM25 + RRF 融合 + Reranker" width="95%"/>
 
 ```python
 # 混合检索示例
@@ -168,7 +168,7 @@ def rerank(query: str, documents: list[str], top_k: int = 3):
 
 **Reranker 的工作原理**：
 
-<img src="../../assets/06-rag-pipeline/bi-vs-cross-encoder.svg" alt="Bi-Encoder vs Cross-Encoder 工作原理对比" width="95%"/>
+<img src="../../assets/07-rag-pipeline/bi-vs-cross-encoder.svg" alt="Bi-Encoder vs Cross-Encoder 工作原理对比" width="95%"/>
 
 - **Embedding 模型**（Bi-Encoder）：分别编码查询和文档，用余弦相似度匹配
 - **Cross-Encoder**：将查询和文档拼接，一起输入模型，输出相关性分数

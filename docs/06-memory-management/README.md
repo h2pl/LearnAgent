@@ -10,4 +10,4 @@
 | 02 | [记忆存储与检索](./02-memory-storage-retrieval.md) | 向量数据库、SQL、文件存储的选型；检索策略与相似度匹配 |
 | 03 | [跨会话记忆实践](./03-cross-session-memory.md) | 从零构建带记忆的 Agent：记忆写入、检索、更新、遗忘的完整流程 |
 
-> 学完本章后，请继续阅读 [07 — 上下文工程](../07-context-engineering/README.md)，学习如何高效管理 Agent 的上下文窗口。
+> 学完本章后，请继续阅读 [07 — 知识检索（RAG）](../07-rag-pipeline/README.md)，让 Agent 基于外部知识库回答问题。

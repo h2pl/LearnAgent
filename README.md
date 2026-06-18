@@ -27,8 +27,8 @@
 | 04 | [工具调用](./docs/04-tool-use/README.md) | LLM 怎么调用外部函数？ | 多工具对话 demo |
 | 05 | [Agent 循环](./docs/05-agent-loop/README.md) | Agent 的核心循环怎么工作？ | ⭐ 最小 ReAct Agent |
 | 06 | [记忆管理](./docs/06-memory-management/README.md) | Agent 怎么记住之前的事？ | 带记忆的 Agent |
-| 07 | [上下文工程](./docs/07-context-engineering/README.md) | 怎么高效管理 Agent 的上下文窗口？ | 上下文优化方案 |
-| 08 | [知识检索](./docs/08-rag-pipeline/README.md) | 怎么让 Agent 基于外部知识回答？ | RAG 问答系统 |
+| 07 | [知识检索](./docs/07-rag-pipeline/README.md) | 怎么让 Agent 基于外部知识回答？ | RAG 问答系统 |
+| 08 | [上下文工程](./docs/08-context-engineering/README.md) | 怎么高效管理 Agent 的上下文窗口？ | 上下文优化方案 |
 | 09 | [框架与编排](./docs/09-framework/README.md) | 怎么用框架管理复杂 Agent？ | LangGraph Agent |
 | 10 | [扩展协议与标准](./docs/10-protocols/README.md) | MCP / Skills / AGENTS.md 是什么？ | MCP Server + Skill |
 | 11 | [多 Agent 协作](./docs/11-multi-agent/README.md) | 多个 Agent 怎么协作？ | 多 Agent 系统 |

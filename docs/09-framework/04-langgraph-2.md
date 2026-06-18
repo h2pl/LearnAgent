@@ -48,7 +48,7 @@ response = app.invoke({"messages": [HumanMessage(content="你好")]})
 LangGraph 的 Checkpoint 机制很直接：**每个节点执行完后，自动保存一份完整的状态快照**。就像游戏的自动存档——每个关卡通过后自动存盘，你可以从任意存档点继续。
 
 <p align="center">
-  <img src="../../assets/07-framework/checkpoint-timeline.svg" alt="Checkpoint 时间线" width="90%"/>
+  <img src="../../assets/09-framework/checkpoint-timeline.svg" alt="Checkpoint 时间线" width="90%"/>
   <br/>
   <em>每个节点执行后自动保存状态快照</em>
 </p>
@@ -225,7 +225,7 @@ else:
 ### 审批流程示例
 
 <p align="center">
-  <img src="../../assets/07-framework/hitl-flow.svg" alt="Human-in-the-Loop 流程" width="80%"/>
+  <img src="../../assets/09-framework/hitl-flow.svg" alt="Human-in-the-Loop 流程" width="80%"/>
   <br/>
   <em>HITL 流程：暂停 → 人类审批 → 执行或取消</em>
 </p>

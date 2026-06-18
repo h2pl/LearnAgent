@@ -336,7 +336,7 @@ def inject_memories(self, max_tokens: int = 500):
 - **生产环境必须关注**：用户记忆隔离（安全）、记忆容量控制（不超过 200 条）、注入 Token 预算（不超过 500 tokens）。
 - **框架能加速开发**：LangGraph Checkpoint 解决短期/工作记忆，Mem0 解决长期记忆，不需要全部自己写。
 
-> 掌握了记忆管理，你已经能让 Agent "越用越聪明"。但记忆和对话历史都会占用上下文窗口——这个有限的资源怎么管理？请继续阅读 [07 — 上下文工程](../07-context-engineering/README.md)，学习如何高效装配 Agent 的上下文。
+> 掌握了记忆管理，你已经能让 Agent “越用越聪明”。但记忆和对话历史都会占用上下文窗口——这个有限的资源怎么管理？请继续阅读 [08 — 上下文工程](../08-context-engineering/README.md)，学习如何高效装配 Agent 的上下文。
 
 ## 参考链接
 
