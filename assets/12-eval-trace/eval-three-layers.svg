@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="8" filter="url(#shadow)"/>
+  <text x="480" y="35" font-family="PingFang SC, Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">Agent 三层评测体系</text>
+
+  <!-- System Level -->
+  <rect x="40" y="60" width="880" height="120" rx="10" fill="#FFF" stroke="#7C3AED" stroke-width="2"/>
+  <rect x="40" y="60" width="200" height="120" rx="10" fill="#7C3AED"/>
+  <rect x="240" y="60" width="680" height="120" rx="0" fill="#7C3AED" opacity="0.1"/>
+  <rect x="40" y="60" width="200" height="120" rx="10" fill="#7C3AED"/>
+  <text x="140" y="110" font-family="PingFang SC, Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#FFF" text-anchor="middle">系统级</text>
+  <text x="140" y="135" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#E9D5FF" text-anchor="middle">System-Level</text>
+  <text x="140" y="160" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#E9D5FF" text-anchor="middle">上线后持续盯</text>
+
+  <rect x="270" y="75" width="140" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="340" y="94" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">用户留存率</text>
+  <rect x="420" y="75" width="140" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="490" y="94" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">任务重试率</text>
+  <rect x="570" y="75" width="140" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="640" y="94" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">人工介入率</text>
+
+  <rect x="270" y="115" width="140" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="340" y="134" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">用户满意度</text>
+  <rect x="420" y="115" width="140" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="490" y="134" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">在线 LLM-as-Judge</text>
+  <rect x="570" y="115" width="140" height="28" rx="6" fill="#EDE9FE"/>
+  <text x="640" y="134" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle">系统漂移检测</text>
+
+  <!-- Arrow from system to task -->
+  <line x1="480" y1="180" x2="480" y2="195" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Task Level -->
+  <rect x="40" y="200" width="880" height="120" rx="10" fill="#FFF" stroke="#2563EB" stroke-width="2"/>
+  <rect x="40" y="200" width="200" height="120" rx="10" fill="#2563EB"/>
+  <rect x="240" y="200" width="680" height="120" rx="0" fill="#2563EB" opacity="0.08"/>
+  <rect x="40" y="200" width="200" height="120" rx="10" fill="#2563EB"/>
+  <text x="140" y="250" font-family="PingFang SC, Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#FFF" text-anchor="middle">任务级</text>
+  <text x="140" y="275" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#BFDBFE" text-anchor="middle">Task-Level</text>
+  <text x="140" y="300" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#BFDBFE" text-anchor="middle">定期自动跑</text>
+
+  <rect x="270" y="215" width="160" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="350" y="234" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">任务完成率 (TSR)</text>
+  <rect x="440" y="215" width="160" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="520" y="234" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">轨迹质量评分</text>
+  <rect x="610" y="215" width="160" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="690" y="234" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">鲁棒性测试</text>
+
+  <rect x="270" y="255" width="160" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="350" y="274" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">Gold 评测集</text>
+  <rect x="440" y="255" width="160" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="520" y="274" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">回归 / 对抗测试</text>
+  <rect x="610" y="255" width="160" height="28" rx="6" fill="#DBEAFE"/>
+  <text x="690" y="274" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">CI/CD 集成</text>
+
+  <!-- Arrow from task to component -->
+  <line x1="480" y1="320" x2="480" y2="335" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Component Level -->
+  <rect x="40" y="340" width="880" height="120" rx="10" fill="#FFF" stroke="#059669" stroke-width="2"/>
+  <rect x="40" y="340" width="200" height="120" rx="10" fill="#059669"/>
+  <rect x="240" y="340" width="680" height="120" rx="0" fill="#059669" opacity="0.08"/>
+  <rect x="40" y="340" width="200" height="120" rx="10" fill="#059669"/>
+  <text x="140" y="390" font-family="PingFang SC, Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#FFF" text-anchor="middle">组件级</text>
+  <text x="140" y="415" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#A7F3D0" text-anchor="middle">Component-Level</text>
+  <text x="140" y="440" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#A7F3D0" text-anchor="middle">最先建立、最频繁</text>
+
+  <rect x="270" y="355" width="160" height="28" rx="6" fill="#D1FAE5"/>
+  <text x="350" y="374" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">工具调用准确率</text>
+  <rect x="440" y="355" width="160" height="28" rx="6" fill="#D1FAE5"/>
+  <text x="520" y="374" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">检索命中率 / MRR</text>
+  <rect x="610" y="355" width="160" height="28" rx="6" fill="#D1FAE5"/>
+  <text x="690" y="374" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">记忆读写准确率</text>
+
+  <rect x="270" y="395" width="160" height="28" rx="6" fill="#D1FAE5"/>
+  <text x="350" y="414" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">参数填充准确率</text>
+  <rect x="440" y="395" width="160" height="28" rx="6" fill="#D1FAE5"/>
+  <text x="520" y="414" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">工具调用顺序</text>
+  <rect x="610" y="395" width="160" height="28" rx="6" fill="#D1FAE5"/>
+  <text x="690" y="414" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">调用耗时 / 错误率</text>
+
+  <!-- Bottom -->
+  <text x="480" y="485" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">组件级最先做 → 任务级定期跑 → 系统级持续盯</text>
+</svg>

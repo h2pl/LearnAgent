@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="8" filter="url(#shadow)"/>
+  <text x="480" y="35" font-family="PingFang SC, Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">Agent 成本构成与优化策略</text>
+
+  <!-- Cost Breakdown Doughnut (simplified as stacked bars) -->
+  <text x="220" y="70" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">成本构成</text>
+
+  <rect x="70" y="85" width="300" height="220" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="220" y="110" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#475569" text-anchor="middle">典型成本分布</text>
+
+  <!-- Bar chart -->
+  <rect x="100" y="130" width="40" height="150" rx="3" fill="#2563EB" opacity="0.85"/>
+  <text x="120" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569" text-anchor="middle">LLM 推理</text>
+  <text x="120" y="125" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#2563EB" text-anchor="middle">78%</text>
+
+  <rect x="160" y="210" width="40" height="70" rx="3" fill="#10B981" opacity="0.85"/>
+  <text x="180" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569" text-anchor="middle">向量检索</text>
+  <text x="180" y="205" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#10B981" text-anchor="middle">12%</text>
+
+  <rect x="220" y="245" width="40" height="35" rx="3" fill="#F59E0B" opacity="0.85"/>
+  <text x="240" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569" text-anchor="middle">工具调用</text>
+  <text x="240" y="240" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#F59E0B" text-anchor="middle">7%</text>
+
+  <rect x="280" y="265" width="40" height="15" rx="3" fill="#7C3AED" opacity="0.85"/>
+  <text x="300" y="295" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569" text-anchor="middle">基础设施</text>
+  <text x="300" y="260" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#7C3AED" text-anchor="middle">3%</text>
+
+  <!-- Optimization Strategies -->
+  <text x="620" y="70" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">优化策略</text>
+
+  <rect x="420" y="85" width="500" height="220" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+
+  <rect x="440" y="100" width="460" height="35" rx="6" fill="#EFF6FF"/>
+  <text x="455" y="122" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#1E40AF">模型路由</text>
+  <text x="620" y="122" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#475569">简单→小型模型，复杂→大型模型</text>
+  <rect x="855" y="106" width="30" height="16" rx="3" fill="#059669"/>
+  <text x="870" y="118" font-family="Segoe UI, sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">-80%</text>
+
+  <rect x="440" y="145" width="460" height="35" rx="6" fill="#ECFDF5"/>
+  <text x="455" y="167" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#065F46">Prompt 压缩</text>
+  <text x="620" y="167" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#475569">精简指令、压缩历史、结构化输入</text>
+  <rect x="855" y="151" width="30" height="16" rx="3" fill="#059669"/>
+  <text x="870" y="163" font-family="Segoe UI, sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">-40%</text>
+
+  <rect x="440" y="190" width="460" height="35" rx="6" fill="#FFFBEB"/>
+  <text x="455" y="212" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#92400E">多层缓存</text>
+  <text x="620" y="212" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#475569">KV Cache、响应缓存、检索缓存</text>
+  <rect x="855" y="196" width="30" height="16" rx="3" fill="#059669"/>
+  <text x="870" y="208" font-family="Segoe UI, sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">-50%</text>
+
+  <rect x="440" y="235" width="460" height="35" rx="6" fill="#FEF2F2"/>
+  <text x="455" y="257" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#991B1B">减少 LLM 调用</text>
+  <text x="620" y="257" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#475569">规则前置、批量处理、有限状态机</text>
+  <rect x="855" y="241" width="30" height="16" rx="3" fill="#059669"/>
+  <text x="870" y="253" font-family="Segoe UI, sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">-60%</text>
+
+  <!-- Bottom: Budget Control Framework -->
+  <text x="480" y="340" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">预算管控框架</text>
+
+  <rect x="60" y="355" width="840" height="120" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+
+  <rect x="80" y="365" width="195" height="100" rx="6" fill="#F1F5F9"/>
+  <text x="177" y="385" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#475569" text-anchor="middle">月度预算</text>
+  <text x="177" y="405" font-family="Segoe UI, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">¥100,000</text>
+  <text x="177" y="425" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">按模型 / 功能分配</text>
+  <text x="177" y="445" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">逐层上线限制</text>
+
+  <line x1="280" y1="415" x2="305" y2="415" stroke="#64748B" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <rect x="310" y="365" width="195" height="100" rx="6" fill="#F1F5F9"/>
+  <text x="407" y="385" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#475569" text-anchor="middle">软限制告警</text>
+  <text x="407" y="405" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">> 80% 预算告警</text>
+  <text x="407" y="425" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">自动切换经济模型</text>
+  <text x="407" y="445" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">非核心功能降级</text>
+
+  <line x1="510" y1="415" x2="535" y2="415" stroke="#64748B" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <rect x="540" y="365" width="175" height="100" rx="6" fill="#F1F5F9"/>
+  <text x="627" y="385" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#475569" text-anchor="middle">硬限制保护</text>
+  <text x="627" y="405" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">> 100% 预算停止</text>
+  <text x="627" y="425" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">单请求 token 上限</text>
+  <text x="627" y="445" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">死循环自动终止</text>
+
+  <line x1="720" y1="415" x2="745" y2="415" stroke="#64748B" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <rect x="750" y="365" width="130" height="100" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+  <text x="815" y="385" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#1E40AF" text-anchor="middle">预算仪表盘</text>
+  <text x="815" y="405" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#1D4ED8" text-anchor="middle">实时消耗</text>
+  <text x="815" y="425" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#1D4ED8" text-anchor="middle">趋势预测</text>
+  <text x="815" y="445" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#1D4ED8" text-anchor="middle">明细分析</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="8" filter="url(#shadow)"/>
+  <text x="480" y="35" font-family="PingFang SC, Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">全链路追踪架构</text>
+
+  <!-- User Request -->
+  <rect x="380" y="60" width="200" height="40" rx="8" fill="#2563EB"/>
+  <text x="480" y="86" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">用户请求</text>
+
+  <line x1="480" y1="100" x2="480" y2="125" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Trace ID -->
+  <rect x="380" y="130" width="200" height="35" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="480" y="152" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Trace: req_abc123</text>
+
+  <!-- Spans box -->
+  <rect x="80" y="185" width="800" height="200" rx="10" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="480" y="210" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">Span 链路</text>
+
+  <!-- Span: Intent -->
+  <rect x="110" y="225" width="740" height="30" rx="6" fill="#F1F5F9"/>
+  <text x="130" y="245" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" fill="#475569">意图识别</text>
+  <text x="770" y="245" font-family="Segoe UI, sans-serif" font-size="11" fill="#94A3B8">LLM 调用</text>
+  <rect x="665" y="232" width="80" height="16" rx="4" fill="#D1FAE5"/>
+  <text x="705" y="244" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">120ms</text>
+
+  <!-- Span: Retrieve -->
+  <rect x="130" y="268" width="720" height="30" rx="6" fill="#F1F5F9"/>
+  <text x="150" y="288" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" fill="#475569">├─ 知识库检索</text>
+  <text x="770" y="288" font-family="Segoe UI, sans-serif" font-size="11" fill="#94A3B8">向量搜索</text>
+  <rect x="665" y="275" width="80" height="16" rx="4" fill="#D1FAE5"/>
+  <text x="705" y="287" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">80ms</text>
+
+  <!-- Span: Tool Call -->
+  <rect x="130" y="308" width="720" height="30" rx="6" fill="#F1F5F9"/>
+  <text x="150" y="328" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" fill="#475569">├─ 工具调用：query_order</text>
+  <text x="770" y="328" font-family="Segoe UI, sans-serif" font-size="11" fill="#94A3B8">外部 API</text>
+  <rect x="665" y="315" width="80" height="16" rx="4" fill="#FEF3C7"/>
+  <text x="705" y="327" font-family="Segoe UI, sans-serif" font-size="9" fill="#92400E" text-anchor="middle">230ms</text>
+
+  <!-- Span: Response -->
+  <rect x="130" y="348" width="720" height="30" rx="6" fill="#F1F5F9"/>
+  <text x="150" y="368" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" fill="#475569">└─ 生成回答</text>
+  <text x="770" y="368" font-family="Segoe UI, sans-serif" font-size="11" fill="#94A3B8">LLM 调用</text>
+  <rect x="665" y="355" width="80" height="16" rx="4" fill="#D1FAE5"/>
+  <text x="705" y="367" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">350ms</text>
+
+  <!-- Data flow line -->
+  <line x1="480" y1="385" x2="480" y2="410" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Export/Destination -->
+  <rect x="130" y="415" width="200" height="40" rx="8" fill="#FFF" stroke="#10B981" stroke-width="1.5"/>
+  <text x="230" y="442" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" fill="#065F46" text-anchor="middle">Exporter</text>
+
+  <rect x="380" y="415" width="200" height="40" rx="8" fill="#FFF" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="480" y="442" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" fill="#92400E" text-anchor="middle">后端存储</text>
+
+  <rect x="630" y="415" width="200" height="40" rx="8" fill="#FFF" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="730" y="442" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" fill="#5B21B6" text-anchor="middle">可视化查询</text>
+
+  <line x1="330" y1="435" x2="375" y2="435" stroke="#64748B" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="580" y1="435" x2="625" y2="435" stroke="#64748B" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Bottom storage details -->
+  <rect x="130" y="465" width="700" height="25" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="480" y="482" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">存储：完整 prompt / 响应 / Token 用量 / 耗时 / 错误信息</text>
+</svg>
