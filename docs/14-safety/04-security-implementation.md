@@ -503,7 +503,7 @@ class SecurityEval:
 
 对于大多数团队，推荐从 **NeMo Guardrails** 开始——50+ 内置护栏规则，Colang DSL 配置安全策略，几行代码即可集成。安全评测集和功能评测集一样需要持续维护。
 
-**下一篇**：[架构设计与 API 服务化](../15-ship-to-prod/01-architecture-and-api.md)——从安全转向产品交付。
+**下一篇**：[架构设计](../15-ship-to-prod/01-architecture.md)——从安全转向产品交付。
 
 ## 参考链接
 

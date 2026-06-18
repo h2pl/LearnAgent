@@ -1,18 +1,21 @@
 # 15 — 产品交付
 
-> 综合运用所有知识，交付一个可部署的 Agent 系统。从架构设计到部署运维，从项目文档到善后总结。
+> 从架构设计到项目文档，把前 14 章的知识凝结为一个可部署的 Agent 系统。
 
 ## 文章列表
 
 | # | 文章 | 核心内容 |
 |---|------|---------|
-| 01 | [架构设计与 API 服务化](01-architecture-and-api.md) | 分层架构、Agent 引擎循环、REST/SSE API |
-| 02 | [部署方案](02-deployment.md) | Docker 容器化、多环境管理、CI/CD 流水线 |
-| 03 | [运维实战与项目文档](03-operations-and-docs.md) | 日常巡检、故障响应、灾难恢复、项目文档 |
+| 01 | [架构设计](01-architecture.md) | 四层架构、Agent 引擎、插件系统、错误处理、扩展性 |
+| 02 | [API 服务化](02-api-service.md) | REST/SSE/WebSocket 设计、认证限流、客户端 SDK |
+| 03 | [部署方案](03-deployment.md) | Docker/K8s/CI/CD/多环境/发布策略/密钥管理 |
+| 04 | [运维实战](04-operations.md) | 日常巡检、故障响应、灾难恢复、Runbook |
+| 05 | [项目文档](05-documentation.md) | 文档体系、ADR、Agent 专属文档、Changelog |
 
 ## 参考链接
 
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Google SRE Book](https://sre.google/sre-book/table-of-contents/)
 - [12-Factor App](https://12factor.net/)
+- [Google SRE Book](https://sre.google/sre-book/table-of-contents/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [Docker Best Practices](https://docs.docker.com/develop/dev-best-practices/)
+- [ADR — Architecture Decision Records](https://adr.github.io/)
