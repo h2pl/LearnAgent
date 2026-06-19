@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#EFF6FF"/></linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+    <linearGradient id="step" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+    <linearGradient id="arrow" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#93C5FD"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2563EB"/></marker>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)" rx="8"/>
+
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="680" height="44" fill="url(#header)" rx="8"/>
+  <rect x="0" y="22" width="680" height="22" fill="url(#header)"/>
+  <text x="340" y="28" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Claude Code 典型工作流</text>
+
+  <!-- Step 1 -->
+  <rect x="24" y="68" width="136" height="56" rx="8" fill="#fff" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="48" cy="82" r="12" fill="#2563EB"/><text x="48" y="86" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">1</text>
+  <text x="92" y="86" fill="#1E293B" font-size="11" font-weight="bold">启动</text>
+  <text x="92" y="102" fill="#64748B" font-size="9">运行 claude 命令</text>
+  <text x="92" y="114" fill="#94A3B8" font-size="8">自动读取 CLAUDE.md</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="164" y1="96" x2="190" y2="96" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 2 -->
+  <rect x="196" y="68" width="136" height="56" rx="8" fill="#fff" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="220" cy="82" r="12" fill="#2563EB"/><text x="220" y="86" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">2</text>
+  <text x="264" y="86" fill="#1E293B" font-size="11" font-weight="bold">描述任务</text>
+  <text x="264" y="102" fill="#64748B" font-size="9">自然语言描述需求</text>
+  <text x="264" y="114" fill="#94A3B8" font-size="8">添加重置密码功能</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="336" y1="96" x2="362" y2="96" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 3 -->
+  <rect x="368" y="68" width="136" height="56" rx="8" fill="#fff" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="392" cy="82" r="12" fill="#3B82F6"/><text x="392" y="86" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">3</text>
+  <text x="436" y="86" fill="#1E293B" font-size="11" font-weight="bold">分析规划</text>
+  <text x="436" y="102" fill="#64748B" font-size="9">搜索代码库理解</text>
+  <text x="436" y="114" fill="#94A3B8" font-size="8">规划修改范围</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="508" y1="96" x2="534" y2="96" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 4 -->
+  <rect x="540" y="68" width="116" height="56" rx="8" fill="#fff" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="564" cy="82" r="12" fill="#3B82F6"/><text x="564" y="86" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">4</text>
+  <text x="598" y="86" fill="#1E293B" font-size="11" font-weight="bold">执行</text>
+  <text x="598" y="102" fill="#64748B" font-size="9">创建/修改文件</text>
+  <text x="598" y="114" fill="#94A3B8" font-size="8">运行测试验证</text>
+
+  <!-- 循环区域 -->
+  <rect x="76" y="148" width="554" height="74" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="90" y="166" fill="#1D4ED8" font-size="10" font-weight="bold">迭代循环 (Step 5)</text>
+
+  <rect x="100" y="174" width="165" height="40" rx="6" fill="#fff" stroke="#60A5FA" stroke-width="1"/>
+  <text x="182" y="190" fill="#1E40AF" font-size="10" font-weight="bold" text-anchor="middle">测试失败？</text>
+  <text x="182" y="205" fill="#64748B" font-size="9" text-anchor="middle">读取错误 → 修复 → 重跑</text>
+
+  <!-- 循环箭头 -->
+  <path d="M269,194 C295,194 295,194 300,194 L300,194" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+
+  <rect x="310" y="174" width="165" height="40" rx="6" fill="#DCFCE7" stroke="#34D399" stroke-width="1"/>
+  <text x="392" y="190" fill="#047857" font-size="10" font-weight="bold" text-anchor="middle">测试通过 ✓</text>
+  <text x="392" y="205" fill="#64748B" font-size="9" text-anchor="middle">准备提交代码</text>
+
+  <!-- 循环回退示意 -->
+  <path d="M182,214 Q182,234 340,234 Q392,234 392,220" stroke="#DC2626" stroke-width="1" stroke-dasharray="4,2" fill="none"/>
+  <text x="265" y="232" fill="#DC2626" font-size="8" text-anchor="middle">失败则自动迭代修复</text>
+
+  <!-- Arrow to Step 6 -->
+  <line x1="392" y1="226" x2="392" y2="250" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 6 -->
+  <rect x="250" y="260" width="180" height="56" rx="8" fill="#059669" stroke="#047857" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="274" cy="274" r="12" fill="#fff"/><text x="274" y="278" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">6</text>
+  <text x="340" y="278" fill="#fff" font-size="11" font-weight="bold">提交</text>
+  <text x="340" y="294" fill="#D1FAE5" font-size="9">git diff 审查 → commit</text>
+  <text x="340" y="306" fill="#A7F3D0" font-size="8">需要决策时 Claude 会停下询问</text>
+
+  <!-- 扩展生态 -->
+  <rect x="24" y="332" width="632" height="52" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="40" y="352" fill="#1E293B" font-size="11" font-weight="bold">扩展生态支撑</text>
+  <rect x="40" y="360" width="108" height="18" rx="4" fill="#DBEAFE"/>
+  <text x="94" y="373" fill="#1E40AF" font-size="9" font-weight="bold" text-anchor="middle">CLAUDE.md</text>
+  <rect x="156" y="360" width="86" height="18" rx="4" fill="#DCFCE7"/>
+  <text x="199" y="373" fill="#047857" font-size="9" font-weight="bold" text-anchor="middle">Skills</text>
+  <rect x="250" y="360" width="84" height="18" rx="4" fill="#FEF3C7"/>
+  <text x="292" y="373" fill="#92400E" font-size="9" font-weight="bold" text-anchor="middle">MCP</text>
+  <rect x="342" y="360" width="84" height="18" rx="4" fill="#FCE7F3"/>
+  <text x="384" y="373" fill="#9D174D" font-size="9" font-weight="bold" text-anchor="middle">Hooks</text>
+  <rect x="434" y="360" width="86" height="18" rx="4" fill="#E0E7FF"/>
+  <text x="477" y="373" fill="#3730A3" font-size="9" font-weight="bold" text-anchor="middle">Plugins</text>
+  <text x="540" y="373" fill="#94A3B8" font-size="9">全部界面共享同一引擎</text>
+</svg>

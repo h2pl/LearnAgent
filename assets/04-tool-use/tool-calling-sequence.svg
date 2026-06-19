@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" style="background:#fff;font-family:sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563EB"/>
+    </marker>
+    <marker id="arrow-res" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">工具调用完整时序图</text>
+
+  <!-- 顶部参与者 -->
+  <rect x="20" y="50" width="70" height="30" rx="6" fill="#2563EB"/>
+  <text x="55" y="70" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">用户</text>
+
+  <rect x="135" y="50" width="70" height="30" rx="6" fill="#059669"/>
+  <text x="170" y="70" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Agent</text>
+
+  <rect x="260" y="50" width="70" height="30" rx="6" fill="#2563EB"/>
+  <text x="295" y="70" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">LLM</text>
+
+  <rect x="385" y="50" width="70" height="30" rx="6" fill="#DC2626"/>
+  <text x="420" y="70" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">执行器</text>
+
+  <rect x="500" y="50" width="80" height="30" rx="6" fill="#7C3AED"/>
+  <text x="540" y="70" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">外部API</text>
+
+  <!-- 生命线 -->
+  <line x1="55" y1="80" x2="55" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="170" y1="80" x2="170" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="295" y1="80" x2="295" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="420" y1="80" x2="420" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="540" y1="80" x2="540" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 阶段标签 -->
+  <rect x="625" y="95" width="45" height="55" rx="4" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="647" y="112" text-anchor="middle" font-size="10" fill="#2563EB">定义</text>
+  <text x="647" y="128" text-anchor="middle" font-size="10" fill="#2563EB">阶段</text>
+
+  <rect x="625" y="160" width="45" height="55" rx="4" fill="#FEF3C7" stroke="#FDE68A"/>
+  <text x="647" y="177" text-anchor="middle" font-size="10" fill="#D97706">选择</text>
+  <text x="647" y="193" text-anchor="middle" font-size="10" fill="#D97706">阶段</text>
+
+  <rect x="625" y="225" width="45" height="55" rx="4" fill="#FEE2E2" stroke="#FECACA"/>
+  <text x="647" y="242" text-anchor="middle" font-size="10" fill="#DC2626">执行</text>
+  <text x="647" y="258" text-anchor="middle" font-size="10" fill="#DC2626">阶段</text>
+
+  <rect x="625" y="290" width="45" height="55" rx="4" fill="#D1FAE5" stroke="#A7F3D0"/>
+  <text x="647" y="307" text-anchor="middle" font-size="10" fill="#059669">回传</text>
+  <text x="647" y="323" text-anchor="middle" font-size="10" fill="#059669">阶段</text>
+
+  <!-- 箭头 1: 用户 → Agent → LLM (定义阶段) -->
+  <line x1="55" y1="95" x2="162" y2="95" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="112" y="90" text-anchor="middle" font-size="9" fill="#64748B">发送请求</text>
+  <line x1="170" y1="105" x2="287" y2="105" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="230" y="100" text-anchor="middle" font-size="9" fill="#64748B">携带工具Schema</text>
+
+  <!-- 箭头 2: LLM → Agent (选择阶段 - 工具调用) -->
+  <line x1="295" y1="130" x2="178" y2="130" stroke="#D97706" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="235" y="125" text-anchor="middle" font-size="9" fill="#92400E">tool_calls JSON</text>
+
+  <!-- 箭头 3: Agent → 执行器 (执行阶段) -->
+  <line x1="170" y1="155" x2="412" y2="155" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="295" y="150" text-anchor="middle" font-size="9" fill="#B91C1C">解析并执行调用</text>
+
+  <!-- 箭头 4: 执行器 → 外部API -->
+  <line x1="420" y1="170" x2="532" y2="170" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="478" y="165" text-anchor="middle" font-size="8" fill="#B91C1C">真实函数调用</text>
+
+  <!-- 箭头 5: 外部API → 执行器 -->
+  <line x1="540" y1="185" x2="428" y2="185" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="482" y="180" text-anchor="middle" font-size="8" fill="#6D28D9">返回原始数据</text>
+
+  <!-- 箭头 6: 执行器 → Agent → LLM (回传阶段) -->
+  <line x1="420" y1="200" x2="178" y2="200" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="300" y="195" text-anchor="middle" font-size="9" fill="#047857">tool role 结果消息</text>
+  <line x1="170" y1="215" x2="287" y2="215" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="230" y="210" text-anchor="middle" font-size="9" fill="#047857">注入对话上下文</text>
+
+  <!-- 箭头 7: LLM → Agent → 用户 (生成回复) -->
+  <line x1="295" y1="240" x2="178" y2="240" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="235" y="235" text-anchor="middle" font-size="9" fill="#047857">基于结果的回复</text>
+  <line x1="170" y1="255" x2="62" y2="255" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="115" y="250" text-anchor="middle" font-size="9" fill="#047857">最终答案</text>
+
+  <!-- 循环说明 -->
+  <rect x="135" y="275" width="320" height="70" rx="8" fill="#F0FDF4" stroke="#86EFAC" stroke-dasharray="5,3"/>
+  <text x="295" y="295" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">多轮循环</text>
+  <text x="295" y="312" text-anchor="middle" font-size="9" fill="#047857">模型可再次发起工具调用，形成"调用→回传→再调用"循环</text>
+  <text x="295" y="330" text-anchor="middle" font-size="9" fill="#047857">直到模型确定不再需要工具，输出最终文本回复</text>
+
+  <!-- 图注 -->
+  <text x="340" y="382" text-anchor="middle" font-size="11" fill="#94A3B8">图：四阶段接力——定义 → 选择 → 执行 → 回传，支持多轮循环</text>
+</svg>

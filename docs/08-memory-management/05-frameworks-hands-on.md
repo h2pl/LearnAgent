@@ -58,6 +58,12 @@ all_mems = memory.get_all(user_id="zhangsan")
 print(f"共 {len(all_mems)} 条记忆")
 ```
 
+<p align="center">
+  <img src="../../assets/08-memory-management/mem0-quickstart-flow.svg" alt="Mem0 Quick Start 流程图" width="90%"/>
+  <br/>
+  <em>图：Mem0 五步集成 — 安装/初始化/写入/检索/自动更新</em>
+</p>
+
 ### 生产配置
 
 ```python
@@ -449,6 +455,12 @@ class MemoryMonitor:
                     conflicts.append(cluster)
         return conflicts
 ```
+
+<p align="center">
+  <img src="../../assets/08-memory-management/production-config.svg" alt="生产环境记忆配置决策树" width="90%"/>
+  <br/>
+  <em>图：从规模评估到框架/存储/检索策略的完整决策路径</em>
+</p>
 
 ### 容量与成本预估
 

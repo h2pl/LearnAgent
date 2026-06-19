@@ -169,6 +169,10 @@ tool_call:search_kb (q="退款时限")
 □ 外部 API 是否有超时或重试？→ 外部依赖不可靠
 ```
 
+<p align="center">
+  <img src="../../assets/13-observability/latency-patterns.svg" alt="Agent 五种常见延迟模式与分层优化策略总览" width="95%"/>
+</p>
+
 ## 分层优化策略
 
 找到瓶颈后，按层优化。每层的优化手段不同。

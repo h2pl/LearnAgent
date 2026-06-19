@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="hcShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+    <marker id="hcArrow" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="hcArrowWarn" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5 Z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">ContextHealthCheck — 上下文诊断工具流程</text>
+
+  <!-- ===== 流程 ===== -->
+  <!-- 入口 -->
+  <g transform="translate(280, 50)">
+    <rect x="0" y="0" width="120" height="36" rx="6" fill="#2563EB" filter="url(#hcShadow)"/>
+    <text x="60" y="23" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFF">输入上下文</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="86" x2="340" y2="104" stroke="#2563EB" stroke-width="1.5" marker-end="url(#hcArrow)"/>
+
+  <!-- 步骤1：检测 -->
+  <g transform="translate(215, 108)">
+    <rect x="0" y="0" width="250" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#hcShadow)"/>
+    <text x="125" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#2563EB">步骤 1：检测 Detect</text>
+    <text x="125" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">扫描上下文指标：Token 使用率 / 工具消息数 / 重复模式</text>
+    <text x="125" y="48" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#94A3B8">total_tokens() / utilization() / repetition_score()</text>
+  </g>
+
+  <!-- 箭头，带分支 -->
+  <line x1="340" y1="163" x2="340" y2="210" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="350" y="178" font-family="sans-serif" font-size="7" fill="#64748B">检测通过？</text>
+
+  <!-- 分支1：正常 -->
+  <line x1="340" y1="188" x2="480" y2="210" stroke="#059669" stroke-width="1.2"/>
+  <text x="400" y="200" font-family="sans-serif" font-size="7" fill="#059669">是 → 正常</text>
+
+  <g transform="translate(460, 108)">
+    <rect x="0" y="0" width="100" height="36" rx="6" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+    <text x="50" y="14" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#065F46">✅ 健康</text>
+    <text x="50" y="28" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">继续运行</text>
+  </g>
+
+  <!-- 分支2：异常（往下走） -->
+  <line x1="340" y1="188" x2="200" y2="210" stroke="#DC2626" stroke-width="1.2" marker-end="url(#hcArrowWarn)"/>
+  <text x="270" y="200" font-family="sans-serif" font-size="7" fill="#DC2626">否 → 异常处理</text>
+
+  <!-- 步骤2：分类 -->
+  <g transform="translate(215, 215)">
+    <rect x="0" y="0" width="250" height="55" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" filter="url(#hcShadow)"/>
+    <text x="125" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">步骤 2：分类 Classify</text>
+    <text x="125" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">识别问题类型 → 污染 / 分心 / 混淆 / 冲突</text>
+    <text x="125" y="48" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#94A3B8">repetition_score &lt; 0.3 → 分心 ｜ tool_count &gt; 30 → 混淆</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="270" x2="340" y2="288" stroke="#2563EB" stroke-width="1.5" marker-end="url(#hcArrow)"/>
+
+  <!-- 步骤3：诊断 -->
+  <g transform="translate(215, 293)">
+    <rect x="0" y="0" width="250" height="55" rx="8" fill="#FEFCE8" stroke="#CA8A04" stroke-width="1.5" filter="url(#hcShadow)"/>
+    <text x="125" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#CA8A04">步骤 3：诊断 Diagnose</text>
+    <text x="125" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">生成详细诊断报告，包含具体指标和根因分析</text>
+    <text x="125" y="48" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#94A3B8">health_report() → issues 列表</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="348" x2="340" y2="365" stroke="#2563EB" stroke-width="1.5" marker-end="url(#hcArrow)"/>
+
+  <!-- 步骤4：修复 -->
+  <g transform="translate(215, 368)">
+    <rect x="0" y="0" width="250" height="30" rx="6" fill="#F0FDF4" stroke="#059669" stroke-width="1.5" filter="url(#hcShadow)"/>
+    <text x="125" y="20" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669">步骤 4：修复 Fix</text>
+  </g>
+
+  <!-- 右侧：各步骤对应行动 -->
+  <rect x="28" y="226" width="180" height="168" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="118" y="246" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#475569">自动修复动作</text>
+
+  <g transform="translate(36, 258)">
+    <rect x="0" y="0" width="164" height="30" rx="3" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="10" y="14" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="bold">污染 →</text>
+    <text x="50" y="14" font-family="sans-serif" font-size="7" fill="#991B1B">事实核验 + 状态重置</text>
+    <text x="50" y="26" font-family="sans-serif" font-size="6" fill="#94A3B8">run_shell("ls") 验证文件存在</text>
+  </g>
+
+  <g transform="translate(36, 293)">
+    <rect x="0" y="0" width="164" height="30" rx="3" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="10" y="14" font-family="sans-serif" font-size="7" fill="#B91C1C" font-weight="bold">分心 →</text>
+    <text x="50" y="14" font-family="sans-serif" font-size="7" fill="#991B1B">重新聚焦 + 引入变化</text>
+    <text x="50" y="26" font-family="sans-serif" font-size="6" fill="#94A3B8">更新 system prompt 刷新目标</text>
+  </g>
+
+  <g transform="translate(36, 328)">
+    <rect x="0" y="0" width="164" height="30" rx="3" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="10" y="14" font-family="sans-serif" font-size="7" fill="#991B1B" font-weight="bold">混淆 →</text>
+    <text x="50" y="14" font-family="sans-serif" font-size="7" fill="#7F1D1D">工具按需加载</text>
+    <text x="50" y="26" font-family="sans-serif" font-size="6" fill="#94A3B8">RAG 筛选相关工具</text>
+  </g>
+
+  <g transform="translate(36, 363)">
+    <rect x="0" y="0" width="164" height="30" rx="3" fill="#7F1D1D" stroke="#450A0A" stroke-width="0.8"/>
+    <text x="10" y="14" font-family="sans-serif" font-size="7" fill="#FCA5A5" font-weight="bold">冲突 →</text>
+    <text x="50" y="14" font-family="sans-serif" font-size="7" fill="#FECACA">上下文重置 + 子Agent</text>
+    <text x="50" y="26" font-family="sans-serif" font-size="6" fill="#FCA5A5">摘要替代历史，隔离子任务</text>
+  </g>
+
+  <!-- 左侧：告警阈值 -->
+  <rect x="485" y="226" width="178" height="168" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="574" y="246" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">检测阈值</text>
+
+  <g transform="translate(495, 260)">
+    <rect x="0" y="0" width="158" height="28" rx="3" fill="#FFF" stroke="#E2E8F0" stroke-width="0.8"/>
+    <text x="10" y="12" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="bold">利用率 &gt; 90%</text>
+    <text x="10" y="24" font-family="sans-serif" font-size="7" fill="#64748B">触发自动压缩</text>
+  </g>
+
+  <g transform="translate(495, 293)">
+    <rect x="0" y="0" width="158" height="28" rx="3" fill="#FFF" stroke="#E2E8F0" stroke-width="0.8"/>
+    <text x="10" y="12" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="bold">利用率 &gt; 95%</text>
+    <text x="10" y="24" font-family="sans-serif" font-size="7" fill="#64748B">强制截断</text>
+  </g>
+
+  <g transform="translate(495, 326)">
+    <rect x="0" y="0" width="158" height="28" rx="3" fill="#FFF" stroke="#E2E8F0" stroke-width="0.8"/>
+    <text x="10" y="12" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="bold">工具消息 &gt; 30</text>
+    <text x="10" y="24" font-family="sans-serif" font-size="7" fill="#64748B">触发上下文卸载</text>
+  </g>
+
+  <g transform="translate(495, 359)">
+    <rect x="0" y="0" width="158" height="28" rx="3" fill="#FFF" stroke="#E2E8F0" stroke-width="0.8"/>
+    <text x="10" y="12" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="bold">重复度 &lt; 0.3</text>
+    <text x="10" y="24" font-family="sans-serif" font-size="7" fill="#64748B">子Agent重置上下文</text>
+  </g>
+</svg>

@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。前面 12 章我们一直在关注 Agent 的"能力"——怎么让它更聪明、更准确、更高效。但能力越强，**滥用能力的风险也越大**。
+你好，我是江小湖。从 [LLM 基础](../01-llm-basics/01-llm-overview.md) 到 [生产环境评测实践](../12-eval/05-production-evaluation.md)，前面一直在关注 Agent 的"能力"——怎么让它更聪明、更准确、更高效。但能力越强，**滥用能力的风险也越大**。
 
 一个没有安全防护的 Agent，就像一个把保险柜钥匙挂在门口的公司——不是一定会被偷，但完全不设防。
 
@@ -73,6 +73,10 @@ Agent 执行了"搜索某产品的价格"
 利用 LLM 的 tokenization 漏洞或注意力机制缺陷，构造对模型有效但对人类无意义的输入。
 
 ## 攻击链分析
+
+<p align="center">
+  <img src="../../assets/14-safety/prompt-injection-attack-chain.svg" alt="Prompt 注入攻击链：从信息收集到 Payload 执行的四阶段攻击路径" width="95%"/>
+</p>
 
 ```
 Stage 1: 信息收集

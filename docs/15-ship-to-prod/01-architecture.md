@@ -1,4 +1,4 @@
-# 架构设计
+# Agent 系统架构设计
 
 > 一个生产级 Agent 系统的架构设计决定了它的天花板——能承载多少用户、能多快迭代、出故障时能多快恢复。本文讲架构设计的核心决策。
 
@@ -35,6 +35,11 @@
 ```
 
 **下层不依赖上层。** 能力层不知道编排层的存在，编排层不知道用户界面层的存在。这种分离让你可以在不触及下层的情况下替换上层组件。
+
+<p align="center">
+  <img src="../../assets/15-ship-to-prod/system-architecture-layers.svg" alt="四层架构数据流图" width="90%"/>
+  <br/><em>图：Agent 系统四层架构与层间数据流</em>
+</p>
 
 ### 各层的职责
 
@@ -114,6 +119,11 @@ class AgentEngine:
 **事件驱动**。引擎的每一步发出事件。前端通过 SSE 接收这些事件实时更新 UI；审计日志订阅事件记录执行过程；监控系统订阅事件计算指标。**事件流是引擎和外部世界的唯一接口。**
 
 **步数上限**。`max_steps` 是安全阀。Agent 可能在某个状态卡住反复循环，步数上限确保它不会无限运行。
+
+<p align="center">
+  <img src="../../assets/15-ship-to-prod/agent-engine-internals.svg" alt="Agent 引擎内部结构图" width="90%"/>
+  <br/><em>图：Agent 引擎内部结构——Orchestrator 编排六大模块</em>
+</p>
 
 ### 上下文管理
 

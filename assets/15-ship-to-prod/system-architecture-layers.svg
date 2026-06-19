@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="layer1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="layer2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="layer3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="layer4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <marker id="arrowDown" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748B"/>
+    </marker>
+    <marker id="arrowUp" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B">Agent 系统四层架构模型</text>
+
+  <!-- Layer 1: 用户界面层 -->
+  <rect x="30" y="48" width="620" height="58" rx="6" fill="url(#layer1)" filter="url(#shadow)"/>
+  <text x="52" y="72" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">用户界面层 UI/API Layer</text>
+  <text x="52" y="94" font-family="sans-serif" font-size="10" fill="#DBEAFE">用户交互入口 · 会话管理 · 身份认证 · 协议转换（FastAPI / Express）</text>
+
+  <!-- Layer 1 tech badges -->
+  <rect x="520" y="56" width="50" height="16" rx="3" fill="#FFFFFF" opacity="0.2"/>
+  <text x="545" y="68" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF">HTTP</text>
+  <rect x="576" y="56" width="55" height="16" rx="3" fill="#FFFFFF" opacity="0.2"/>
+  <text x="603" y="68" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF">SSE/WS</text>
+
+  <!-- Down arrow + label Layer1→Layer2 -->
+  <line x1="340" y1="106" x2="340" y2="130" stroke="#64748B" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <text x="358" y="124" font-family="sans-serif" font-size="9" fill="#64748B">请求 ↓</text>
+  <!-- Up arrow Layer2→Layer1 -->
+  <line x1="382" y1="130" x2="382" y2="106" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrowUp)"/>
+  <text x="398" y="124" font-family="sans-serif" font-size="9" fill="#94A3B8">↑ 响应</text>
+
+  <!-- Layer 2: 编排层 -->
+  <rect x="30" y="136" width="620" height="58" rx="6" fill="url(#layer2)" filter="url(#shadow)"/>
+  <text x="52" y="160" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">编排层 Orchestration Layer</text>
+  <text x="52" y="182" font-family="sans-serif" font-size="10" fill="#DBEAFE">Agent 执行引擎 · 任务调度 · 状态管理 · 事件流 · 步数上限 · 熔断降级</text>
+
+  <rect x="498" y="142" width="55" height="16" rx="3" fill="#FFFFFF" opacity="0.2"/>
+  <text x="525" y="154" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF">无状态</text>
+  <rect x="560" y="142" width="70" height="16" rx="3" fill="#FFFFFF" opacity="0.2"/>
+  <text x="595" y="154" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF">事件驱动</text>
+
+  <!-- Down arrow Layer2→Layer3 -->
+  <line x1="340" y1="194" x2="340" y2="218" stroke="#64748B" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <text x="358" y="212" font-family="sans-serif" font-size="9" fill="#64748B">调用 ↓</text>
+  <!-- Up arrow Layer3→Layer2 -->
+  <line x1="382" y1="218" x2="382" y2="194" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrowUp)"/>
+  <text x="398" y="212" font-family="sans-serif" font-size="9" fill="#94A3B8">↑ 结果</text>
+
+  <!-- Layer 3: 能力层 -->
+  <rect x="30" y="224" width="620" height="58" rx="6" fill="url(#layer3)" filter="url(#shadow)"/>
+  <text x="52" y="248" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">能力层 Capabilities Layer</text>
+  <text x="52" y="270" font-family="sans-serif" font-size="10" fill="#DBEAFE">LLM 推理 · 工具执行 · 向量检索 · 记忆读写 · 独立测试与扩容</text>
+
+  <rect x="470" y="230" width="65" height="16" rx="3" fill="#FFFFFF" opacity="0.2"/>
+  <text x="502" y="242" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF">独立服务</text>
+  <rect x="542" y="230" width="55" height="16" rx="3" fill="#FFFFFF" opacity="0.2"/>
+  <text x="569" y="242" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF">可替换</text>
+
+  <!-- Down arrow Layer3→Layer4 -->
+  <line x1="340" y1="282" x2="340" y2="306" stroke="#64748B" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <text x="358" y="300" font-family="sans-serif" font-size="9" fill="#64748B">读写 ↓</text>
+
+  <!-- Layer 4: 基础设施层 -->
+  <rect x="30" y="312" width="620" height="52" rx="6" fill="url(#layer4)" filter="url(#shadow)"/>
+  <text x="52" y="337" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">基础设施层 Infrastructure Layer</text>
+  <text x="52" y="355" font-family="sans-serif" font-size="10" fill="#DBEAFE">PostgreSQL 持久化 · Redis 缓存/限流 · Qdrant 向量检索 · Kafka 消息队列 · S3 对象存储</text>
+
+  <!-- Right sidebar annotations -->
+  <rect x="30" y="374" width="620" height="22" rx="4" fill="#F1F5F9"/>
+  <text x="42" y="390" font-family="sans-serif" font-size="10" fill="#475569">设计原则：下层不依赖上层 | 层间通过内部 API / 消息队列通信 | 不直接共享数据库或内存 | 每层独立部署、独立扩展、独立演进</text>
+</svg>

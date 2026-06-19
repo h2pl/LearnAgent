@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" style="background:#fff;font-family:sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">MCP 开发部署全流程</text>
+
+  <!-- 步骤1 -->
+  <rect x="30" y="55" width="140" height="100" rx="8" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <circle cx="100" cy="75" r="12" fill="#2563EB"/>
+  <text x="100" y="80" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">1</text>
+  <text x="100" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E40AF">脚手架</text>
+  <text x="100" y="118" text-anchor="middle" font-size="9" fill="#475569">pip install mcp</text>
+  <text x="100" y="134" text-anchor="middle" font-size="9" fill="#475569">FastMCP 16行启动</text>
+  <text x="100" y="150" text-anchor="middle" font-size="9" fill="#3B82F6">STDIO 模式</text>
+
+  <!-- 箭头 -->
+  <line x1="170" y1="105" x2="195" y2="105" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 步骤2 -->
+  <rect x="200" y="55" width="140" height="100" rx="8" fill="#F0FDF4" stroke="#86EFAC"/>
+  <circle cx="270" cy="75" r="12" fill="#059669"/>
+  <text x="270" y="80" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">2</text>
+  <text x="270" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#047857">Inspector 测试</text>
+  <text x="270" y="118" text-anchor="middle" font-size="9" fill="#475569">npx @mcp/inspector</text>
+  <text x="270" y="134" text-anchor="middle" font-size="9" fill="#475569">可视化调试 Tools</text>
+  <text x="270" y="150" text-anchor="middle" font-size="9" fill="#059669">Resources Prompts</text>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="105" x2="365" y2="105" stroke="#059669" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 步骤3 -->
+  <rect x="370" y="55" width="140" height="100" rx="8" fill="#FEF3C7" stroke="#FDE68A"/>
+  <circle cx="440" cy="75" r="12" fill="#D97706"/>
+  <text x="440" y="80" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">3</text>
+  <text x="440" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400E">客户端集成</text>
+  <text x="440" y="118" text-anchor="middle" font-size="9" fill="#475569">配置 mcp.json</text>
+  <text x="440" y="134" text-anchor="middle" font-size="9" fill="#475569">Claude Desktop</text>
+  <text x="440" y="150" text-anchor="middle" font-size="9" fill="#D97706">Cursor · VS Code</text>
+
+  <!-- 箭头 -->
+  <line x1="510" y1="105" x2="535" y2="105" stroke="#D97706" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 步骤4 -->
+  <rect x="540" y="55" width="125" height="100" rx="8" fill="#FEE2E2" stroke="#FECACA"/>
+  <circle cx="602" cy="75" r="12" fill="#DC2626"/>
+  <text x="602" y="80" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">4</text>
+  <text x="602" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#B91C1C">生产增强</text>
+  <text x="602" y="118" text-anchor="middle" font-size="9" fill="#475569">pydantic 校验</text>
+  <text x="602" y="134" text-anchor="middle" font-size="9" fill="#475569">结构化错误</text>
+  <text x="602" y="150" text-anchor="middle" font-size="9" fill="#DC2626">OAuth · 限流</text>
+
+  <!-- 分隔线 -->
+  <line x1="20" y1="172" x2="660" y2="172" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 步骤5 - 远程部署 (跨行) -->
+  <rect x="200" y="185" width="280" height="44" rx="8" fill="#EDE9FE" stroke="#C4B5FD"/>
+  <circle cx="240" cy="207" r="12" fill="#7C3AED"/>
+  <text x="240" y="212" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">5</text>
+  <text x="340" y="203" text-anchor="middle" font-size="13" font-weight="bold" fill="#5B21B6">远程部署 — Streamable HTTP 模式</text>
+  <text x="340" y="222" text-anchor="middle" font-size="10" fill="#7C3AED">mcp.run(transport="sse") + HTTPS + OAuth 2.1 + /health 健康检查</text>
+
+  <!-- 部署架构 -->
+  <rect x="40" y="248" width="600" height="65" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+
+  <!-- 本地开发 -->
+  <rect x="55" y="260" width="150" height="40" rx="6" fill="#DBEAFE"/>
+  <text x="130" y="277" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">本地 STDIO</text>
+  <text x="130" y="293" text-anchor="middle" font-size="9" fill="#475569">子进程通信</text>
+
+  <!-- 箭头 -->
+  <line x1="210" y1="280" x2="250" y2="280" stroke="#94A3B8" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="230" y="276" text-anchor="middle" font-size="8" fill="#94A3B8">切</text>
+
+  <!-- 远程 -->
+  <rect x="255" y="260" width="160" height="40" rx="6" fill="#FEE2E2"/>
+  <text x="335" y="277" text-anchor="middle" font-size="10" font-weight="bold" fill="#B91C1C">远程 HTTP(S)</text>
+  <text x="335" y="293" text-anchor="middle" font-size="9" fill="#475569">OAuth 2.1 + SSL</text>
+
+  <!-- 箭头 -->
+  <line x1="420" y1="280" x2="460" y2="280" stroke="#94A3B8" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="440" y="276" text-anchor="middle" font-size="8" fill="#94A3B8">备</text>
+
+  <!-- Gateway -->
+  <rect x="465" y="258" width="160" height="44" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="545" y="277" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400E">Gateway 网关</text>
+  <text x="545" y="293" text-anchor="middle" font-size="9" fill="#475569">审计 · 策略 · 限流</text>
+
+  <!-- 底部对比 -->
+  <rect x="40" y="328" width="600" height="55" rx="8" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="340" y="350" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">开发 → 测试 → 部署：同一套 Server 代码，零改动</text>
+  <text x="80" y="374" text-anchor="middle" font-size="10" fill="#475569">本地: python server.py</text>
+  <text x="300" y="374" text-anchor="middle" font-size="10" fill="#475569">测试: npx inspector</text>
+  <text x="520" y="374" text-anchor="middle" font-size="10" fill="#475569">远程: --transport sse</text>
+
+  <!-- 图注 -->
+  <text x="340" y="394" text-anchor="middle" font-size="11" fill="#94A3B8">图：五步走从脚手架到远程部署——同一套代码贯穿始终</text>
+</svg>

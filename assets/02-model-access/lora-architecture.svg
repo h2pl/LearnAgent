@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 440" font-family="sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#475569"/></marker>
+  </defs>
+
+  <rect width="700" height="440" fill="url(#bg)" rx="8"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="44" fill="url(#header)" rx="8"/>
+  <rect x="0" y="22" width="700" height="22" fill="url(#header)"/>
+  <text x="350" y="28" fill="#fff" font-size="17" font-weight="bold" text-anchor="middle">LoRA 低成本微调：原理与参数对比</text>
+
+  <!-- ====== Left: Full Fine-tuning ====== -->
+  <rect x="20" y="60" width="310" height="170" rx="8" fill="#FEF2F2" stroke="#F87171" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="20" y="60" width="310" height="30" rx="8" fill="#DC2626"/>
+  <rect x="20" y="76" width="310" height="14" fill="#DC2626"/>
+  <text x="175" y="82" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">全量微调 (Full Fine-tuning)</text>
+
+  <!-- Neural network representation - all layers highlighted -->
+  <text x="40" y="110" fill="#B91C1C" font-size="10" font-weight="bold">所有参数都可训练</text>
+
+  <!-- Layer boxes - all red/orange = trainable -->
+  <rect x="40" y="118" width="270" height="18" rx="3" fill="#FCA5A5" stroke="#EF4444" stroke-width="1"/>
+  <text x="175" y="131" fill="#991B1B" font-size="9" text-anchor="middle">Attention Layer (可训练)</text>
+
+  <rect x="40" y="140" width="270" height="18" rx="3" fill="#FCA5A5" stroke="#EF4444" stroke-width="1"/>
+  <text x="175" y="153" fill="#991B1B" font-size="9" text-anchor="middle">Feed-Forward Layer (可训练)</text>
+
+  <rect x="40" y="162" width="270" height="18" rx="3" fill="#FCA5A5" stroke="#EF4444" stroke-width="1"/>
+  <text x="175" y="175" fill="#991B1B" font-size="9" text-anchor="middle">Output Layer (可训练)</text>
+
+  <text x="175" y="200" fill="#DC2626" font-size="10" font-weight="bold" text-anchor="middle">可训练参数: ~8B (100%)</text>
+  <text x="175" y="216" fill="#64748B" font-size="9" text-anchor="middle">需要多张 A100 GPU，成本数千美元</text>
+
+  <!-- ====== Right: LoRA ====== -->
+  <rect x="370" y="60" width="310" height="170" rx="8" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="370" y="60" width="310" height="30" rx="8" fill="#2563EB"/>
+  <rect x="370" y="76" width="310" height="14" fill="#2563EB"/>
+  <text x="525" y="82" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">LoRA (Low-Rank Adaptation)</text>
+
+  <text x="390" y="110" fill="#1D4ED8" font-size="10" font-weight="bold">原始参数冻结 + 小矩阵适配</text>
+
+  <!-- Frozen layers (blue/gray) + adapter (green) -->
+  <rect x="390" y="118" width="200" height="18" rx="3" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+  <text x="490" y="131" fill="#64748B" font-size="9" text-anchor="middle">W (冻结 🔒)</text>
+  <rect x="596" y="118" width="70" height="18" rx="3" fill="#BBF7D0" stroke="#22C55E" stroke-width="1"/>
+  <text x="631" y="131" fill="#166534" font-size="8" text-anchor="middle">B·A</text>
+
+  <rect x="390" y="140" width="200" height="18" rx="3" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+  <text x="490" y="153" fill="#64748B" font-size="9" text-anchor="middle">FFN (冻结 🔒)</text>
+  <rect x="596" y="140" width="70" height="18" rx="3" fill="#BBF7D0" stroke="#22C55E" stroke-width="1"/>
+  <text x="631" y="153" fill="#166534" font-size="8" text-anchor="middle">B·A</text>
+
+  <rect x="390" y="162" width="200" height="18" rx="3" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+  <text x="490" y="175" fill="#64748B" font-size="9" text-anchor="middle">Output (冻结 🔒)</text>
+  <rect x="596" y="162" width="70" height="18" rx="3" fill="#BBF7D0" stroke="#22C55E" stroke-width="1"/>
+  <text x="631" y="175" fill="#166534" font-size="8" text-anchor="middle">B·A</text>
+
+  <text x="525" y="200" fill="#2563EB" font-size="10" font-weight="bold" text-anchor="middle">可训练参数: ~4M (0.05%)</text>
+  <text x="525" y="216" fill="#64748B" font-size="9" text-anchor="middle">一张消费级 GPU 即可，成本几十美元</text>
+
+  <!-- ====== Bottom: Comparison Table ====== -->
+  <rect x="20" y="250" width="660" height="175" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Table header -->
+  <rect x="20" y="250" width="660" height="28" rx="8" fill="#F1F5F9"/>
+  <rect x="20" y="264" width="660" height="14" fill="#F1F5F9"/>
+  <text x="130" y="269" fill="#334155" font-size="10" font-weight="bold" text-anchor="middle">维度</text>
+  <text x="330" y="269" fill="#DC2626" font-size="10" font-weight="bold" text-anchor="middle">全量微调</text>
+  <text x="540" y="269" fill="#2563EB" font-size="10" font-weight="bold" text-anchor="middle">LoRA</text>
+
+  <!-- Divider -->
+  <line x1="230" y1="254" x2="230" y2="420" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="435" y1="254" x2="435" y2="420" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <text x="130" y="298" fill="#475569" font-size="10" text-anchor="middle">可训练参数</text>
+  <text x="330" y="298" fill="#475569" font-size="10" text-anchor="middle">~8B (100%)</text>
+  <text x="540" y="298" fill="#2563EB" font-size="10" font-weight="bold" text-anchor="middle">~4M (0.05%)</text>
+  <line x1="30" y1="308" x2="670" y2="308" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 2 -->
+  <text x="130" y="325" fill="#475569" font-size="10" text-anchor="middle">显存需求</text>
+  <text x="330" y="325" fill="#DC2626" font-size="10" text-anchor="middle">80GB+ (A100)</text>
+  <text x="540" y="325" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">24GB (RTX 3090/4090)</text>
+  <line x1="30" y1="335" x2="670" y2="335" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 3 -->
+  <text x="130" y="352" fill="#475569" font-size="10" text-anchor="middle">训练时间</text>
+  <text x="330" y="352" fill="#475569" font-size="10" text-anchor="middle">数小时~数天</text>
+  <text x="540" y="352" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">数分钟~数十分钟</text>
+  <line x1="30" y1="362" x2="670" y2="362" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 4 -->
+  <text x="130" y="379" fill="#475569" font-size="10" text-anchor="middle">效果</text>
+  <text x="330" y="379" fill="#475569" font-size="10" text-anchor="middle">基准 (100%)</text>
+  <text x="540" y="379" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">~90% (足够大多数场景)</text>
+  <line x1="30" y1="389" x2="670" y2="389" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 5 -->
+  <text x="130" y="406" fill="#475569" font-size="10" text-anchor="middle">成本</text>
+  <text x="330" y="406" fill="#DC2626" font-size="10" text-anchor="middle">$$$ (数千美元)</text>
+  <text x="540" y="406" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">$ (几十美元)</text>
+</svg>

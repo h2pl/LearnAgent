@@ -152,7 +152,7 @@ Transformer 一次性处理所有 Token，这带来了一个天然缺陷：**它
 
 "狗咬人"和"人咬狗"，对 Transformer 来说输入的词完全一样。如果没有任何顺序标记，它认为这两句话是一个意思。
 
-**位置编码（Positional Encoding）** 的作用就是在每个 Token 的 Embedding 向量上叠加一个"位置信号"，让模型知道"这个词在第几个位置"。
+**位置编码（Positional Encoding）** 的作用就是在每个 Token 的 Embedding 向量上叠加一个"位置信号"，让模型编码这个词的序列位置。
 
 ### RoPE：旋转位置编码
 

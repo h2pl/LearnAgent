@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。模型这么多，到底该选哪个？这是每个 Agent 开发者都会面对的第一个工程决策。
+你好，我是江小湖。[认识大语言模型（LLM）](../01-llm-basics/01-llm-overview.md) 一章帮你搞懂了 LLM 能做什么、局限在哪。现在面对第一个工程决策：模型这么多，到底该选哪个？
 
 在 [01 — LLM 基础](../01-llm-basics/README.md) 中，你已经了解了 LLM 的本质、Token 与 Embedding 的工作原理、Transformer 架构、以及模型从预训练到 RLHF 的完整训练流程。现在该动手了：面对市面上这么多模型，怎么选、怎么调、怎么用好。
 
@@ -136,6 +136,8 @@ GPT-5.4 引入了**可配置推理模式**（reasoning_effort 参数），单次
 
 **Gemini 2.5 的 1M 窗口独占鳌头**，可一次性吞下整本书或整个代码库。大多数模型集中在 128K-256K 区间，对日常任务已够用。
 
+<img src="../../assets/02-model-access/context-window-comparison.png" alt="主流模型上下文窗口对比图，从 32K 到 1M tokens 的可视化对比" width="600"/>
+
 ### 实际影响
 
 - **对话轮次**：128K 窗口 + 500 Token 系统提示 + 1000 Token/轮 ≈ 127 轮理论上限。长对话需要**滑动窗口**或**摘要压缩**策略。
@@ -170,6 +172,8 @@ GPT-5.4 引入了**可配置推理模式**（reasoning_effort 参数），单次
 | Kimi K2.6（月之暗面，开源） | $0.95 | $4.00 | 38 | 开源之王 |
 | MiniMax M3（稀宇科技，开源） | $0.60 | $2.40 | 119 | 全能均衡 |
 
+<img src="../../assets/02-model-access/model-cost-comparison.png" alt="OpenAI API 价格趋势图，展示从 GPT-4 到 GPT-5.5 的每百万 Token 价格变化" width="600"/>
+
 **算一笔账**：如果你有一个客服 Agent，每天处理 10,000 次对话，每次对话平均消耗 2000 输入 Token 和 500 输出 Token（即每天 20M 输入 + 5M 输出）。
 - 用 Claude Opus 4.8：每天约 **$225**
 - 用 Qwen 3.7 Max：每天约 **$44**
@@ -190,6 +194,8 @@ GPT-5.4 引入了**可配置推理模式**（reasoning_effort 参数），单次
 ## 选型决策树
 
 在实际开发中，建议遵循以下路径：
+
+<img src="../../assets/02-model-access/model-selection-decision.png" alt="模型选型决策流程图：从原型验证到开发优化到生产部署的三阶段选型路径" width="600"/>
 
 1. **原型验证期（PoC）**：
    - **无脑选最强的模型**（如 Claude Opus 4.8 或 GPT-5.5）。

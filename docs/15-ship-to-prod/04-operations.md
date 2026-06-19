@@ -1,4 +1,4 @@
-# 运维实战
+# Agent 运维实战
 
 > 上线不是结束，是运维的开始。Agent 系统比传统系统多了一层"逻辑健康"的运维维度——不仅要关注服务器稳不稳定，还要关注 Agent 聪不聪明。
 
@@ -61,6 +61,11 @@ Agent 新增维度:
 ```
 
 巡检的大部分步骤应该自动化。每日巡检可以全自动，只有需要人工判断的项（如用户满意度趋势分析、安全日志异常模式识别）才留给人。
+
+<p align="center">
+  <img src="../../assets/15-ship-to-prod/operations-dashboard.svg" alt="运维监控仪表盘" width="90%"/>
+  <br/><em>图：运维仪表盘——四维指标卡片 + 模型分布 + 告警流</em>
+</p>
 
 ### 巡检脚本示例
 
@@ -193,6 +198,11 @@ def run_daily_check():
 | 安全事件 | 暂停服务 / 隔离 Agent | 立即 |
 
 每个止血动作都要自动化——不要等人工操作。例如，LLM API 不可用时，自动切换到备用模型；TSR 下降时，自动回滚上一个 prompt 版本。
+
+<p align="center">
+  <img src="../../assets/15-ship-to-prod/incident-response-runbook.svg" alt="故障响应 Runbook 流程" width="90%"/>
+  <br/><em>图：告警触发→分级→止血→排查→修复→复盘全流程</em>
+</p>
 
 ## 灾难恢复
 

@@ -1,4 +1,4 @@
-# 本地部署实战
+# 模型本地部署实战
 
 > 不想把数据发给 OpenAI/Anthropic？想在自己的服务器上跑 LLM？本文从硬件选型到 Ollama/vLLM 部署，帮你搭建一套可用的本地推理服务。
 
@@ -269,6 +269,8 @@ print(response.choices[0].message.content)
 - **团队内部服务 / 生产环境 / 多用户** → vLLM，吞吐量碾压
 - **不确定** → 先用 Ollama 跑通，遇到瓶颈再迁移到 vLLM（API 兼容，迁移成本低）
 
+<p align="center"><img src="../../assets/02-model-access/deployment-decision.svg" alt="Ollama vs vLLM部署决策" width="90%"/><br/><em>图：Ollama vs vLLM 选型决策与关键指标对比</em></p>
+
 ## 总结
 
 - **本地模型的核心问题是硬件天花板**：即使 RTX 4090（24GB）也只能跑 34B Q4，大约 GPT-3.5 水平；而云端旗舰是千亿参数级别，个人硬件物理上跑不了
@@ -279,7 +281,7 @@ print(response.choices[0].message.content)
 - **vLLM 适合生产环境**：PagedAttention + 连续批处理，高并发吞吐量是 Ollama 的 5-12 倍
 - **两者 API 都兼容 OpenAI 格式**，切换只需改 `base_url`
 
-> 本地模型跑起来了，API 也通了。如果你发现无论怎么调参、怎么写 Prompt，模型就是不按你想的方式输出，可能需要微调。请前往 [微调实战指南](./07-finetuning-guide.md)。
+> 本地模型跑起来了，API 也通了。如果你发现无论怎么调参、怎么写 Prompt，模型就是不按你想的方式输出，可能需要微调。请前往 [模型微调实战指南](./07-finetuning-guide.md)。
 
 ## 参考链接
 

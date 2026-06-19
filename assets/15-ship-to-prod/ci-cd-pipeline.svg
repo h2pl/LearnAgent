@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#DC2626"/>
+    </marker>
+    <linearGradient id="stageGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="gateGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="26" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B">Agent CI/CD 流水线</text>
+
+  <!-- === TOP ROW: Stages === -->
+
+  <!-- Stage 1: Code Commit -->
+  <rect x="12" y="44" width="108" height="46" rx="6" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="66" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">代码提交</text>
+  <text x="66" y="80" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DBEAFE">Git Push / PR</text>
+
+  <!-- Arrow -->
+  <line x1="120" y1="67" x2="140" y2="67" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Test -->
+  <rect x="144" y="44" width="108" height="46" rx="6" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="198" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">测试</text>
+  <text x="198" y="80" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DBEAFE">Lint · Unit · Security</text>
+
+  <!-- Arrow -->
+  <line x1="252" y1="67" x2="272" y2="67" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Gate 1 -->
+  <rect x="276" y="50" width="20" height="34" rx="4" fill="url(#gateGrad)"/>
+  <text x="286" y="72" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF" font-weight="700">G1</text>
+  <text x="286" y="40" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">门禁</text>
+
+  <!-- Arrow -->
+  <line x1="296" y1="67" x2="316" y2="67" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Eval -->
+  <rect x="320" y="44" width="108" height="46" rx="6" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="374" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">评测</text>
+  <text x="374" y="80" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DBEAFE">Smoke Test · Eval</text>
+
+  <!-- Arrow -->
+  <line x1="428" y1="67" x2="448" y2="67" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Gate 2 -->
+  <rect x="452" y="50" width="20" height="34" rx="4" fill="url(#gateGrad)"/>
+  <text x="462" y="72" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF" font-weight="700">G2</text>
+  <text x="462" y="40" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">TSR≥基线</text>
+
+  <!-- Arrow -->
+  <line x1="472" y1="67" x2="492" y2="67" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Build -->
+  <rect x="496" y="44" width="108" height="46" rx="6" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="550" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">构建镜像</text>
+  <text x="550" y="80" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DBEAFE">Docker Build · Push</text>
+
+  <!-- Arrow down + right -->
+  <line x1="550" y1="90" x2="550" y2="118" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- === MIDDLE ROW: Deploy & Verify === -->
+
+  <!-- Stage 5: Deploy Staging -->
+  <rect x="376" y="122" width="130" height="46" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="441" y="142" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E40AF">部署 Staging</text>
+  <text x="441" y="158" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3B82F6">kubectl set image</text>
+
+  <!-- Arrow -->
+  <line x1="506" y1="145" x2="526" y2="145" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 6: E2E Test -->
+  <rect x="530" y="122" width="110" height="46" rx="6" fill="#EFF6FF" stroke="#059669" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="585" y="142" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#065F46">端到端评测</text>
+  <text x="585" y="158" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#059669">E2E · 验收</text>
+
+  <!-- Gate 3 -->
+  <rect x="650" y="128" width="20" height="34" rx="4" fill="url(#gateGrad)"/>
+  <text x="660" y="150" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF" font-weight="700">G3</text>
+  <text x="660" y="118" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">通过</text>
+
+  <!-- Arrow down -->
+  <line x1="585" y1="168" x2="585" y2="198" stroke="#059669" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 7: Deploy Prod -->
+  <rect x="485" y="202" width="155" height="52" rx="6" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="562" y="222" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">部署生产</text>
+  <text x="562" y="242" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DBEAFE">Rolling Update（main 分支）</text>
+
+  <!-- Arrow -->
+  <line x1="640" y1="228" x2="655" y2="228" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 8: Health -->
+  <rect x="580" y="270" width="80" height="30" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="620" y="289" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#065F46">健康检查</text>
+
+  <!-- Arrow down + left to Stage 9 -->
+  <line x1="620" y1="300" x2="620" y2="322" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 9: Traffic Switch -->
+  <rect x="500" y="326" width="155" height="36" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="577" y="346" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E40AF">流量切换</text>
+  <text x="577" y="358" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3B82F6">金丝雀 5% → 25% → 100%</text>
+
+  <!-- === LEFT SIDE: Rollback paths === -->
+  <!-- Rollback arrows -->
+  <line x1="441" y1="186" x2="441" y2="200" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="441" y1="200" x2="198" y2="200" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="198" y1="200" x2="198" y2="88" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <text x="320" y="196" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">失败自动回滚</text>
+
+  <!-- === RIGHT SIDE: Rollback from Prod === -->
+  <line x1="577" y1="380" x2="577" y2="392" stroke="#DC2626" stroke-width="1.5"/>
+  <line x1="577" y1="392" x2="66" y2="392" stroke="#DC2626" stroke-width="1.5"/>
+  <line x1="66" y1="392" x2="66" y2="88" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <text x="320" y="388" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">自动回滚条件：错误率 &gt;5%|P95&gt;10s|TSR下降&gt;5%</text>
+
+  <!-- === BOTTOM: Trigger info === -->
+  <g transform="translate(30, 266)">
+    <text x="0" y="8" font-family="sans-serif" font-size="9" font-weight="700" fill="#1E293B">触发条件：</text>
+    <text x="70" y="8" font-family="sans-serif" font-size="9" fill="#64748B">Push → main 分支（生产）</text>
+    <text x="210" y="8" font-family="sans-serif" font-size="9" fill="#64748B">Push → develop → staging</text>
+    <text x="350" y="8" font-family="sans-serif" font-size="9" fill="#64748B">PR → main → 测试 + 评测</text>
+
+    <text x="0" y="24" font-family="sans-serif" font-size="9" font-weight="700" fill="#1E293B">门禁策略：</text>
+    <text x="70" y="24" font-family="sans-serif" font-size="9" fill="#64748B">G1: Lint + Test 全通过</text>
+    <text x="200" y="24" font-family="sans-serif" font-size="9" fill="#64748B">G2: TSR 不低于基线 -2%</text>
+    <text x="350" y="24" font-family="sans-serif" font-size="9" fill="#64748B">G3: E2E 验收通过</text>
+  </g>
+
+  <!-- Git Branch labels -->
+  <rect x="15" y="302" width="95" height="18" rx="3" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="62" y="315" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">main → 生产</text>
+
+  <rect x="15" y="326" width="105" height="18" rx="3" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="67" y="339" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">develop → staging</text>
+
+  <rect x="15" y="350" width="105" height="18" rx="3" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="67" y="363" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">feature/* → dev</text>
+
+  <rect x="15" y="374" width="105" height="18" rx="3" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="67" y="387" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#991B1B">hotfix → main</text>
+</svg>

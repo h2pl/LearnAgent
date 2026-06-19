@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#DC2626"/>
+    </marker>
+    <linearGradient id="stageGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="26" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B">故障响应 Runbook 流程</text>
+
+  <!-- Stage 0: Alert Trigger -->
+  <rect x="260" y="44" width="160" height="36" rx="18" fill="#DC2626" filter="url(#shadow)"/>
+  <text x="340" y="67" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">告警触发</text>
+
+  <!-- Down arrow -->
+  <line x1="340" y1="80" x2="340" y2="100" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <!-- Stage 1: Classification -->
+  <rect x="190" y="105" width="300" height="50" rx="8" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="340" y="128" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">① 分级 — 评估严重程度</text>
+  <text x="340" y="146" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DBEAFE">P0 全部不可用 | P1 部分功能 | P2 质量下降 | P3 观察</text>
+
+  <!-- Three branches -->
+  <line x1="240" y1="155" x2="155" y2="183" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="340" y1="155" x2="340" y2="183" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="155" x2="525" y2="183" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Branch A - P0/P1 -->
+  <rect x="40" y="188" width="230" height="44" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="155" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#991B1B">② 止血（P0/P1）— 最快恢复</text>
+  <text x="155" y="224" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DC2626">回滚部署 | 切换备用模型 | 限流非核心</text>
+
+  <!-- Stage 2: Branch B - P2 -->
+  <rect x="285" y="188" width="110" height="44" rx="6" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#92400E">② 观察（P2）</text>
+  <text x="340" y="224" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D97706">持续监控 15 分钟</text>
+
+  <!-- Stage 2: Branch C - P3 -->
+  <rect x="410" y="188" width="230" height="44" rx="6" fill="#F0FDF4" stroke="#059669" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="525" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#065F46">② 记录（P3）</text>
+  <text x="525" y="224" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#059669">记录事件 · 不立即响应</text>
+
+  <!-- Merge arrows -->
+  <line x1="155" y1="232" x2="155" y2="256" stroke="#2563EB" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="340" y1="232" x2="340" y2="256" stroke="#2563EB" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="525" y1="232" x2="525" y2="256" stroke="#2563EB" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Triage -->
+  <rect x="140" y="260" width="400" height="44" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="280" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E40AF">③ 排查 — 定位根因</text>
+  <text x="340" y="296" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">Trace 分析 | 对比指标变更 | 查看最近部署 | 检查外部依赖</text>
+
+  <!-- Down arrow -->
+  <line x1="340" y1="304" x2="340" y2="324" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Fix -->
+  <rect x="190" y="328" width="300" height="30" rx="6" fill="url(#stageGrad)" filter="url(#shadow)"/>
+  <text x="340" y="349" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">④ 修复 — 执行 + 验证</text>
+
+  <!-- Down arrow -->
+  <line x1="340" y1="358" x2="340" y2="378" stroke="#2563EB" stroke-width="1.2"/>
+
+  <!-- Stage 5: Postmortem -->
+  <rect x="190" y="378" width="300" height="10" rx="4" fill="#F1F5F9"/>
+  <text x="340" y="386" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">⑤ 复盘 · 更新 Runbook</text>
+
+  <!-- Escalation timeline on the left -->
+  <rect x="22" y="56" width="3" height="140" fill="#E2E8F0"/>
+  <circle cx="23" cy="80" r="4" fill="#DC2626"/>
+  <text x="35" y="84" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="600">0 min</text>
+  <text x="70" y="84" font-family="sans-serif" font-size="9" fill="#64748B">告警触发</text>
+
+  <circle cx="23" cy="112" r="4" fill="#F59E0B"/>
+  <text x="35" y="116" font-family="sans-serif" font-size="9" fill="#F59E0B" font-weight="600">5 min</text>
+  <text x="70" y="116" font-family="sans-serif" font-size="9" fill="#64748B">开始止血</text>
+
+  <circle cx="23" cy="144" r="4" fill="#2563EB"/>
+  <text x="35" y="148" font-family="sans-serif" font-size="9" fill="#2563EB" font-weight="600">15 min</text>
+  <text x="70" y="148" font-family="sans-serif" font-size="9" fill="#64748B">未恢复→通知TL</text>
+
+  <circle cx="23" cy="176" r="4" fill="#7C3AED"/>
+  <text x="35" y="180" font-family="sans-serif" font-size="9" fill="#7C3AED" font-weight="600">30 min</text>
+  <text x="70" y="180" font-family="sans-serif" font-size="9" fill="#64748B">全组响应</text>
+
+  <!-- Target times card -->
+  <rect x="100" y="260" width="2" height="120" fill="transparent"/>
+
+  <rect x="550" y="56" width="115" height="165" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="607" y="76" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E293B">恢复时间目标</text>
+
+  <rect x="558" y="88" width="98" height="22" rx="4" fill="#FEF2F2"/>
+  <text x="607" y="98" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#991B1B">引擎崩溃</text>
+  <text x="607" y="108" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">5 min 内恢复</text>
+
+  <rect x="558" y="116" width="98" height="22" rx="4" fill="#FEF2F2"/>
+  <text x="607" y="126" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#991B1B">LLM不可用</text>
+  <text x="607" y="136" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">1 min 切换</text>
+
+  <rect x="558" y="144" width="98" height="22" rx="4" fill="#FFF7ED"/>
+  <text x="607" y="154" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#92400E">工具失败</text>
+  <text x="607" y="164" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#D97706">5 min 降级</text>
+
+  <rect x="558" y="172" width="98" height="22" rx="4" fill="#FFF7ED"/>
+  <text x="607" y="182" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#92400E">TSR下降</text>
+  <text x="607" y="192" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#D97706">10 min 回滚</text>
+
+  <rect x="558" y="200" width="98" height="22" rx="4" fill="#FEF2F2"/>
+  <text x="607" y="210" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#991B1B">安全事件</text>
+  <text x="607" y="220" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">立即暂停</text>
+
+  <!-- Principle callout -->
+  <g transform="translate(80, 302)">
+    <rect x="0" y="0" width="455" height="22" rx="4" fill="#FEF3C7"/>
+    <text x="227" y="15" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="600">核心原则：止血优先，不查根因先恢复 → 恢复后再深挖根因 → 每次事故更新 Runbook</text>
+  </g>
+</svg>

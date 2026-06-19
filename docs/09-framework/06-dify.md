@@ -75,6 +75,8 @@ Dify 支持四种应用类型：
 | **工具** | 外部 API 调用（内置 50+ 工具） |
 | **变量** | 在工作流中传递的数据 |
 
+<p align="center"><img src="../../assets/09-framework/dify-app-types.svg" alt="Dify应用类型与工作台" width="90%"/><br/><em>图：Dify 四种应用类型与工作台界面示意</em></p>
+
 ## 工作流编排
 
 Dify 的核心能力是**可视化工作流**——用拖拽的方式构建多步骤的 AI 流程。

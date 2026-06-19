@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+    <linearGradient id="openai" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EFF6FF"/><stop offset="100%" stop-color="#DBEAFE"/></linearGradient>
+    <linearGradient id="google" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0FDF4"/><stop offset="100%" stop-color="#DCFCE7"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)" rx="8"/>
+
+  <rect x="0" y="0" width="680" height="44" fill="url(#header)" rx="8"/>
+  <rect x="0" y="22" width="680" height="22" fill="url(#header)"/>
+  <text x="340" y="28" fill="#fff" font-size="17" font-weight="bold">OpenAI Agents SDK vs Google ADK 对比</text>
+
+  <!-- 左侧: OpenAI -->
+  <rect x="16" y="56" width="315" height="264" rx="8" fill="url(#openai)" stroke="#60A5FA" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="16" y="56" width="315" height="34" rx="8" fill="#2563EB"/>
+  <rect x="16" y="72" width="315" height="18" fill="#2563EB"/>
+  <text x="173" y="80" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">OpenAI Agents SDK</text>
+
+  <text x="36" y="108" fill="#1D4ED8" font-size="10" font-weight="bold">核心概念</text>
+  <rect x="36" y="116" width="60" height="18" rx="3" fill="#BBDEFB"/>
+  <text x="66" y="129" fill="#1E40AF" font-size="8" font-weight="bold" text-anchor="middle">Agent</text>
+  <rect x="102" y="116" width="68" height="18" rx="3" fill="#BBDEFB"/>
+  <text x="136" y="129" fill="#1E40AF" font-size="8" font-weight="bold" text-anchor="middle">Handoff</text>
+  <rect x="176" y="116" width="72" height="18" rx="3" fill="#BBDEFB"/>
+  <text x="212" y="129" fill="#1E40AF" font-size="8" font-weight="bold" text-anchor="middle">Guardrails</text>
+  <rect x="254" y="116" width="60" height="18" rx="3" fill="#BBDEFB"/>
+  <text x="284" y="129" fill="#1E40AF" font-size="8" font-weight="bold" text-anchor="middle">Tracing</text>
+
+  <text x="36" y="154" fill="#1D4ED8" font-size="10" font-weight="bold">核心特性</text>
+  <text x="36" y="170" fill="#475569" font-size="9">• Handoff: Agent间无缝移交，路由分发</text>
+  <text x="36" y="186" fill="#475569" font-size="9">• Guardrails: 输入输出安全校验</text>
+  <text x="36" y="202" fill="#475569" font-size="9">• Tracing: 内置可观测性，自动记录</text>
+  <text x="36" y="218" fill="#475569" font-size="9">• @function_tool 装饰器自动生成schema</text>
+  <text x="36" y="234" fill="#475569" font-size="9">• 轻量级，API开销最小</text>
+
+  <text x="36" y="256" fill="#1D4ED8" font-size="10" font-weight="bold">选型条件</text>
+  <text x="36" y="274" fill="#2563EB" font-size="9">✓ 只用 OpenAI 模型 (GPT-4o/GPT-5等)</text>
+  <text x="36" y="290" fill="#2563EB" font-size="9">✓ Python 技术栈</text>
+  <text x="36" y="306" fill="#2563EB" font-size="9">✓ 需要开箱即用可观测性</text>
+
+  <!-- 右侧: Google -->
+  <rect x="349" y="56" width="315" height="264" rx="8" fill="url(#google)" stroke="#34D399" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="349" y="56" width="315" height="34" rx="8" fill="#059669"/>
+  <rect x="349" y="72" width="315" height="18" fill="#059669"/>
+  <text x="506" y="80" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">Google ADK</text>
+
+  <text x="369" y="108" fill="#047857" font-size="10" font-weight="bold">核心概念</text>
+  <rect x="369" y="116" width="56" height="18" rx="3" fill="#C6F6D5"/>
+  <text x="397" y="129" fill="#047857" font-size="8" font-weight="bold" text-anchor="middle">Agent</text>
+  <rect x="431" y="116" width="52" height="18" rx="3" fill="#C6F6D5"/>
+  <text x="457" y="129" fill="#047857" font-size="8" font-weight="bold" text-anchor="middle">Tool</text>
+  <rect x="489" y="116" width="62" height="18" rx="3" fill="#C6F6D5"/>
+  <text x="520" y="129" fill="#047857" font-size="8" font-weight="bold" text-anchor="middle">Runner</text>
+  <rect x="557" y="116" width="66" height="18" rx="3" fill="#C6F6D5"/>
+  <text x="590" y="129" fill="#047857" font-size="8" font-weight="bold" text-anchor="middle">Session</text>
+
+  <text x="369" y="154" fill="#047857" font-size="10" font-weight="bold">核心特性</text>
+  <text x="369" y="170" fill="#475569" font-size="9">• A2A: 开放 Agent-to-Agent 协议</text>
+  <text x="369" y="186" fill="#475569" font-size="9">• 多语言SDK: Python/Java/Go/TS</text>
+  <text x="369" y="202" fill="#475569" font-size="9">• sub_agents 子Agent编排</text>
+  <text x="369" y="218" fill="#475569" font-size="9">• Google Cloud / Vertex AI 深度集成</text>
+  <text x="369" y="234" fill="#475569" font-size="9">• 不被锁定，开放标准设计</text>
+
+  <text x="369" y="256" fill="#047857" font-size="10" font-weight="bold">选型条件</text>
+  <text x="369" y="274" fill="#059669" font-size="9">✓ 使用 Gemini 模型 / Google Cloud</text>
+  <text x="369" y="290" fill="#059669" font-size="9">✓ 多语言团队 (Java/Go/TS)</text>
+  <text x="369" y="306" fill="#059669" font-size="9">✓ 需要跨框架Agent互联</text>
+
+  <!-- 中间VS -->
+  <circle cx="340" cy="188" r="18" fill="#DC2626"/>
+  <text x="340" y="193" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">VS</text>
+
+  <!-- 底部对比关键差异 -->
+  <rect x="16" y="324" width="648" height="66" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="185" y="344" fill="#64748B" font-size="9" font-weight="bold" text-anchor="middle">语言</text>
+  <text x="340" y="344" fill="#64748B" font-size="9" font-weight="bold" text-anchor="middle">模型支持</text>
+  <text x="495" y="344" fill="#64748B" font-size="9" font-weight="bold" text-anchor="middle">核心特性</text>
+  <text x="610" y="344" fill="#64748B" font-size="9" font-weight="bold" text-anchor="middle">学习曲线</text>
+
+  <text x="185" y="362" fill="#2563EB" font-size="10" font-weight="bold" text-anchor="middle">Python</text>
+  <text x="340" y="362" fill="#2563EB" font-size="10" font-weight="bold" text-anchor="middle">仅 OpenAI</text>
+  <text x="495" y="362" fill="#2563EB" font-size="10" font-weight="bold" text-anchor="middle">Handoff + Guardrails</text>
+  <text x="610" y="362" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">低</text>
+
+  <text x="185" y="380" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">Python + Java + Go + TS</text>
+  <text x="340" y="380" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">主要Gemini + 其他</text>
+  <text x="495" y="380" fill="#059669" font-size="10" font-weight="bold" text-anchor="middle">A2A + 多语言SDK</text>
+  <text x="610" y="380" fill="#EAB308" font-size="10" font-weight="bold" text-anchor="middle">中等</text>
+
+  <line x1="240" y1="334" x2="240" y2="380" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="425" y1="334" x2="425" y2="380" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="560" y1="334" x2="560" y2="380" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="340" y1="360" x2="340" y2="380" stroke="#E2E8F0" stroke-width="0.5"/>
+</svg>

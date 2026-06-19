@@ -167,6 +167,10 @@ LLM Span 额外包含：
 
 ## Trace ID 传播
 
+<p align="center">
+  <img src="../../assets/13-observability/trace-architecture.svg" alt="全链路追踪架构：从用户请求到 Span 链路到存储与可视化" width="95%"/>
+</p>
+
 Trace ID 需要穿透的层级比传统分布式系统更多：
 
 ```

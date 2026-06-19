@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="gradEmbed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="gradVec" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="gradHybrid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6B7280"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="340" y="32" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1F2937">记忆存储架构 — 组合式存储流水线</text>
+
+  <!-- ===== 上半部分：写入流水线 ===== -->
+  <text x="50" y="62" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">写入流水线</text>
+
+  <!-- 原始文本 -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="72" width="110" height="36" rx="6" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  </g>
+  <text x="85" y="94" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#374151">原始文本 / 对话</text>
+
+  <line x1="140" y1="90" x2="175" y2="90" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Embedding 模型 -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="72" width="130" height="36" rx="6" fill="url(#gradEmbed)"/>
+  </g>
+  <text x="245" y="94" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#FFFFFF">Embedding 模型</text>
+  <text x="245" y="118" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">text-embedding-3 / bge-m3</text>
+
+  <line x1="310" y1="90" x2="345" y2="90" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 向量路由 -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="72" width="60" height="36" rx="6" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+  </g>
+  <text x="380" y="94" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6B7280">路由分发</text>
+
+  <!-- 三分支 -->
+  <!-- 向量DB -->
+  <line x1="380" y1="108" x2="200" y2="148" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- SQL -->
+  <line x1="380" y1="108" x2="380" y2="148" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- 文件 -->
+  <line x1="380" y1="108" x2="540" y2="148" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 向量数据库 -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="152" width="160" height="50" rx="6" fill="url(#gradVec)" opacity="0.95"/>
+  </g>
+  <text x="200" y="172" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">向量数据库</text>
+  <text x="200" y="190" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EDE9FE">ChromaDB / Pinecone / Qdrant</text>
+  <text x="200" y="212" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#C4B5FD">语义相似度检索（主力）</text>
+
+  <!-- SQL -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="152" width="160" height="50" rx="6" fill="url(#gradEmbed)" opacity="0.95"/>
+  </g>
+  <text x="380" y="172" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">SQL 数据库</text>
+  <text x="380" y="190" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DBEAFE">SQLite / PostgreSQL</text>
+  <text x="380" y="212" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#BFDBFE">精确查询元数据（补充）</text>
+
+  <!-- 文件系统 -->
+  <g filter="url(#shadow)">
+    <rect x="480" y="152" width="160" height="50" rx="6" fill="url(#gradHybrid)" opacity="0.95"/>
+  </g>
+  <text x="560" y="172" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">文件系统</text>
+  <text x="560" y="190" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D1FAE5">本地文件 / S3</text>
+  <text x="560" y="212" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A7F3D0">大文档归档存储</text>
+
+  <!-- ===== 分隔线 ===== -->
+  <line x1="30" y1="238" x2="650" y2="238" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ===== 下半部分：检索流水线 ===== -->
+  <text x="50" y="258" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">检索流水线</text>
+
+  <!-- 查询 -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="270" width="110" height="36" rx="6" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  </g>
+  <text x="85" y="292" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#374151">用户查询</text>
+
+  <line x1="140" y1="288" x2="175" y2="288" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 向量检索 -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="270" width="130" height="36" rx="6" fill="url(#gradVec)"/>
+  </g>
+  <text x="245" y="292" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#FFFFFF">语义向量检索</text>
+  <text x="245" y="316" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">返回 Top-K 候选</text>
+
+  <line x1="310" y1="288" x2="345" y2="288" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 混合检索 -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="268" width="130" height="40" rx="6" fill="url(#gradHybrid)"/>
+  </g>
+  <text x="415" y="285" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">混合检索 Hybrid</text>
+  <text x="415" y="300" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D1FAE5">RRF 融合排名</text>
+
+  <line x1="480" y1="288" x2="515" y2="288" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Reranker -->
+  <g filter="url(#shadow)">
+    <rect x="520" y="268" width="130" height="40" rx="6" fill="#DC2626" opacity="0.9"/>
+  </g>
+  <text x="585" y="285" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Reranker 重排</text>
+  <text x="585" y="300" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#FEE2E2">精排 Top-N</text>
+
+  <!-- 元数据过滤 标注 -->
+  <rect x="180" y="322" width="240" height="20" rx="4" fill="#FEF3C7"/>
+  <text x="300" y="336" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D97706">元数据过滤（type/时间/user_id）先缩小检索范围</text>
+
+  <!-- 最终结果 -->
+  <rect x="330" y="355" width="150" height="28" rx="14" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="405" y="374" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">最终记忆结果</text>
+
+  <!-- 从 Reranker 到结果 -->
+  <line x1="585" y1="308" x2="585" y2="342" stroke="#6B7280" stroke-width="1.5"/>
+  <line x1="585" y1="342" x2="480" y2="342" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="342" x2="480" y2="369" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 底部图注 -->
+  <text x="340" y="395" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">
+    三种存储后端组合使用：向量DB做语义检索（主力）+ SQL做精确查询（补充）+ 文件做文档归档
+  </text>
+</svg>

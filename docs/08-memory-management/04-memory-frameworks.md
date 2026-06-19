@@ -14,7 +14,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。前三篇文章覆盖了 [记忆三层模型](./01-memory-layers.md)、[存储与检索](./02-memory-storage-retrieval.md)、[跨会话实践](./03-cross-session-memory.md)。这篇和下一篇是记忆管理的**收官二连弹**：
+你好，我是江小湖。前三篇文章覆盖了 [Agent 记忆三层模型](./01-memory-layers.md)、[存储与检索](./02-memory-storage-retrieval.md)、[跨会话实践](./03-cross-session-memory.md)。这篇和下一篇是记忆管理的**收官二连弹**：
 
 1. **本篇（理论）**：长期记忆分类 + 记忆巩固 + 四大框架的设计理念与选型
 2. **[下一篇（实战）](./05-frameworks-hands-on.md)**：四大框架的完整 Quick Start 代码 + 生产配置 + 组合使用
@@ -241,6 +241,12 @@ def memory_maintenance(memory_system, max_memories=500, min_age_days=30):
             memory_system.delete(mem.id)
 ```
 
+<p align="center">
+  <img src="../../assets/08-memory-management/memory-consolidation.svg" alt="记忆巩固机制" width="90%"/>
+  <br/>
+  <em>图：记忆巩固三阶段 — 提取/整合/遗忘，输出三类结构化知识</em>
+</p>
+
 ## 框架一：Mem0 — 极简记忆层
 
 **Mem0 是 2025-2026 年最流行的轻量级记忆方案**。它在应用逻辑和向量数据库之间建立了一个智能中间层，核心思路是"事实提取（Fact Extraction）"——不存原始对话，而是用 LLM 将对话自动提炼为离散的事实条目。
@@ -413,6 +419,12 @@ Cognee 解决的是普通向量搜索搞不定的问题：
     理由：GraphRAG 的因果链追踪是向量搜索做不到的。
     选 Cognee 时确认：不需要实时响应，可以接受 cognify 的批处理延迟
 ```
+
+<p align="center">
+  <img src="../../assets/08-memory-management/framework-comparison.svg" alt="四大记忆框架对比矩阵" width="90%"/>
+  <br/>
+  <em>图：Mem0/Letta/Zep/Cognee 核心维度对比与选型路径</em>
+</p>
 
 ### 什么时候不用框架？
 

@@ -34,7 +34,13 @@ Compress（压下去）— 对已经在上文中的信息做精简
 三者互相配合：Write 提供"信息库"，Select 决定"取什么"，Compress 控制"怎么用"。
 ```
 
-前一篇 [上下文压缩策略](./02-context-compression.md) 已经覆盖了 Compress。这篇文章聚焦 Write（卸载）和 Isolate（隔离）。
+前三篇已经覆盖了 Compress。这篇文章聚焦 Write（卸载）和 Isolate（隔离）。
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/offloading-architecture.svg" alt="上下文卸载架构" width="90%"/>
+  <br/>
+  <em>四桶分类法：Write→Select→Compress→Isolate 协作关系</em>
+</p>
 
 ## 上下文卸载：文件系统当外存
 
@@ -393,6 +399,12 @@ FIXED_TOOLS = [
 # L3 Python 脚本（不在上下文中，通过 execute_python 调用）
 # Agent 执行：execute_python("import yfinance; ...")
 ```
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/tool-space-isolation.svg" alt="分层工具空间L1-L3" width="90%"/>
+  <br/>
+  <em>分层工具空间：L1原子函数→L2沙盒工具→L3软件包的三层隔离</em>
+</p>
 
 **效果**：工具定义从 3000-6000 tokens 降到 500 tokens，工具选择准确率反而提升——因为 Agent 只需要理解 4 个原子操作，不会在 50 个工具中"迷路"。
 

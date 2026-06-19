@@ -49,6 +49,10 @@ Agent 输出
      仅当以上都无法判断时才启用
 ```
 
+<p align="center">
+  <img src="../../assets/12-eval/deterministic-eval-pipeline.svg" alt="确定性评测流水线：从代码检查到 LLM 评分的四层过滤机制" width="95%"/>
+</p>
+
 ## 代码检查
 
 代码检查是最基础的确定性方法——**用代码验证代码**。
@@ -141,7 +145,7 @@ def verify_code(code: str, test_cases: list) -> dict:
     }
 ```
 
-关键：**必须在沙箱中执行**，防止 Agent 生成的恶意代码影响宿主系统。沙箱策略参考第 14 章安全篇。
+关键：**必须在沙箱中执行**，防止 Agent 生成的恶意代码影响宿主系统。沙箱策略参考 [访问控制与沙箱执行](../14-safety/02-access-control-and-sandbox.md)。
 
 ### SQL 执行验证
 

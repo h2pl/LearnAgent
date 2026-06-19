@@ -15,11 +15,11 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。前两篇讲了架构模式和角色设计，但纸上得来终觉浅——本文用 **CrewAI** 框架搭建一个真实的"研究团队"多 Agent 系统。CrewAI 在 [第 09 章「框架与编排」](../09-framework/05-crewai.md) 中已经做过概览，本文深入实战。
+你好，我是江小湖。前两篇讲了架构模式和角色设计，但纸上得来终觉浅——本文用 **CrewAI** 框架搭建一个真实的"研究团队"多 Agent 系统。CrewAI 在 [CrewAI 详解](../09-framework/05-crewai.md) 中已经做过概览，本文深入实战。
 
 ## 前置阅读
 
-本文假设你了解 CrewAI 的基本概念（Agent、Task、Crew、Process）。如果不熟悉，建议先看 [第 09 章 CrewAI 概览](../09-framework/05-crewai.md) 前两节。
+本文假设你了解 CrewAI 的基本概念（Agent、Task、Crew、Process）。如果不熟悉，建议先看 [CrewAI 详解](../09-framework/05-crewai.md) 前两节。
 
 ## 场景设定
 
@@ -120,6 +120,11 @@ write_task = Task(
 ```
 
 ## 组建 Crew 并执行
+
+<p align="center">
+  <img src="../../assets/11-multi-agent/crewai-components-relationship.svg" alt="CrewAI 核心组件关系：Agent、Task、Crew、Process 的绑定关系" width="90%"/>
+  <br/><em>图：CrewAI Agent-Task-Crew-Process 组件关系</em>
+</p>
 
 将 Agent 和 Task 组合成 Crew，指定执行流程：
 

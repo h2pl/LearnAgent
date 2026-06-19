@@ -40,6 +40,8 @@ LangChain 不是一个单独的库，而是一个生态：
 pip install langchain langchain-openai langchain-community
 ```
 
+<p align="center"><img src="../../assets/09-framework/langchain-architecture.svg" alt="LangChain生态架构" width="90%"/><br/><em>图：LangChain 四层生态架构全景</em></p>
+
 ## 核心概念
 
 LangChain 围绕几个核心概念构建。理解这些概念，就理解了 LangChain 的设计哲学。

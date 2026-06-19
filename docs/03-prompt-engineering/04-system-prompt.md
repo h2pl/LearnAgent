@@ -16,7 +16,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江湖哥。前两篇讲了 Prompt 模式怎么选、结构化输出怎么写。这篇进入更底层的问题——System Prompt。它是每个 Agent 的起点，定义了你这个 Agent 到底"是谁"、"能做什么"、"不能做什么"。写好了，Agent 行为稳定可控；写不好，再花俏的 Prompt 技巧也救不回来。
+你好，我是江小湖。前两篇讲了 Prompt 模式怎么选、结构化输出怎么写。这篇进入更底层的问题——System Prompt。它是每个 Agent 的起点，定义了你这个 Agent 到底"是谁"、"能做什么"、"不能做什么"。写好了，Agent 行为稳定可控；写不好，再花俏的 Prompt 技巧也救不回来。
 
 这篇文章回答一个架构级问题：**如何设计 System Prompt，让 Agent 的行为可预测、边界可控制、输出可依赖？** 不是给你一个"最好的 System Prompt 模板"，而是给你一套设计方法论——从结构、角色、边界、输出四个维度，建立你的 System Prompt 设计框架。每个维度都有清晰的原则和反例。
 
@@ -61,7 +61,7 @@ messages = [
 | 原因 | 机制 | 影响 |
 |------|------|------|
 | **位置优势** | Transformer 的自注意力机制（Self-Attention）对序列开头的内容分配更高权重——学术论文称之为 "Lost in the Middle" 效应 | System Prompt 在最前面，天然获得更高注意力 |
-| **RLHF 对齐训练** | 模型在人类反馈强化学习（Reinforcement Learning from Human Feedback）阶段被反复训练"遵循 System 指令" | 模型学会了：system 角色的内容 = 必须遵守的规则 |
+| **RLHF 对齐训练** | 模型在人类反馈强化学习（Reinforcement Learning from Human Feedback）阶段被反复训练"遵循 System 指令" | 模型编码了此模式：system 角色的内容被视为最高优先级的约束 |
 | **平台保护** | API 提供商不会截断或修改 System Prompt，而长对话中的早期 User 消息可能被滑动窗口裁剪 | System Prompt 始终完整保留在上下文窗口中 |
 
 <p align="center">

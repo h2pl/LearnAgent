@@ -12,7 +12,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在 [RAG 概述](./01-rag-overview.md) 中，你理解了 RAG 的核心思想。这篇文章深入 RAG 的基础——**文档切分与向量化**，解决三个核心问题：怎么切文档、用什么模型向量化、存到哪里。
+你好，我是江小湖。在 [RAG 原理概述](./01-rag-overview.md) 中，你理解了 RAG 的核心思想。这篇文章深入 RAG 的基础——**文档切分与向量化**，解决三个核心问题：怎么切文档、用什么模型向量化、存到哪里。
 
 ## 文档解析：从原始格式到纯文本
 
@@ -220,6 +220,10 @@ results = collection.query(
     n_results=3
 )
 ```
+
+<p align="center">
+  <img src="../../assets/07-rag-pipeline/embedding-vector-selection.svg" alt="Embedding模型与向量数据库选型：特性对比与场景决策" width="95%"/>
+</p>
 
 ## 代码实现
 

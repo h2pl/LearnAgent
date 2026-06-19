@@ -190,6 +190,10 @@ def route_to_model(user_input: str, trace_context: dict) -> str:
     return "gpt-4o-mini"
 ```
 
+<p align="center">
+  <img src="../../assets/13-observability/cost-model-routing.svg" alt="成本优化：模型路由架构与优化策略优先级" width="95%"/>
+</p>
+
 路由决策本身要低开销——不能为了省钱而引入额外 LLM 调用。用规则或简单分类器，不要用 LLM 去做路由分类。
 
 ### Prompt 压缩

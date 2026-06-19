@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6B7280"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="680" height="400" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1F2937">Mem0 Quick Start 流程图</text>
+  <text x="340" y="48" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#6B7280">5 行代码即可为 Agent 添加记忆能力</text>
+
+  <!-- ===== 步骤 1 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="280" height="52" rx="8" fill="#2563EB" opacity="0.92"/>
+  </g>
+  <text x="170" y="92" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">步骤 1 安装</text>
+  <text x="170" y="112" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#DBEAFE">pip install mem0ai</text>
+
+  <line x1="310" y1="96" x2="345" y2="96" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 步骤 2 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="70" width="300" height="52" rx="8" fill="#7C3AED" opacity="0.92"/>
+  </g>
+  <text x="500" y="92" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">步骤 2 初始化</text>
+  <text x="500" y="112" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#EDE9FE">memory = Memory()  // 一行初始化</text>
+
+  <!-- 向下箭头 -->
+  <line x1="500" y1="122" x2="500" y2="155" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 步骤 3 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="110" y="160" width="460" height="52" rx="8" fill="#059669" opacity="0.9"/>
+  </g>
+  <text x="340" y="182" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">步骤 3 写入记忆 memory.add()</text>
+  <text x="340" y="202" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#D1FAE5">自动调用 LLM 事实提取 + 去重检测 + 向量化存储</text>
+
+  <!-- 分叉 -->
+  <line x1="340" y1="212" x2="340" y2="245" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- ===== 步骤 4a ===== -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="250" width="280" height="52" rx="8" fill="#F0F5FF" stroke="#2563EB" stroke-width="2"/>
+  </g>
+  <text x="170" y="272" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">步骤 4a 语义检索</text>
+  <text x="170" y="292" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6B7280">memory.search("用户用什么数据库？")</text>
+
+  <!-- ===== 步骤 4b ===== -->
+  <g filter="url(#shadow)">
+    <rect x="370" y="250" width="280" height="52" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  </g>
+  <text x="510" y="272" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#D97706">步骤 4b 自动更新</text>
+  <text x="510" y="292" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6B7280">memory.add() 自动检测冲突 → UPDATE</text>
+
+  <!-- 汇合箭头 -->
+  <line x1="170" y1="302" x2="170" y2="330" stroke="#6B7280" stroke-width="1"/>
+  <line x1="510" y1="302" x2="510" y2="330" stroke="#6B7280" stroke-width="1"/>
+  <line x1="170" y1="330" x2="510" y2="330" stroke="#6B7280" stroke-width="1"/>
+  <line x1="340" y1="330" x2="340" y2="348" stroke="#059669" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 内部过程 ===== -->
+  <rect x="120" y="352" width="440" height="38" rx="19" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="340" y="368" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">内部过程：LLM提取→Embedding→向量存储→去重合并→语义检索</text>
+  <text x="340" y="380" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DBEAFE">完全自动化，开发者只需控制"何时 add"和"何时 search"</text>
+
+  <!-- 底部图注 -->
+  <text x="340" y="395" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">
+    核心优势：5行代码 · 自动事实提取 · 自动去重 · p95 &lt; 100ms · Token 节省 90%+
+  </text>
+</svg>

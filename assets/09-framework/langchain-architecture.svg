@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2563EB"/></marker>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)" rx="8"/>
+
+  <rect x="0" y="0" width="680" height="44" fill="url(#header)" rx="8"/>
+  <rect x="0" y="22" width="680" height="22" fill="url(#header)"/>
+  <text x="340" y="28" fill="#fff" font-size="17" font-weight="bold">LangChain 生态架构</text>
+
+  <!-- 顶层：应用层 -->
+  <rect x="100" y="58" width="480" height="52" rx="8" fill="#DBEAFE" stroke="#60A5FA" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="78" fill="#1D4ED8" font-size="11" font-weight="bold" text-anchor="middle">应用层 — Agent / Chain</text>
+  <text x="340" y="96" fill="#3B82F6" font-size="9" text-anchor="middle">ReAct Agent | RAG Chain | 自定义工作流</text>
+
+  <line x1="340" y1="110" x2="340" y2="130" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 第二层：编排层 -->
+  <rect x="60" y="130" width="560" height="52" rx="8" fill="#E0E7FF" stroke="#818CF8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="150" fill="#3730A3" font-size="11" font-weight="bold" text-anchor="middle">编排层 — LCEL / LangGraph</text>
+  <text x="340" y="168" fill="#6366F1" font-size="9" text-anchor="middle">管道运算符 | 并行执行 | 流式/批量/异步 | 状态图编排</text>
+
+  <line x1="200" y1="182" x2="120" y2="210" stroke="#6366F1" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="480" y1="182" x2="560" y2="210" stroke="#6366F1" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- 第三层左：核心抽象 -->
+  <rect x="20" y="214" width="230" height="120" rx="8" fill="#fff" stroke="#A5B4FC" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="20" y="214" width="230" height="28" rx="8" fill="#6366F1"/>
+  <rect x="20" y="228" width="230" height="14" fill="#6366F1"/>
+  <text x="135" y="234" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">langchain-core 抽象</text>
+
+  <rect x="34" y="250" width="100" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="84" y="266" fill="#4338CA" font-size="9" font-weight="bold" text-anchor="middle">Model 模型</text>
+
+  <rect x="140" y="250" width="96" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="188" y="266" fill="#4338CA" font-size="9" font-weight="bold" text-anchor="middle">Message 消息</text>
+
+  <rect x="34" y="280" width="100" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="84" y="296" fill="#4338CA" font-size="9" font-weight="bold" text-anchor="middle">Prompt 模板</text>
+
+  <rect x="140" y="280" width="96" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="188" y="296" fill="#4338CA" font-size="9" font-weight="bold" text-anchor="middle">Output Parser</text>
+
+  <rect x="34" y="310" width="180" height="18" rx="4" fill="#C7D2FE"/>
+  <text x="124" y="323" fill="#4338CA" font-size="9" text-anchor="middle">Runnable 统一接口</text>
+
+  <!-- 第三层右：集成层 -->
+  <rect x="430" y="214" width="230" height="120" rx="8" fill="#fff" stroke="#A5B4FC" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="430" y="214" width="230" height="28" rx="8" fill="#818CF8"/>
+  <rect x="430" y="228" width="230" height="14" fill="#818CF8"/>
+  <text x="545" y="234" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">生态集成</text>
+
+  <rect x="444" y="250" width="100" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="494" y="266" fill="#4338CA" font-size="9" text-anchor="middle">langchain-openai</text>
+
+  <rect x="550" y="250" width="96" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="598" y="266" fill="#4338CA" font-size="9" text-anchor="middle">langchain-comm</text>
+
+  <rect x="444" y="280" width="202" height="24" rx="4" fill="#EEF2FF"/>
+  <text x="545" y="296" fill="#4338CA" font-size="9" text-anchor="middle">Vector Store | Embedding | Tools</text>
+
+  <rect x="444" y="310" width="202" height="18" rx="4" fill="#C7D2FE"/>
+  <text x="545" y="323" fill="#4338CA" font-size="9" text-anchor="middle">200+ 第三方集成</text>
+
+  <line x1="300" y1="240" x2="300" y2="308" stroke="#A5B4FC" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="380" y1="240" x2="380" y2="308" stroke="#A5B4FC" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="300" y1="274" x2="380" y2="274" stroke="#A5B4FC" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 底部：平台层 -->
+  <rect x="100" y="344" width="480" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1" filter="url(#shadow)"/>
+  <text x="340" y="366" fill="#94A3B8" font-size="11" font-weight="bold" text-anchor="middle">平台层</text>
+
+  <rect x="130" y="374" width="130" height="11" rx="3" fill="#64748B"/>
+  <text x="195" y="383" fill="#CBD5E1" font-size="7" font-weight="bold" text-anchor="middle">LangSmith 追踪调试</text>
+
+  <rect x="275" y="374" width="130" height="11" rx="3" fill="#64748B"/>
+  <text x="340" y="383" fill="#CBD5E1" font-size="7" font-weight="bold" text-anchor="middle">LangGraph Cloud 部署</text>
+
+  <rect x="420" y="374" width="130" height="11" rx="3" fill="#64748B"/>
+  <text x="485" y="383" fill="#CBD5E1" font-size="7" font-weight="bold" text-anchor="middle">LangHub 模板市场</text>
+</svg>

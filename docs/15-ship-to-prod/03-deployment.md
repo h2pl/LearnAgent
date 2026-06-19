@@ -1,4 +1,4 @@
-# 部署方案
+# Agent 部署方案
 
 > 代码写好、API 设计完，接下来是"让它稳定跑在生产环境"。容器化、CI/CD、多环境、发布策略——每步选错都可能让系统上线后问题不断。
 
@@ -190,6 +190,11 @@ HPA 基于 CPU/内存使用率自动扩缩。Agent 引擎是 CPU 密集型（LLM
 
 Agent 引擎本身无状态，用 Deployment + HPA 即可。有状态组件（Redis、PostgreSQL）用 StatefulSet。
 
+<p align="center">
+  <img src="../../assets/15-ship-to-prod/deployment-topology.svg" alt="部署拓扑图" width="90%"/>
+  <br/><em>图：负载均衡→多实例→基础设施→外部API 完整拓扑</em>
+</p>
+
 ## CI/CD 流水线
 
 ### GitHub Actions 示例
@@ -281,6 +286,11 @@ def should_block(new_tsr: float, baseline_tsr: float, threshold: float = 0.02) -
 ```
 
 这样单次评测的波动不会误阻断，但持续下降肯定被抓住。
+
+<p align="center">
+  <img src="../../assets/15-ship-to-prod/ci-cd-pipeline.svg" alt="CI/CD 流水线图" width="90%"/>
+  <br/><em>图：从代码提交到流量切换——九阶段 + 三道门禁 + 回滚路径</em>
+</p>
 
 ## 多环境管理
 
@@ -456,7 +466,7 @@ class KeyManager:
 
 容器化（多阶段构建 + 非 root + HEALTHCHECK）→ K8s 部署（Deployment + HPA + ConfigMap/Secret）→ CI/CD（代码检查 → 评测门禁 → 构建 → staging → 生产）→ 多环境（dev/staging/pre-prod/prod 配置一致）→ 部署策略（滚动/蓝绿/金丝雀）+ 自动回滚条件 → 密钥管理（不分环境 + 不提交 Git + 自动化轮换）。
 
-**下一篇**：[运维实战](04-operations.md)——系统上线不是结束，是运维的开始。
+**下一篇**：[Agent 运维实战](04-operations.md)——系统上线不是结束，是运维的开始。
 
 ## 参考链接
 

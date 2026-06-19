@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。前两篇文章讲了 [记忆三层模型](./01-memory-layers.md) 和 [记忆存储与检索](./02-memory-storage-retrieval.md) 的原理。这篇文章把它们全部落地：**用 Python 实现一个完整的记忆系统，覆盖会话全生命周期**。读完本文，你将拥有一个"越用越聪明"的 Agent。
+你好，我是江小湖。前两篇文章讲了 [Agent 记忆三层模型](./01-memory-layers.md) 和 [记忆存储与检索](./02-memory-storage-retrieval.md) 的原理。这篇文章把它们全部落地：**用 Python 实现一个完整的记忆系统，覆盖会话全生命周期**。读完本文，你将拥有一个"越用越聪明"的 Agent。
 
 ## 整体架构
 
@@ -25,6 +25,12 @@
 3. 会话结束 → 从对话中提取有价值信息 → 归档到长期记忆
 4. 下次会话 → 回到第 1 步，但 Agent 已经"记住"了你
 ```
+
+<p align="center">
+  <img src="../../assets/08-memory-management/cross-session-lifecycle.svg" alt="跨会话记忆生命周期" width="90%"/>
+  <br/>
+  <em>图：四个阶段形成记忆闭环 — 初始化/对话/结束/持久化</em>
+</p>
 
 完整代码结构：
 
@@ -212,6 +218,12 @@ def end_session(self):
 - 用 LLM 判断"什么值得记"，而不是什么都存
 - 区分信息类型（偏好/事实/纠正/决策），便于后续按类型检索
 - 标注重要程度，让检索时能优先返回高重要度的记忆
+
+<p align="center">
+  <img src="../../assets/08-memory-management/memory-update-flow.svg" alt="记忆更新决策流程" width="90%"/>
+  <br/>
+  <em>图：记忆更新决策 — 新信息经过提取→去重→冲突检测→合并/替换</em>
+</p>
 
 ## 新会话开始：记忆检索与注入
 

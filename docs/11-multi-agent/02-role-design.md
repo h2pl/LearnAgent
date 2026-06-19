@@ -139,6 +139,11 @@ async def route_intent_llm(query: str) -> str:
 
 **推荐理由**：准确率最高、易于维护（改描述文本就行）、能处理边界情况（"这个既像 Bug 又像咨询"）。缺点是每次路由都调用一次 LLM，带来一定的延迟和成本。
 
+<p align="center">
+  <img src="../../assets/11-multi-agent/intent-routing-comparison.svg" alt="意图路由三种方法对比：关键词+规则、Embedding相似度、LLM分类" width="90%"/>
+  <br/><em>图：三种意图路由方法的适用场景与混合策略</em>
+</p>
+
 ## 冲突处理
 
 多 Agent 系统最常见的三类冲突：

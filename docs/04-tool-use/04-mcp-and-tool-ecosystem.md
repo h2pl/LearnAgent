@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在 [多工具编排](./03-multi-tool-orchestration.md) 中，你了解了如何让多个工具协同工作。但所有工具都是自己写的——每新增一个外部能力（GitHub、Slack、数据库），你都要重新实现一套集成代码。这篇文章解决核心问题：**MCP 如何让你写一次工具，到处复用，把 N×M 的集成地狱变成 N+M 的简单加法**。
+你好，我是江小湖。在 [多工具编排策略](./03-multi-tool-orchestration.md) 中，你了解了如何让多个工具协同工作。但所有工具都是自己写的——每新增一个外部能力（GitHub、Slack、数据库），你都要重新实现一套集成代码。这篇文章解决核心问题：**MCP 如何让你写一次工具，到处复用，把 N×M 的集成地狱变成 N+M 的简单加法**。
 
 **Model Context Protocol（MCP）** 是 Anthropic 于 2024 年 11 月发布的开放标准，定义了 AI 应用如何连接外部工具和数据源。2025 年 12 月，Anthropic 将它捐赠给 Linux 基金会，成为 Agentic AI Foundation 的创始项目。到 2026 年中，MCP 已经是工具层的事实标准——Claude、ChatGPT、Cursor、Gemini、VS Code 都原生支持。
 
@@ -144,6 +144,10 @@ MCP 的真正价值不是"少写代码"，而是**生态复用**。2026 年，mo
 ```
 
 ## MCP 的工程实践
+
+<p align="center">
+  <img src="../../assets/04-tool-use/mcp-protocol-layers.svg" alt="MCP协议分层：应用层、协议层、传输层、安全层——N×M变N+M" width="95%"/>
+</p>
 
 生产环境的 MCP 不是那 12 行 Demo。从 Anthropic 和社区的最佳实践看，一个生产级 MCP Server 需要：
 

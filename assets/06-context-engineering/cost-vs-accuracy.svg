@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <marker id="diamond" markerWidth="8" markerHeight="8" refX="4" refY="4">
+      <circle cx="4" cy="4" r="3" fill="#FF6B6B"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">上下文长度 vs 准确率 vs 成本（三轴关系图）</text>
+
+  <!-- 坐标系 -->
+  <!-- Y轴 -->
+  <line x1="100" y1="55" x2="100" y2="280" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="100" y1="280" x2="600" y2="280" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- Y轴：准确率 -->
+  <text x="90" y="62" text-anchor="end" font-family="sans-serif" font-size="8" fill="#64748B">100%</text>
+  <text x="90" y="100" text-anchor="end" font-family="sans-serif" font-size="8" fill="#64748B">90%</text>
+  <text x="90" y="140" text-anchor="end" font-family="sans-serif" font-size="8" fill="#64748B">80%</text>
+  <text x="90" y="180" text-anchor="end" font-family="sans-serif" font-size="8" fill="#64748B">70%</text>
+  <text x="90" y="220" text-anchor="end" font-family="sans-serif" font-size="8" fill="#64748B">60%</text>
+  <text x="27" y="168" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B" transform="rotate(-90, 27, 168)">准确率</text>
+
+  <!-- Y轴：成本（右侧） -->
+  <line x1="580" y1="55" x2="580" y2="280" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="595" y="62" font-family="sans-serif" font-size="8" fill="#64748B">$1.50</text>
+  <text x="595" y="100" font-family="sans-serif" font-size="8" fill="#64748B">$0.30</text>
+  <text x="595" y="140" font-family="sans-serif" font-size="8" fill="#64748B">$0.06</text>
+  <text x="595" y="180" font-family="sans-serif" font-size="8" fill="#64748B">$0.015</text>
+  <text x="665" y="168" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B" transform="rotate(90, 665, 168)">成本(USD)</text>
+
+  <!-- X轴标签 -->
+  <text x="180" y="298" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">5K</text>
+  <text x="280" y="298" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">20K</text>
+  <text x="380" y="298" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">100K</text>
+  <text x="480" y="298" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">200K</text>
+  <text x="560" y="298" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">500K</text>
+  <text x="350" y="316" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748B">上下文长度（tokens）</text>
+
+  <!-- 网格线 -->
+  <line x1="100" y1="100" x2="580" y2="100" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="100" y1="140" x2="580" y2="140" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="100" y1="180" x2="580" y2="180" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="100" y1="220" x2="580" y2="220" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="3,3"/>
+
+  <!-- 准确率曲线（下降） -->
+  <polyline points="140,60 220,80 300,120 400,160 500,200 560,250"
+            fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+  <text x="420" y="150" font-family="sans-serif" font-size="9" fill="#2563EB" font-weight="bold">准确率曲线</text>
+
+  <!-- 数据点 - 准确率 -->
+  <circle cx="140" cy="60" r="5" fill="#2563EB"/>
+  <text x="140" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">95%</text>
+
+  <circle cx="220" cy="80" r="5" fill="#2563EB"/>
+  <text x="220" y="72" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">90%</text>
+
+  <circle cx="300" cy="120" r="5" fill="#2563EB"/>
+  <text x="300" y="112" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">78%</text>
+
+  <circle cx="400" cy="160" r="5" fill="#2563EB"/>
+  <text x="400" y="152" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">72%</text>
+
+  <circle cx="500" cy="200" r="5" fill="#2563EB"/>
+  <text x="500" y="192" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">65%</text>
+
+  <circle cx="560" cy="250" r="5" fill="#2563EB"/>
+  <text x="560" y="242" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">58%</text>
+
+  <!-- 成本曲线（上升） -->
+  <polyline points="140,235 220,215 300,195 400,165 500,120 560,80"
+            fill="none" stroke="#DC2626" stroke-width="3" stroke-linecap="round" stroke-dasharray="8,3"/>
+  <text x="340" y="235" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="bold">成本曲线</text>
+
+  <!-- 成本数据点 -->
+  <circle cx="140" cy="235" r="4" fill="#DC2626"/>
+  <text x="140" y="248" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">$0.015</text>
+
+  <circle cx="220" cy="215" r="4" fill="#DC2626"/>
+  <text x="220" y="228" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">$0.06</text>
+
+  <circle cx="300" cy="195" r="4" fill="#DC2626"/>
+  <text x="300" y="208" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">$0.30</text>
+
+  <circle cx="400" cy="165" r="4" fill="#DC2626"/>
+  <text x="400" y="178" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">$0.60</text>
+
+  <circle cx="500" cy="120" r="4" fill="#DC2626"/>
+  <text x="500" y="133" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">$0.90</text>
+
+  <circle cx="560" cy="80" r="4" fill="#DC2626"/>
+  <text x="560" y="93" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">$1.50</text>
+
+  <!-- 最佳区间 -->
+  <rect x="130" y="80" width="210" height="180" rx="6" fill="#059669" opacity="0.08" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="220" y="95" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#059669" font-weight="bold">最佳实践区间</text>
+  <text x="220" y="110" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#065F46">5K-20K tokens</text>
+  <text x="220" y="124" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#065F46">准确率 90-95%</text>
+  <text x="220" y="138" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#065F46">成本 $0.015-$0.06</text>
+
+  <!-- 危险区间 -->
+  <rect x="460" y="200" width="120" height="80" rx="4" fill="#DC2626" opacity="0.08" stroke="#DC2626" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="520" y="218" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626" font-weight="bold">高成本低效区</text>
+  <text x="520" y="234" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#B91C1C">成本高</text>
+  <text x="520" y="248" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#B91C1C">准确率低</text>
+  <text x="520" y="262" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#B91C1C">延迟高</text>
+
+  <!-- 底部结论 -->
+  <rect x="16" y="325" width="648" height="66" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="340" y="347" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E40AF">核心发现</text>
+  <text x="340" y="364" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#334155">上下文越长，准确率越低，成本越高——反转点在 20K-100K tokens</text>
+  <text x="340" y="382" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#DC2626" font-weight="bold">将上下文控制在窗口 20-30% 以内，是准确率和成本的最佳平衡点</text>
+</svg>

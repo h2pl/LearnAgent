@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="stage1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="stage2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="stage3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="stage4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" rx="12" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" fill="#f1f5f9" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Prompt 注入攻击链 (Attack Chain)</text>
+  <text x="450" y="64" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">从信息收集到 Payload 执行的四阶段攻击路径</text>
+
+  <!-- Stage 1 -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="95" width="195" height="200" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="30" y="95" width="195" height="40" rx="10" fill="url(#stage1)"/>
+    <rect x="30" y="125" width="195" height="10" fill="url(#stage1)"/>
+    <text x="127" y="121" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Stage 1</text>
+    <text x="127" y="160" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="15" font-weight="bold">信息收集</text>
+    <text x="127" y="178" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="11">Information Gathering</text>
+
+    <circle cx="50" cy="205" r="4" fill="#60a5fa"/>
+    <text x="62" y="209" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">获取 System Prompt</text>
+    <circle cx="50" cy="228" r="4" fill="#60a5fa"/>
+    <text x="62" y="232" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">探测可用工具列表</text>
+    <circle cx="50" cy="251" r="4" fill="#60a5fa"/>
+    <text x="62" y="255" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">了解权限边界</text>
+
+    <rect x="50" y="270" width="155" height="16" rx="3" fill="#1e3a5f"/>
+    <rect x="50" y="270" width="50" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+    <text x="127" y="282" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="9">威胁等级: 低</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <line x1="230" y1="195" x2="260" y2="195" stroke="#64748b" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Stage 2 -->
+  <g filter="url(#shadow)">
+    <rect x="265" y="95" width="195" height="200" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="265" y="95" width="195" height="40" rx="10" fill="url(#stage2)"/>
+    <rect x="265" y="125" width="195" height="10" fill="url(#stage2)"/>
+    <text x="362" y="121" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Stage 2</text>
+    <text x="362" y="160" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="15" font-weight="bold">特权提升</text>
+    <text x="362" y="178" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="11">Privilege Escalation</text>
+
+    <circle cx="285" cy="205" r="4" fill="#fbbf24"/>
+    <text x="297" y="209" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">污染上下文</text>
+    <circle cx="285" cy="228" r="4" fill="#fbbf24"/>
+    <text x="297" y="232" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">突破角色限制</text>
+    <circle cx="285" cy="251" r="4" fill="#fbbf24"/>
+    <text x="297" y="255" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">绕过安全检查</text>
+
+    <rect x="285" y="270" width="155" height="16" rx="3" fill="#3d2e0a"/>
+    <rect x="285" y="270" width="95" height="16" rx="3" fill="#f59e0b" opacity="0.7"/>
+    <text x="362" y="282" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="9">威胁等级: 中</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <line x1="465" y1="195" x2="495" y2="195" stroke="#64748b" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Stage 3 -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="95" width="195" height="200" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect x="500" y="95" width="195" height="40" rx="10" fill="url(#stage3)"/>
+    <rect x="500" y="125" width="195" height="10" fill="url(#stage3)"/>
+    <text x="597" y="121" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Stage 3</text>
+    <text x="597" y="160" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="15" font-weight="bold">横向移动</text>
+    <text x="597" y="178" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="11">Lateral Movement</text>
+
+    <circle cx="520" cy="205" r="4" fill="#f87171"/>
+    <text x="532" y="209" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">调用不必要的工具</text>
+    <circle cx="520" cy="228" r="4" fill="#f87171"/>
+    <text x="532" y="232" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">读取未授权数据</text>
+    <circle cx="520" cy="251" r="4" fill="#f87171"/>
+    <text x="532" y="255" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">修改 Agent 记忆</text>
+
+    <rect x="520" y="270" width="155" height="16" rx="3" fill="#3b1111"/>
+    <rect x="520" y="270" width="125" height="16" rx="3" fill="#ef4444" opacity="0.7"/>
+    <text x="597" y="282" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="9">威胁等级: 高</text>
+  </g>
+
+  <!-- Arrow 3→4 -->
+  <line x1="700" y1="195" x2="730" y2="195" stroke="#64748b" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Stage 4 -->
+  <g filter="url(#shadow)">
+    <rect x="735" y="95" width="140" height="200" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="735" y="95" width="140" height="40" rx="10" fill="url(#stage4)"/>
+    <rect x="735" y="125" width="140" height="10" fill="url(#stage4)"/>
+    <text x="805" y="121" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Stage 4</text>
+    <text x="805" y="160" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="15" font-weight="bold">执行</text>
+    <text x="805" y="178" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="11">Payload</text>
+
+    <circle cx="755" cy="205" r="4" fill="#a78bfa"/>
+    <text x="767" y="209" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">数据外泄</text>
+    <circle cx="755" cy="228" r="4" fill="#a78bfa"/>
+    <text x="767" y="232" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">危险操作</text>
+    <circle cx="755" cy="251" r="4" fill="#a78bfa"/>
+    <text x="767" y="255" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">修改配置</text>
+
+    <rect x="755" y="270" width="100" height="16" rx="3" fill="#2e1065"/>
+    <rect x="755" y="270" width="100" height="16" rx="3" fill="#8b5cf6" opacity="0.7"/>
+    <text x="805" y="282" text-anchor="middle" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="9">威胁: 严重</text>
+  </g>
+
+  <!-- Bottom section: Attack types -->
+  <rect x="30" y="320" width="845" height="180" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="450" y="348" text-anchor="middle" fill="#f1f5f9" font-family="Arial, sans-serif" font-size="15" font-weight="bold">攻击类型与入口</text>
+
+  <!-- Direct Injection -->
+  <g>
+    <rect x="55" y="365" width="180" height="115" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="145" y="390" text-anchor="middle" fill="#60a5fa" font-family="Arial, sans-serif" font-size="13" font-weight="bold">直接注入</text>
+    <text x="145" y="407" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Direct Injection</text>
+    <line x1="75" y1="418" x2="215" y2="418" stroke="#334155" stroke-width="1"/>
+    <text x="145" y="438" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">用户直接输入恶意指令</text>
+    <text x="145" y="456" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">"忽略之前的所有指令"</text>
+    <rect x="95" y="464" width="100" height="12" rx="2" fill="#1e3a5f"/>
+    <text x="145" y="474" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="8">防御难度: ★☆☆</text>
+  </g>
+
+  <!-- Indirect Injection -->
+  <g>
+    <rect x="265" y="365" width="180" height="115" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="355" y="390" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="13" font-weight="bold">间接注入</text>
+    <text x="355" y="407" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Indirect Injection</text>
+    <line x1="285" y1="418" x2="425" y2="418" stroke="#334155" stroke-width="1"/>
+    <text x="355" y="438" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">外部内容携带恶意指令</text>
+    <text x="355" y="456" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">搜索结果/文档/API 返回</text>
+    <rect x="305" y="464" width="100" height="12" rx="2" fill="#3d2e0a"/>
+    <text x="355" y="474" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="8">防御难度: ★★★</text>
+  </g>
+
+  <!-- Jailbreak -->
+  <g>
+    <rect x="475" y="365" width="180" height="115" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="565" y="390" text-anchor="middle" fill="#f87171" font-family="Arial, sans-serif" font-size="13" font-weight="bold">越狱攻击</text>
+    <text x="565" y="407" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Jailbreak</text>
+    <line x1="495" y1="418" x2="635" y2="418" stroke="#334155" stroke-width="1"/>
+    <text x="565" y="438" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">绕过 LLM 安全对齐</text>
+    <text x="565" y="456" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">精心构造的 prompt 模板</text>
+    <rect x="515" y="464" width="100" height="12" rx="2" fill="#3b1111"/>
+    <text x="565" y="474" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="8">防御难度: ★★☆</text>
+  </g>
+
+  <!-- Adversarial Input -->
+  <g>
+    <rect x="685" y="365" width="180" height="115" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="775" y="390" text-anchor="middle" fill="#a78bfa" font-family="Arial, sans-serif" font-size="13" font-weight="bold">对抗输入</text>
+    <text x="775" y="407" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Adversarial Input</text>
+    <line x1="705" y1="418" x2="845" y2="418" stroke="#334155" stroke-width="1"/>
+    <text x="775" y="438" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">Tokenization 漏洞利用</text>
+    <text x="775" y="456" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">隐藏 Unicode / Base64</text>
+    <rect x="725" y="464" width="100" height="12" rx="2" fill="#2e1065"/>
+    <text x="775" y="474" text-anchor="middle" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="8">防御难度: ★★★</text>
+  </g>
+</svg>

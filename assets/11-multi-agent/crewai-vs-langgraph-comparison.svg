@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)"/>
+
+  <text x="340" y="30" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#1E293B">CrewAI vs LangGraph 框架选型对比</text>
+  <line x1="200" y1="40" x2="480" y2="40" stroke="#2563EB" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Left: CrewAI -->
+  <rect x="40" y="54" width="290" height="330" rx="12" fill="white" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="40" y="54" width="290" height="34" rx="12" fill="url(#blueGrad)"/>
+  <rect x="40" y="76" width="290" height="12" fill="url(#blueGrad)"/>
+  <text x="185" y="77" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="white">CrewAI — 角色扮演模式</text>
+
+  <!-- CrewAI flow -->
+  <rect x="65" y="98" width="100" height="24" rx="6" fill="#DBEAFE"/>
+  <text x="115" y="114" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">制定计划</text>
+  <text x="170" y="114" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="183" y="98" width="100" height="24" rx="6" fill="#DBEAFE"/>
+  <text x="233" y="114" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">执行研究</text>
+  <text x="288" y="114" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="295" y="122" width="20" height="24" rx="6" fill="#DBEAFE" transform="rotate(-90,305,134)"/>
+
+  <text x="100" y="142" font-family="sans-serif" font-size="9" fill="#64748B">线性顺序执行</text>
+
+  <!-- Features -->
+  <text x="65" y="170" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E293B">✅ 适合场景</text>
+  <text x="75" y="190" font-family="sans-serif" font-size="9" fill="#475569">• 角色扮演式多 Agent 协作</text>
+  <text x="75" y="206" font-family="sans-serif" font-size="9" fill="#475569">• 内容生成（报告、文档）</text>
+  <text x="75" y="222" font-family="sans-serif" font-size="9" fill="#475569">• 研究、分析、创作流程</text>
+  <text x="75" y="238" font-family="sans-serif" font-size="9" fill="#475569">• 简单层级委托式协作</text>
+
+  <line x1="65" y1="250" x2="310" y2="250" stroke="#E2E8F0" stroke-width="1"/>
+
+  <text x="65" y="272" font-family="sans-serif" font-size="10" font-weight="700" fill="#DC2626">❌ 不适合</text>
+  <text x="75" y="292" font-family="sans-serif" font-size="9" fill="#475569">• 条件分支跳转</text>
+  <text x="75" y="308" font-family="sans-serif" font-size="9" fill="#475569">• 循环/重试逻辑</text>
+  <text x="75" y="324" font-family="sans-serif" font-size="9" fill="#475569">• 中断恢复</text>
+  <text x="75" y="340" font-family="sans-serif" font-size="9" fill="#475569">• 人工审批介入</text>
+
+  <text x="185" y="370" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2563EB" font-weight="600">学习门槛：低</text>
+
+  <!-- Right: LangGraph -->
+  <rect x="350" y="54" width="290" height="330" rx="12" fill="white" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="350" y="54" width="290" height="34" rx="12" fill="url(#greenGrad)"/>
+  <rect x="350" y="76" width="290" height="12" fill="url(#greenGrad)"/>
+  <text x="495" y="77" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="white">LangGraph — 状态图模式</text>
+
+  <!-- LangGraph flow -->
+  <rect x="375" y="98" width="60" height="24" rx="6" fill="#D1FAE5"/>
+  <text x="405" y="114" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46" font-weight="600">审查</text>
+  <path d="M435,110 L465,110 Q475,110 475,120 L475,130" stroke="#059669" stroke-width="1.2" fill="none" marker-end="url(#arrowG)"/>
+  <rect x="440" y="106" width="14" height="12" rx="3" fill="white" stroke="#DC2626" stroke-width="1"/>
+  <text x="447" y="116" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#DC2626">?</text>
+  <rect x="485" y="126" width="60" height="24" rx="6" fill="#D1FAE5"/>
+  <text x="515" y="142" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46" font-weight="600">安全</text>
+  <text x="560" y="142" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="573" y="126" width="55" height="24" rx="6" fill="#D1FAE5"/>
+  <text x="600" y="142" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46" font-weight="600">审批</text>
+  <path d="M600,150 Q600,165 600,175 Q600,190 515,190 L515,126" stroke="#DC2626" stroke-width="1" fill="none" stroke-dasharray="5,3"/>
+  <text x="558" y="168" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="600">驳回重审</text>
+
+  <!-- Features -->
+  <text x="375" y="170" font-family="sans-serif" font-size="10" font-weight="700" fill="#059669">✅ 适合场景</text>
+  <text x="385" y="190" font-family="sans-serif" font-size="9" fill="#475569">• 复杂工作流（分支/循环）</text>
+  <text x="385" y="206" font-family="sans-serif" font-size="9" fill="#475569">• 人工审批/中断恢复</text>
+  <text x="385" y="222" font-family="sans-serif" font-size="9" fill="#475569">• 自动化流水线</text>
+  <text x="385" y="238" font-family="sans-serif" font-size="9" fill="#475569">• 需要精确控制每一步</text>
+
+  <line x1="375" y1="250" x2="620" y2="250" stroke="#E2E8F0" stroke-width="1"/>
+
+  <text x="375" y="272" font-family="sans-serif" font-size="10" font-weight="700" fill="#DC2626">❌ 不适合</text>
+  <text x="385" y="292" font-family="sans-serif" font-size="9" fill="#475569">• 简单线性流程（杀鸡用刀）</text>
+  <text x="385" y="308" font-family="sans-serif" font-size="9" fill="#475569">• 纯角色扮演场景</text>
+  <text x="385" y="324" font-family="sans-serif" font-size="9" fill="#475569">• 快速原型验证</text>
+
+  <text x="495" y="370" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#059669" font-weight="600">学习门槛：中-高</text>
+
+  <!-- Decision line -->
+  <rect x="230" y="34" width="220" height="16" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
+  <text x="340" y="46" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400E" font-weight="600">Linear → CrewAI | 复杂分支 → LangGraph</text>
+</svg>

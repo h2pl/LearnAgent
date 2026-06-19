@@ -1,4 +1,4 @@
-# 工具调用机制
+# 工具调用机制与原理
 
 > 工具调用（Tool Use）让 LLM 从"只会说话"变成"能动手"——输出结构化指令调用外部函数，获取实时数据，执行真实操作。这是 Agent 区别于 Chatbot 的核心能力。
 
@@ -126,6 +126,10 @@ response = client.chat.completions.create(
 ```
 
 **这四个阶段构成一个循环**：用户请求 → 模型选择工具 → 代码执行 → 结果回传 → 模型生成回复。这个循环可以重复多次，形成**多轮工具调用链**。
+
+<p align="center">
+  <img src="../../assets/04-tool-use/tool-calling-sequence.svg" alt="工具调用时序图：用户、Agent、LLM、执行器、外部API之间的交互序列" width="95%"/>
+</p>
 
 ## 工具选择的架构基础
 

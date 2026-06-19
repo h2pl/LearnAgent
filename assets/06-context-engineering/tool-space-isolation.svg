@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="lshadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">分层工具空间 — L1/L2/L3 隔离模型</text>
+
+  <!-- ===== L1 层 ===== -->
+  <g transform="translate(20, 48)">
+    <rect x="0" y="0" width="640" height="75" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#lshadow)"/>
+
+    <!-- 层级标签 -->
+    <rect x="0" y="0" width="80" height="75" rx="8" fill="#2563EB"/>
+    <rect x="72" y="0" width="8" height="75" fill="#2563EB"/>
+    <text x="40" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFF">L1</text>
+    <text x="40" y="48" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF">原子函数</text>
+    <text x="40" y="64" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#BFDBFE">始终在上下文</text>
+
+    <!-- L1 工具卡片 -->
+    <g transform="translate(95, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DBEAFE" stroke="#93C5FD" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">read_file</text>
+    </g>
+    <g transform="translate(220, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DBEAFE" stroke="#93C5FD" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">write_file</text>
+    </g>
+    <g transform="translate(345, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DBEAFE" stroke="#93C5FD" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">run_shell</text>
+    </g>
+    <g transform="translate(470, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DBEAFE" stroke="#93C5FD" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">search</text>
+    </g>
+
+    <!-- L1 元数据 -->
+    <text x="95" y="62" font-family="sans-serif" font-size="8" fill="#64748B">Token占用: ~500 tokens</text>
+    <text x="260" y="62" font-family="sans-serif" font-size="8" fill="#64748B">工具数: 4个固定原子操作</text>
+    <text x="480" y="62" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">不可移除，始终在上下文</text>
+  </g>
+
+  <!-- 连接线 L1→L2 -->
+  <line x1="340" y1="123" x2="340" y2="140" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="360" y="135" font-family="sans-serif" font-size="8" fill="#64748B">通过 run_shell 间接调用</text>
+
+  <!-- ===== L2 层 ===== -->
+  <g transform="translate(20, 148)">
+    <rect x="0" y="0" width="640" height="75" rx="8" fill="#F0FDF4" stroke="#059669" stroke-width="2" filter="url(#lshadow)"/>
+
+    <!-- 层级标签 -->
+    <rect x="0" y="0" width="80" height="75" rx="8" fill="#059669"/>
+    <rect x="72" y="0" width="8" height="75" fill="#059669"/>
+    <text x="40" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFF">L2</text>
+    <text x="40" y="48" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF">沙盒工具</text>
+    <text x="40" y="64" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A7F3D0">不在上下文</text>
+
+    <!-- L2 工具卡片 -->
+    <g transform="translate(95, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#065F46">pandoc</text>
+    </g>
+    <g transform="translate(220, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#065F46">ffmpeg</text>
+    </g>
+    <g transform="translate(345, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#065F46">jq</text>
+    </g>
+    <g transform="translate(470, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#065F46">grep / sed</text>
+    </g>
+
+    <!-- L2 元数据 -->
+    <text x="95" y="62" font-family="sans-serif" font-size="8" fill="#64748B">Token占用: 0（不占定义空间）</text>
+    <text x="260" y="62" font-family="sans-serif" font-size="8" fill="#64748B">调用方式: run_shell("ffmpeg --help")</text>
+    <text x="480" y="62" font-family="sans-serif" font-size="8" fill="#059669" font-weight="bold">按需 --help 替代工具描述</text>
+  </g>
+
+  <!-- 连接线 L2→L3 -->
+  <line x1="340" y1="223" x2="340" y2="240" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="360" y="235" font-family="sans-serif" font-size="8" fill="#64748B">通过 execute_python 间接调用</text>
+
+  <!-- ===== L3 层 ===== -->
+  <g transform="translate(20, 248)">
+    <rect x="0" y="0" width="640" height="75" rx="8" fill="#FEFCE8" stroke="#CA8A04" stroke-width="2" filter="url(#lshadow)"/>
+
+    <!-- 层级标签 -->
+    <rect x="0" y="0" width="80" height="75" rx="8" fill="#CA8A04"/>
+    <rect x="72" y="0" width="8" height="75" fill="#CA8A04"/>
+    <text x="40" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFF">L3</text>
+    <text x="40" y="48" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF">软件包/API</text>
+    <text x="40" y="64" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FDE68A">不在上下文</text>
+
+    <!-- L3 工具卡片 -->
+    <g transform="translate(95, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#FEF3C7" stroke="#FCD34D" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400E">yfinance</text>
+    </g>
+    <g transform="translate(220, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#FEF3C7" stroke="#FCD34D" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400E">matplotlib</text>
+    </g>
+    <g transform="translate(345, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#FEF3C7" stroke="#FCD34D" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400E">requests</text>
+    </g>
+    <g transform="translate(470, 8)">
+      <rect x="0" y="0" width="115" height="28" rx="4" fill="#FEF3C7" stroke="#FCD34D" stroke-width="0.8"/>
+      <text x="57" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400E">...</text>
+    </g>
+
+    <!-- L3 元数据 -->
+    <text x="95" y="62" font-family="sans-serif" font-size="8" fill="#64748B">Token占用: 0（不占定义空间）</text>
+    <text x="260" y="62" font-family="sans-serif" font-size="8" fill="#64748B">调用方式: execute_python("import yfinance")</text>
+    <text x="480" y="62" font-family="sans-serif" font-size="8" fill="#CA8A04" font-weight="bold">import 替代工具定义</text>
+  </g>
+
+  <!-- 底部：效果对比 -->
+  <rect x="20" y="335" width="640" height="56" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="340" y="355" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1E40AF">分层效果</text>
+
+  <g transform="translate(35, 365)">
+    <text x="0" y="14" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="bold">传统方式</text>
+    <text x="0" y="28" font-family="sans-serif" font-size="8" fill="#475569">50+ 工具全定义</text>
+    <text x="0" y="42" font-family="sans-serif" font-size="8" fill="#94A3B8">6000 tokens</text>
+  </g>
+
+  <text x="190" y="405" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#94A3B8">→</text>
+
+  <g transform="translate(210, 365)">
+    <text x="0" y="14" font-family="sans-serif" font-size="9" fill="#059669" font-weight="bold">分层后</text>
+    <text x="0" y="28" font-family="sans-serif" font-size="8" fill="#475569">4 个原子操作</text>
+    <text x="0" y="42" font-family="sans-serif" font-size="8" fill="#94A3B8">500 tokens</text>
+  </g>
+
+  <text x="370" y="405" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#94A3B8">→</text>
+
+  <g transform="translate(390, 365)">
+    <text x="0" y="14" font-family="sans-serif" font-size="9" fill="#2563EB" font-weight="bold">效果</text>
+    <text x="0" y="28" font-family="sans-serif" font-size="8" fill="#475569">工具选择准确率⬆</text>
+    <text x="0" y="42" font-family="sans-serif" font-size="8" fill="#475569">Token 节省 90%</text>
+  </g>
+
+  <text x="540" y="405" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#94A3B8">→</text>
+
+  <g transform="translate(560, 365)">
+    <text x="0" y="14" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="bold">原则</text>
+    <text x="0" y="28" font-family="sans-serif" font-size="8" fill="#475569">L2-L3 不占</text>
+    <text x="0" y="42" font-family="sans-serif" font-size="8" fill="#475569">工具定义空间</text>
+  </g>
+</svg>

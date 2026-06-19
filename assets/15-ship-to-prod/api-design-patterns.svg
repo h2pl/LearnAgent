@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="restGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="sseGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="wsGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <linearGradient id="grpcGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B">Agent API 设计模式对比</text>
+
+  <!-- Column 1: REST + SSE -->
+  <rect x="15" y="45" width="155" height="335" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+
+  <rect x="30" y="55" width="125" height="28" rx="4" fill="url(#restGrad)"/>
+  <text x="92" y="74" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">REST + SSE</text>
+
+  <!-- REST sub-block -->
+  <rect x="30" y="92" width="125" height="80" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="0.8"/>
+  <text x="92" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E40AF">同步请求</text>
+  <text x="40" y="128" font-family="sans-serif" font-size="9" fill="#3B82F6">POST /v1/agent/chat</text>
+  <text x="40" y="144" font-family="sans-serif" font-size="9" fill="#3B82F6">→ 等待完整响应</text>
+  <text x="40" y="160" font-family="sans-serif" font-size="9" fill="#3B82F6">200 OK + JSON</text>
+
+  <!-- SSE sub-block -->
+  <rect x="30" y="180" width="125" height="80" rx="4" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="0.8"/>
+  <text x="92" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#065F46">流式响应</text>
+  <text x="40" y="216" font-family="sans-serif" font-size="9" fill="#059669">POST .../chat/stream</text>
+  <text x="40" y="232" font-family="sans-serif" font-size="9" fill="#059669">→ text/event-stream</text>
+  <text x="40" y="248" font-family="sans-serif" font-size="9" fill="#059669">心跳 + 自动重连</text>
+
+  <!-- REST Scenario -->
+  <text x="92" y="280" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#475569">适用</text>
+  <text x="40" y="298" font-family="sans-serif" font-size="9" fill="#64748B">• 即问即答</text>
+  <text x="40" y="314" font-family="sans-serif" font-size="9" fill="#64748B">• 简单查询</text>
+  <text x="40" y="330" font-family="sans-serif" font-size="9" fill="#64748B">• 非流式集成</text>
+  <text x="40" y="346" font-family="sans-serif" font-size="9" fill="#64748B">• 批量任务提交</text>
+
+  <!-- Column 2: WebSocket -->
+  <rect x="182" y="45" width="155" height="335" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+
+  <rect x="197" y="55" width="125" height="28" rx="4" fill="url(#wsGrad)"/>
+  <text x="259" y="74" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">WebSocket</text>
+
+  <rect x="197" y="92" width="125" height="100" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.8"/>
+  <text x="259" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#991B1B">双向实时</text>
+  <text x="207" y="128" font-family="sans-serif" font-size="9" fill="#DC2626">ws://.../chat/ws</text>
+  <text x="207" y="144" font-family="sans-serif" font-size="9" fill="#DC2626">↔ 双向帧传输</text>
+  <text x="207" y="160" font-family="sans-serif" font-size="9" fill="#DC2626">用户可随时插话</text>
+  <text x="207" y="176" font-family="sans-serif" font-size="9" fill="#DC2626">需 Session 状态管理</text>
+
+  <text x="259" y="210" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#475569">适用</text>
+  <text x="207" y="228" font-family="sans-serif" font-size="9" fill="#64748B">• 语音对话助手</text>
+  <text x="207" y="244" font-family="sans-serif" font-size="9" fill="#64748B">• 实时协作编辑</text>
+  <text x="207" y="260" font-family="sans-serif" font-size="9" fill="#64748B">• 高频交互场景</text>
+  <text x="207" y="276" font-family="sans-serif" font-size="9" fill="#64748B">• 多模态对话</text>
+
+  <!-- Column 3: gRPC Streaming -->
+  <rect x="349" y="45" width="155" height="335" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+
+  <rect x="364" y="55" width="125" height="28" rx="4" fill="url(#grpcGrad)"/>
+  <text x="426" y="74" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">gRPC Streaming</text>
+
+  <rect x="364" y="92" width="125" height="100" rx="4" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="0.8"/>
+  <text x="426" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#5B21B6">服务间通信</text>
+  <text x="374" y="128" font-family="sans-serif" font-size="9" fill="#7C3AED">Protocol Buffers</text>
+  <text x="374" y="144" font-family="sans-serif" font-size="9" fill="#7C3AED">→ Server Streaming</text>
+  <text x="374" y="160" font-family="sans-serif" font-size="9" fill="#7C3AED">→ Bidirectional</text>
+  <text x="374" y="176" font-family="sans-serif" font-size="9" fill="#7C3AED">强类型 + 二进制</text>
+
+  <text x="426" y="210" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#475569">适用</text>
+  <text x="374" y="228" font-family="sans-serif" font-size="9" fill="#64748B">• 微服务编排</text>
+  <text x="374" y="244" font-family="sans-serif" font-size="9" fill="#64748B">• 内部引擎调用</text>
+  <text x="374" y="260" font-family="sans-serif" font-size="9" fill="#64748B">• 高吞吐数据流</text>
+  <text x="374" y="276" font-family="sans-serif" font-size="9" fill="#64748B">• 多语言 SDK</text>
+
+  <!-- Comparison Table at bottom -->
+  <rect x="515" y="48" width="150" height="332" rx="5" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="0.8"/>
+  <text x="590" y="74" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">特性对比</text>
+
+  <text x="524" y="100" font-family="sans-serif" font-size="9" fill="#475569">通信方向</text>
+  <text x="524" y="130" font-family="sans-serif" font-size="9" fill="#475569">传输格式</text>
+  <text x="524" y="160" font-family="sans-serif" font-size="9" fill="#475569">浏览器支持</text>
+  <text x="524" y="190" font-family="sans-serif" font-size="9" fill="#475569">自动重连</text>
+  <text x="524" y="220" font-family="sans-serif" font-size="9" fill="#475569">类型安全</text>
+  <text x="524" y="250" font-family="sans-serif" font-size="9" fill="#475569">调试难度</text>
+  <text x="524" y="280" font-family="sans-serif" font-size="9" fill="#475569">适用方</text>
+  <text x="524" y="310" font-family="sans-serif" font-size="9" fill="#475569">启动成本</text>
+
+  <!-- Column values -->
+  <text x="590" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">C→S 单工</text>
+  <text x="590" y="130" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">JSON</text>
+  <text x="590" y="160" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">✓</text>
+  <text x="590" y="190" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">✓ SSE</text>
+  <text x="590" y="220" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">△</text>
+  <text x="590" y="250" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">低</text>
+  <text x="590" y="280" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">用户/前端</text>
+  <text x="590" y="310" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB">低</text>
+
+  <!-- Divider lines -->
+  <line x1="520" y1="110" x2="660" y2="110" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="140" x2="660" y2="140" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="170" x2="660" y2="170" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="200" x2="660" y2="200" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="230" x2="660" y2="230" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="260" x2="660" y2="260" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="290" x2="660" y2="290" stroke="#E2E8F0" stroke-width="0.5"/>
+  <line x1="520" y1="320" x2="660" y2="320" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <!-- Bottom info -->
+  <g transform="translate(30, 388)">
+    <text x="0" y="0" font-family="sans-serif" font-size="9" fill="#64748B">大多数 Agent 系统从 REST+SSE 起步 | WebSocket 按需引入 | gRPC Streaming 适合内部微服务编排</text>
+  </g>
+</svg>

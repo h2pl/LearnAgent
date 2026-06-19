@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" font-family="'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="540" rx="12" fill="url(#bg2)"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">LLM-as-Judge 评分流程与偏差控制</text>
+  <text x="400" y="56" text-anchor="middle" font-size="13" fill="#64748b">多维评分 → 理由输出 → 校准验证 — 完整的质量保障链路</text>
+
+  <!-- Left: Input Section -->
+  <g filter="url(#sh)">
+    <rect x="30" y="80" width="220" height="200" rx="10" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="30" y="80" width="220" height="32" rx="10" fill="#3b82f6"/>
+    <rect x="30" y="100" width="220" height="12" fill="#3b82f6"/>
+    <text x="140" y="101" text-anchor="middle" font-size="14" font-weight="700" fill="white">输入 Inputs</text>
+    <text x="50" y="136" font-size="12" fill="#334155" font-weight="600">用户问题</text>
+    <text x="50" y="152" font-size="11" fill="#94a3b8">"帮我取消明天下午的会议"</text>
+    <text x="50" y="178" font-size="12" fill="#334155" font-weight="600">Agent 执行轨迹</text>
+    <text x="50" y="194" font-size="11" fill="#94a3b8">cancel_event → query → reschedule</text>
+    <text x="50" y="220" font-size="12" fill="#334155" font-weight="600">Agent 最终回答</text>
+    <text x="50" y="236" font-size="11" fill="#94a3b8">"已取消...已改期到下午2点"</text>
+    <text x="50" y="262" font-size="12" fill="#334155" font-weight="600">评分标准 (Rubric)</text>
+    <text x="50" y="278" font-size="11" fill="#94a3b8">5 分量表 + 锚点定义</text>
+  </g>
+
+  <!-- Arrow to Judge -->
+  <line x1="255" y1="180" x2="285" y2="180" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="285,175 295,180 285,185" fill="#94a3b8"/>
+
+  <!-- Center: Judge LLM -->
+  <g filter="url(#sh)">
+    <rect x="300" y="80" width="200" height="200" rx="10" fill="white" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="300" y="80" width="200" height="32" rx="10" fill="#8b5cf6"/>
+    <rect x="300" y="100" width="200" height="12" fill="#8b5cf6"/>
+    <text x="400" y="101" text-anchor="middle" font-size="14" font-weight="700" fill="white">Judge LLM</text>
+
+    <!-- Multi-dimension scoring -->
+    <text x="320" y="132" font-size="12" fill="#334155" font-weight="600">多维评分</text>
+    <rect x="320" y="140" width="160" height="22" rx="4" fill="#f1f5f9"/>
+    <text x="328" y="155" font-size="11" fill="#475569">任务达成   4/5 ██████░</text>
+    <rect x="320" y="166" width="160" height="22" rx="4" fill="#f1f5f9"/>
+    <text x="328" y="181" font-size="11" fill="#475569">轨迹效率   5/5 ███████</text>
+    <rect x="320" y="192" width="160" height="22" rx="4" fill="#f1f5f9"/>
+    <text x="328" y="207" font-size="11" fill="#475569">工具使用   5/5 ███████</text>
+    <rect x="320" y="218" width="160" height="22" rx="4" fill="#f1f5f9"/>
+    <text x="328" y="233" font-size="11" fill="#475569">用户体验   4/5 ██████░</text>
+
+    <text x="320" y="262" font-size="12" fill="#334155" font-weight="600">+ 评分理由 (CoT)</text>
+    <text x="320" y="278" font-size="11" fill="#94a3b8">"先查后改，路径最优..."</text>
+  </g>
+
+  <!-- Arrow to Output -->
+  <line x1="505" y1="180" x2="535" y2="180" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="535,175 545,180 535,185" fill="#94a3b8"/>
+
+  <!-- Right: Calibration -->
+  <g filter="url(#sh)">
+    <rect x="550" y="80" width="220" height="200" rx="10" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="550" y="80" width="220" height="32" rx="10" fill="#f59e0b"/>
+    <rect x="550" y="100" width="220" height="12" fill="#f59e0b"/>
+    <text x="660" y="101" text-anchor="middle" font-size="14" font-weight="700" fill="white">校准与偏差控制</text>
+
+    <text x="570" y="132" font-size="12" fill="#334155" font-weight="600">已知偏差</text>
+    <rect x="570" y="138" width="80" height="18" rx="9" fill="#fef3c7"/>
+    <text x="610" y="151" text-anchor="middle" font-size="10" fill="#78350f">自肥偏差</text>
+    <rect x="656" y="138" width="80" height="18" rx="9" fill="#fef3c7"/>
+    <text x="696" y="151" text-anchor="middle" font-size="10" fill="#78350f">位置偏差</text>
+    <rect x="570" y="160" width="80" height="18" rx="9" fill="#fef3c7"/>
+    <text x="610" y="173" text-anchor="middle" font-size="10" fill="#78350f">长度偏差</text>
+    <rect x="656" y="160" width="80" height="18" rx="9" fill="#fef3c7"/>
+    <text x="696" y="173" text-anchor="middle" font-size="10" fill="#78350f">严厉偏差</text>
+
+    <text x="570" y="200" font-size="12" fill="#334155" font-weight="600">校准方法</text>
+    <text x="570" y="218" font-size="11" fill="#475569">1. 人类校验 (抽样 10%)</text>
+    <text x="570" y="236" font-size="11" fill="#475569">2. 多 Judge 投票</text>
+    <text x="570" y="254" font-size="11" fill="#475569">3. 反向验证 (极值抽查)</text>
+    <text x="570" y="272" font-size="11" fill="#475569">4. 盲评 (隐藏模型来源)</text>
+  </g>
+
+  <!-- Bottom: Quality Gate -->
+  <g filter="url(#sh)">
+    <rect x="30" y="310" width="740" height="96" rx="10" fill="white" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="30" y="310" width="740" height="32" rx="10" fill="#10b981"/>
+    <rect x="30" y="330" width="740" height="12" fill="#10b981"/>
+    <text x="400" y="331" text-anchor="middle" font-size="14" font-weight="700" fill="white">质量门禁 Quality Gate</text>
+
+    <!-- 4 quality checks -->
+    <g>
+      <rect x="50" y="354" width="160" height="40" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+      <text x="130" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">人-模型一致性</text>
+      <text x="130" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981">&gt; 80%</text>
+    </g>
+    <g>
+      <rect x="225" y="354" width="160" height="40" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+      <text x="305" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">评分理由覆盖率</text>
+      <text x="305" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981">100%</text>
+    </g>
+    <g>
+      <rect x="400" y="354" width="160" height="40" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+      <text x="480" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">多 Judge 一致性</text>
+      <text x="480" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981">Cohen's κ &gt; 0.7</text>
+    </g>
+    <g>
+      <rect x="575" y="354" width="160" height="40" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+      <text x="655" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">极值抽检通过率</text>
+      <text x="655" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981">&gt; 95%</text>
+    </g>
+  </g>
+
+  <!-- Bottom: Output -->
+  <g filter="url(#sh)">
+    <rect x="30" y="430" width="740" height="90" rx="10" fill="white" stroke="#6366f1" stroke-width="1.5"/>
+    <rect x="30" y="430" width="740" height="32" rx="10" fill="#6366f1"/>
+    <rect x="30" y="450" width="740" height="12" fill="#6366f1"/>
+    <text x="400" y="451" text-anchor="middle" font-size="14" font-weight="700" fill="white">输出 Structured Output</text>
+
+    <text x="60" y="486" font-size="12" font-family="'Consolas', monospace" fill="#334155">{"scores": {"task_completion": 4, "trajectory_efficiency": 5, "tool_usage": 5, "user_experience": 4},</text>
+    <text x="60" y="504" font-size="12" font-family="'Consolas', monospace" fill="#334155"> "reasoning": "先查后改，路径最优，用户体验良好但可更简洁", "issues": ["回答略冗长"]}</text>
+  </g>
+</svg>

@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)" rx="8"/>
+
+  <rect x="0" y="0" width="680" height="44" fill="url(#header)" rx="8"/>
+  <rect x="0" y="22" width="680" height="22" fill="url(#header)"/>
+  <text x="340" y="28" fill="#fff" font-size="17" font-weight="bold">Agent 框架对比矩阵</text>
+
+  <!-- 表头 -->
+  <rect x="20" y="54" width="90" height="30" rx="4" fill="#1E293B"/>
+  <text x="65" y="74" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">维度</text>
+
+  <rect x="114" y="54" width="108" height="30" rx="4" fill="#2563EB"/>
+  <text x="168" y="74" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">LangGraph</text>
+
+  <rect x="226" y="54" width="108" height="30" rx="4" fill="#3B82F6"/>
+  <text x="280" y="74" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">CrewAI</text>
+
+  <rect x="338" y="54" width="108" height="30" rx="4" fill="#8B5CF6"/>
+  <text x="392" y="74" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">AutoGen</text>
+
+  <rect x="450" y="54" width="108" height="30" rx="4" fill="#059669"/>
+  <text x="504" y="74" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Dify</text>
+
+  <rect x="562" y="54" width="98" height="30" rx="4" fill="#64748B"/>
+  <text x="611" y="74" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">Semantic Kernel</text>
+
+  <!-- 第1行: 编程模型 -->
+  <rect x="20" y="88" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="110" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">编程模型</text>
+
+  <rect x="114" y="88" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="110" fill="#1E40AF" font-size="9" text-anchor="middle">有向图（状态机）</text>
+
+  <rect x="226" y="88" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="110" fill="#1E40AF" font-size="9" text-anchor="middle">角色+任务</text>
+
+  <rect x="338" y="88" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="110" fill="#5B21B6" font-size="9" text-anchor="middle">对话驱动</text>
+
+  <rect x="450" y="88" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="110" fill="#047857" font-size="9" text-anchor="middle">可视化配置</text>
+
+  <rect x="562" y="88" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="110" fill="#475569" font-size="9" text-anchor="middle">插件+规划器</text>
+
+  <!-- 第2行: 学习曲线 -->
+  <rect x="20" y="128" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="150" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">学习曲线</text>
+
+  <rect x="114" y="128" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="150" fill="#EAB308" font-size="9" text-anchor="middle">中等</text>
+
+  <rect x="226" y="128" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="150" fill="#059669" font-size="9" text-anchor="middle">低</text>
+
+  <rect x="338" y="128" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="150" fill="#EAB308" font-size="9" text-anchor="middle">中等</text>
+
+  <rect x="450" y="128" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="150" fill="#059669" font-size="9" text-anchor="middle">非常低</text>
+
+  <rect x="562" y="128" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="150" fill="#EAB308" font-size="9" text-anchor="middle">中等</text>
+
+  <!-- 第3行: 灵活性 -->
+  <rect x="20" y="168" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="190" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">灵活性</text>
+
+  <rect x="114" y="168" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="190" fill="#059669" font-size="9" text-anchor="middle">★★★★★</text>
+
+  <rect x="226" y="168" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="190" fill="#EAB308" font-size="9" text-anchor="middle">★★★</text>
+
+  <rect x="338" y="168" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="190" fill="#059669" font-size="9" text-anchor="middle">★★★★</text>
+
+  <rect x="450" y="168" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="190" fill="#DC2626" font-size="9" text-anchor="middle">★★</text>
+
+  <rect x="562" y="168" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="190" fill="#059669" font-size="9" text-anchor="middle">★★★★</text>
+
+  <!-- 第4行: 多Agent -->
+  <rect x="20" y="208" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="230" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">多 Agent</text>
+
+  <rect x="114" y="208" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="230" fill="#64748B" font-size="9" text-anchor="middle">支持</text>
+
+  <rect x="226" y="208" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="230" fill="#059669" font-size="9" text-anchor="middle">原生支持</text>
+
+  <rect x="338" y="208" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="230" fill="#059669" font-size="9" text-anchor="middle">原生支持</text>
+
+  <rect x="450" y="208" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="230" fill="#DC2626" font-size="9" text-anchor="middle">有限</text>
+
+  <rect x="562" y="208" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="230" fill="#64748B" font-size="9" text-anchor="middle">支持</text>
+
+  <!-- 第5行: HITL -->
+  <rect x="20" y="248" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="270" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">HITL</text>
+
+  <rect x="114" y="248" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="270" fill="#059669" font-size="9" text-anchor="middle">原生支持</text>
+
+  <rect x="226" y="248" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="270" fill="#64748B" font-size="9" text-anchor="middle">支持</text>
+
+  <rect x="338" y="248" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="270" fill="#64748B" font-size="9" text-anchor="middle">支持</text>
+
+  <rect x="450" y="248" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="270" fill="#64748B" font-size="9" text-anchor="middle">支持</text>
+
+  <rect x="562" y="248" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="270" fill="#64748B" font-size="9" text-anchor="middle">Azure集成</text>
+
+  <!-- 第6行: 持久化 -->
+  <rect x="20" y="288" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="310" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">持久化</text>
+
+  <rect x="114" y="288" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="310" fill="#059669" font-size="9" text-anchor="middle">原生支持</text>
+
+  <rect x="226" y="288" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="310" fill="#FF9800" font-size="9" text-anchor="middle">有限</text>
+
+  <rect x="338" y="288" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="310" fill="#FF9800" font-size="9" text-anchor="middle">有限</text>
+
+  <rect x="450" y="288" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="310" fill="#059669" font-size="9" text-anchor="middle">内置</text>
+
+  <rect x="562" y="288" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="310" fill="#059669" font-size="9" text-anchor="middle">Azure集成</text>
+
+  <!-- 第7行: 生产就绪 -->
+  <rect x="20" y="328" width="90" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="65" y="350" fill="#475569" font-size="9" font-weight="bold" text-anchor="middle">生产就绪</text>
+
+  <rect x="114" y="328" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="168" y="350" fill="#059669" font-size="9" text-anchor="middle">高</text>
+
+  <rect x="226" y="328" width="108" height="36" rx="4" fill="#EFF6FF"/>
+  <text x="280" y="350" fill="#EAB308" font-size="9" text-anchor="middle">中等</text>
+
+  <rect x="338" y="328" width="108" height="36" rx="4" fill="#F5F3FF"/>
+  <text x="392" y="350" fill="#DC2626" font-size="9" text-anchor="middle">低</text>
+
+  <rect x="450" y="328" width="108" height="36" rx="4" fill="#ECFDF5"/>
+  <text x="504" y="350" fill="#059669" font-size="9" text-anchor="middle">高</text>
+
+  <rect x="562" y="328" width="98" height="36" rx="4" fill="#F1F5F9"/>
+  <text x="611" y="350" fill="#059669" font-size="9" text-anchor="middle">高</text>
+
+  <!-- 底部建议 -->
+  <rect x="256" y="372" width="168" height="20" rx="4" fill="#2563EB" opacity="0.1"/>
+  <text x="340" y="386" fill="#1E40AF" font-size="9" font-weight="bold" text-anchor="middle">强烈推荐 LangGraph 作为默认选择</text>
+</svg>

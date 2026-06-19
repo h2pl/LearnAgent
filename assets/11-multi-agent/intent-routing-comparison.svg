@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="340" y="32" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#1E293B">意图路由三种方法对比</text>
+  <line x1="200" y1="42" x2="480" y2="42" stroke="#2563EB" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- User Request -->
+  <rect x="280" y="56" width="120" height="28" rx="14" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="75" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="600">用户请求</text>
+
+  <!-- Split arrows -->
+  <line x1="340" y1="84" x2="340" y2="100" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="120" y1="100" x2="560" y2="100" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="120" y1="100" x2="120" y2="114" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="340" y1="100" x2="340" y2="114" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="560" y1="100" x2="560" y2="114" stroke="#64748B" stroke-width="1.5"/>
+
+  <!-- Method 1: Keyword + Rule -->
+  <rect x="40" y="116" width="160" height="90" rx="10" fill="white" stroke="#DC2626" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="40" y="116" width="160" height="28" rx="10" fill="url(#redGrad)"/>
+  <rect x="40" y="134" width="160" height="10" fill="url(#redGrad)"/>
+  <text x="120" y="135" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="white">方法一：关键词+规则</text>
+  <text x="55" y="162" font-family="sans-serif" font-size="9" fill="#475569">if "bug" in query</text>
+  <text x="55" y="176" font-family="sans-serif" font-size="9" fill="#475569">  → 技术支持</text>
+  <text x="55" y="190" font-family="sans-serif" font-size="9" fill="#475569">简单 · 零成本 · 覆盖不全</text>
+  <text x="55" y="203" font-family="sans-serif" font-size="8" fill="#DC2626">⭐ 适合：固定场景</text>
+
+  <!-- Arrow 1 -->
+  <line x1="200" y1="161" x2="232" y2="161" stroke="#DC2626" stroke-width="1.2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Method 2: Embedding Similarity -->
+  <rect x="235" y="116" width="210" height="90" rx="10" fill="white" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="235" y="116" width="210" height="28" rx="10" fill="#D97706"/>
+  <rect x="235" y="134" width="210" height="10" fill="#D97706"/>
+  <text x="340" y="135" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="white">方法二：Embedding 相似度</text>
+  <text x="250" y="162" font-family="sans-serif" font-size="9" fill="#475569">cos(query_vec, agent_embedding)</text>
+  <text x="250" y="176" font-family="sans-serif" font-size="9" fill="#475569">→ 相似度最高的 Agent</text>
+  <text x="250" y="190" font-family="sans-serif" font-size="9" fill="#475569">灵活 · 需预计算向量 · 覆盖广</text>
+  <text x="250" y="203" font-family="sans-serif" font-size="8" fill="#D97706">⭐ 适合：语义模糊场景</text>
+
+  <!-- Arrow 2 -->
+  <line x1="445" y1="161" x2="477" y2="161" stroke="#D97706" stroke-width="1.2"/>
+
+  <!-- Method 3: LLM Classification -->
+  <rect x="480" y="116" width="180" height="90" rx="10" fill="white" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="480" y="116" width="180" height="28" rx="10" fill="url(#greenGrad)"/>
+  <rect x="480" y="134" width="180" height="10" fill="url(#greenGrad)"/>
+  <text x="570" y="135" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="white">方法三：LLM 分类</text>
+  <text x="495" y="162" font-family="sans-serif" font-size="9" fill="#475569">llm.invoke(agents_desc,</text>
+  <text x="495" y="176" font-family="sans-serif" font-size="9" fill="#475569">           query)</text>
+  <text x="495" y="190" font-family="sans-serif" font-size="9" fill="#475569">高准确率 · 有成本 · 易维护</text>
+  <text x="495" y="203" font-family="sans-serif" font-size="8" fill="#059669">⭐ 推荐：通用首选</text>
+
+  <!-- Decision arrows merged -->
+  <line x1="120" y1="210" x2="120" y2="235" stroke="#64748B" stroke-width="1"/>
+  <line x1="340" y1="210" x2="340" y2="235" stroke="#64748B" stroke-width="1"/>
+  <line x1="570" y1="210" x2="570" y2="235" stroke="#64748B" stroke-width="1"/>
+  <line x1="120" y1="235" x2="570" y2="235" stroke="#64748B" stroke-width="1"/>
+  <line x1="340" y1="235" x2="340" y2="250" stroke="#64748B" stroke-width="1.5"/>
+
+  <!-- Target Agent -->
+  <rect x="260" y="252" width="160" height="30" rx="15" fill="#DBEAFE" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="340" y="272" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E40AF" font-weight="700">目标 Agent</text>
+
+  <!-- Recommendation box -->
+  <rect x="40" y="302" width="600" height="80" rx="10" fill="white" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="6,3" filter="url(#shadow)"/>
+  <text x="340" y="325" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">推荐策略：混合模式</text>
+
+  <text x="80" y="350" font-family="sans-serif" font-size="10" fill="#475569">🔹 固定场景（Bug、下单等）→ 关键词规则，零成本快速匹配</text>
+  <text x="80" y="368" font-family="sans-serif" font-size="10" fill="#475569">🔹 匹配不到 → LLM 分类兜底，处理边界情况和模糊意图</text>
+</svg>

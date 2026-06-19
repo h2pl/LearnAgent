@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#059669"/>
+    </marker>
+    <filter id="stepShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">摘要压缩流水线</text>
+
+  <!-- ===== 流水线主体 ===== -->
+
+  <!-- 步骤 1：原始对话 -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="140" height="100" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <text x="70" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#2563EB">步骤 1</text>
+    <text x="70" y="42" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="bold">原始对话</text>
+    <rect x="10" y="52" width="120" height="14" rx="3" fill="#DBEAFE"/>
+    <text x="70" y="63" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#1E40AF">User: 帮我分析代码</text>
+    <rect x="10" y="68" width="120" height="14" rx="3" fill="#DBEAFE"/>
+    <text x="70" y="79" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#1E40AF">Assistant: 以下是分析...</text>
+    <text x="70" y="97" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626" font-weight="bold">8000 tokens</text>
+  </g>
+
+  <!-- 箭头 1→2 -->
+  <line x1="172" y1="105" x2="208" y2="105" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="190" y="100" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">提取</text>
+
+  <!-- 步骤 2：LLM 摘要 -->
+  <g transform="translate(212, 55)">
+    <rect x="0" y="0" width="140" height="100" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <text x="70" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">步骤 2</text>
+    <text x="70" y="42" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#991B1B" font-weight="bold">LLM 摘要生成</text>
+
+    <rect x="10" y="52" width="120" height="30" rx="4" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="70" y="62" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991B1B">轻量模型</text>
+    <text x="70" y="74" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991B1B">gpt-4.1-mini</text>
+
+    <text x="70" y="97" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#059669" font-weight="bold">成本为主力 1/10</text>
+  </g>
+
+  <!-- 箭头 2→3 -->
+  <line x1="354" y1="105" x2="390" y2="105" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="372" y="100" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">生成</text>
+
+  <!-- 步骤 3：摘要输出 -->
+  <g transform="translate(394, 55)">
+    <rect x="0" y="0" width="140" height="100" rx="6" fill="#F0FDF4" stroke="#059669" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <text x="70" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669">步骤 3</text>
+    <text x="70" y="42" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46" font-weight="bold">结构化摘要</text>
+
+    <rect x="10" y="52" width="120" height="30" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="0.8"/>
+    <text x="70" y="62" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#065F46">关键信息提炼</text>
+    <text x="70" y="74" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#065F46">2-3 句话概括</text>
+
+    <text x="70" y="97" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#059669" font-weight="bold">~500 tokens</text>
+  </g>
+
+  <!-- 箭头 3→4 -->
+  <line x1="536" y1="105" x2="572" y2="105" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="554" y="100" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">注入</text>
+
+  <!-- 步骤 4：压缩后上下文 -->
+  <g transform="translate(576, 55)">
+    <rect x="0" y="0" width="88" height="100" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <text x="44" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#2563EB">步骤 4</text>
+    <text x="44" y="42" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="bold">压缩后上下文</text>
+    <text x="44" y="70" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">System</text>
+    <text x="44" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">+ 摘要</text>
+    <text x="44" y="97" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#94A3B8">+ 最近对话</text>
+  </g>
+
+  <!-- ===== 下半部分：两端对比 ===== -->
+  <rect x="30" y="175" width="295" height="105" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="177" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#991B1B">压缩前（原始上下文）</text>
+
+  <rect x="42" y="208" width="271" height="16" rx="3" fill="#FEE2E2"/>
+  <text x="52" y="220" font-family="sans-serif" font-size="8" fill="#991B1B">System: 你是代码审查专家...(500 tokens)</text>
+  <rect x="42" y="228" width="271" height="16" rx="3" fill="#FEE2E2"/>
+  <text x="52" y="240" font-family="sans-serif" font-size="8" fill="#991B1B">对话 1-10 轮完整原文...(7500 tokens)</text>
+  <rect x="42" y="248" width="271" height="16" rx="3" fill="#FFF"/>
+  <text x="52" y="260" font-family="sans-serif" font-size="8" fill="#334155">最近对话 5 轮原文...(2500 tokens)</text>
+  <text x="177" y="276" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="bold">合计：10,500 tokens</text>
+
+  <!-- 箭头 -->
+  <line x1="330" y1="228" x2="345" y2="228" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="340" y="222" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">压缩</text>
+
+  <rect x="355" y="175" width="295" height="105" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="502" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#065F46">压缩后（优化上下文）</text>
+
+  <rect x="367" y="208" width="271" height="16" rx="3" fill="#FFF"/>
+  <text x="377" y="220" font-family="sans-serif" font-size="8" fill="#334155">System: 你是代码审查专家...(500 tokens)</text>
+  <rect x="367" y="228" width="271" height="16" rx="3" fill="#DCFCE7"/>
+  <text x="377" y="240" font-family="sans-serif" font-size="8" fill="#065F46">System(摘要): 对话1-10 用户咨询了代码...</text>
+  <text x="377" y="252" font-family="sans-serif" font-size="7" fill="#065F46">...安全漏洞和单元测试需求(~500 tokens)</text>
+  <rect x="367" y="256" width="271" height="16" rx="3" fill="#FFF"/>
+  <text x="377" y="268" font-family="sans-serif" font-size="8" fill="#334155">最近对话 5 轮原文...(2500 tokens)</text>
+  <text x="502" y="276" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#059669" font-weight="bold">合计：3,500 tokens（压缩率 67%）</text>
+
+  <!-- 底部：关键数据 -->
+  <rect x="30" y="295" width="620" height="92" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="340" y="316" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E40AF">压缩效果评估</text>
+
+  <g transform="translate(50, 328)">
+    <rect x="0" y="0" width="185" height="50" rx="4" fill="#FFF" stroke="#2563EB" stroke-width="1"/>
+    <text x="92" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#2563EB">Token 节省量</text>
+    <text x="92" y="35" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">7,000 tokens</text>
+    <text x="92" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">成本降低 ~60%</text>
+  </g>
+
+  <g transform="translate(247, 328)">
+    <rect x="0" y="0" width="185" height="50" rx="4" fill="#FFF" stroke="#059669" stroke-width="1"/>
+    <text x="92" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#059669">信息保留率</text>
+    <text x="92" y="35" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">95%</text>
+    <text x="92" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">关键信息不丢失</text>
+  </g>
+
+  <g transform="translate(444, 328)">
+    <rect x="0" y="0" width="185" height="50" rx="4" fill="#FFF" stroke="#DC2626" stroke-width="1"/>
+    <text x="92" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#DC2626">摘要成本</text>
+    <text x="92" y="35" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">$0.001/次</text>
+    <text x="92" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">用轻量模型成本极低</text>
+  </g>
+</svg>

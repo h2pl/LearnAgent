@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="fmShadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+    <marker id="fmArrow" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5 Z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">四种致命失效模式 — 级联关系图</text>
+
+  <!-- 模式1：上下文污染 -->
+  <g transform="translate(40, 55)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" filter="url(#fmShadow)"/>
+    <text x="70" y="22" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">上下文污染</text>
+    <text x="70" y="38" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#991B1B">Poisoning</text>
+    <line x1="20" y1="46" x2="120" y2="46" stroke="#FCA5A5" stroke-width="0.5"/>
+    <text x="70" y="58" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">幻觉进入上下文</text>
+    <text x="70" y="72" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626" font-weight="bold">毒性蔓延</text>
+  </g>
+
+  <!-- 箭头1 -->
+  <line x1="182" y1="95" x2="208" y2="95" stroke="#DC2626" stroke-width="1.5" marker-end="url(#fmArrow)"/>
+
+  <!-- 模式2：上下文分心 -->
+  <g transform="translate(215, 55)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#FEF2F2" stroke="#B91C1C" stroke-width="2" filter="url(#fmShadow)"/>
+    <text x="70" y="22" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#B91C1C">上下文分心</text>
+    <text x="70" y="38" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#991B1B">Distraction</text>
+    <line x1="20" y1="46" x2="120" y2="46" stroke="#FCA5A5" stroke-width="0.5"/>
+    <text x="70" y="58" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">过度关注历史行为</text>
+    <text x="70" y="72" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#B91C1C" font-weight="bold">注意力稀释</text>
+  </g>
+
+  <!-- 箭头2 -->
+  <line x1="357" y1="95" x2="383" y2="95" stroke="#DC2626" stroke-width="1.5" marker-end="url(#fmArrow)"/>
+
+  <!-- 模式3：上下文混淆 -->
+  <g transform="translate(390, 55)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#FEF2F2" stroke="#991B1B" stroke-width="2" filter="url(#fmShadow)"/>
+    <text x="70" y="22" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#991B1B">上下文混淆</text>
+    <text x="70" y="38" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#7F1D1D">Confusion</text>
+    <line x1="20" y1="46" x2="120" y2="46" stroke="#FCA5A5" stroke-width="0.5"/>
+    <text x="70" y="58" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">不相关信息过多</text>
+    <text x="70" y="72" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991B1B" font-weight="bold">认知过载</text>
+  </g>
+
+  <!-- 箭头3 -->
+  <line x1="532" y1="95" x2="558" y2="95" stroke="#DC2626" stroke-width="1.5" marker-end="url(#fmArrow)"/>
+
+  <!-- 模式4：上下文冲突 -->
+  <g transform="translate(565, 55)">
+    <rect x="0" y="0" width="100" height="80" rx="8" fill="#7F1D1D" stroke="#450A0A" stroke-width="2" filter="url(#fmShadow)"/>
+    <text x="50" y="22" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFF">上下文冲突</text>
+    <text x="50" y="38" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FCA5A5">Clash</text>
+    <line x1="12" y1="46" x2="88" y2="46" stroke="#FCA5A5" stroke-width="0.5"/>
+    <text x="50" y="58" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FECACA">信息自相矛盾</text>
+    <text x="50" y="72" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FCA5A5" font-weight="bold">决策分裂</text>
+  </g>
+
+  <!-- 下半部分：诊断和修复 -->
+  <text x="340" y="162" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#64748B">▼ 级联效应 ▼</text>
+
+  <!-- 各模式详细信息和修复 -->
+  <!-- 污染 -->
+  <g transform="translate(20, 178)">
+    <rect x="0" y="0" width="310" height="100" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="155" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#DC2626">污染 Poisoning</text>
+    
+    <text x="10" y="36" font-family="sans-serif" font-size="8" fill="#64748B">诊断信号：</text>
+    <text x="15" y="50" font-family="sans-serif" font-size="7" fill="#475569">? Agent 反复尝试不存在的文件/API</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="7" fill="#475569">? 基于"从未发生的事"做决策</text>
+
+    <line x1="10" y1="70" x2="300" y2="70" stroke="#FECACA" stroke-width="0.5"/>
+
+    <text x="10" y="82" font-family="sans-serif" font-size="8" fill="#059669">修复：</text>
+    <text x="50" y="82" font-family="sans-serif" font-size="7" fill="#065F46">事实核验 + 失败记录 + 每10步状态重建</text>
+  </g>
+
+  <!-- 分心 -->
+  <g transform="translate(345, 178)">
+    <rect x="0" y="0" width="310" height="100" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="155" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#B91C1C">分心 Distraction</text>
+    
+    <text x="10" y="36" font-family="sans-serif" font-size="8" fill="#64748B">诊断信号：</text>
+    <text x="15" y="50" font-family="sans-serif" font-size="7" fill="#475569">? 输出越来越"模板化"</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="7" fill="#475569">? 不同输入 → 相同回复模式</text>
+
+    <line x1="10" y1="70" x2="300" y2="70" stroke="#FECACA" stroke-width="0.5"/>
+
+    <text x="10" y="82" font-family="sans-serif" font-size="8" fill="#059669">修复：</text>
+    <text x="50" y="82" font-family="sans-serif" font-size="7" fill="#065F46">引入多样性 + 定期重聚焦 + 临时子Agent</text>
+  </g>
+
+  <!-- 混淆 -->
+  <g transform="translate(20, 290)">
+    <rect x="0" y="0" width="310" height="100" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="155" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#991B1B">混淆 Confusion</text>
+    
+    <text x="10" y="36" font-family="sans-serif" font-size="8" fill="#64748B">诊断信号：</text>
+    <text x="15" y="50" font-family="sans-serif" font-size="7" fill="#475569">? 选择了与任务无关的工具</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="7" fill="#475569">? 工具增多 → 任务完成率下降</text>
+
+    <line x1="10" y1="70" x2="300" y2="70" stroke="#FECACA" stroke-width="0.5"/>
+
+    <text x="10" y="82" font-family="sans-serif" font-size="8" fill="#059669">修复：</text>
+    <text x="50" y="82" font-family="sans-serif" font-size="7" fill="#065F46">工具按需加载 + 分层工具空间 + 精简提示</text>
+  </g>
+
+  <!-- 冲突（最致命） -->
+  <g transform="translate(345, 290)">
+    <rect x="0" y="0" width="310" height="100" rx="6" fill="#7F1D1D" stroke="#450A0A" stroke-width="1.5"/>
+    <text x="155" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FCA5A5">冲突 Clash</text>
+    
+    <text x="10" y="36" font-family="sans-serif" font-size="8" fill="#FCA5A5">诊断信号：</text>
+    <text x="15" y="50" font-family="sans-serif" font-size="7" fill="#FECACA">? 多轮后表现显著下降</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="7" fill="#FECACA">? 输出混合新旧不一致信息（o3: 98.1→64.1）</text>
+
+    <line x1="10" y1="70" x2="300" y2="70" stroke="#7F1D1D" stroke-width="0.5"/>
+
+    <text x="10" y="82" font-family="sans-serif" font-size="8" fill="#059669">修复：</text>
+    <text x="50" y="82" font-family="sans-serif" font-size="7" fill="#A7F3D0">一次性给全信息 + 显式状态更新 + 上下文重置</text>
+  </g>
+</svg>

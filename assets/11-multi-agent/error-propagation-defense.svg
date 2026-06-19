@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#FFF7ED"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#DC2626"/>
+    </marker>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)"/>
+
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#1E293B">错误传播链与四道防线</text>
+  <line x1="180" y1="38" x2="500" y2="38" stroke="#DC2626" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Error propagation chain -->
+  <text x="340" y="62" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#DC2626" font-weight="700">▼ 错误传播链</text>
+
+  <!-- Agent A -->
+  <rect x="40" y="76" width="130" height="48" rx="10" fill="white" stroke="#DC2626" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="105" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#DC2626">Agent A</text>
+  <text x="105" y="114" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">返回错误数据</text>
+  <text x="40" y="62" font-family="sans-serif" font-size="9" fill="#64748B">Step 1</text>
+
+  <line x1="170" y1="100" x2="212" y2="100" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowR)"/>
+
+  <!-- Agent B -->
+  <rect x="215" y="76" width="130" height="48" rx="10" fill="white" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="280" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#DC2626">Agent B</text>
+  <text x="280" y="114" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">基于错误做决策</text>
+  <text x="215" y="62" font-family="sans-serif" font-size="9" fill="#64748B">Step 2</text>
+
+  <line x1="345" y1="100" x2="387" y2="100" stroke="#EF4444" stroke-width="2" marker-end="url(#arrowR)"/>
+
+  <!-- Agent C -->
+  <rect x="390" y="76" width="130" height="48" rx="10" fill="white" stroke="#FCA5A5" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="455" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#DC2626">Agent C</text>
+  <text x="455" y="114" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">放大错误</text>
+  <text x="390" y="62" font-family="sans-serif" font-size="9" fill="#64748B">Step 3</text>
+
+  <!-- Result -->
+  <line x1="520" y1="100" x2="555" y2="100" stroke="#FCA5A5" stroke-width="2"/>
+  <rect x="555" y="84" width="100" height="32" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="605" y="104" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="700">最终输出 ✗</text>
+
+  <!-- Defense line -->
+  <rect x="30" y="140" width="620" height="18" rx="5" fill="#059669" fill-opacity="0.1"/>
+  <text x="340" y="153" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#059669" font-weight="700">▼ 四道防线——阻断错误传播</text>
+
+  <!-- Defense 1 -->
+  <rect x="20" y="170" width="300" height="55" rx="10" fill="white" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="42" cy="190" r="12" fill="#2563EB"/>
+  <text x="42" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="700">1</text>
+  <text x="65" y="193" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="700">防线一：输入校验</text>
+  <text x="65" y="213" font-family="sans-serif" font-size="8.5" fill="#475569">每个 Agent 入口处校验参数合法性</text>
+
+  <!-- Defense 2 -->
+  <rect x="340" y="170" width="320" height="55" rx="10" fill="white" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="362" cy="190" r="12" fill="#D97706"/>
+  <text x="362" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="700">2</text>
+  <text x="385" y="193" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="700">防线二：超时熔断</text>
+  <text x="385" y="213" font-family="sans-serif" font-size="8.5" fill="#475569">Agent 超时→降级路径，防止雪崩</text>
+
+  <!-- Defense 3 -->
+  <rect x="20" y="240" width="300" height="55" rx="10" fill="white" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="42" cy="260" r="12" fill="#059669"/>
+  <text x="42" y="264" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="700">3</text>
+  <text x="65" y="263" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="700">防线三：降级方案</text>
+  <text x="65" y="283" font-family="sans-serif" font-size="8.5" fill="#475569">关键 Agent 不可用→备用方案接管</text>
+
+  <!-- Defense 4 -->
+  <rect x="340" y="240" width="320" height="55" rx="10" fill="white" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="362" cy="260" r="12" fill="#2563EB"/>
+  <text x="362" y="264" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="700">4</text>
+  <text x="385" y="263" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="700">防线四：输出验证</text>
+  <text x="385" y="283" font-family="sans-serif" font-size="8.5" fill="#475569">格式/范围/一致性检查→异常标记</text>
+
+  <!-- Flow summary -->
+  <rect x="80" y="315" width="520" height="70" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="340" y="338" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="700">防御机制贯穿全链路</text>
+
+  <rect x="105" y="350" width="100" height="24" rx="6" fill="#DBEAFE"/>
+  <text x="155" y="366" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">输入校验</text>
+  <text x="210" y="366" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="223" y="350" width="100" height="24" rx="6" fill="#DBEAFE"/>
+  <text x="273" y="366" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">超时熔断</text>
+  <text x="328" y="366" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="341" y="350" width="100" height="24" rx="6" fill="#DBEAFE"/>
+  <text x="391" y="366" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">降级备选</text>
+  <text x="446" y="366" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="459" y="350" width="100" height="24" rx="6" fill="#DBEAFE"/>
+  <text x="509" y="366" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">输出验证</text>
+</svg>

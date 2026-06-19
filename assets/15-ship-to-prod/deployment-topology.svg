@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748B"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="26" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B">Agent 系统部署拓扑图</text>
+
+  <!-- Public Internet -->
+  <rect x="250" y="36" width="180" height="16" rx="8" fill="#E2E8F0"/>
+  <text x="340" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">用户 / 外部系统</text>
+
+  <!-- Arrow down -->
+  <line x1="340" y1="52" x2="340" y2="68" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Load Balancer -->
+  <rect x="235" y="70" width="210" height="30" rx="6" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="340" y="89" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">负载均衡器 Nginx / ALB</text>
+
+  <!-- Arrow down branching -->
+  <line x1="290" y1="100" x2="230" y2="132" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="340" y1="100" x2="340" y2="132" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="390" y1="100" x2="450" y2="132" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Agent Instances -->
+  <rect x="155" y="135" width="150" height="44" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="230" y="155" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E40AF">Agent 实例 1</text>
+  <text x="230" y="171" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">Pod :8000</text>
+
+  <rect x="315" y="135" width="50" height="44" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="340" y="163" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#93C5FD">...</text>
+
+  <rect x="375" y="135" width="150" height="44" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="450" y="155" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E40AF">Agent 实例 N</text>
+  <text x="450" y="171" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">Pod :8000</text>
+
+  <!-- HPA annotation -->
+  <rect x="155" y="120" width="370" height="12" rx="4" fill="#FEF3C7"/>
+  <text x="340" y="130" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#92400E">HPA 自动扩缩：min=3 max=20 — CPU 70% 触发</text>
+
+  <!-- Arrows down from instances -->
+  <line x1="230" y1="179" x2="230" y2="208" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+  <line x1="340" y1="179" x2="340" y2="208" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="179" x2="450" y2="208" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+  <line x1="230" y1="179" x2="155" y2="208" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="179" x2="525" y2="208" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+
+  <!-- Infrastructure Row -->
+  <!-- Redis -->
+  <rect x="30" y="212" width="145" height="48" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="102" y="234" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#991B1B">Redis</text>
+  <text x="102" y="252" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#DC2626">会话缓存 · 限流 · 队列</text>
+
+  <!-- PostgreSQL -->
+  <rect x="190" y="212" width="155" height="48" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="267" y="234" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E40AF">PostgreSQL</text>
+  <text x="267" y="252" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2563EB">持久化 · 用户数据 · 配置</text>
+
+  <!-- Kafka/Queue -->
+  <rect x="360" y="212" width="145" height="48" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="432" y="234" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#92400E">消息队列</text>
+  <text x="432" y="252" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D97706">异步任务 · 事件流</text>
+
+  <!-- Qdrant -->
+  <rect x="520" y="212" width="135" height="48" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="587" y="234" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#065F46">Qdrant</text>
+  <text x="587" y="252" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#059669">向量检索 · RAG</text>
+
+  <!-- External APIs box -->
+  <rect x="90" y="278" width="500" height="50" rx="6" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#475569">外部服务 API</text>
+  <text x="340" y="318" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748B">OpenAI / Anthropic · 工具 API · OAuth Provider · 支付网关</text>
+
+  <!-- Arrows from infra to external -->
+  <line x1="340" y1="208" x2="340" y2="276" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- Worker box -->
+  <rect x="100" y="342" width="210" height="30" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="205" y="362" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#475569">Async Worker（消息队列消费者）</text>
+
+  <!-- Monitoring box -->
+  <rect x="340" y="342" width="240" height="30" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="460" y="362" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#475569">Prometheus + Grafana + OpenTelemetry</text>
+
+  <!-- Legend -->
+  <g transform="translate(30, 388)">
+    <text x="0" y="0" font-family="sans-serif" font-size="9" fill="#64748B">HPA 基于 CPU 70% 自动扩缩 | Agent 引擎无状态可水平扩展 | 有状态组件用 StatefulSet</text>
+  </g>
+</svg>

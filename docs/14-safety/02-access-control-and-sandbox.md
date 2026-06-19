@@ -141,6 +141,10 @@ Agent: 执行取消操作
 
 ## 沙箱执行
 
+<p align="center">
+  <img src="../../assets/14-safety/sandbox-isolation-architecture.svg" alt="沙箱隔离架构：三级沙箱隔离与文件/网络安全策略" width="95%"/>
+</p>
+
 ### 沙箱级别
 
 | 类型 | 隔离强度 | 性能开销 | 适用场景 |

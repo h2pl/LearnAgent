@@ -126,6 +126,11 @@ async def safe_search(agent, query):
 
 每个 Agent 的输出都应该经过一个验证步骤——格式检查、范围检查、一致性检查。不符合预期的输出直接标记异常，不进入下一个 Agent。
 
+<p align="center">
+  <img src="../../assets/11-multi-agent/error-propagation-defense.svg" alt="多 Agent 错误传播链与四道防线" width="90%"/>
+  <br/><em>图：错误传播链与输入校验、超时熔断、降级、输出验证</em>
+</p>
+
 ## 可观测性设计
 
 单体 Agent 的日志很简单：请求进来，响应出去。多 Agent 需要**分布式追踪**。

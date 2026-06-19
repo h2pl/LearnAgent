@@ -210,6 +210,12 @@ class TokenBudget:
         }
 ```
 
+<p align="center">
+  <img src="../../assets/06-context-engineering/token-budget-allocation.svg" alt="Token预算分配图" width="90%"/>
+  <br/>
+  <em>Token 预算分配：固定开销 + 弹性分配 + 缓冲空间</em>
+</p>
+
 ### 预算告警
 
 ```python
@@ -227,6 +233,12 @@ def check_budget(usage_report: dict):
         # 强制截断
         force_truncate()
 ```
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/cost-vs-accuracy.svg" alt="上下文长度vs准确率vs成本" width="90%"/>
+  <br/>
+  <em>三轴关系图：上下文越长，准确率越低，成本越高</em>
+</p>
 
 ## 成本监控与告警
 

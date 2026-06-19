@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="card4Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#1E293B">Agent 运维监控仪表盘</text>
+  <text x="340" y="46" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94A3B8">Grafana Dashboard · 实时刷新 30s · 数据源 Prometheus + OpenTelemetry</text>
+
+  <!-- === FOUR METRIC CARDS === -->
+
+  <!-- Card 1: P95 Latency -->
+  <rect x="14" y="62" width="158" height="155" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="14" y="62" width="158" height="36" rx="8" fill="url(#card1Grad)"/>
+  <rect x="14" y="88" width="158" height="10" fill="url(#card1Grad)"/>
+  <text x="93" y="85" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">P95 延迟 Latency</text>
+
+  <!-- Sparkline area (simulated) -->
+  <rect x="24" y="106" width="138" height="50" rx="4" fill="#EFF6FF"/>
+  <polyline points="24,145 52,138 80,130 108,140 136,125 162,120" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="162" cy="120" r="2.5" fill="#2563EB"/>
+  <text x="93" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#1E40AF">3.2s</text>
+  <text x="93" y="148" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">基线 2.8s · 环比 +14%</text>
+
+  <!-- Status indicator -->
+  <rect x="34" y="164" width="66" height="22" rx="4" fill="#FEF3C7"/>
+  <text x="67" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400E">⚠ 关注</text>
+  <rect x="108" y="164" width="48" height="22" rx="4" fill="#F1F5F9"/>
+  <text x="132" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#475569">详情</text>
+
+  <!-- Card 2: Error Rate -->
+  <rect x="184" y="62" width="158" height="155" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="184" y="62" width="158" height="36" rx="8" fill="url(#card2Grad)"/>
+  <rect x="184" y="88" width="158" height="10" fill="url(#card2Grad)"/>
+  <text x="263" y="85" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">错误率 Error Rate</text>
+
+  <!-- Sparkline area -->
+  <rect x="194" y="106" width="138" height="50" rx="4" fill="#FEF2F2"/>
+  <polyline points="194,138 222,135 250,138 278,132 306,136 332,133" fill="none" stroke="#DC2626" stroke-width="2"/>
+  <circle cx="332" cy="133" r="2.5" fill="#DC2626"/>
+  <text x="263" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#991B1B">1.8%</text>
+  <text x="263" y="148" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">阈值 5% · 正常</text>
+
+  <!-- Status indicator -->
+  <rect x="204" y="164" width="66" height="22" rx="4" fill="#ECFDF5"/>
+  <text x="237" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">✓ 正常</text>
+  <rect x="278" y="164" width="48" height="22" rx="4" fill="#F1F5F9"/>
+  <text x="302" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#475569">详情</text>
+
+  <!-- Card 3: Cost -->
+  <rect x="354" y="62" width="158" height="155" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="354" y="62" width="158" height="36" rx="8" fill="url(#card3Grad)"/>
+  <rect x="354" y="88" width="158" height="10" fill="url(#card3Grad)"/>
+  <text x="433" y="85" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">成本 Cost</text>
+
+  <!-- Sparkline area -->
+  <rect x="364" y="106" width="138" height="50" rx="4" fill="#FFF7ED"/>
+  <polyline points="364,130 392,125 420,135 448,128 476,138 502,134" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="502" cy="134" r="2.5" fill="#F59E0B"/>
+  <text x="433" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#92400E">$0.032</text>
+  <text x="433" y="148" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">每请求 Token 成本</text>
+
+  <!-- Status indicator -->
+  <rect x="374" y="164" width="66" height="22" rx="4" fill="#ECFDF5"/>
+  <text x="407" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">✓ 正常</text>
+  <rect x="448" y="164" width="48" height="22" rx="4" fill="#F1F5F9"/>
+  <text x="472" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#475569">详情</text>
+
+  <!-- Card 4: QPS -->
+  <rect x="524" y="62" width="142" height="155" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="524" y="62" width="142" height="36" rx="8" fill="url(#card4Grad)"/>
+  <rect x="524" y="88" width="142" height="10" fill="url(#card4Grad)"/>
+  <text x="595" y="85" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">QPS</text>
+
+  <!-- Sparkline area -->
+  <rect x="534" y="106" width="122" height="50" rx="4" fill="#ECFDF5"/>
+  <polyline points="534,133 558,128 582,138 606,125 630,140 656,130" fill="none" stroke="#059669" stroke-width="2"/>
+  <circle cx="656" cy="130" r="2.5" fill="#059669"/>
+  <text x="595" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#065F46">142</text>
+  <text x="595" y="148" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">请求数/秒</text>
+
+  <!-- Status indicator -->
+  <rect x="544" y="164" width="66" height="22" rx="4" fill="#ECFDF5"/>
+  <text x="577" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">✓ 正常</text>
+  <rect x="618" y="164" width="38" height="22" rx="4" fill="#F1F5F9"/>
+  <text x="637" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#475569">></text>
+
+  <!-- === BOTTOM ROW: Additional Panels === -->
+  <!-- TSR Panel -->
+  <rect x="14" y="228" width="210" height="80" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="119" y="250" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">任务成功率 TSR</text>
+  <!-- Simple bar chart -->
+  <rect x="24" y="260" width="50" height="32" rx="2" fill="#2563EB" opacity="0.7"/>
+  <rect x="82" y="260" width="60" height="35" rx="2" fill="#059669" opacity="0.7"/>
+  <rect x="150" y="260" width="55" height="34" rx="2" fill="#2563EB" opacity="0.5"/>
+  <text x="49" y="282" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#FFFFFF" font-weight="600">72%</text>
+  <text x="112" y="283" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#FFFFFF" font-weight="600">78%</text>
+  <text x="177" y="282" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#FFFFFF" font-weight="600">75%</text>
+  <text x="119" y="300" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">日均 · 周日均 · 月均</text>
+
+  <!-- Model Distribution -->
+  <rect x="236" y="228" width="210" height="80" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="341" y="250" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">模型调用分布</text>
+  <rect x="246" y="258" width="95" height="14" rx="3" fill="#2563EB"/>
+  <text x="256" y="269" font-family="sans-serif" font-size="8" fill="#FFFFFF" font-weight="600">GPT-4o</text>
+  <text x="375" y="269" font-family="sans-serif" font-size="8" fill="#64748B">45%</text>
+  <rect x="246" y="276" width="75" height="14" rx="3" fill="#3B82F6"/>
+  <text x="256" y="287" font-family="sans-serif" font-size="8" fill="#FFFFFF" font-weight="600">GPT-4o-mini</text>
+  <text x="355" y="287" font-family="sans-serif" font-size="8" fill="#64748B">35%</text>
+  <rect x="246" y="294" width="42" height="14" rx="3" fill="#93C5FD"/>
+  <text x="256" y="305" font-family="sans-serif" font-size="8" fill="#1E40AF" font-weight="600">Claude</text>
+  <text x="322" y="305" font-family="sans-serif" font-size="8" fill="#64748B">20%</text>
+
+  <!-- Alert Feed -->
+  <rect x="458" y="228" width="208" height="80" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="562" y="250" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">最近告警</text>
+  <rect x="468" y="258" width="188" height="18" rx="3" fill="#FEF2F2"/>
+  <text x="475" y="271" font-family="sans-serif" font-size="8" fill="#DC2626">⚠ 09:15 P95 延迟升至 5.1s</text>
+  <rect x="468" y="280" width="188" height="18" rx="3" fill="#FFF7ED"/>
+  <text x="475" y="293" font-family="sans-serif" font-size="8" fill="#D97706">⚠ 08:00 Token 消耗环比 +35%</text>
+  <text x="562" y="303" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">查看全部 3 条 →</text>
+
+  <!-- === BOTTOM: DEPENDENCY GRID === -->
+  <rect x="14" y="318" width="652" height="52" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="338" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E293B">外部依赖状态：</text>
+
+  <rect x="130" y="324" width="90" height="18" rx="3" fill="#ECFDF5"/>
+  <text x="175" y="337" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">Redis ✓</text>
+
+  <rect x="230" y="324" width="105" height="18" rx="3" fill="#ECFDF5"/>
+  <text x="282" y="337" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">PostgreSQL ✓</text>
+
+  <rect x="345" y="324" width="105" height="18" rx="3" fill="#ECFDF5"/>
+  <text x="397" y="337" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">OpenAI API ✓</text>
+
+  <rect x="460" y="324" width="100" height="18" rx="3" fill="#ECFDF5"/>
+  <text x="510" y="337" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">Anthropic ✓</text>
+
+  <rect x="570" y="324" width="80" height="18" rx="3" fill="#ECFDF5"/>
+  <text x="610" y="337" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#065F46">Qdrant ✓</text>
+
+  <text x="30" y="362" font-family="sans-serif" font-size="8" fill="#94A3B8">当日巡检：TSR 环比-0.8%（正常）| P95 延迟 +14%（关注）| 错误率 1.8%（正常）| Token 消耗 +35%（关注）</text>
+
+  <!-- Time range selector -->
+  <rect x="540" y="338" width="115" height="18" rx="3" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="0.5"/>
+  <text x="597" y="351" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">最近 24 小时 ▼</text>
+
+  <!-- Title bar info -->
+  <text x="340" y="398" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">传统监控（可用性 · 延迟 · 容量）+ Agent 特有监控（TSR · 工具准确率 · Token 成本）</text>
+</svg>

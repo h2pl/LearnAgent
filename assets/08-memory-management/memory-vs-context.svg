@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="gradContext" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradMemory" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="340" y="32" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1F2937">Context 上下文 vs Memory 记忆</text>
+  <text x="340" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#6B7280">类比计算机体系结构：上下文 = RAM（工作区），记忆 = 硬盘（持久存储）</text>
+
+  <!-- ===== 左侧：Context / RAM ===== -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="68" width="280" height="290" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+  </g>
+  <rect x="30" y="68" width="280" height="42" rx="10" fill="url(#gradContext)"/>
+  <rect x="30" y="100" width="280" height="10" fill="url(#gradContext)"/>
+  <text x="170" y="85" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">上下文 Context</text>
+  <text x="170" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#DBEAFE">≈ 计算机 RAM</text>
+
+  <!-- Context 特征列表 -->
+  <text x="50" y="128" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">核心特征</text>
+  
+  <circle cx="55" cy="150" r="3" fill="#2563EB"/>
+  <text x="65" y="154" font-family="sans-serif" font-size="11" fill="#374151">快速访问（延迟 &lt; 1ms）</text>
+  
+  <circle cx="55" cy="174" r="3" fill="#2563EB"/>
+  <text x="65" y="178" font-family="sans-serif" font-size="11" fill="#374151">容量有限（~128K-1M tokens）</text>
+  
+  <circle cx="55" cy="198" r="3" fill="#2563EB"/>
+  <text x="65" y="202" font-family="sans-serif" font-size="11" fill="#374151">易失性：会话结束即消失</text>
+  
+  <circle cx="55" cy="222" r="3" fill="#2563EB"/>
+  <text x="65" y="226" font-family="sans-serif" font-size="11" fill="#374151">全量加载：所有数据直接可见</text>
+  
+  <circle cx="55" cy="246" r="3" fill="#2563EB"/>
+  <text x="65" y="250" font-family="sans-serif" font-size="11" fill="#374151">天然顺序访问</text>
+
+  <line x1="50" y1="265" x2="290" y2="265" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <text x="50" y="285" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">典型内容</text>
+  <text x="55" y="303" font-family="sans-serif" font-size="10" fill="#6B7280">• messages[] 数组</text>
+  <text x="55" y="320" font-family="sans-serif" font-size="10" fill="#6B7280">• 系统提示 (system prompt)</text>
+  <text x="55" y="337" font-family="sans-serif" font-size="10" fill="#6B7280">• 工具调用结果</text>
+
+  <!-- ===== 分隔线 ===== -->
+  <line x1="335" y1="80" x2="335" y2="350" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,4"/>
+  <circle cx="335" cy="210" r="16" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="335" y="214" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#6B7280">vs</text>
+
+  <!-- ===== 右侧：Memory / 硬盘 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="370" y="68" width="280" height="290" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+  </g>
+  <rect x="370" y="68" width="280" height="42" rx="10" fill="url(#gradMemory)"/>
+  <rect x="370" y="100" width="280" height="10" fill="url(#gradMemory)"/>
+  <text x="510" y="85" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">记忆 Memory</text>
+  <text x="510" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#EDE9FE">≈ 计算机 硬盘</text>
+
+  <!-- Memory 特征列表 -->
+  <text x="390" y="128" font-family="sans-serif" font-size="11" font-weight="bold" fill="#7C3AED">核心特征</text>
+  
+  <circle cx="395" cy="150" r="3" fill="#7C3AED"/>
+  <text x="405" y="154" font-family="sans-serif" font-size="11" fill="#374151">检索访问（延迟 10-500ms）</text>
+
+  <circle cx="395" cy="174" r="3" fill="#7C3AED"/>
+  <text x="405" y="178" font-family="sans-serif" font-size="11" fill="#374151">容量几乎无限（可扩展）</text>
+
+  <circle cx="395" cy="198" r="3" fill="#7C3AED"/>
+  <text x="405" y="202" font-family="sans-serif" font-size="11" fill="#374151">持久性：跨会话永久存储</text>
+
+  <circle cx="395" cy="222" r="3" fill="#7C3AED"/>
+  <text x="405" y="226" font-family="sans-serif" font-size="11" fill="#374151">按需检索：仅加载相关条目</text>
+
+  <circle cx="395" cy="246" r="3" fill="#7C3AED"/>
+  <text x="405" y="250" font-family="sans-serif" font-size="11" fill="#374151">语义随机访问</text>
+
+  <line x1="390" y1="265" x2="630" y2="265" stroke="#E5E7EB" stroke-width="1"/>
+
+  <text x="390" y="285" font-family="sans-serif" font-size="11" font-weight="bold" fill="#7C3AED">典型内容</text>
+  <text x="395" y="303" font-family="sans-serif" font-size="10" fill="#6B7280">• 向量数据库 (ChromaDB/Qdrant)</text>
+  <text x="395" y="320" font-family="sans-serif" font-size="10" fill="#6B7280">• SQL 结构化存储</text>
+  <text x="395" y="337" font-family="sans-serif" font-size="10" fill="#6B7280">• 文件 / S3 持久化</text>
+
+  <!-- 底部：关键洞察 -->
+  <rect x="150" y="368" width="380" height="24" rx="4" fill="#FEF3C7"/>
+  <text x="340" y="384" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#D97706">
+    关键洞察：记忆的本质 = 将"上一次的上下文"搬到"这一次的上下文"中
+  </text>
+</svg>

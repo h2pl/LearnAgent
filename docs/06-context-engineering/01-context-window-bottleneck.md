@@ -56,6 +56,12 @@
 
 **这就是瓶颈**：当可变开销不断膨胀，留给模型"思考空间"的余量越来越小，模型的回复质量开始下降。
 
+<p align="center">
+  <img src="../../assets/06-context-engineering/context-window-structure.svg" alt="上下文窗口结构图" width="90%"/>
+  <br/>
+  <em>上下文窗口结构：固定开销 + 按需注入 + 持续增长层</em>
+</p>
+
 ## 记忆 vs 上下文：别混为一谈
 
 这是上下文工程中最容易被误解的概念。Galileo AI 的调研表明，混淆两者的系统既不可扩展，性能也不好。
@@ -109,6 +115,12 @@
 - 工具调用的结果如果夹在大量对话历史中间，模型可能忽略关键细节
 
 **这不是模型的 Bug，是 Transformer 自注意力机制的固有特性**。自注意力对所有 Token 计算关联度，但位置越远的 Token，经过多层计算后注意力权重越分散。
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/lost-in-middle.svg" alt="Lost in the Middle 现象" width="90%"/>
+  <br/>
+  <em>U型注意力曲线：开头和结尾关高度，中间被"遗忘"</em>
+</p>
 
 ### 应对策略
 

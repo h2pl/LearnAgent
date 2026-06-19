@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="curveGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#F87171"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">Lost in the Middle — 注意力U型曲线</text>
+
+  <!-- 坐标系区域 -->
+  <!-- Y轴 -->
+  <line x1="80" y1="55" x2="80" y2="280" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="80" y1="280" x2="620" y2="280" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- Y轴标签 -->
+  <text x="72" y="65" text-anchor="end" font-family="sans-serif" font-size="9" fill="#64748B">高</text>
+  <text x="72" y="170" text-anchor="end" font-family="sans-serif" font-size="9" fill="#64748B">低</text>
+  <text x="72" y="275" text-anchor="end" font-family="sans-serif" font-size="9" fill="#64748B">高</text>
+  <text x="30" y="168" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B" transform="rotate(-90, 30, 168)">注意力关注度</text>
+
+  <!-- X轴标签 -->
+  <text x="90" y="298" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748B">开头</text>
+  <text x="350" y="298" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748B">中间位置</text>
+  <text x="610" y="298" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748B">结尾</text>
+  <text x="350" y="315" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#94A3B8">上下文位置</text>
+
+  <!-- U型曲线路径 -->
+  <path d="M 85 70 
+           Q 120 70, 160 100 
+           Q 200 140, 240 180 
+           Q 280 220, 350 235 
+           Q 420 220, 460 180 
+           Q 500 140, 540 100 
+           Q 580 70, 615 70"
+        fill="none" stroke="url(#curveGrad)" stroke-width="3"
+        stroke-linecap="round"/>
+
+  <!-- 曲线填充区域（半透明） -->
+  <path d="M 85 70 
+           Q 120 70, 160 100 
+           Q 200 140, 240 180 
+           Q 280 220, 350 235 
+           Q 420 220, 460 180 
+           Q 500 140, 540 100 
+           Q 580 70, 615 70
+           L 615 280 L 85 280 Z"
+        fill="url(#curveGrad)" opacity="0.08"/>
+
+  <!-- 高亮标注：三个区域 -->
+  <!-- 开头区域 -->
+  <rect x="85" y="60" width="110" height="220" rx="4" fill="#2563EB" opacity="0.08"/>
+  <text x="140" y="85" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#2563EB">高关注区</text>
+  <text x="140" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">System Prompt</text>
+  <text x="140" y="113" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">Tool Definitions</text>
+
+  <!-- 中间区域（低） -->
+  <rect x="230" y="210" width="240" height="70" rx="4" fill="#F87171" opacity="0.12"/>
+  <text x="350" y="232" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">低关注区</text>
+  <text x="350" y="249" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#B91C1C">早期对话 &amp; 记忆注入</text>
+  <text x="350" y="264" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#B91C1C">模型最易"遗忘"重要信息</text>
+
+  <!-- 结尾区域（高） -->
+  <rect x="505" y="60" width="110" height="220" rx="4" fill="#059669" opacity="0.08"/>
+  <text x="560" y="85" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669">高关注区</text>
+  <text x="560" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">最近对话</text>
+  <text x="560" y="113" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">当前输入</text>
+
+  <!-- 底部：应对策略 -->
+  <rect x="20" y="322" width="640" height="68" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="340" y="344" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#991B1B">应对策略</text>
+
+  <rect x="30" y="352" width="195" height="30" rx="4" fill="#FFF" stroke="#2563EB" stroke-width="1"/>
+  <text x="127" y="364" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">策略 1</text>
+  <text x="127" y="376" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#334155">重要信息放开头或结尾</text>
+
+  <rect x="240" y="352" width="195" height="30" rx="4" fill="#FFF" stroke="#059669" stroke-width="1"/>
+  <text x="337" y="364" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#059669" font-weight="bold">策略 2</text>
+  <text x="337" y="376" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#334155">中间只放"参考信息"</text>
+
+  <rect x="450" y="352" width="195" height="30" rx="4" fill="#FFF" stroke="#DC2626" stroke-width="1"/>
+  <text x="547" y="364" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626" font-weight="bold">策略 3</text>
+  <text x="547" y="376" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#334155">关键信息在结尾重复提醒</text>
+
+  <!-- 来源标注 -->
+  <text x="500" y="315" font-family="sans-serif" font-size="7" fill="#94A3B8" text-anchor="end">来源：Stanford Lost in the Middle (2023)</text>
+</svg>

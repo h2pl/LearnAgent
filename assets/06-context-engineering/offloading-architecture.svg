@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="bshadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrBlue" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <path d="M0,0 L6,2.5 L0,5 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <path d="M0,0 L6,2.5 L0,5 Z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">上下文卸载架构 — LangChain 四桶分类法</text>
+
+  <!-- 中央：上下文窗口 -->
+  <rect x="230" y="55" width="220" height="45" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#bshadow)"/>
+  <text x="340" y="73" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#2563EB">上下文窗口</text>
+  <text x="340" y="89" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">Context Window（有限容量）</text>
+
+  <!-- 四个桶 -->
+  <!-- 桶1：Write（上方） -->
+  <g transform="translate(230, 130)">
+    <rect x="0" y="0" width="220" height="45" rx="6" fill="#F0FDF4" stroke="#059669" stroke-width="1.5" filter="url(#bshadow)"/>
+    <text x="110" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669">Write 写出去</text>
+    <text x="110" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#065F46">信息持久化到外部系统</text>
+    <!-- 连接 -->
+    <line x1="110" y1="45" x2="110" y2="56" stroke="#059669" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+  </g>
+
+  <!-- 外部存储 -->
+  <g transform="translate(230, 188)">
+    <rect x="0" y="0" width="220" height="35" rx="6" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1"/>
+    <text x="110" y="14" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#065F46">文件系统 / 外部存储</text>
+    <text x="110" y="28" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">Scratchpad / 搜索结果 / 中间状态</text>
+  </g>
+
+  <!-- 桶2：Select（左侧） -->
+  <g transform="translate(20, 130)">
+    <rect x="0" y="0" width="190" height="45" rx="6" fill="#FEF3C7" stroke="#CA8A04" stroke-width="1.5" filter="url(#bshadow)"/>
+    <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#CA8A04">Select 选进来</text>
+    <text x="95" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#854D0E">按需检索关键信息</text>
+    <line x1="190" y1="23" x2="228" y2="23" stroke="#CA8A04" stroke-width="1.5" marker-end="url(#arrBlue)"/>
+  </g>
+
+  <!-- 桶3：Compress（右侧） -->
+  <g transform="translate(470, 130)">
+    <rect x="0" y="0" width="190" height="45" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" filter="url(#bshadow)"/>
+    <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">Compress 压下去</text>
+    <text x="95" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#991B1B">精简不必要的信息</text>
+    <line x1="0" y1="23" x2="2" y2="23" stroke="#DC2626" stroke-width="1.5"/>
+    <!-- 箭头指向上下文 -->
+    <line x1="470" y1="23" x2="452" y2="23" stroke="#DC2626" stroke-width="1.5"/>
+  </g>
+
+  <!-- 桶4：Isolate（下方） -->
+  <g transform="translate(230, 250)">
+    <rect x="0" y="0" width="220" height="45" rx="6" fill="#F3E8FF" stroke="#7C3AED" stroke-width="1.5" filter="url(#bshadow)"/>
+    <text x="110" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#7C3AED">Isolate 隔离开</text>
+    <text x="110" y="34" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#5B21B6">分派到独立子上下文</text>
+  </g>
+
+  <!-- 子 Agent 示意 -->
+  <g transform="translate(20, 260)">
+    <rect x="0" y="0" width="90" height="40" rx="4" fill="#F3E8FF" stroke="#C4B5FD" stroke-width="1"/>
+    <text x="45" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6D28D9">子 Agent A</text>
+    <text x="45" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#7C3AED">独立上下文</text>
+    <line x1="90" y1="20" x2="228" y2="20" stroke="#7C3AED" stroke-width="1" stroke-dasharray="3,2"/>
+  </g>
+
+  <g transform="translate(130, 260)">
+    <rect x="0" y="0" width="90" height="40" rx="4" fill="#F3E8FF" stroke="#C4B5FD" stroke-width="1"/>
+    <text x="45" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6D28D9">子 Agent B</text>
+    <text x="45" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#7C3AED">独立上下文</text>
+    <line x1="90" y1="20" x2="228" y2="37" stroke="#7C3AED" stroke-width="1" stroke-dasharray="3,2"/>
+  </g>
+
+  <g transform="translate(460, 260)">
+    <rect x="0" y="0" width="90" height="40" rx="4" fill="#F3E8FF" stroke="#C4B5FD" stroke-width="1"/>
+    <text x="45" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6D28D9">子 Agent C</text>
+    <text x="45" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#7C3AED">独立上下文</text>
+    <line x1="0" y1="20" x2="10" y2="37" stroke="#7C3AED" stroke-width="1" stroke-dasharray="3,2"/>
+  </g>
+
+  <!-- 底部：策略表 -->
+  <rect x="16" y="310" width="648" height="80" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="340" y="330" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">四种策略关系</text>
+
+  <g transform="translate(20, 338)">
+    <rect x="0" y="0" width="150" height="46" rx="3" fill="#F0FDF4" stroke="#86EFAC" stroke-width="0.8"/>
+    <text x="75" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#059669">Write</text>
+    <text x="75" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#065F46">写出去→提供"信息库"</text>
+    <text x="75" y="42" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">解决容量超限</text>
+  </g>
+
+  <text x="182" y="364" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+
+  <g transform="translate(195, 338)">
+    <rect x="0" y="0" width="150" height="46" rx="3" fill="#FEF3C7" stroke="#FCD34D" stroke-width="0.8"/>
+    <text x="75" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#CA8A04">Select</text>
+    <text x="75" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#854D0E">选进来→决定"取什么"</text>
+    <text x="75" y="42" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">解决无关干扰</text>
+  </g>
+
+  <text x="357" y="364" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+
+  <g transform="translate(370, 338)">
+    <rect x="0" y="0" width="150" height="46" rx="3" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="75" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#DC2626">Compress</text>
+    <text x="75" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991B1B">压下去→控制"怎么用"</text>
+    <text x="75" y="42" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">解决信息冗余</text>
+  </g>
+
+  <text x="532" y="364" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94A3B8">→</text>
+
+  <g transform="translate(540, 338)">
+    <rect x="0" y="0" width="110" height="46" rx="3" fill="#F3E8FF" stroke="#C4B5FD" stroke-width="0.8"/>
+    <text x="55" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#7C3AED">Isolate</text>
+    <text x="55" y="30" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#5B21B6">隔离开→分而治之</text>
+    <text x="55" y="42" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">解决互相干扰</text>
+  </g>
+</svg>

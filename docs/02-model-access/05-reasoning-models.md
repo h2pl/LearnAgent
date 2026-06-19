@@ -497,7 +497,7 @@ def agent_loop(user_input):
 - **成本意识**：思考 Token 按输出计费，`high` 比 `low` 贵 5-10 倍；DeepSeek V4-Flash 比 GPT-5.5 便宜 30-150 倍
 - **Prompt 警告**：不要在 prompt 里写"step by step"——会干扰 2026 模型的内部推理，浪费 thinking budget
 
-> 掌握了模型选型和深度思考的使用，云端 API 也已经会调了。但如果你的数据不能出内网呢？请前往 [本地部署实战](./06-local-deployment.md)。
+> 掌握了模型选型和深度思考的使用，云端 API 也已经会调了。但如果你的数据不能出内网呢？请前往 [模型本地部署实战](./06-local-deployment.md)。
 
 ## 参考链接
 

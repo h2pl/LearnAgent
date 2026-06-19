@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" style="background:#fff;font-family:sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">工具选择路由：从用户输入到工具决策</text>
+
+  <!-- 用户输入区域 -->
+  <rect x="180" y="48" width="320" height="42" rx="8" fill="#EFF6FF" stroke="#BFDBFE" filter="url(#shadow)"/>
+  <text x="340" y="65" text-anchor="middle" font-size="12" fill="#475569">用户输入</text>
+  <text x="340" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">"上海今天多少度？"</text>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="90" x2="340" y2="108" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- LLM 推理框 -->
+  <rect x="130" y="110" width="420" height="58" rx="10" fill="#F8FAFC" stroke="#93C5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#2563EB">LLM 自回归推理</text>
+  <text x="340" y="150" text-anchor="middle" font-size="10" fill="#475569">自注意力机制：输入文本与各工具 Schema 计算语义匹配度</text>
+
+  <!-- 三条路由分叉 -->
+  <line x1="210" y1="168" x2="80" y2="200" stroke="#059669" stroke-width="1.5"/>
+  <line x1="340" y1="168" x2="340" y2="200" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="470" y1="168" x2="600" y2="200" stroke="#DC2626" stroke-width="1.5"/>
+
+  <!-- 工具1 -->
+  <rect x="10" y="202" width="130" height="80" rx="8" fill="#D1FAE5" stroke="#86EFAC" filter="url(#shadow)"/>
+  <text x="75" y="222" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">get_weather</text>
+  <text x="75" y="240" text-anchor="middle" font-size="9" fill="#047857">"获取城市天气"</text>
+  <text x="75" y="258" text-anchor="middle" font-size="9" fill="#047857">P=0.91</text>
+  <rect x="30" y="267" width="90" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="30" y="267" width="82" height="10" rx="5" fill="#059669"/>
+
+  <!-- 工具2 -->
+  <rect x="270" y="202" width="130" height="80" rx="8" fill="#FEF3C7" stroke="#FDE68A" filter="url(#shadow)"/>
+  <text x="335" y="222" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400E">get_forecast</text>
+  <text x="335" y="240" text-anchor="middle" font-size="9" fill="#92400E">"获取未来预报"</text>
+  <text x="335" y="258" text-anchor="middle" font-size="9" fill="#92400E">P=0.06</text>
+  <rect x="290" y="267" width="90" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="290" y="267" width="5" height="10" rx="5" fill="#D97706"/>
+
+  <!-- 工具3 -->
+  <rect x="540" y="202" width="130" height="80" rx="8" fill="#FEE2E2" stroke="#FECACA" filter="url(#shadow)"/>
+  <text x="605" y="222" text-anchor="middle" font-size="11" font-weight="bold" fill="#B91C1C">query_order</text>
+  <text x="605" y="240" text-anchor="middle" font-size="9" fill="#B91C1C">"查询订单详情"</text>
+  <text x="605" y="258" text-anchor="middle" font-size="9" fill="#B91C1C">P=0.03</text>
+  <rect x="560" y="267" width="90" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="560" y="267" width="3" height="10" rx="5" fill="#DC2626"/>
+
+  <!-- 流向汇聚 -->
+  <line x1="75" y1="282" x2="340" y2="320" stroke="#059669" stroke-width="2"/>
+  <line x1="335" y1="282" x2="340" y2="320" stroke="#D97706" stroke-width="1"/>
+  <line x1="605" y1="282" x2="340" y2="320" stroke="#DC2626" stroke-width="1"/>
+
+  <!-- 输出结果 -->
+  <rect x="180" y="308" width="320" height="40" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="340" y="325" text-anchor="middle" font-size="11" font-weight="bold" fill="#2563EB">工具调用输出</text>
+  <text x="340" y="342" text-anchor="middle" font-size="10" fill="#475569">tool_calls: [{ name: "get_weather", arguments: { city: "上海" } }]</text>
+
+  <!-- 关键机制说明 -->
+  <text x="340" y="378" text-anchor="middle" font-size="11" fill="#94A3B8">图：输入与Schema的语义匹配 → 概率分布 → 最高概率工具被选中</text>
+</svg>

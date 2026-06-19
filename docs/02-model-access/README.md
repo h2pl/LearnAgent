@@ -13,7 +13,7 @@
 | 03 | [LLM API 调用实战](./03-api-calling.md) | 调用层级概览（SDK/HTTP/CLI/中间商）、OpenAI SDK 基础调用、流式输出、多模型统一接口、错误处理 |
 | 04 | [模型变体速查](./04-model-variants-landscape.md) | 训练阶段（Base/Instruct/Chat/Reasoning）、能力专精（Code/Math/Vision/Function Calling）、部署形态（量化/蒸馏/合并/剪枝）、专用家族（Embedding/Rerank/语音）、行业场景 |
 | 05 | [深度思考与推理能力](./05-reasoning-models.md) | `reasoning_effort` 参数调用、成本权衡、Agent 规划层最佳实践 |
-| 06 | [本地部署实战](./06-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
-| 07 | [微调实战指南](./07-finetuning-guide.md) | 微调 vs Prompt vs RAG 决策、LoRA/QLoRA 实操、训练数据准备、常见坑 |
+| 06 | [模型本地部署实战](./06-local-deployment.md) | Ollama/vLLM 本地跑模型、量化（Q4/Q8）、GPU 需求与性能 |
+| 07 | [模型微调实战指南](./07-finetuning-guide.md) | 微调 vs Prompt vs RAG 决策、LoRA/QLoRA 实操、训练数据准备、常见坑 |
 
 > 学完本章后，请继续阅读 [03 — Prompt 工程](../03-prompt-engineering/README.md)，学习如何通过文字精确控制模型行为。

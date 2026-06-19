@@ -144,6 +144,10 @@ TSR: 94.2%
 | 人工介入率 | 折线图 | 功能 | 异常上升代表 Agent 处理能力下降 |
 | 最慢操作 Top 10 | 列表 | Span 类型 | 实时显示最慢的操作 |
 
+<p align="center">
+  <img src="../../assets/13-observability/monitoring-dashboard.svg" alt="Agent 监控仪表盘：KPI 卡片、请求趋势、错误分布与资源利用率" width="95%"/>
+</p>
+
 ## 告警规则设计
 
 ### 什么需要告警

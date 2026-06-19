@@ -6,7 +6,7 @@
 
 | # | 文章 | 内容 |
 |---|------|------|
-| 01 | [框架概述与选型](./01-framework-overview.md) | 为什么需要框架、主流框架对比、选型决策 |
+| 01 | [Agent 框架概述与选型](./01-framework-overview.md) | 为什么需要框架、主流框架对比、选型决策 |
 | 02 | [LangChain 详解](./02-langchain.md) | 核心概念、LCEL 组合语言、工具集成 |
 | 03 | [LangGraph 详解（一）](./03-langgraph-1.md) | 状态图、节点、边、条件路由 |
 | 04 | [LangGraph 详解（二）](./04-langgraph-2.md) | Checkpoint、持久化与人机协作 |

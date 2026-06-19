@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" font-family="'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="s4" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="540" rx="12" fill="url(#bg4)"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">生产环境评测闭环</text>
+  <text x="400" y="56" text-anchor="middle" font-size="13" fill="#64748b">离线评测 ↔ 在线评测 数据打通，形成持续优化的质量闭环</text>
+
+  <!-- Center: Production Agent -->
+  <g filter="url(#s4)">
+    <rect x="310" y="80" width="180" height="60" rx="30" fill="#6366f1"/>
+    <text x="400" y="108" text-anchor="middle" font-size="15" font-weight="700" fill="white">Production Agent</text>
+    <text x="400" y="126" text-anchor="middle" font-size="11" fill="#c7d2fe">生产环境运行中</text>
+  </g>
+
+  <!-- Left side: Online Signals -->
+  <!-- User Feedback -->
+  <g filter="url(#s4)">
+    <rect x="30" y="170" width="200" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="30" y="170" width="200" height="28" rx="10" fill="#10b981"/>
+    <rect x="30" y="188" width="200" height="10" fill="#10b981"/>
+    <text x="130" y="189" text-anchor="middle" font-size="12" font-weight="700" fill="white">用户反馈信号</text>
+    <text x="50" y="216" font-size="11" fill="#334155" font-weight="600">显式反馈:</text>
+    <text x="50" y="232" font-size="11" fill="#64748b">👍 好评 (+1.0)  👎 差评 (-1.0)</text>
+    <text x="50" y="254" font-size="11" fill="#334155" font-weight="600">隐式反馈:</text>
+    <text x="50" y="270" font-size="11" fill="#64748b">复制回答 (+0.5)  重复提问 (-0.8)</text>
+    <text x="50" y="286" font-size="11" fill="#64748b">转人工 (-0.9)  中断重开 (-0.5)</text>
+  </g>
+
+  <!-- Agent Signals -->
+  <g filter="url(#s4)">
+    <rect x="30" y="310" width="200" height="110" rx="10" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="30" y="310" width="200" height="28" rx="10" fill="#3b82f6"/>
+    <rect x="30" y="328" width="200" height="10" fill="#3b82f6"/>
+    <text x="130" y="329" text-anchor="middle" font-size="12" font-weight="700" fill="white">Agent 行为信号</text>
+    <text x="50" y="358" font-size="11" fill="#64748b">Token 消耗异常增长</text>
+    <text x="50" y="374" font-size="11" fill="#64748b">工具调用次数剧增</text>
+    <text x="50" y="390" font-size="11" fill="#64748b">多次重试同一工具</text>
+    <text x="50" y="406" font-size="11" fill="#64748b">Agent 主动说"我不知道"</text>
+  </g>
+
+  <!-- Arrows from Production to signals -->
+  <path d="M 310 120 Q 200 130 180 168" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <path d="M 310 130 Q 200 200 180 308" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Right side: Drift Detection + Replay -->
+  <!-- Drift Detection -->
+  <g filter="url(#s4)">
+    <rect x="570" y="170" width="200" height="120" rx="10" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="570" y="170" width="200" height="28" rx="10" fill="#f59e0b"/>
+    <rect x="570" y="188" width="200" height="10" fill="#f59e0b"/>
+    <text x="670" y="189" text-anchor="middle" font-size="12" font-weight="700" fill="white">漂移检测</text>
+    <text x="590" y="216" font-size="11" fill="#334155" font-weight="600">TSR 趋势监控</text>
+    <text x="590" y="232" font-size="11" fill="#64748b">7日/14日均线 · 下降&gt;5%告警</text>
+    <text x="590" y="254" font-size="11" fill="#334155" font-weight="600">输入分布监控</text>
+    <text x="590" y="270" font-size="11" fill="#64748b">主题分类 · 分布变化检测</text>
+    <text x="590" y="286" font-size="11" fill="#334155" font-weight="600">输出质量抽样</text>
+    <text x="590" y="302" font-size="11" fill="#64748b">1%抽样 → LLM-as-Judge</text>
+  </g>
+
+  <!-- Replay Testing -->
+  <g filter="url(#s4)">
+    <rect x="570" y="310" width="200" height="110" rx="10" fill="white" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="570" y="310" width="200" height="28" rx="10" fill="#8b5cf6"/>
+    <rect x="570" y="328" width="200" height="10" fill="#8b5cf6"/>
+    <text x="670" y="329" text-anchor="middle" font-size="12" font-weight="700" fill="white">回放测试</text>
+    <text x="590" y="358" font-size="11" fill="#64748b">生产日志 → 提取用例</text>
+    <text x="590" y="374" font-size="11" fill="#64748b">标注 → 新版 Agent 重跑</text>
+    <text x="590" y="390" font-size="11" fill="#64748b">对比新旧版本差异</text>
+    <text x="590" y="406" font-size="11" fill="#64748b">发现边缘场景 + 并发问题</text>
+  </g>
+
+  <!-- Arrows from Production to right side -->
+  <path d="M 490 120 Q 600 130 620 168" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <path d="M 490 130 Q 600 200 620 308" fill="none" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Bottom: Offline Eval System (the feedback target) -->
+  <g filter="url(#s4)">
+    <rect x="180" y="448" width="440" height="78" rx="10" fill="white" stroke="#6366f1" stroke-width="2"/>
+    <rect x="180" y="448" width="440" height="28" rx="10" fill="#6366f1"/>
+    <rect x="180" y="466" width="440" height="10" fill="#6366f1"/>
+    <text x="400" y="467" text-anchor="middle" font-size="13" font-weight="700" fill="white">离线评测体系 (Offline Eval System)</text>
+    <text x="210" y="496" font-size="11" fill="#475569">评测集更新</text>
+    <text x="310" y="496" font-size="11" fill="#475569">CI/CD 门禁</text>
+    <text x="400" y="496" font-size="11" fill="#475569">基线对比</text>
+    <text x="490" y="496" font-size="11" fill="#475569">回归测试</text>
+    <text x="210" y="514" font-size="10" fill="#94a3b8">投诉→对抗集  差评→评测集  出错→回归集  漂移→补充</text>
+  </g>
+
+  <!-- Feedback loop arrows -->
+  <!-- Left signals down to offline -->
+  <path d="M 130 422 Q 130 445 190 460" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowGreen)"/>
+  <path d="M 130 422 Q 130 445 190 475" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowBlue)"/>
+
+  <!-- Right signals down to offline -->
+  <path d="M 670 422 Q 670 445 610 460" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowOrange)"/>
+  <path d="M 670 422 Q 670 445 610 475" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowPurple)"/>
+
+  <!-- Upward arrow from offline back to production -->
+  <path d="M 400 446 L 400 145" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#arrowGreen)"/>
+  <text x="415" y="300" font-size="11" fill="#6366f1" font-weight="600" transform="rotate(-90, 415, 300)">评测通过 → 部署上线</text>
+
+  <!-- Labels on arrows -->
+  <text x="80" y="445" font-size="10" fill="#10b981" font-weight="600">信号回填</text>
+  <text x="672" y="445" font-size="10" fill="#8b5cf6" font-weight="600">数据反哺</text>
+</svg>

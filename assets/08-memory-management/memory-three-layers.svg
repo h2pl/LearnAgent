@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="gradShort" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradWork" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A78BFA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradLong" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34D399;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7C3AED"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="340" y="32" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1F2937">Agent 记忆三层模型</text>
+  <line x1="240" y1="42" x2="440" y2="42" stroke="#2563EB" stroke-width="2"/>
+
+  <!-- 用户输入 -->
+  <rect x="255" y="55" width="170" height="30" rx="15" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="340" y="75" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6B7280">用户输入 / 系统事件</text>
+
+  <line x1="340" y1="85" x2="340" y2="105" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ===== 短期记忆 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="108" width="600" height="58" rx="8" fill="url(#gradShort)" opacity="0.95"/>
+  </g>
+  <text x="60" y="132" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">短期记忆</text>
+  <text x="60" y="150" font-family="sans-serif" font-size="11" fill="#DBEAFE">对话历史 / messages[] 数组</text>
+  <text x="480" y="135" text-anchor="end" font-family="sans-serif" font-size="10" fill="#DBEAFE">存储：LLM 上下文窗口</text>
+  <text x="480" y="150" text-anchor="end" font-family="sans-serif" font-size="10" fill="#DBEAFE">生命周期：当前对话轮次 | 零成本</text>
+
+  <!-- 短期→工作 箭头 -->
+  <line x1="340" y1="166" x2="340" y2="195" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrowPurple)" stroke-dasharray="6,3"/>
+  <text x="350" y="185" font-family="sans-serif" font-size="10" fill="#7C3AED">多步任务触发</text>
+
+  <!-- ===== 分隔标注 ===== -->
+  <rect x="580" y="175" width="85" height="16" rx="3" fill="#FEF3C7"/>
+  <text x="622" y="187" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D97706">热数据</text>
+
+  <!-- ===== 工作记忆 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="200" width="560" height="58" rx="8" fill="url(#gradWork)" opacity="0.95"/>
+  </g>
+  <text x="80" y="224" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">工作记忆</text>
+  <text x="80" y="242" font-family="sans-serif" font-size="11" fill="#EDE9FE">任务目标 / 步骤进度 / scratchpad / 工具结果</text>
+  <text x="460" y="227" text-anchor="end" font-family="sans-serif" font-size="10" fill="#EDE9FE">存储：内存状态变量</text>
+  <text x="460" y="242" text-anchor="end" font-family="sans-serif" font-size="10" fill="#EDE9FE">生命周期：当前任务周期 | 低成本</text>
+
+  <!-- 工作→长期 箭头 -->
+  <line x1="340" y1="258" x2="340" y2="285" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)" stroke-dasharray="6,3"/>
+  <text x="350" y="276" font-family="sans-serif" font-size="10" fill="#059669">任务完成时提取归档</text>
+
+  <!-- ===== 分隔标注 ===== -->
+  <rect x="580" y="265" width="85" height="16" rx="3" fill="#FEF3C7"/>
+  <text x="622" y="277" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D97706">冷数据</text>
+
+  <!-- ===== 长期记忆 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="290" width="520" height="58" rx="8" fill="url(#gradLong)" opacity="0.95"/>
+  </g>
+  <text x="100" y="314" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">长期记忆</text>
+  <text x="100" y="332" font-family="sans-serif" font-size="11" fill="#D1FAE5">用户偏好 / 学到的知识 / 历史经验 / 行为模式</text>
+  <text x="440" y="317" text-anchor="end" font-family="sans-serif" font-size="10" fill="#D1FAE5">存储：向量DB / SQL / 文件</text>
+  <text x="440" y="332" text-anchor="end" font-family="sans-serif" font-size="10" fill="#D1FAE5">生命周期：跨会话持久化 | 需存储基础设施</text>
+
+  <!-- 长期→短期 检索箭头 -->
+  <path d="M 80 348 L 40 348 L 40 137 L 40 137" stroke="#2563EB" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="18" y="245" font-family="sans-serif" font-size="9" fill="#2563EB" transform="rotate(-90, 18, 245)">新会话时检索注入</text>
+
+  <!-- 右侧时间标注 -->
+  <line x1="650" y1="115" x2="650" y2="340" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="655" y="140" font-family="sans-serif" font-size="10" fill="#6B7280">秒-分钟</text>
+  <text x="655" y="232" font-family="sans-serif" font-size="10" fill="#6B7280">分钟-小时</text>
+  <text x="655" y="322" font-family="sans-serif" font-size="10" fill="#6B7280">天-月-年</text>
+
+  <!-- 底部图注 -->
+  <text x="340" y="385" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">信息在三层之间循环流动：短期→工作→长期（写入），长期→上下文（检索），形成完整的记忆闭环</text>
+</svg>

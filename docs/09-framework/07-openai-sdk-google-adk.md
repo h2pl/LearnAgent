@@ -37,6 +37,8 @@
 | **支持最好** | 遇到问题可以直接找厂商支持 |
 | **协议最标准** | 厂商自己的协议（如 Handoff、A2A）支持最好 |
 
+<p align="center"><img src="../../assets/09-framework/sdk-adk-comparison.svg" alt="OpenAI SDK vs Google ADK对比" width="90%"/><br/><em>图：OpenAI Agents SDK 与 Google ADK 全方位对比</em></p>
+
 ## OpenAI Agents SDK
 
 OpenAI Agents SDK 是 OpenAI 官方推出的轻量级 Agent 框架，核心理念是**简单、灵活、生产就绪**。
@@ -324,7 +326,7 @@ A2A 的核心能力：
 - **厂商框架的劣势**：模型锁定、生态受限
 - **选型原则**：如果只用一家模型，用原厂框架最短；如果需要模型无关，用通用框架
 
-> 下一篇，我们将进入第 10 章——扩展协议与标准，看看 MCP、Skills、A2A 这些协议如何连接 Agent 生态。
+> 下一篇：[扩展协议全景](../10-protocols/01-protocol-landscape.md) —— 看看 MCP、Skills、A2A 这些协议如何连接 Agent 生态。
 
 ## 参考链接
 

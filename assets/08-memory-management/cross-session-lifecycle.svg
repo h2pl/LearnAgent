@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6B7280"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563EB"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="680" height="400" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1F2937">跨会话记忆生命周期</text>
+  <text x="340" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#6B7280">每个会话经历四个阶段，形成记忆的完整闭环</text>
+
+  <!-- ===== 阶段 1：会话开始 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="20" y="70" width="145" height="90" rx="8" fill="#F0F5FF" stroke="#2563EB" stroke-width="2"/>
+  </g>
+  <rect x="20" y="70" width="145" height="30" rx="8" fill="#2563EB"/>
+  <rect x="20" y="92" width="145" height="8" fill="#2563EB"/>
+  <text x="92" y="90" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">阶段1 会话开始</text>
+  
+  <text x="32" y="118" font-family="sans-serif" font-size="10" fill="#374151">① 识别用户身份</text>
+  <text x="32" y="135" font-family="sans-serif" font-size="10" fill="#374151">② 检索长期记忆</text>
+  <text x="32" y="152" font-family="sans-serif" font-size="10" fill="#374151">③ 注入系统提示</text>
+
+  <line x1="165" y1="115" x2="195" y2="115" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段 2：会话进行中 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="70" width="145" height="90" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+  </g>
+  <rect x="200" y="70" width="145" height="30" rx="8" fill="#7C3AED"/>
+  <rect x="200" y="92" width="145" height="8" fill="#7C3AED"/>
+  <text x="272" y="90" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">阶段2 会话进行中</text>
+
+  <text x="212" y="118" font-family="sans-serif" font-size="10" fill="#374151">① 对话历史累积</text>
+  <text x="212" y="135" font-family="sans-serif" font-size="10" fill="#374151">② 工作记忆跟踪</text>
+  <text x="212" y="152" font-family="sans-serif" font-size="10" fill="#374151">③ 实时记忆检索</text>
+
+  <line x1="345" y1="115" x2="375" y2="115" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段 3：会话结束 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="380" y="70" width="145" height="90" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+  </g>
+  <rect x="380" y="70" width="145" height="30" rx="8" fill="#059669"/>
+  <rect x="380" y="92" width="145" height="8" fill="#059669"/>
+  <text x="452" y="90" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">阶段3 会话结束</text>
+
+  <text x="392" y="118" font-family="sans-serif" font-size="10" fill="#374151">① LLM 提取关键信息</text>
+  <text x="392" y="135" font-family="sans-serif" font-size="10" fill="#374151">② 判别记忆类型</text>
+  <text x="392" y="152" font-family="sans-serif" font-size="10" fill="#374151">③ 去重后持久化</text>
+
+  <line x1="525" y1="115" x2="555" y2="115" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段 4：持久化存储 ===== -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="70" width="100" height="90" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  </g>
+  <text x="610" y="95" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#D97706">阶段4</text>
+  <text x="610" y="112" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#D97706">持久化</text>
+  <text x="610" y="135" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">向量DB</text>
+  <text x="610" y="150" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">+ SQL</text>
+
+  <!-- 循环箭头 -->
+  <path d="M 610 160 L 610 200 L 92 200 L 92 160" stroke="#2563EB" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#arrowBlue)"/>
+  <text x="340" y="218" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2563EB">下次会话时记忆检索注入（循环）</text>
+
+  <!-- ===== 下半部分：每阶段的核心操作 ===== -->
+  <line x1="30" y1="240" x2="650" y2="240" stroke="#E5E7EB" stroke-width="1"/>
+
+  <text x="30" y="265" font-family="sans-serif" font-size="12" font-weight="bold" fill="#374151">各阶段涉及的三层记忆</text>
+
+  <!-- 短期记忆 -->
+  <rect x="30" y="278" width="145" height="55" rx="6" fill="#2563EB" opacity="0.1" stroke="#2563EB" stroke-width="1"/>
+  <text x="102" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">短期记忆</text>
+  <text x="102" y="315" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">阶段2 自动累积</text>
+  <text x="102" y="328" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">阶段4 随会话销毁</text>
+
+  <!-- 工作记忆 -->
+  <rect x="190" y="278" width="145" height="55" rx="6" fill="#7C3AED" opacity="0.1" stroke="#7C3AED" stroke-width="1"/>
+  <text x="262" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#7C3AED">工作记忆</text>
+  <text x="262" y="315" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">阶段2 任务跟踪</text>
+  <text x="262" y="328" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">阶段3 提取→长期记忆</text>
+
+  <!-- 长期记忆 -->
+  <rect x="350" y="278" width="145" height="55" rx="6" fill="#059669" opacity="0.1" stroke="#059669" stroke-width="1"/>
+  <text x="422" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">长期记忆</text>
+  <text x="422" y="315" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">阶段1 检索注入</text>
+  <text x="422" y="328" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">阶段3-4 写入持久化</text>
+
+  <!-- Token 预算 -->
+  <rect x="510" y="278" width="150" height="55" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="585" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#D97706">Token 预算控制</text>
+  <text x="585" y="315" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">注入 ≤ 500 tokens</text>
+  <text x="585" y="328" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">记忆 ≤ 10 条</text>
+
+  <!-- 底部图注 -->
+  <text x="340" y="370" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">
+    四个阶段形成完整闭环 — 初始化(加载记忆) → 对话(累积+检索) → 结束(提取归档) → 下次初始化(记忆生效)
+  </text>
+  <text x="340" y="390" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">
+    核心原则：用户记忆严格隔离(user_id) | 容量控制 ≤ 200条 | 按重要度优先注入
+  </text>
+</svg>

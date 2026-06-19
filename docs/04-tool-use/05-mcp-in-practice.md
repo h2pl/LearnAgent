@@ -386,6 +386,10 @@ python github_issue_server.py
 
 现在你可以在 Claude Desktop 中对 Claude 说："帮我查一下 h2pl/AgentDevGuide 仓库中标签为 bug 的 open issue"，Claude 会调用 `search_issues` 工具，实时查询 GitHub API 返回结果。
 
+<p align="center">
+  <img src="../../assets/04-tool-use/mcp-deployment-flow.svg" alt="MCP部署全流程：脚手架→测试→集成→增强→远程部署，五步走通" width="95%"/>
+</p>
+
 ## 总结
 
 - **MCP 实战五步走**：脚手架 → Inspector 测试 → 客户端集成 → 生产级增强 → 远程部署

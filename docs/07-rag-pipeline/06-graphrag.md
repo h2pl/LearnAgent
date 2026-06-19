@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。前五篇文章带你从 [RAG 概述](./01-rag-overview.md) 到 [构建完整 RAG 系统](./05-build-rag-system.md)，掌握了朴素 RAG 的全流程。朴素 RAG 能回答"PostgreSQL 支持哪些索引类型"这类问题——找到最相关的文档段落，丢给 LLM 生成答案。但有一类问题它搞不定：**跨文档的因果推理**。这篇文章讲 GraphRAG——给 RAG 加上知识图谱，让检索从"找段落"升级到"找关系"。
+你好，我是江小湖。前五篇文章带你从 [RAG 原理概述](./01-rag-overview.md) 到 [构建完整 RAG 系统](./05-build-rag-system.md)，掌握了朴素 RAG 的全流程。朴素 RAG 能回答"PostgreSQL 支持哪些索引类型"这类问题——找到最相关的文档段落，丢给 LLM 生成答案。但有一类问题它搞不定：**跨文档的因果推理**。这篇文章讲 GraphRAG——给 RAG 加上知识图谱，让检索从"找段落"升级到"找关系"。
 
 ## 朴素 RAG 的天花板
 
@@ -112,6 +112,8 @@ LLM 判断实体间的关系类型和方向
 向量相似度 + 1-hop/2-hop 图遍历 → 综合排序
 ```
 
+<img src="../../assets/07-rag-pipeline/graphrag-pipeline.svg" alt="GraphRAG 工作流水线架构图：从文档分块到图增强检索的完整 6 步流水线" width="800"/>
+
 ### 一个完整的实体-关系提取示例
 
 输入文档：
@@ -151,6 +153,8 @@ LLM 自动提取的结果：
   ]
 }
 ```
+
+<img src="../../assets/07-rag-pipeline/graphrag-knowledge-graph.svg" alt="会议纪要知识图谱可视化：展示实体节点和因果关系边的图遍历结构" width="800"/>
 
 ## 朴素 RAG vs GraphRAG 全景对比
 

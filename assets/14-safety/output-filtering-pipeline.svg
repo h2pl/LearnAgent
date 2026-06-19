@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4ade80"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f87171"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" rx="12" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#f1f5f9" font-family="Arial, sans-serif" font-size="20" font-weight="bold">输出过滤流水线 (Output Filtering Pipeline)</text>
+  <text x="450" y="58" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">三层过滤 + 人工审批：从 Agent 输出到用户的安全通道</text>
+
+  <!-- Agent output (start) -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="88" width="130" height="60" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="115" text-anchor="middle" fill="#60a5fa" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Agent 输出</text>
+    <text x="90" y="133" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">LLM 生成回复</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="160" y1="118" x2="190" y2="118" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Layer 1: Regex/Pattern -->
+  <g filter="url(#shadow)">
+    <rect x="195" y="78" width="170" height="130" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect x="195" y="78" width="170" height="32" rx="10" fill="#14532d"/>
+    <rect x="195" y="100" width="170" height="10" fill="#14532d"/>
+    <text x="280" y="100" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Layer 1: 正则匹配</text>
+
+    <text x="280" y="130" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">速度: 微秒级</text>
+
+    <circle cx="215" cy="150" r="3" fill="#4ade80"/>
+    <text x="225" y="154" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">手机号检测</text>
+    <circle cx="215" cy="168" r="3" fill="#4ade80"/>
+    <text x="225" y="172" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">邮箱/API Key</text>
+    <circle cx="215" cy="186" r="3" fill="#4ade80"/>
+    <text x="225" y="190" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">身份证检测</text>
+
+    <!-- Hit path (down) -->
+    <rect x="295" y="195" width="55" height="14" rx="3" fill="#14532d"/>
+    <text x="322" y="206" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="8">命中→脱敏</text>
+  </g>
+
+  <!-- Arrow L1→L2 -->
+  <line x1="370" y1="118" x2="400" y2="118" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: Content Classifier -->
+  <g filter="url(#shadow)">
+    <rect x="405" y="78" width="170" height="130" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="405" y="78" width="170" height="32" rx="10" fill="#78350f"/>
+    <rect x="405" y="100" width="170" height="10" fill="#78350f"/>
+    <text x="490" y="100" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Layer 2: 内容分类器</text>
+
+    <text x="490" y="130" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">速度: 毫秒级</text>
+
+    <circle cx="425" cy="150" r="3" fill="#fbbf24"/>
+    <text x="435" y="154" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">仇恨言论检测</text>
+    <circle cx="425" cy="168" r="3" fill="#fbbf24"/>
+    <text x="435" y="172" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">暴力内容检测</text>
+    <circle cx="425" cy="186" r="3" fill="#fbbf24"/>
+    <text x="435" y="190" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">不当建议检测</text>
+
+    <rect x="505" y="195" width="55" height="14" rx="3" fill="#78350f"/>
+    <text x="532" y="206" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="8">命中→阻断</text>
+  </g>
+
+  <!-- Arrow L2→L3 -->
+  <line x1="580" y1="118" x2="610" y2="118" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: LLM Verification -->
+  <g filter="url(#shadow)">
+    <rect x="615" y="78" width="170" height="130" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect x="615" y="78" width="170" height="32" rx="10" fill="#7f1d1d"/>
+    <rect x="615" y="100" width="170" height="10" fill="#7f1d1d"/>
+    <text x="700" y="100" text-anchor="middle" fill="#f87171" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Layer 3: LLM 验证</text>
+
+    <text x="700" y="130" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">速度: 秒级 (仅高风险)</text>
+
+    <circle cx="635" cy="150" r="3" fill="#f87171"/>
+    <text x="645" y="154" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">事实性检查</text>
+    <circle cx="635" cy="168" r="3" fill="#f87171"/>
+    <text x="645" y="172" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">幻觉检测</text>
+    <circle cx="635" cy="186" r="3" fill="#f87171"/>
+    <text x="645" y="190" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10">引用验证</text>
+
+    <rect x="715" y="195" width="55" height="14" rx="3" fill="#7f1d1d"/>
+    <text x="742" y="206" text-anchor="middle" fill="#f87171" font-family="Arial, sans-serif" font-size="8">命中→审批</text>
+  </g>
+
+  <!-- Arrow to output -->
+  <line x1="790" y1="118" x2="820" y2="118" stroke="#4ade80" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Safe output (end) -->
+  <g filter="url(#shadow)">
+    <rect x="825" y="88" width="60" height="60" rx="30" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+    <text x="855" y="115" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="11" font-weight="bold">安全</text>
+    <text x="855" y="130" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="11">输出</text>
+  </g>
+
+  <!-- Result handling table -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="235" width="860" height="100" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="450" y="258" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">过滤结果处理策略</text>
+
+    <!-- 4 result types -->
+    <rect x="45" y="270" width="195" height="50" rx="6" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <text x="142" y="290" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="11" font-weight="bold">安全 → 正常输出</text>
+    <text x="142" y="308" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Agent 回答直达用户</text>
+
+    <rect x="260" y="270" width="195" height="50" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="357" y="290" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="11" font-weight="bold">敏感内容 → 自动脱敏</text>
+    <text x="357" y="308" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">138****8000 替换后输出</text>
+
+    <rect x="475" y="270" width="195" height="50" rx="6" fill="#0f172a" stroke="#f87171" stroke-width="1.5"/>
+    <text x="572" y="290" text-anchor="middle" fill="#f87171" font-family="Arial, sans-serif" font-size="11" font-weight="bold">有害内容 → 阻断输出</text>
+    <text x="572" y="308" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">"抱歉，我无法回答"</text>
+
+    <rect x="690" y="270" width="175" height="50" rx="6" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="777" y="290" text-anchor="middle" fill="#a78bfa" font-family="Arial, sans-serif" font-size="11" font-weight="bold">高风险 → 触发审批</text>
+    <text x="777" y="308" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">"等待人工确认"</text>
+  </g>
+
+  <!-- HITL section -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="355" width="860" height="110" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="450" y="378" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Human-in-the-Loop 审批模式</text>
+
+    <!-- 3 HITL modes -->
+    <rect x="45" y="392" width="260" height="55" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="175" y="413" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="12" font-weight="bold">模式 1: 先审后执</text>
+    <text x="175" y="431" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Pre-Approval | 最安全 | 高延迟</text>
+
+    <rect x="325" y="392" width="260" height="55" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="455" y="413" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="12" font-weight="bold">模式 2: 先执后审</text>
+    <text x="455" y="431" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Post-Approval | 最灵活 | 有风险</text>
+
+    <rect x="605" y="392" width="260" height="55" rx="6" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="735" y="413" text-anchor="middle" fill="#a78bfa" font-family="Arial, sans-serif" font-size="12" font-weight="bold">模式 3: 监督模式</text>
+    <text x="735" y="431" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Supervised | 实时干预 | 最佳平衡</text>
+  </g>
+</svg>

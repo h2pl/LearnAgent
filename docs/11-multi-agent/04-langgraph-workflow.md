@@ -21,7 +21,7 @@ LangGraph 正好解决这个问题——**用状态图（StateGraph）定义多 
 
 ## 前置阅读
 
-本文假设你了解 LangGraph 的基本概念（StateGraph、Node、Edge、ConditionalEdge）。如果没读过，建议先看 [第 09 章 LangGraph 概览](../09-framework/03-langgraph-1.md) 前三节。
+本文假设你了解 LangGraph 的基本概念（StateGraph、Node、Edge、ConditionalEdge）。如果没读过，建议先看 [LangGraph 详解（一）](../09-framework/03-langgraph-1.md) 前三节。
 
 ## 场景设定：代码审查工作流
 
@@ -236,6 +236,11 @@ for event in app.stream(initial_state):
 | **人机协作** | 有限 | 原生支持 |
 | **学习曲线** | 低 | 中-高 |
 | **适合场景** | 角色扮演、内容生产 | 复杂工作流、自动化流水线 |
+
+<p align="center">
+  <img src="../../assets/11-multi-agent/crewai-vs-langgraph-comparison.svg" alt="CrewAI vs LangGraph 框架选型对比" width="90%"/>
+  <br/><em>图：CrewAI 角色扮演 vs LangGraph 状态图选型</em>
+</p>
 
 **建议**：做角色扮演式的多 Agent 协作用 CrewAI，做有状态、有分支、需要人工介入的工作流用 LangGraph。两者不冲突——CrewAI Agent 内部也可以使用 LangGraph 做流程控制。
 

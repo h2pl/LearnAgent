@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" style="background:#fff;font-family:sans-serif">
+  <defs>
+    <radialGradient id="bg-grad">
+      <stop offset="0%" stop-color="#EFF6FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fff"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">RAG 系统评测指标雷达图</text>
+
+  <!-- 雷达图中心 -->
+  <g transform="translate(340, 235)">
+
+    <!-- 六边形网格 -->
+    <polygon points="0,-140 121,-70 121,70 0,140 -121,70 -121,-70" fill="url(#bg-grad)" stroke="#E2E8F0" stroke-width="1"/>
+    <polygon points="0,-105 91,-52 91,52 0,105 -91,52 -91,-52" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+    <polygon points="0,-70 61,-35 61,35 0,70 -61,35 -61,-35" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+    <polygon points="0,-35 30,-18 30,18 0,35 -30,18 -30,-18" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- 轴线 -->
+    <line x1="0" y1="0" x2="0" y2="-148" stroke="#CBD5E1" stroke-width="0.5"/>
+    <line x1="0" y1="0" x2="128" y2="-74" stroke="#CBD5E1" stroke-width="0.5"/>
+    <line x1="0" y1="0" x2="128" y2="74" stroke="#CBD5E1" stroke-width="0.5"/>
+    <line x1="0" y1="0" x2="0" y2="148" stroke="#CBD5E1" stroke-width="0.5"/>
+    <line x1="0" y1="0" x2="-128" y2="74" stroke="#CBD5E1" stroke-width="0.5"/>
+    <line x1="0" y1="0" x2="-128" y2="-74" stroke="#CBD5E1" stroke-width="0.5"/>
+
+    <!-- 优化前（虚线） -->
+    <!-- Recall@K=55%, Prec@K=40%, MRR=42%, Faith=50%, Rel=48%, Corr=45% -->
+    <polygon points="0,-77 70,-41 54,37 0,67 -67,38 -58,-33"
+             fill="#DC2626" fill-opacity="0.15" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+    <!-- 优化后（实线） -->
+    <!-- Recall@K=88%, Prec@K=72%, MRR=78%, Faith=85%, Rel=82%, Corr=80% -->
+    <polygon points="0,-123 101,-58 101,58 0,119 -95,55 -96,-43"
+             fill="#059669" fill-opacity="0.15" stroke="#059669" stroke-width="2"/>
+
+    <!-- 数据点圆 - 优化后 -->
+    <circle cx="0" cy="-123" r="3" fill="#059669"/>
+    <circle cx="101" cy="-58" r="3" fill="#059669"/>
+    <circle cx="101" cy="58" r="3" fill="#059669"/>
+    <circle cx="0" cy="119" r="3" fill="#059669"/>
+    <circle cx="-95" cy="55" r="3" fill="#059669"/>
+    <circle cx="-96" cy="-43" r="3" fill="#059669"/>
+
+    <!-- 标签 -->
+    <text x="0" y="-160" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E40AF">Recall@K</text>
+    <text x="0" y="-150" text-anchor="middle" font-size="9" fill="#2563EB">0.88</text>
+
+    <text x="145" y="-70" text-anchor="middle" font-size="11" font-weight="bold" fill="#059669">Precision@K</text>
+    <text x="145" y="-60" text-anchor="middle" font-size="9" fill="#059669">0.72</text>
+
+    <text x="150" y="80" text-anchor="middle" font-size="11" font-weight="bold" fill="#7C3AED">MRR</text>
+    <text x="150" y="90" text-anchor="middle" font-size="9" fill="#7C3AED">0.78</text>
+
+    <text x="0" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="#DC2626">Faithfulness</text>
+    <text x="0" y="183" text-anchor="middle" font-size="9" fill="#DC2626">0.85</text>
+
+    <text x="-150" y="75" text-anchor="middle" font-size="11" font-weight="bold" fill="#D97706">Relevancy</text>
+    <text x="-150" y="86" text-anchor="middle" font-size="9" fill="#D97706">0.82</text>
+
+    <text x="-148" y="-67" text-anchor="middle" font-size="11" font-weight="bold" fill="#0891B2">Correctness</text>
+    <text x="-148" y="-57" text-anchor="middle" font-size="9" fill="#0891B2">0.80</text>
+  </g>
+
+  <!-- 图例 -->
+  <rect x="14" y="18" width="200" height="32" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <line x1="30" y1="30" x2="55" y2="30" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="65" y="34" font-size="10" fill="#DC2626">优化前（RAGAS原始）</text>
+  <line x1="30" y1="44" x2="55" y2="44" stroke="#059669" stroke-width="2"/>
+  <text x="65" y="48" font-size="10" fill="#059669">优化后（+Reranker +重写）</text>
+
+  <!-- 右侧优化提升面板 -->
+  <rect x="490" y="290" width="176" height="98" rx="8" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="578" y="310" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">优化手段</text>
+  <text x="500" y="328" font-size="9" fill="#047857">1. 查询改写（Query Rewriting）</text>
+  <text x="500" y="344" font-size="9" fill="#047857">2. 重排序（Reranker）</text>
+  <text x="500" y="360" font-size="9" fill="#047857">3. 混合检索（Hybrid Search）</text>
+  <text x="500" y="376" font-size="9" fill="#047857">4. 改进 Prompt（防幻觉）</text>
+
+  <!-- 图注 -->
+  <text x="340" y="394" text-anchor="middle" font-size="11" fill="#94A3B8">图：检索+生成六维指标雷达图——优化前后效果对比</text>
+</svg>

@@ -65,6 +65,12 @@ def summarize_old_messages(messages: list, keep_recent: int = 5) -> list:
 
 **压缩效果**：10 轮对话从 ~8000 tokens 压缩到 ~500 tokens（压缩率 93%）。
 
+<p align="center">
+  <img src="../../assets/06-context-engineering/summary-pipeline.svg" alt="摘要压缩流水线" width="90%"/>
+  <br/>
+  <em>摘要压缩流水线：原始对话→LLM摘要→注入压缩后上下文</em>
+</p>
+
 ### 工具调用结果摘要
 
 工具返回的 JSON 可能很大（数据库查询返回 100 条记录），不需要全部保留：
@@ -125,6 +131,12 @@ class SlidingWindow:
 | 滑动窗口 | 实现简单、零额外成本 | 早期信息完全丢失 | 短会话、无状态任务 |
 | 摘要压缩 | 保留关键信息 | 需要额外 LLM 调用 | 长会话、需要连续性 |
 | **组合使用** | 最近几轮原文 + 更早的摘要 | 实现稍复杂 | **生产环境推荐** |
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/compression-strategies.svg" alt="三种压缩策略对比" width="90%"/>
+  <br/>
+  <em>三种压缩策略对比：摘要压缩 vs 滑动窗口 vs 选择性注入</em>
+</p>
 
 **组合策略代码**：
 

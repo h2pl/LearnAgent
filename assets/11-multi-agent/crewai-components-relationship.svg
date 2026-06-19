@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)"/>
+
+  <text x="340" y="30" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#1E293B">CrewAI 核心组件关系</text>
+  <line x1="200" y1="40" x2="480" y2="40" stroke="#2563EB" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Crew - outer box -->
+  <rect x="140" y="54" width="400" height="290" rx="14" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="8,4" filter="url(#shadow)"/>
+  <rect x="140" y="54" width="400" height="32" rx="14" fill="url(#blueGrad)"/>
+  <rect x="140" y="72" width="400" height="14" fill="url(#blueGrad)"/>
+  <text x="340" y="76" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="white">Crew（团队编排层）</text>
+
+  <!-- Process badge -->
+  <rect x="340" y="92" width="180" height="24" rx="12" fill="white" stroke="#64748B" stroke-width="1"/>
+  <text x="430" y="108" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569" font-weight="600">Process: sequential / hierarchical</text>
+
+  <!-- Agent box -->
+  <rect x="170" y="130" width="155" height="200" rx="10" fill="white" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="170" y="130" width="155" height="26" rx="10" fill="#2563EB"/>
+  <rect x="170" y="146" width="155" height="10" fill="#2563EB"/>
+  <text x="247" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="white">Agent（角色）</text>
+
+  <text x="185" y="175" font-family="sans-serif" font-size="9" fill="#1E40AF" font-weight="600">role: 研究组长</text>
+  <text x="185" y="192" font-family="sans-serif" font-size="9" fill="#475569">goal: 管理研究项目</text>
+  <text x="185" y="209" font-family="sans-serif" font-size="9" fill="#475569">backstory: 10年经验</text>
+  <line x1="185" y1="216" x2="310" y2="216" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="185" y="233" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="600">allow_delegation = true</text>
+  <text x="185" y="250" font-family="sans-serif" font-size="9" fill="#475569">verbose = true</text>
+  <text x="185" y="267" font-family="sans-serif" font-size="9" fill="#059669" font-weight="600">tools = [search_web]</text>
+  <text x="185" y="284" font-family="sans-serif" font-size="9" fill="#475569">llm = ChatOpenAI()</text>
+  <text x="185" y="301" font-family="sans-serif" font-size="8" fill="#64748B">→ 绑定 ↑</text>
+
+  <!-- Task box -->
+  <rect x="350" y="130" width="170" height="200" rx="10" fill="white" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="350" y="130" width="170" height="26" rx="10" fill="url(#greenGrad)"/>
+  <rect x="350" y="146" width="170" height="10" fill="url(#greenGrad)"/>
+  <text x="435" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="white">Task（任务）</text>
+
+  <text x="365" y="175" font-family="sans-serif" font-size="9" fill="#065F46" font-weight="600">description: 研究计划</text>
+  <text x="365" y="195" font-family="sans-serif" font-size="9" fill="#475569">expected_output:</text>
+  <text x="365" y="212" font-family="sans-serif" font-size="9" fill="#475569">  3-5点研究计划</text>
+  <line x1="365" y1="220" x2="505" y2="220" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="365" y="237" font-family="sans-serif" font-size="9" fill="#2563EB" font-weight="600">agent = research_mgr</text>
+  <text x="365" y="254" font-family="sans-serif" font-size="9" fill="#475569">context = []</text>
+  <text x="365" y="271" font-family="sans-serif" font-size="9" fill="#475569">dependencies = []</text>
+  <text x="365" y="301" font-family="sans-serif" font-size="8" fill="#64748B">← 绑定</text>
+
+  <!-- Arrows between Agent and Task -->
+  <line x1="325" y1="230" x2="350" y2="230" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="337" y="222" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#64748B">agent:</text>
+
+  <!-- Task sequence -->
+  <path d="M435,335 L435,352 Q435,362 445,362 L520,362" stroke="#059669" stroke-width="1.2" fill="none" marker-end="url(#arrowG)"/>
+  <text x="478" y="355" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">结果传递</text>
+
+  <!-- Task 1 → 2 → 3 labels at bottom -->
+  <rect x="170" y="345" width="52" height="22" rx="6" fill="#059669"/>
+  <text x="196" y="360" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white" font-weight="700">任务1</text>
+  <rect x="235" y="345" width="52" height="22" rx="6" fill="#059669"/>
+  <text x="261" y="360" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white" font-weight="700">任务2</text>
+  <rect x="300" y="345" width="52" height="22" rx="6" fill="#059669"/>
+  <text x="326" y="360" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white" font-weight="700">任务3</text>
+
+  <!-- Execution -->
+  <rect x="540" y="345" width="100" height="22" rx="6" fill="#2563EB"/>
+  <text x="590" y="360" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white" font-weight="700">kickoff()</text>
+
+  <line x1="352" y1="356" x2="540" y2="356" stroke="#64748B" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Legend -->
+  <text x="170" y="395" font-family="sans-serif" font-size="9" fill="#64748B">Agent 定义角色 · Task 定义职责 · Crew 编排执行 · Process 控制流转</text>
+</svg>

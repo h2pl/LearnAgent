@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <linearGradient id="fixedBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="demandBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#F0FDF4"/>
+    </linearGradient>
+    <linearGradient id="growBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FEF2F2"/>
+      <stop offset="100%" stop-color="#FFF5F5"/>
+    </linearGradient>
+    <linearGradient id="dynamicBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FEFCE8"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="32" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">上下文窗口结构 &amp; Token 分配</text>
+
+  <!-- 左侧：分层结构 -->
+  <rect x="20" y="50" width="340" height="24" rx="4" fill="url(#fixedBg)" stroke="#2563EB" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="30" y="67" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">System Prompt（系统提示）</text>
+  <text x="260" y="67" font-family="sans-serif" font-size="9" fill="#64748B">固定开销</text>
+  <text x="305" y="67" font-family="sans-serif" font-size="10" fill="#94A3B8">~500</text>
+
+  <rect x="20" y="78" width="340" height="24" rx="4" fill="url(#fixedBg)" stroke="#2563EB" stroke-width="1.2"/>
+  <text x="30" y="95" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Tool Definitions（工具定义）</text>
+  <text x="260" y="95" font-family="sans-serif" font-size="9" fill="#64748B">固定开销</text>
+  <text x="305" y="95" font-family="sans-serif" font-size="10" fill="#94A3B8">~1500</text>
+
+  <!-- 分隔线 -->
+  <line x1="25" y1="110" x2="355" y2="110" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <rect x="20" y="116" width="340" height="24" rx="4" fill="url(#demandBg)" stroke="#059669" stroke-width="1.2"/>
+  <text x="30" y="133" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold">Memory Injection（记忆注入）</text>
+  <text x="260" y="133" font-family="sans-serif" font-size="9" fill="#64748B">按需注入</text>
+  <text x="305" y="133" font-family="sans-serif" font-size="10" fill="#94A3B8">~300</text>
+
+  <rect x="20" y="144" width="340" height="24" rx="4" fill="url(#demandBg)" stroke="#059669" stroke-width="1.2"/>
+  <text x="30" y="161" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold">RAG Results（检索结果）</text>
+  <text x="260" y="161" font-family="sans-serif" font-size="9" fill="#64748B">按需注入</text>
+  <text x="305" y="161" font-family="sans-serif" font-size="10" fill="#94A3B8">~2000</text>
+
+  <!-- 分隔线 -->
+  <line x1="25" y1="176" x2="355" y2="176" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <rect x="20" y="182" width="340" height="24" rx="4" fill="url(#growBg)" stroke="#DC2626" stroke-width="1.2"/>
+  <text x="30" y="199" font-family="sans-serif" font-size="11" fill="#991B1B" font-weight="bold">Conversation History（对话历史）</text>
+  <text x="260" y="199" font-family="sans-serif" font-size="9" fill="#DC2626">⚠ 持续增长</text>
+  <text x="305" y="199" font-family="sans-serif" font-size="10" fill="#94A3B8">5000+</text>
+
+  <rect x="20" y="210" width="340" height="24" rx="4" fill="url(#growBg)" stroke="#DC2626" stroke-width="1.2"/>
+  <text x="30" y="227" font-family="sans-serif" font-size="11" fill="#991B1B" font-weight="bold">Tool Results（工具调用结果）</text>
+  <text x="260" y="227" font-family="sans-serif" font-size="9" fill="#DC2626">⚠ 持续增长</text>
+  <text x="305" y="227" font-family="sans-serif" font-size="10" fill="#94A3B8">1000+</text>
+
+  <!-- 分隔线 -->
+  <line x1="25" y1="242" x2="355" y2="242" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <rect x="20" y="248" width="340" height="24" rx="4" fill="url(#dynamicBg)" stroke="#CA8A04" stroke-width="1.2"/>
+  <text x="30" y="265" font-family="sans-serif" font-size="11" fill="#854D0E" font-weight="bold">User Message（当前输入）</text>
+  <text x="260" y="265" font-family="sans-serif" font-size="9" fill="#64748B">每次变化</text>
+  <text x="305" y="265" font-family="sans-serif" font-size="10" fill="#94A3B8">~100</text>
+
+  <rect x="20" y="276" width="340" height="24" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/>
+  <text x="30" y="293" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic">[模型生成回复的空间]</text>
+
+  <!-- 右侧：Token分配占比图 -->
+  <rect x="390" y="50" width="270" height="170" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="525" y="72" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155">Token 分配占比</text>
+
+  <!-- 柱状图 -->
+  <!-- System ~500 -->
+  <rect x="405" y="83" width="90" height="14" rx="2" fill="#2563EB"/>
+  <text x="415" y="93" font-family="sans-serif" font-size="8" fill="#FFF">System</text>
+  <rect x="500" y="83" width="120" height="14" rx="2" fill="#2563EB" opacity="0.4"/>
+  <text x="625" y="93" font-family="sans-serif" font-size="8" fill="#64748B">3%</text>
+
+  <!-- Tools ~1500 -->
+  <rect x="405" y="102" width="170" height="14" rx="2" fill="#1E40AF"/>
+  <text x="415" y="112" font-family="sans-serif" font-size="8" fill="#FFF">Tools</text>
+  <rect x="580" y="102" width="40" height="14" rx="2" fill="#1E40AF" opacity="0.4"/>
+  <text x="625" y="112" font-family="sans-serif" font-size="8" fill="#64748B">10%</text>
+
+  <!-- Memory ~300 -->
+  <rect x="405" y="121" width="60" height="14" rx="2" fill="#059669"/>
+  <text x="415" y="131" font-family="sans-serif" font-size="8" fill="#FFF">Memory</text>
+  <rect x="470" y="121" width="155" height="14" rx="2" fill="#059669" opacity="0.2"/>
+  <text x="625" y="131" font-family="sans-serif" font-size="8" fill="#64748B">3%</text>
+
+  <!-- RAG ~2000 -->
+  <rect x="405" y="140" width="200" height="14" rx="2" fill="#0D9488"/>
+  <text x="415" y="150" font-family="sans-serif" font-size="8" fill="#FFF">RAG</text>
+  <text x="625" y="150" font-family="sans-serif" font-size="8" fill="#64748B">13%</text>
+
+  <!-- History ~5000 -->
+  <rect x="405" y="159" width="240" height="14" rx="2" fill="#DC2626"/>
+  <text x="415" y="169" font-family="sans-serif" font-size="8" fill="#FFF">History 对话历史</text>
+  <text x="650" y="169" font-family="sans-serif" font-size="8" fill="#DC2626" font-weight="bold">33%</text>
+
+  <!-- Tool Results ~1000 -->
+  <rect x="405" y="178" width="140" height="14" rx="2" fill="#B91C1C"/>
+  <text x="415" y="188" font-family="sans-serif" font-size="8" fill="#FFF">Tool Results</text>
+  <text x="625" y="188" font-family="sans-serif" font-size="8" fill="#64748B">7%</text>
+
+  <!-- User ~100 -->
+  <rect x="405" y="197" width="30" height="14" rx="2" fill="#CA8A04"/>
+  <text x="415" y="207" font-family="sans-serif" font-size="8" fill="#FFF">User</text>
+  <rect x="440" y="197" width="185" height="14" rx="2" fill="#CA8A04" opacity="0.2"/>
+  <text x="625" y="207" font-family="sans-serif" font-size="8" fill="#64748B">1%</text>
+
+  <!-- 图例说明 -->
+  <g transform="translate(390, 235)">
+    <rect x="0" y="0" width="8" height="8" rx="1" fill="#2563EB"/>
+    <text x="12" y="8" font-family="sans-serif" font-size="8" fill="#475569">固定开销（~2000 tokens）</text>
+
+    <rect x="0" y="13" width="8" height="8" rx="1" fill="#059669"/>
+    <text x="12" y="21" font-family="sans-serif" font-size="8" fill="#475569">按需注入（~2300 tokens）</text>
+
+    <rect x="0" y="26" width="8" height="8" rx="1" fill="#DC2626"/>
+    <text x="12" y="34" font-family="sans-serif" font-size="8" fill="#475569">持续增长（6000+ tokens）</text>
+
+    <rect x="0" y="39" width="8" height="8" rx="1" fill="#CA8A04"/>
+    <text x="12" y="47" font-family="sans-serif" font-size="8" fill="#475569">动态变化（~100 tokens）</text>
+  </g>
+
+  <!-- 底部：关键结论 -->
+  <rect x="20" y="310" width="640" height="78" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="340" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E40AF">关键认知</text>
+  <text x="340" y="350" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#334155">固定开销（System + Tools）每次调用都要付，无法避免</text>
+  <text x="340" y="366" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#334155">可变开销（History + Tool Results）随会话进行不断膨胀</text>
+  <text x="340" y="382" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#DC2626" font-weight="bold">20 轮对话后上下文可能从 5K 膨胀到 20K+ tokens</text>
+</svg>

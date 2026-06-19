@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" style="background:#fff;font-family:sans-serif">
+  <defs>
+    <marker id="a-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563EB"/>
+    </marker>
+    <marker id="a-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#059669"/>
+    </marker>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="340" y="26" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">RAG 系统组件交互与数据流</text>
+
+  <!-- ===== 第1行：索引组件链 ===== -->
+  <!-- PDF -->
+  <rect x="14" y="46" width="100" height="48" rx="8" fill="#DBEAFE" stroke="#93C5FD" filter="url(#sh)"/>
+  <text x="64" y="66" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">PDF 文档</text>
+  <text x="64" y="82" text-anchor="middle" font-size="9" fill="#64748B">your_doc.pdf</text>
+
+  <!-- 箭头 -->
+  <line x1="114" y1="70" x2="132" y2="70" stroke="#2563EB" stroke-width="1.2" marker-end="url(#a-b)"/>
+
+  <!-- Loader -->
+  <rect x="136" y="46" width="100" height="48" rx="8" fill="#BFDBFE" stroke="#60A5FA" filter="url(#sh)"/>
+  <text x="186" y="66" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">PyPDFLoader</text>
+  <text x="186" y="82" text-anchor="middle" font-size="9" fill="#475569">解析 → 文本</text>
+
+  <!-- 箭头 -->
+  <line x1="236" y1="70" x2="254" y2="70" stroke="#2563EB" stroke-width="1.2" marker-end="url(#a-b)"/>
+
+  <!-- Splitter -->
+  <rect x="258" y="46" width="130" height="48" rx="8" fill="#DBEAFE" stroke="#93C5FD" filter="url(#sh)"/>
+  <text x="323" y="64" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">TextSplitter</text>
+  <text x="323" y="80" text-anchor="middle" font-size="9" fill="#475569">chunk_size=300</text>
+
+  <!-- 箭头 -->
+  <line x1="388" y1="70" x2="406" y2="70" stroke="#2563EB" stroke-width="1.2" marker-end="url(#a-b)"/>
+
+  <!-- Embedding -->
+  <rect x="410" y="46" width="100" height="48" rx="8" fill="#2563EB" filter="url(#sh)"/>
+  <text x="460" y="66" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Embeddings</text>
+  <text x="460" y="82" text-anchor="middle" font-size="9" fill="#BFDBFE">text→向量</text>
+
+  <!-- 箭头 -->
+  <line x1="510" y1="70" x2="528" y2="70" stroke="#2563EB" stroke-width="1.2" marker-end="url(#a-b)"/>
+
+  <!-- ChromaDB -->
+  <rect x="532" y="46" width="134" height="48" rx="8" fill="#BFDBFE" stroke="#3B82F6" stroke-width="2" filter="url(#sh)"/>
+  <text x="599" y="66" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">ChromaDB</text>
+  <text x="599" y="82" text-anchor="middle" font-size="9" fill="#475569">向量持久化存储</text>
+
+  <!-- 存储标签 -->
+  <rect x="570" y="100" width="60" height="16" rx="3" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="600" y="112" text-anchor="middle" font-size="8" fill="#2563EB">./chroma_db/</text>
+
+  <!-- 分隔虚线 -->
+  <line x1="14" y1="126" x2="666" y2="126" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="340" y="122" text-anchor="middle" font-size="9" fill="#94A3B8">一 离线索引 — 在线检索生成 —</text>
+
+  <!-- ===== 第2行：检索组件 ===== -->
+  <!-- 用户问题 -->
+  <rect x="14" y="142" width="100" height="40" rx="8" fill="#D1FAE5" stroke="#6EE7B7" filter="url(#sh)"/>
+  <text x="64" y="159" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">用户提问</text>
+  <text x="64" y="174" text-anchor="middle" font-size="9" fill="#475569">"怎么退货？"</text>
+
+  <!-- 箭头 -->
+  <line x1="114" y1="162" x2="155" y2="162" stroke="#059669" stroke-width="1.2" marker-end="url(#a-g)"/>
+
+  <!-- 查询向量化 -->
+  <rect x="158" y="142" width="100" height="40" rx="8" fill="#6EE7B7" stroke="#34D399" filter="url(#sh)"/>
+  <text x="208" y="157" text-anchor="middle" font-size="10" fill="#047857">查询向量化</text>
+  <text x="208" y="173" text-anchor="middle" font-size="9" fill="#047857">同一Embedding</text>
+
+  <!-- 箭头 -->
+  <line x1="258" y1="162" x2="330" y2="162" stroke="#059669" stroke-width="1.2" marker-end="url(#a-g)"/>
+
+  <!-- Retriever -->
+  <rect x="334" y="142" width="130" height="40" rx="8" fill="#059669" filter="url(#sh)"/>
+  <text x="399" y="157" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">相似度检索</text>
+  <text x="399" y="173" text-anchor="middle" font-size="9" fill="#D1FAE5">Cosine Top-K=4</text>
+
+  <!-- 从Retriever向上的检索请求 -->
+  <line x1="399" y1="142" x2="399" y2="115" stroke="#059669" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#a-g)"/>
+
+  <!-- 检索结果向右 -->
+  <line x1="464" y1="162" x2="482" y2="162" stroke="#059669" stroke-width="1.2" marker-end="url(#a-g)"/>
+
+  <!-- 检索结果 -->
+  <rect x="486" y="142" width="180" height="40" rx="8" fill="#D1FAE5" stroke="#86EFAC" filter="url(#sh)"/>
+  <text x="576" y="157" text-anchor="middle" font-size="10" fill="#047857">相关文档片段 ×4</text>
+  <text x="576" y="173" text-anchor="middle" font-size="9" fill="#475569">带来源页码和原始文本</text>
+
+  <!-- 分隔 -->
+  <line x1="14" y1="200" x2="666" y2="200" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- ===== 第3行：生成组件 ===== -->
+  <!-- Prompt模板 -->
+  <rect x="14" y="210" width="140" height="48" rx="8" fill="#FEE2E2" stroke="#FCA5A5" filter="url(#sh)"/>
+  <text x="84" y="230" text-anchor="middle" font-size="10" font-weight="bold" fill="#B91C1C">PromptTemplate</text>
+  <text x="84" y="246" text-anchor="middle" font-size="9" fill="#475569">问题 + 检索结果</text>
+
+  <!-- 箭头 -->
+  <line x1="154" y1="234" x2="200" y2="234" stroke="#DC2626" stroke-width="1.5" marker-end="url(#a-g)"/>
+
+  <!-- LLM -->
+  <rect x="204" y="210" width="130" height="48" rx="8" fill="#DC2626" filter="url(#sh)"/>
+  <text x="269" y="226" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">ChatOpenAI</text>
+  <text x="269" y="244" text-anchor="middle" font-size="9" fill="#FEE2E2">gpt-4o / temp=0</text>
+  <text x="269" y="256" text-anchor="middle" font-size="8" fill="#FCA5A5">基于文档生成答案</text>
+
+  <!-- 箭头 -->
+  <line x1="334" y1="234" x2="380" y2="234" stroke="#DC2626" stroke-width="1.5" marker-end="url(#a-g)"/>
+
+  <!-- 输出 -->
+  <rect x="384" y="210" width="110" height="48" rx="8" fill="#FCA5A5" stroke="#F87171" filter="url(#sh)"/>
+  <text x="439" y="230" text-anchor="middle" font-size="10" font-weight="bold" fill="#7F1D1D">最终答案</text>
+  <text x="439" y="246" text-anchor="middle" font-size="9" fill="#B91C1C">+ 来源引用</text>
+
+  <!-- ===== 底部 LangChain 编排说明 ===== -->
+  <rect x="14" y="272" width="652" height="118" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="340" y="294" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">LangChain LCEL 编排链路</text>
+
+  <!-- Pipeline -->
+  <rect x="30" y="306" width="620" height="38" rx="6" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="90" y="323" text-anchor="middle" font-size="10" font-weight="bold" fill="#2563EB">retriever</text>
+  <text x="180" y="323" text-anchor="middle" font-size="10" fill="#475569">→ format_docs</text>
+  <text x="290" y="323" text-anchor="middle" font-size="10" fill="#475569"> → {context}</text>
+  <text x="390" y="323" text-anchor="middle" font-size="10" fill="#475569"> → prompt_template</text>
+  <text x="520" y="323" text-anchor="middle" font-size="10" fill="#475569"> → llm</text>
+  <text x="590" y="323" text-anchor="middle" font-size="10" fill="#475569"> → StrOutputParser</text>
+  <text x="340" y="339" text-anchor="middle" font-size="9" fill="#64748B">question → RunnablePassthrough 直接传入</text>
+
+  <!-- 关键特性 -->
+  <rect x="40" y="352" width="180" height="28" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="130" y="371" text-anchor="middle" font-size="9" fill="#047857">组件可替换（不用LangChain也行）</text>
+
+  <rect x="235" y="352" width="180" height="28" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="325" y="371" text-anchor="middle" font-size="9" fill="#047857">ChromaDB 支持持久化（免重复计算）</text>
+
+  <rect x="430" y="352" width="220" height="28" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="540" y="371" text-anchor="middle" font-size="9" fill="#047857">支持本地模型替代（Ollama/HuggingFace）</text>
+
+  <!-- 图注 -->
+  <text x="340" y="394" text-anchor="middle" font-size="11" fill="#94A3B8">图：六步组件链——PDF文档到AI答案的完整数据流</text>
+</svg>

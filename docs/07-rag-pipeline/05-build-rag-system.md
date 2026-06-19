@@ -461,6 +461,10 @@ if __name__ == "__main__":
     main()
 ```
 
+<p align="center">
+  <img src="../../assets/07-rag-pipeline/rag-component-interaction.svg" alt="RAG组件交互图：文档→加载→切分→向量化→存储→检索→Prompt→LLM→答案" width="95%"/>
+</p>
+
 ## 调试与优化
 
 ### 常见问题排查

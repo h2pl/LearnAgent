@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" fill="#F8FAFC" rx="8" filter="url(#shadow)"/>
+  <text x="480" y="35" font-family="PingFang SC, Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">Agent 五种常见延迟模式</text>
+
+  <!-- Pattern 1: TTFT -->
+  <rect x="30" y="55" width="440" height="85" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="45" y="63" width="8" height="8" rx="4" fill="#EF4444"/>
+  <text x="60" y="73" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">模式一：LLM 首 Token 等待 (TTFT 高)</text>
+  <!-- Timeline -->
+  <rect x="50" y="88" width="400" height="18" rx="4" fill="#F1F5F9"/>
+  <rect x="50" y="88" width="260" height="18" rx="4" fill="#FEE2E2"/>
+  <rect x="310" y="88" width="140" height="18" rx="4" fill="#D1FAE5"/>
+  <text x="180" y="101" font-family="Segoe UI, sans-serif" font-size="9" fill="#991B1B" text-anchor="middle">TTFT 等待 (排队 + 预填充)</text>
+  <text x="380" y="101" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">生成输出</text>
+  <text x="50" y="125" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#64748B">根因: 模型太大 / prompt 太长 / 并发高排队</text>
+
+  <!-- Pattern 2: Context Inflation -->
+  <rect x="490" y="55" width="440" height="85" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="505" y="63" width="8" height="8" rx="4" fill="#F59E0B"/>
+  <text x="520" y="73" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">模式二：上下文窗口膨胀</text>
+  <!-- Bars showing growing context -->
+  <rect x="510" y="86" width="80" height="12" rx="3" fill="#D1FAE5"/>
+  <text x="596" y="96" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46">Step 1: 1.2K → 0.8s</text>
+  <rect x="510" y="101" width="160" height="12" rx="3" fill="#FEF3C7"/>
+  <text x="676" y="111" font-family="Segoe UI, sans-serif" font-size="9" fill="#92400E">Step 2: 2.4K → 1.5s</text>
+  <rect x="510" y="116" width="280" height="12" rx="3" fill="#FEE2E2"/>
+  <text x="796" y="126" font-family="Segoe UI, sans-serif" font-size="9" fill="#991B1B">Step 3: 4.8K → 2.8s</text>
+  <text x="510" y="138" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#64748B">根因: 全量历史塞入 prompt，未做压缩</text>
+
+  <!-- Pattern 3: Deep Tool Chain -->
+  <rect x="30" y="155" width="440" height="85" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="45" y="163" width="8" height="8" rx="4" fill="#8B5CF6"/>
+  <text x="60" y="173" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">模式三：工具调用链过深</text>
+  <!-- Chain visualization -->
+  <rect x="50" y="186" width="70" height="18" rx="4" fill="#EDE9FE"/>
+  <text x="85" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#6D28D9" text-anchor="middle">get_user</text>
+  <text x="126" y="199" font-family="Segoe UI, sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="138" y="186" width="80" height="18" rx="4" fill="#EDE9FE"/>
+  <text x="178" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#6D28D9" text-anchor="middle">get_address</text>
+  <text x="224" y="199" font-family="Segoe UI, sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="236" y="186" width="80" height="18" rx="4" fill="#EDE9FE"/>
+  <text x="276" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#6D28D9" text-anchor="middle">get_orders</text>
+  <text x="322" y="199" font-family="Segoe UI, sans-serif" font-size="12" fill="#94A3B8">→</text>
+  <rect x="334" y="186" width="65" height="18" rx="4" fill="#D1FAE5"/>
+  <text x="366" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">generate</text>
+  <text x="50" y="228" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#64748B">根因: 工具粒度太细 / 决策策略不佳</text>
+
+  <!-- Pattern 4: Dead Loop -->
+  <rect x="490" y="155" width="440" height="85" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="505" y="163" width="8" height="8" rx="4" fill="#DC2626"/>
+  <text x="520" y="173" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">模式四：死循环</text>
+  <!-- Loop visualization -->
+  <rect x="510" y="186" width="95" height="18" rx="4" fill="#FEE2E2"/>
+  <text x="557" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#991B1B" text-anchor="middle">search("退款政策")</text>
+  <rect x="612" y="186" width="95" height="18" rx="4" fill="#FEE2E2"/>
+  <text x="659" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#991B1B" text-anchor="middle">search("退款流程")</text>
+  <rect x="714" y="186" width="95" height="18" rx="4" fill="#FEE2E2"/>
+  <text x="761" y="199" font-family="Segoe UI, sans-serif" font-size="9" fill="#991B1B" text-anchor="middle">search("退款条件")</text>
+  <text x="815" y="199" font-family="Segoe UI, sans-serif" font-size="12" fill="#DC2626">...</text>
+  <text x="510" y="228" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#64748B">根因: 无终止条件，反复换关键词重试</text>
+
+  <!-- Pattern 5: External Dependency -->
+  <rect x="30" y="255" width="440" height="85" rx="8" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="45" y="263" width="8" height="8" rx="4" fill="#0EA5E9"/>
+  <text x="60" y="273" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">模式五：外部依赖慢</text>
+  <!-- Timeline with timeout -->
+  <rect x="50" y="288" width="100" height="18" rx="4" fill="#D1FAE5"/>
+  <text x="100" y="301" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">LLM 调用</text>
+  <rect x="158" y="288" width="240" height="18" rx="4" fill="#FEF3C7"/>
+  <text x="278" y="301" font-family="Segoe UI, sans-serif" font-size="9" fill="#92400E" text-anchor="middle">外部 API (timeout 5s × 3 retries = 15s)</text>
+  <rect x="406" y="288" width="50" height="18" rx="4" fill="#D1FAE5"/>
+  <text x="431" y="301" font-family="Segoe UI, sans-serif" font-size="9" fill="#065F46" text-anchor="middle">响应</text>
+  <text x="50" y="328" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#64748B">根因: 外部服务慢 / 超时与重试设置不合理</text>
+
+  <!-- Optimization Strategy Summary -->
+  <rect x="30" y="360" width="900" height="165" rx="10" fill="#FFF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="480" y="385" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">分层优化策略总览</text>
+
+  <!-- 4 columns -->
+  <!-- Model Layer -->
+  <rect x="50" y="400" width="200" height="110" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="150" y="420" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#1D4ED8" text-anchor="middle">模型层</text>
+  <text x="60" y="440" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 更快的模型 -20~50%</text>
+  <text x="60" y="456" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 减少输入 token -10~40%</text>
+  <text x="60" y="472" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· KV Cache -30~50%</text>
+  <text x="60" y="488" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 水平扩展 -30~70%</text>
+
+  <!-- Prompt Layer -->
+  <rect x="265" y="400" width="200" height="110" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="365" y="420" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#065F46" text-anchor="middle">Prompt 层</text>
+  <text x="275" y="440" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 精简 system -5~10%</text>
+  <text x="275" y="456" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 历史压缩 -20~40%</text>
+  <text x="275" y="472" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 检索裁剪 -10~20%</text>
+
+  <!-- Cache Layer -->
+  <rect x="480" y="400" width="200" height="110" rx="6" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+  <text x="580" y="420" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#92400E" text-anchor="middle">缓存层</text>
+  <text x="490" y="440" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· Prompt KV 50-70%</text>
+  <text x="490" y="456" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 检索缓存 40-60%</text>
+  <text x="490" y="472" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 工具缓存 20-40%</text>
+
+  <!-- Architecture Layer -->
+  <rect x="695" y="400" width="220" height="110" rx="6" fill="#EDE9FE" stroke="#A78BFA" stroke-width="1"/>
+  <text x="805" y="420" font-family="PingFang SC, Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#5B21B6" text-anchor="middle">架构层</text>
+  <text x="705" y="440" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 规则前置 -90%+</text>
+  <text x="705" y="456" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 状态机替代 -80%+</text>
+  <text x="705" y="472" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 异步非阻塞 ↑ 并发</text>
+  <text x="705" y="488" font-family="PingFang SC, Segoe UI, sans-serif" font-size="10" fill="#475569">· 批量推理 ↑ 吞吐</text>
+</svg>

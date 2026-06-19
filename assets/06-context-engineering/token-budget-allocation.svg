@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <filter id="bdShadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" fill="#FFFFFF" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">Token 预算分配（总计 15,000 tokens）</text>
+
+  <!-- 左侧：饼图区域 -->
+  <g transform="translate(175, 200)">
+    <!-- 饼图 - 用多个 path 模拟 -->
+    <!-- System: 800 tokens (5.3%) -->
+    <path d="M 0,-130 A 130,130 0 0 1 19.1,-128.6 L 0,0 Z" fill="#2563EB"/>
+    <!-- Tools: 2000 tokens (13.3%) -->
+    <path d="M 19.1,-128.6 A 130,130 0 0 1 97.6,-86.0 L 0,0 Z" fill="#1D4ED8"/>
+    <!-- Recent Messages: 5000 tokens (33.3%) -->
+    <path d="M 97.6,-86.0 A 130,130 0 0 1 130,-2.1 L 0,0 Z" fill="#DC2626"/>
+    <!-- Tool Results: 2000 tokens (13.3%) -->
+    <path d="M 130,-2.1 A 130,130 0 0 1 97.6,86.0 L 0,0 Z" fill="#B91C1C"/>
+    <!-- RAG Results: 1500 tokens (10%) -->
+    <path d="M 97.6,86.0 A 130,130 0 0 1 6.5,129.8 L 0,0 Z" fill="#0D9488"/>
+    <!-- Memory: 500 tokens (3.3%) -->
+    <path d="M 6.5,129.8 A 130,130 0 0 1 -35.6,125.3 L 0,0 Z" fill="#059669"/>
+    <!-- Buffer: 2700 tokens (18%) -->
+    <path d="M -35.6,125.3 A 130,130 0 0 1 -130,8.6 L 0,0 Z" fill="#CBD5E1"/>
+    <!-- Current Input: 500 tokens (3.3%) -->
+    <path d="M -130,8.6 A 130,130 0 0 1 0,-130 L 0,0 Z" fill="#CA8A04"/>
+
+    <!-- 中心圆 -->
+    <circle cx="0" cy="0" r="55" fill="#FFF"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">总预算</text>
+    <text x="0" y="10" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2563EB">15K</text>
+    <text x="0" y="25" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#64748B">tokens</text>
+  </g>
+
+  <!-- 右侧：图例和柱状图 -->
+  <g transform="translate(370, 50)">
+    <!-- 图例标题 -->
+    <text x="0" y="12" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155">各项预算明细</text>
+
+    <!-- 柱状图项 -->
+    <!-- System -->
+    <rect x="0" y="22" width="240" height="18" rx="3" fill="#2563EB"/>
+    <text x="8" y="34" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">System Prompt</text>
+    <text x="248" y="34" font-family="sans-serif" font-size="8" fill="#64748B">800</text>
+    <text x="263" y="34" font-family="sans-serif" font-size="7" fill="#94A3B8">5%</text>
+
+    <!-- Current Input -->
+    <rect x="0" y="46" width="140" height="18" rx="3" fill="#CA8A04"/>
+    <text x="8" y="58" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">Current Input</text>
+    <text x="148" y="58" font-family="sans-serif" font-size="8" fill="#64748B">500</text>
+    <text x="163" y="58" font-family="sans-serif" font-size="7" fill="#94A3B8">3%</text>
+
+    <!-- Recent Messages -->
+    <rect x="0" y="70" width="310" height="18" rx="3" fill="#DC2626"/>
+    <text x="8" y="82" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">Recent Messages（最近对话）</text>
+    <text x="318" y="82" font-family="sans-serif" font-size="8" fill="#DC2626" font-weight="bold">5000</text>
+    <text x="333" y="82" font-family="sans-serif" font-size="7" fill="#B91C1C">33%</text>
+
+    <!-- Tools -->
+    <rect x="0" y="94" width="200" height="18" rx="3" fill="#1D4ED8"/>
+    <text x="8" y="106" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">Tool Definitions</text>
+    <text x="208" y="106" font-family="sans-serif" font-size="8" fill="#64748B">2000</text>
+    <text x="223" y="106" font-family="sans-serif" font-size="7" fill="#94A3B8">13%</text>
+
+    <!-- Tool Results -->
+    <rect x="0" y="118" width="200" height="18" rx="3" fill="#B91C1C"/>
+    <text x="8" y="130" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">Tool Results</text>
+    <text x="208" y="130" font-family="sans-serif" font-size="8" fill="#64748B">2000</text>
+    <text x="223" y="130" font-family="sans-serif" font-size="7" fill="#94A3B8">13%</text>
+
+    <!-- RAG -->
+    <rect x="0" y="142" width="180" height="18" rx="3" fill="#0D9488"/>
+    <text x="8" y="154" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">RAG Results</text>
+    <text x="188" y="154" font-family="sans-serif" font-size="8" fill="#64748B">1500</text>
+    <text x="203" y="154" font-family="sans-serif" font-size="7" fill="#94A3B8">10%</text>
+
+    <!-- Memory -->
+    <rect x="0" y="166" width="80" height="18" rx="3" fill="#059669"/>
+    <text x="8" y="178" font-family="sans-serif" font-size="9" fill="#FFF" font-weight="bold">Memory</text>
+    <text x="88" y="178" font-family="sans-serif" font-size="8" fill="#64748B">500</text>
+    <text x="103" y="178" font-family="sans-serif" font-size="7" fill="#94A3B8">3%</text>
+
+    <!-- Buffer -->
+    <rect x="0" y="190" width="220" height="18" rx="3" fill="#CBD5E1"/>
+    <text x="8" y="202" font-family="sans-serif" font-size="9" fill="#475569" font-weight="bold">Buffer（缓冲）</text>
+    <text x="228" y="202" font-family="sans-serif" font-size="8" fill="#64748B">2700</text>
+    <text x="243" y="202" font-family="sans-serif" font-size="7" fill="#94A3B8">18%</text>
+
+    <!-- 图例 -->
+    <rect x="0" y="225" width="8" height="8" rx="1" fill="#2563EB"/>
+    <text x="12" y="233" font-family="sans-serif" font-size="8" fill="#475569">固定分配（不可压缩）</text>
+
+    <rect x="0" y="240" width="8" height="8" rx="1" fill="#DC2626"/>
+    <text x="12" y="248" font-family="sans-serif" font-size="8" fill="#475569">弹性分配（可动态调整）</text>
+
+    <rect x="0" y="255" width="8" height="8" rx="1" fill="#CBD5E1"/>
+    <text x="12" y="263" font-family="sans-serif" font-size="8" fill="#475569">缓冲空间（应对突发）</text>
+  </g>
+
+  <!-- 底部：预算规则 -->
+  <rect x="16" y="308" width="648" height="80" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="340" y="330" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#065F46">预算管理规则</text>
+
+  <g transform="translate(30, 342)">
+    <rect x="0" y="0" width="200" height="38" rx="4" fill="#FFF" stroke="#2563EB" stroke-width="1"/>
+    <text x="100" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563EB" font-weight="bold">优先级分配</text>
+    <text x="100" y="30" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#334155">系统提示 &gt; 当前输入 &gt; 最近对话</text>
+  </g>
+
+  <g transform="translate(240, 342)">
+    <rect x="0" y="0" width="200" height="38" rx="4" fill="#FFF" stroke="#DC2626" stroke-width="1"/>
+    <text x="100" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626" font-weight="bold">自动压缩触发</text>
+    <text x="100" y="30" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#334155">使用率 &gt; 90% 时自动压缩</text>
+  </g>
+
+  <g transform="translate(450, 342)">
+    <rect x="0" y="0" width="200" height="38" rx="4" fill="#FFF" stroke="#CA8A04" stroke-width="1"/>
+    <text x="100" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#CA8A04" font-weight="bold">强制截断</text>
+    <text x="100" y="30" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#334155">使用率 &gt; 95% 时强制截断</text>
+  </g>
+</svg>

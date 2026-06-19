@@ -72,8 +72,8 @@ messages = [
 # 步骤 6-20：机械重复步骤 1-5 的行为模式
 # 即使简历内容不同，Agent 也不再"思考"
 
-# 根本原因：20 轮相似的"动作-观察"对让模型学会了"模仿自己"，
-# 而不是基于当前输入做新判断。
+# 根本原因：20 轮相似的"动作-观察"对使模型的行为模式陷入"自我重复"，
+# 不再基于当前输入做新判断。
 ```
 
 **诊断信号**：
@@ -177,6 +177,12 @@ messages.append({"role": "user", "content": "等等，我们实际上在用 Post
 ```
 
 四种模式不是孤立的——它们会在一个 Agent 会话中**叠加出现**。第 5 步的污染导致第 10 步的分心；第 15 步的混淆遇到第 18 步的冲突；Agent 彻底迷失。
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/failure-modes.svg" alt="四种致命失效模式级联图" width="90%"/>
+  <br/>
+  <em>四种失效模式级联关系：污染→分心→混淆→冲突</em>
+</p>
 
 ## 七个常见反模式
 
@@ -364,6 +370,12 @@ class ContextHealthCheck:
         report["issues"] = issues if issues else ["✅ 健康"]
         return report
 ```
+
+<p align="center">
+  <img src="../../assets/06-context-engineering/context-health-check.svg" alt="ContextHealthCheck诊断流程" width="90%"/>
+  <br/>
+  <em>上下文健康诊断四步流程：检测→分类→诊断→修复</em>
+</p>
 
 ## 总结
 

@@ -1,6 +1,6 @@
 # 多 Agent 架构模式
 
-> 第 10 章解决了 Agent 之间"怎么通信"，本章解决"通信之后怎么设计"。四个核心架构模式——Orchestrator/Worker、Supervisor、Peer-to-Peer、Pipeline——各有适用场景。
+> [扩展协议](../10-protocols/01-protocol-landscape.md) 一章解决了 Agent 之间"怎么通信"，本章解决"通信之后怎么设计"。四个核心架构模式——Orchestrator/Worker、Supervisor、Peer-to-Peer、Pipeline——各有适用场景。
 
 ## 目录
 
@@ -14,7 +14,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。第 10 章 [A2A 实战：多 Agent 协作实现](../10-protocols/04-a2a-in-practice.md) 中，你写了一个主 Agent 调用两个子 Agent 的案例。那是最简单的**主从模式**。但真实世界的多 Agent 系统远不止这一种模式——有的需要监督者控制质量、有的需要对等协作、有的适合流水线处理。
+你好，我是江小湖。[A2A 实战：多 Agent 协作实现](../10-protocols/04-a2a-in-practice.md) 中，你写了一个主 Agent 调用两个子 Agent 的案例。那是最简单的**主从模式**。但真实世界的多 Agent 系统远不止这一种模式——有的需要监督者控制质量、有的需要对等协作、有的适合流水线处理。
 
 本文介绍四种核心架构模式，每种模式的适用场景、优缺点、和实际案例。
 
@@ -66,7 +66,7 @@
 
 ### 实际案例
 
-第 10 章的 A2A 实战案例就是典型的 Orchestrator/Worker——主 Agent 拆解"分析 MCP 进展"任务，搜索 Agent 查资料，报表 Agent 写报告，主 Agent 汇总。
+[A2A 实战：多 Agent 协作实现](../10-protocols/04-a2a-in-practice.md) 的案例就是典型的 Orchestrator/Worker——主 Agent 拆解"分析 MCP 进展"任务，搜索 Agent 查资料，报表 Agent 写报告，主 Agent 汇总。
 
 ```python
 # Orchestrator 核心逻辑

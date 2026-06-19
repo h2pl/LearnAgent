@@ -14,13 +14,13 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在 [第 04 章「MCP 与工具生态」](../04-tool-use/04-mcp-and-tool-ecosystem.md) 中，你已经了解了 MCP 的核心概念：四层架构（Host/Client/Server/Gateway）、三大原语（Tools/Resources/Prompts）、以及 12 行 Python 写一个极简 Server。那篇文章的角度是"工具标准化"——从开发者的实操视角出发。
+你好，我是江小湖。在 [MCP 与工具生态](../04-tool-use/04-mcp-and-tool-ecosystem.md) 中，你已经了解了 MCP 的核心概念：四层架构（Host/Client/Server/Gateway）、三大原语（Tools/Resources/Prompts）、以及 12 行 Python 写一个极简 Server。那篇文章的角度是"工具标准化"——从开发者的实操视角出发。
 
 本文换一个角度：**协议本身**。MCP 只是一个协议规范，但让它真正"跑起来"的，是治理结构、版本策略、生产部署模式和生态数据背后的取舍。
 
 ## 前置阅读
 
-本文假设你已经了解 MCP 的基础概念。如果你还没读过，建议先看 [第 04 章「MCP 与工具生态」](../04-tool-use/04-mcp-and-tool-ecosystem.md)，了解四大角色、三大原语和基本用法。本文将直接在此基础上展开。
+本文假设你已经了解 MCP 的基础概念。如果你还没读过，建议先看 [MCP 与工具生态](../04-tool-use/04-mcp-and-tool-ecosystem.md)，了解四大角色、三大原语和基本用法。本文将直接在此基础上展开。
 
 ## 从实验项目到行业标准
 

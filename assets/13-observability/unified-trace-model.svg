@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+  <rect width="960" height="520" fill="#F8FAFC" rx="8" filter="url(#shadow)"/>
+  <text x="480" y="35" font-family="PingFang SC, Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">统一追踪数据模型</text>
+
+  <!-- Trace ID bar -->
+  <rect x="300" y="55" width="360" height="32" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="480" y="76" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Trace ID: req_abc123</text>
+
+  <!-- Episode box -->
+  <rect x="60" y="105" width="840" height="100" rx="10" fill="#FFF" stroke="#2563EB" stroke-width="2"/>
+  <text x="80" y="128" font-family="PingFang SC, Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Episode</text>
+
+  <!-- Episode fields -->
+  <rect x="80" y="138" width="380" height="24" rx="4" fill="#F1F5F9"/>
+  <text x="95" y="155" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">user_input: "帮我查一下订单 ORD-123 的状态"</text>
+
+  <rect x="80" y="168" width="380" height="24" rx="4" fill="#F1F5F9"/>
+  <text x="95" y="185" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">final_response: "您的订单已发货，预计 6/20 送达"</text>
+
+  <!-- Episode meta -->
+  <rect x="500" y="138" width="160" height="24" rx="4" fill="#D1FAE5"/>
+  <text x="580" y="155" font-family="Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">total: 1860ms</text>
+
+  <rect x="670" y="138" width="160" height="24" rx="4" fill="#D1FAE5"/>
+  <text x="750" y="155" font-family="Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">tokens: 2,827</text>
+
+  <rect x="500" y="168" width="160" height="24" rx="4" fill="#D1FAE5"/>
+  <text x="580" y="185" font-family="Segoe UI, sans-serif" font-size="11" fill="#065F46" text-anchor="middle">status: success</text>
+
+  <rect x="670" y="168" width="160" height="24" rx="4" fill="#DBEAFE"/>
+  <text x="750" y="185" font-family="Segoe UI, sans-serif" font-size="11" fill="#1D4ED8" text-anchor="middle">eval_score: 0.95</text>
+
+  <!-- Arrow to steps -->
+  <line x1="480" y1="205" x2="480" y2="230" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="500" y="222" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" fill="#64748B">steps[]</text>
+
+  <!-- Steps container -->
+  <rect x="60" y="235" width="840" height="230" rx="10" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="80" y="258" font-family="PingFang SC, Segoe UI, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Steps (有序步骤)</text>
+
+  <!-- Step 1: LLM Call -->
+  <rect x="80" y="270" width="790" height="52" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="95" y="278" width="60" height="20" rx="4" fill="#DBEAFE"/>
+  <text x="125" y="293" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Step 1</text>
+  <rect x="165" y="278" width="75" height="20" rx="4" fill="#EDE9FE"/>
+  <text x="202" y="293" font-family="Segoe UI, sans-serif" font-size="10" fill="#6D28D9" text-anchor="middle">llm_call</text>
+  <text x="260" y="293" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">model: gpt-4o</text>
+  <text x="400" y="293" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">in: 1200 tok</text>
+  <text x="520" y="293" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">out: 85 tok</text>
+  <rect x="640" y="278" width="80" height="20" rx="4" fill="#D1FAE5"/>
+  <text x="680" y="293" font-family="Segoe UI, sans-serif" font-size="10" fill="#065F46" text-anchor="middle">780ms</text>
+  <rect x="730" y="278" width="65" height="20" rx="4" fill="#D1FAE5"/>
+  <text x="762" y="293" font-family="Segoe UI, sans-serif" font-size="10" fill="#065F46" text-anchor="middle">success</text>
+  <!-- I/O row -->
+  <text x="165" y="313" font-family="Segoe UI, sans-serif" font-size="10" fill="#94A3B8">input: {prompt, model}  →  output: {content, tool_calls}</text>
+
+  <!-- Step 2: Tool Call -->
+  <rect x="80" y="332" width="790" height="52" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="95" y="340" width="60" height="20" rx="4" fill="#DBEAFE"/>
+  <text x="125" y="355" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Step 2</text>
+  <rect x="165" y="340" width="75" height="20" rx="4" fill="#FEF3C7"/>
+  <text x="202" y="355" font-family="Segoe UI, sans-serif" font-size="10" fill="#92400E" text-anchor="middle">tool_call</text>
+  <text x="260" y="355" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">query_order</text>
+  <text x="400" y="355" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">order_id: ORD-123</text>
+  <rect x="640" y="340" width="80" height="20" rx="4" fill="#D1FAE5"/>
+  <text x="680" y="355" font-family="Segoe UI, sans-serif" font-size="10" fill="#065F46" text-anchor="middle">230ms</text>
+  <rect x="730" y="340" width="65" height="20" rx="4" fill="#D1FAE5"/>
+  <text x="762" y="355" font-family="Segoe UI, sans-serif" font-size="10" fill="#065F46" text-anchor="middle">success</text>
+  <text x="165" y="375" font-family="Segoe UI, sans-serif" font-size="10" fill="#94A3B8">input: {order_id}  →  output: {status: shipped, eta: 2026-06-20}</text>
+
+  <!-- Step 3: LLM Call -->
+  <rect x="80" y="394" width="790" height="52" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="95" y="402" width="60" height="20" rx="4" fill="#DBEAFE"/>
+  <text x="125" y="417" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Step 3</text>
+  <rect x="165" y="402" width="75" height="20" rx="4" fill="#EDE9FE"/>
+  <text x="202" y="417" font-family="Segoe UI, sans-serif" font-size="10" fill="#6D28D9" text-anchor="middle">llm_call</text>
+  <text x="260" y="417" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">model: gpt-4o</text>
+  <text x="400" y="417" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">in: 1500 tok</text>
+  <text x="520" y="417" font-family="Segoe UI, sans-serif" font-size="11" fill="#475569">out: 42 tok</text>
+  <rect x="640" y="402" width="80" height="20" rx="4" fill="#D1FAE5"/>
+  <text x="680" y="417" font-family="Segoe UI, sans-serif" font-size="10" fill="#065F46" text-anchor="middle">850ms</text>
+  <rect x="730" y="402" width="65" height="20" rx="4" fill="#D1FAE5"/>
+  <text x="762" y="417" font-family="Segoe UI, sans-serif" font-size="10" fill="#065F46" text-anchor="middle">success</text>
+  <text x="165" y="437" font-family="Segoe UI, sans-serif" font-size="10" fill="#94A3B8">input: {prompt + tool_result}  →  output: "您的订单已发货..."</text>
+
+  <!-- Bottom: Three key design points -->
+  <rect x="60" y="480" width="265" height="30" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="192" y="500" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#1D4ED8" text-anchor="middle">步骤序列化 · 帧级回放</text>
+
+  <rect x="348" y="480" width="265" height="30" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="480" y="500" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">统一字段 · {input, output, duration, status}</text>
+
+  <rect x="636" y="480" width="265" height="30" rx="6" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+  <text x="768" y="500" font-family="PingFang SC, Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#92400E" text-anchor="middle">评测关联 · Trace ID 绑定评分</text>
+</svg>

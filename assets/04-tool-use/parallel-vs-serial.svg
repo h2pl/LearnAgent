@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" style="background:#fff;font-family:sans-serif">
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">并行调用 vs 串行调用对比</text>
+
+  <!-- ===== 并行调用 (左) ===== -->
+  <rect x="10" y="44" width="320" height="26" rx="6" fill="#059669"/>
+  <text x="170" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">并行调用：无依赖任务同时执行</text>
+
+  <!-- 时间轴 -->
+  <line x1="30" y1="82" x2="320" y2="82" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="175" y="78" text-anchor="middle" font-size="9" fill="#94A3B8">时间 →</text>
+
+  <!-- 并行任务 -->
+  <rect x="30" y="90" width="290" height="24" rx="4" fill="#D1FAE5" stroke="#6EE7B7"/>
+  <text x="175" y="107" text-anchor="middle" font-size="11" fill="#047857" font-weight="bold">get_weather("北京")</text>
+
+  <rect x="30" y="118" width="290" height="24" rx="4" fill="#D1FAE5" stroke="#6EE7B7"/>
+  <text x="175" y="135" text-anchor="middle" font-size="11" fill="#047857" font-weight="bold">get_weather("上海")</text>
+
+  <rect x="30" y="142" width="290" height="24" rx="4" fill="#D1FAE5" stroke="#6EE7B7"/>
+  <text x="175" y="159" text-anchor="middle" font-size="11" fill="#047857" font-weight="bold">get_weather("深圳")</text>
+
+  <!-- 总耗时 -->
+  <rect x="30" y="175" width="290" height="24" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="175" y="192" text-anchor="middle" font-size="11" fill="#047857">总耗时 ≈ 单次最慢调用</text>
+
+  <!-- 指标 -->
+  <rect x="30" y="210" width="290" height="62" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="45" y="230" font-size="10" fill="#059669" font-weight="bold">✓ 优势</text>
+  <text x="45" y="247" font-size="10" fill="#475569">• 总延迟 = max(T1, T2, T3) 而非 T1+T2+T3</text>
+  <text x="45" y="263" font-size="10" fill="#475569">• 无需额外交互，一次推理完成所有选择</text>
+
+  <!-- ===== 串行调用 (右) ===== -->
+  <rect x="350" y="44" width="320" height="26" rx="6" fill="#DC2626"/>
+  <text x="510" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">串行调用：依赖任务按序执行</text>
+
+  <!-- 时间轴 -->
+  <line x1="370" y1="82" x2="660" y2="82" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="515" y="78" text-anchor="middle" font-size="9" fill="#94A3B8">时间 →</text>
+
+  <!-- 串行任务 -->
+  <rect x="370" y="90" width="300" height="24" rx="4" fill="#FEE2E2" stroke="#FECACA"/>
+  <text x="520" y="107" text-anchor="middle" font-size="11" fill="#B91C1C" font-weight="bold">get_order("12345")</text>
+
+  <text x="656" y="123" font-size="9" fill="#94A3B8">↘ 依赖</text>
+
+  <rect x="370" y="131" width="300" height="24" rx="4" fill="#FEE2E2" stroke="#FECACA"/>
+  <text x="520" y="148" text-anchor="middle" font-size="11" fill="#B91C1C" font-weight="bold">send_email(to=result.email, ...)</text>
+
+  <text x="656" y="164" font-size="9" fill="#94A3B8">↘ 依赖</text>
+
+  <rect x="370" y="172" width="300" height="24" rx="4" fill="#FEE2E2" stroke="#FECACA"/>
+  <text x="520" y="189" text-anchor="middle" font-size="11" fill="#B91C1C" font-weight="bold">log_operation(result, ...)</text>
+
+  <!-- 总耗时 -->
+  <rect x="370" y="202" width="300" height="24" rx="4" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="520" y="219" text-anchor="middle" font-size="11" fill="#B91C1C">总耗时 = T1 + T2 + T3 + 3 次 LLM 推理</text>
+
+  <!-- 指标 -->
+  <rect x="370" y="235" width="300" height="62" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="385" y="255" font-size="10" fill="#DC2626" font-weight="bold">⚠ 特点</text>
+  <text x="385" y="272" font-size="10" fill="#475569">• 每步依赖上一轮结果，无法并行</text>
+  <text x="385" y="288" font-size="10" fill="#475569">• 额外 Token 消耗（每轮传入历史消息）</text>
+
+  <!-- 底部对比总结 -->
+  <rect x="12" y="310" width="656" height="55" rx="8" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="340" y="332" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">选择策略</text>
+  <text x="70" y="355" text-anchor="middle" font-size="10" fill="#475569">工具间无依赖</text>
+  <text x="215" y="355" text-anchor="middle" font-size="10" fill="#475569">→ 并行调用加速</text>
+  <text x="440" y="355" text-anchor="middle" font-size="10" fill="#475569">工具间有依赖</text>
+  <text x="585" y="355" text-anchor="middle" font-size="10" fill="#475569">→ 串行链式调用</text>
+
+  <!-- 图注 -->
+  <text x="340" y="385" text-anchor="middle" font-size="11" fill="#94A3B8">图：并行无需等待，串行步步依赖——编排方式由依赖关系决定</text>
+</svg>

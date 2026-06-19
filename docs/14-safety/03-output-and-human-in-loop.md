@@ -53,6 +53,10 @@
 
 ## 过滤实现策略
 
+<p align="center">
+  <img src="../../assets/14-safety/output-filtering-pipeline.svg" alt="输出过滤流水线：三层过滤与 Human-in-the-Loop 审批模式" width="95%"/>
+</p>
+
 ### 过滤层级
 
 ```

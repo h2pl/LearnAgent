@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400">
+  <defs>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6B7280"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="680" height="400" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="340" y="28" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1F2937">记忆更新决策流程</text>
+
+  <!-- ===== 开始节点 ===== -->
+  <rect x="270" y="42" width="140" height="32" rx="16" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="340" y="63" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">新信息到达</text>
+
+  <line x1="340" y1="74" x2="340" y2="95" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- ===== 判断1：是否值得记录 ===== -->
+  <g filter="url(#shadow)">
+    <polygon points="340,100 430,135 340,170 250,135" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  </g>
+  <text x="340" y="132" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#D97706">值得记录？</text>
+  <text x="340" y="146" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#92400E">(LLM 判断)</text>
+
+  <!-- 不值得 → 丢弃 -->
+  <line x1="250" y1="135" x2="130" y2="135" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+  <text x="190" y="128" font-family="sans-serif" font-size="9" fill="#DC2626">否</text>
+  <rect x="40" y="122" width="90" height="26" rx="13" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+  <text x="85" y="139" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#DC2626">丢弃 ✗</text>
+
+  <!-- 值得 → 下一步 -->
+  <line x1="340" y1="170" x2="340" y2="195" stroke="#059669" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <text x="355" y="182" font-family="sans-serif" font-size="9" fill="#059669">是</text>
+
+  <!-- ===== 步骤：类型分类 ===== -->
+  <rect x="265" y="198" width="150" height="32" rx="6" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="340" y="219" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#374151">记忆类型分类</text>
+
+  <line x1="340" y1="230" x2="340" y2="252" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- ===== 分支：按类型路由 ===== -->
+  <!-- 语义 -->
+  <line x1="340" y1="252" x2="180" y2="280" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="260" y="270" font-family="sans-serif" font-size="9" fill="#2563EB">语义记忆</text>
+  <!-- 情景 -->
+  <line x1="340" y1="252" x2="340" y2="280" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="345" y="272" font-family="sans-serif" font-size="9" fill="#7C3AED">情景</text>
+  <!-- 程序 -->
+  <line x1="340" y1="252" x2="500" y2="280" stroke="#059669" stroke-width="1.5"/>
+  <text x="420" y="270" font-family="sans-serif" font-size="9" fill="#059669">程序记忆</text>
+
+  <!-- 判断2：语义 → 去重 -->
+  <g filter="url(#shadow)">
+    <polygon points="180,285 228,310 180,335 132,310" fill="#F0F5FF" stroke="#2563EB" stroke-width="1.5"/>
+  </g>
+  <text x="180" y="308" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#2563EB">去重</text>
+  <text x="180" y="320" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">相似度≥0.85?</text>
+
+  <line x1="180" y1="335" x2="180" y2="355" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- 判断3：冲突检测 -->
+  <g filter="url(#shadow)">
+    <polygon points="180,360 228,382 180,404 132,382" fill="#F0F5FF" stroke="#2563EB" stroke-width="1.5"/>
+  </g>
+  <text x="180" y="380" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#2563EB">冲突检测</text>
+  <text x="180" y="392" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">LLM 矛盾判定</text>
+
+  <!-- 情景记忆 直接存储 -->
+  <rect x="290" y="288" width="100" height="24" rx="4" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1"/>
+  <text x="340" y="305" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#7C3AED">情景: 直接存储</text>
+
+  <!-- 程序记忆 直接存储 -->
+  <rect x="470" y="288" width="100" height="24" rx="4" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+  <text x="520" y="305" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#059669">程序: 直接加载</text>
+
+  <!-- 决策结果 -->
+  <line x1="180" y1="404" x2="100" y2="370" stroke="#059669" stroke-width="1" marker-end="url(#arrowGray)"/>
+  <text x="120" y="378" font-family="sans-serif" font-size="9" fill="#059669">合并</text>
+
+  <line x1="180" y1="404" x2="180" y2="370" stroke="#2563EB" stroke-width="1" marker-end="url(#arrowGray)"/>
+  <text x="190" y="382" font-family="sans-serif" font-size="8" fill="#2563EB">替换</text>
+
+  <line x1="180" y1="404" x2="260" y2="370" stroke="#DC2626" stroke-width="1" marker-end="url(#arrowGray)"/>
+  <text x="230" y="378" font-family="sans-serif" font-size="8" fill="#DC2626">跳过</text>
+
+  <!-- 最终存储 -->
+  <rect x="220" y="355" width="100" height="26" rx="13" fill="#059669" filter="url(#shadow)"/>
+  <text x="270" y="372" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">持久化</text>
+
+  <!-- 底部图注 -->
+  <text x="340" y="395" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">
+    记忆更新三阶段：提取有价值信息 → 去重冲突检测 → 合并/替换/跳过 → 最终写入
+  </text>
+</svg>
