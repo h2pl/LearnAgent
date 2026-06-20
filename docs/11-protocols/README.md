@@ -1,8 +1,6 @@
 ﻿# 11 — 扩展协议
 
-框架帮你管好一个 Agent 内部的复杂度（上一章），但真实的 Agent 系统不是孤岛——它们需要互相通信、共享工具、跨平台协作。**协议就是让这一切成为可能的基础设施。**
-
-本章六篇文章从全局格局出发：MCP（工具层标准）、A2A（Agent 间通信）、轻量级约定（Skills/AGENTS.md），再到协议组合与选型。学完你就能理解整个 Agent 开放生态的拼图怎么拼。
+真实的 Agent 系统不是孤岛——它们需要互相通信、共享工具、跨平台协作。**协议就是让这一切成为可能的基础设施。** 六篇文章从 [协议全景](./01-protocol-landscape.md) 出发，深入 [MCP](./02-mcp-in-depth.md)、[A2A](./03-a2a-and-beyond.md) 及其实战，再到 [轻量级约定](./05-lightweight-conventions.md) 和 [协议组合选型](./06-protocol-composition.md)，覆盖整个 Agent 开放生态的拼图。
 
 ## 目录
 

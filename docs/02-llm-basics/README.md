@@ -2,7 +2,7 @@
 
 LLM 是 Agent 的大脑。在写 Prompt、调 API、搭 RAG 之前，你需要先建立对它的正确认知。
 
-本章从应用开发者视角讲清楚：LLM 到底是什么、能做什么、不能做什么、文本怎么变成向量（Token 和 Embedding）、Transformer 在里面扮演什么角色、模型是怎么训练出来的。这些认知直接决定你后续的设计判断——比如你知道了幻觉的本质，就能理解为什么需要 RAG；知道了 context window 的限制，就能理解为什么需要上下文工程。
+本章从应用开发者视角讲清楚：LLM 到底是什么、能做什么、不能做什么、文本怎么变成向量（Token 和 Embedding）、Transformer 在里面扮演什么角色、模型是怎么训练出来的。这 8 篇文章按"认知→能力→限制→原理→训练"的路径递进：先从 [认识大语言模型](./01-llm-overview.md) 建立基本概念，通过 [技术根基](./02-nlp-to-transformer.md) 和 [发展简史](./03-llm-evolution.md) 理解来龙去脉，再深入 [核心能力](./04-capabilities.md) 与 [局限](./05-limitations.md)，最后用 [Token 与 Embedding](./06-token-and-embedding.md)、[Transformer 原理](./07-transformer-internals.md) 和 [训练三阶段](./08-training-pipeline.md) 完成技术深潜。
 
 ## 目录
 

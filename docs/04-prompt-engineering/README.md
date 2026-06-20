@@ -1,10 +1,6 @@
 ﻿# 04 — Prompt 工程
 
-有了模型和 API（上一章），下一步是学会通过文字精确控制模型行为。Prompt 工程是 Agent 开发的"界面层"——你怎么说，模型怎么做。
-
-本章从零开始：先理解 LLM 如何处理 Prompt、三种消息角色，再掌握四种核心设计模式、结构化输出、System Prompt 设计，最后用数据驱动的方法调试和评估 Prompt 质量。
-
-> 如果把 Agent 比作一个员工，Prompt 就是你的沟通方式。写得好的 Prompt，模型不需要猜你要什么。
+通过文字精确控制模型行为。本章六篇文章从基础到进阶层层递进：先通过 [Prompt 工程入门](./01-introduction.md) 理解 LLM 如何处理 Prompt 和三种消息角色，然后掌握 [四种核心设计模式](./02-prompt-design-patterns.md)、[结构化输出](./03-structured-output.md) 和 [System Prompt 设计](./04-system-prompt.md)，最后用数据驱动的方法学习 [Prompt 鲁棒性](./05-prompt-robustness.md) 和 [调试评估](./06-prompt-debugging-and-evaluation.md)。
 
 ## 文章
 

@@ -1,6 +1,6 @@
 # 13 — 评测
 
-> 没有评测的 Agent 只是 demo。三层评测体系——组件级、任务级、系统级——帮你从"感觉还行"走向"我知道它行"。
+没有评测的 Agent 只是 demo。本章用五篇文章建立完整的评测体系：从 [评测体系与指标](./01-evaluation-system.md) 和 [确定性评测](./02-deterministic-evaluation.md) 入手，再到 [LLM-as-Judge](./03-llm-as-judge.md) 自动评测、[评测驱动开发](./04-eval-driven-development.md) 工作流，最后以 [生产环境评测](./05-production-evaluation.md) 收尾。
 
 ## 文章列表
 

@@ -1,6 +1,6 @@
 # 16 — 产品交付
 
-> 从架构设计到项目文档，把前 14 章的知识凝结为一个可部署的 Agent 系统。
+从架构设计到项目文档，把 Agent 知识凝结为一个可部署的系统。五篇文章从 [系统架构设计](./01-architecture.md) 和 [API 服务化](./02-api-service.md) 切入，再到 [部署方案](./03-deployment.md) 和 [运维实战](./04-operations.md)，最后以 [项目文档](./05-documentation.md) 收尾。
 
 ## 文章列表
 

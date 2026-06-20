@@ -1,6 +1,6 @@
 # 15 — 安全与治理
 
-> Agent 有执行能力，安全是不可忽视的基础设施。从 prompt 注入防护到纵深防御系统实现，建立完整的 Agent 安全体系。
+Agent 有执行能力，安全是不可忽视的基础设施。四篇文章从 [Prompt 注入攻击与防御](./01-prompt-injection.md) 和 [访问控制与沙箱](./02-access-control-and-sandbox.md) 入手，再到 [输出过滤与人工审批](./03-output-and-human-in-loop.md)，最后通过 [安全实战](./04-security-implementation.md) 构建纵深防御系统。
 
 ## 文章列表
 

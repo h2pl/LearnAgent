@@ -1,6 +1,6 @@
 # 14 — 可观测性与监控
 
-> 追踪让你看到 Agent 的每一步，监控让你实时掌握系统健康。五篇文章从设计原则到生产告警，覆盖 Agent 可观测性的完整闭环。
+追踪让你看到 Agent 的每一步，监控让你实时掌握系统健康。五篇文章从 [可观测性设计原则](./01-observability-principles.md) 开始，依次讲解 [全链路追踪](./02-tracing-implementation.md)、[性能分析](./03-performance-analysis.md)、[成本优化](./04-cost-optimization.md)，最后以 [生产监控与告警](./05-production-monitoring.md) 收尾。
 
 ## 文章列表
 

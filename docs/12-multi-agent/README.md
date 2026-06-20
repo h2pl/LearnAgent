@@ -1,6 +1,6 @@
 ﻿# 12 — 多 Agent
 
-[扩展协议](../11-protocols/01-protocol-landscape.md) 一章教会了你 Agent 之间怎么通信（A2A 协议）。本章解决更本质的问题：**系统该怎么拆、角色该怎么分、拆了之后怎么管**。多 Agent 不是技术问题，是架构问题。
+多 Agent 解决的核心问题不是"怎么通信"，而是**系统该怎么拆、角色该怎么分、拆了之后怎么管**。五篇文章从 [架构模式](./01-architecture-patterns.md) 和 [角色设计](./02-role-design.md) 入手，通过 [CrewAI](./03-crewai-research-team.md) 和 [LangGraph](./04-langgraph-workflow.md) 两个实战案例落地，最后以 [设计权衡](./05-design-tradeoffs.md) 收尾。
 
 ## 目录
 
