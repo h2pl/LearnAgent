@@ -1,51 +1,213 @@
 <div align="center">
 
-# AgentDevGuide
+# LearnAgent
 
-**AI Agent 开发指南**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+**AI Agent 系统化学习指南** · 15 章 · 91 篇
 
 </div>
-## 学习路线
 
-<div align="center">
-<img src="./assets/roadmap.svg" alt="AgentDevGuide 学习路线图" width="100%"/>
-</div>
+这是一个从零开始学 Agent 的完整路径。15 章 91 篇文章，每章解决一个核心问题，前后衔接形成闭环——从「Agent 是什么」一路走到「部署上线」。
 
----
+不管你是开发者、产品经理、技术管理者还是 AI 爱好者，会写 Python 就能开始，不需要机器学习背景。
 
-## 目录
+> [开始阅读 → 什么是 AI Agent](./docs/00-landscape/01-what-is-agent.md)
 
-| # | 章节 | 核心问题 | 产出 |
-|:---:|------|---------|------|
-| 00 | [生态认知](./docs/00-landscape/README.md) | Agent 和 Chatbot / Workflow / RAG 有什么区别？ | Agent 生态全景图 |
-| 01 | [LLM 基础](./docs/01-llm-basics/README.md) | LLM 是什么？它怎么工作、能做什么、不能做什么？ | LLM 原理认知体系 |
-| 02 | [模型接入](./docs/02-model-access/README.md) | 怎么调用 LLM？模型之间有什么差异？ | 多模型切换对话服务 |
-| 03 | [Prompt 工程](./docs/03-prompt-engineering/README.md) | 怎么精确控制 LLM 输出？ | 结构化输出 + CoT demo |
-| 04 | [工具调用](./docs/04-tool-use/README.md) | LLM 怎么调用外部函数？ | 多工具对话 demo |
-| 05 | [Agent 循环](./docs/05-agent-loop/README.md) | Agent 的核心循环怎么工作？ | ⭐ 最小 ReAct Agent |
-| 06 | [记忆管理](./docs/06-memory-management/README.md) | Agent 怎么记住之前的事？ | 带记忆的 Agent |
-| 07 | [知识检索](./docs/07-rag-pipeline/README.md) | 怎么让 Agent 基于外部知识回答？ | RAG 问答系统 |
-| 08 | [上下文工程](./docs/08-context-engineering/README.md) | 怎么高效管理 Agent 的上下文窗口？ | 上下文优化方案 |
-| 09 | [框架与编排](./docs/09-framework/README.md) | 怎么用框架管理复杂 Agent？ | LangGraph Agent |
-| 10 | [扩展协议与标准](./docs/10-protocols/README.md) | MCP / Skills / AGENTS.md 是什么？ | MCP Server + Skill |
-| 11 | [多 Agent 协作](./docs/11-multi-agent/README.md) | 多个 Agent 怎么协作？ | 多 Agent 系统 |
-| 12 | [评测与可观测](./docs/12-eval-trace/README.md) | 怎么知道 Agent 好不好？ | 评测集 + Trace |
-| 13 | [安全与治理](./docs/13-safety/README.md) | 怎么防止 Agent 越权？ | 安全加固方案 |
-| 14 | [产品交付](./docs/14-ship-to-prod/README.md) | 怎么部署上线？ | 🎯 可部署的 Agent 系统 |
+<p align="center">
+  <img src="./assets/00-landscape/agent-learning-path.svg" alt="AI Agent 系统化学习路径" width="90%"/>
+</p>
 
 ---
 
-## 参考资料
+## 00 生态认知
 
-- [O'Reilly — The AI Agents Stack (2026)](https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/) — 6 层架构参考
-- [AI Agent Architecture — MCP/Skills/Agent 三层模型](https://shuji-bonji.github.io/ai-agent-architecture/) — 协议分层参考
-- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
-- [Anthropic Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
+什么是 Agent？它和 Chatbot / Workflow 有什么区别？
+
+- [什么是 AI Agent](./docs/00-landscape/01-what-is-agent.md)
+- [主流 Agent 产品全景](./docs/00-landscape/02-mainstream-agents.md)
+- [Claude Code：AI 编程 Agent](./docs/00-landscape/03-claude-code.md)
+- [OpenClaw：自托管 Agent 平台](./docs/00-landscape/04-openclaw.md)
+- [Hermes Agent：macOS 原生 Agent](./docs/00-landscape/05-hermes-agent.md)
+
+## 01 LLM 基础
+
+LLM 是什么？怎么工作、能做什么、不能做什么？
+
+**核心概念**：
+
+- [LLM 全景概述](./docs/01-llm-basics/01-llm-overview.md)
+- [从 NLP 到 Transformer](./docs/01-llm-basics/02-nlp-to-transformer.md)
+- [LLM 发展简史](./docs/01-llm-basics/03-llm-evolution.md)
+
+**能力与限制**：
+
+- [LLM 的核心能力](./docs/01-llm-basics/04-capabilities.md)
+- [LLM 的局限性](./docs/01-llm-basics/05-limitations.md)
+
+**深入理解**：
+
+- [Token 与 Embedding](./docs/01-llm-basics/06-token-and-embedding.md)
+- [Transformer 内部机制](./docs/01-llm-basics/07-transformer-internals.md)
+- [训练流水线](./docs/01-llm-basics/08-training-pipeline.md)
+
+## 02 模型接入
+
+怎么调用 LLM？模型之间有什么差异？
+
+- [主流模型对比与选型](./docs/02-model-access/01-model-comparison.md)
+- [核心参数配置](./docs/02-model-access/02-key-parameters.md)
+- [API 调用实战](./docs/02-model-access/03-api-calling.md)
+- [模型变体全景](./docs/02-model-access/04-model-variants-landscape.md)
+- [推理模型](./docs/02-model-access/05-reasoning-models.md)
+- [本地部署](./docs/02-model-access/06-local-deployment.md)
+- [微调指南](./docs/02-model-access/07-finetuning-guide.md)
+
+## 03 Prompt 工程
+
+怎么精确控制 LLM 输出？
+
+- [Prompt 工程入门](./docs/03-prompt-engineering/01-introduction.md)
+- [Prompt 设计模式](./docs/03-prompt-engineering/02-prompt-design-patterns.md)
+- [结构化输出](./docs/03-prompt-engineering/03-structured-output.md)
+- [System Prompt 设计](./docs/03-prompt-engineering/04-system-prompt.md)
+- [Prompt 鲁棒性](./docs/03-prompt-engineering/05-prompt-robustness.md)
+- [Prompt 调试与评估](./docs/03-prompt-engineering/06-prompt-debugging-and-evaluation.md)
+
+## 04 工具调用
+
+LLM 怎么调用外部函数和工具？
+
+- [工具调用机制](./docs/04-tool-use/01-tool-calling-mechanism.md)
+- [工具 Schema 设计](./docs/04-tool-use/02-tool-schema-design.md)
+- [多工具编排](./docs/04-tool-use/03-multi-tool-orchestration.md)
+- [MCP 与工具生态](./docs/04-tool-use/04-mcp-and-tool-ecosystem.md)
+- [MCP 实战](./docs/04-tool-use/05-mcp-in-practice.md)
+
+## 05 Agent 循环
+
+Agent 的核心循环怎么工作？
+
+**模式与原理**：
+
+- [Agent vs Chatbot vs Workflow](./docs/05-agent-loop/01-agent-vs-chatbot-workflow.md)
+- [Agent 核心循环](./docs/05-agent-loop/02-agent-core-loop.md)
+- [Agent 设计模式概览](./docs/05-agent-loop/03-agent-patterns-overview.md)
+- [ReAct 模式](./docs/05-agent-loop/04-react-pattern.md)
+- [Plan-and-Execute 模式](./docs/05-agent-loop/05-plan-and-execute.md)
+- [Reflexion 及其他模式](./docs/05-agent-loop/06-reflexion-and-other-patterns.md)
+- [停止条件](./docs/05-agent-loop/07-stop-conditions.md)
+
+**动手实现**：
+
+- [从零构建最小 Agent](./docs/05-agent-loop/08-minimal-agent.md)
+
+## 06 上下文工程
+
+怎么高效管理 Agent 的上下文窗口？
+
+- [上下文窗口瓶颈](./docs/06-context-engineering/01-context-window-bottleneck.md)
+- [上下文压缩](./docs/06-context-engineering/02-context-compression.md)
+- [Token 预算与成本](./docs/06-context-engineering/03-token-budget-cost.md)
+- [上下文卸载与隔离](./docs/06-context-engineering/04-context-offloading-isolation.md)
+- [上下文故障模式](./docs/06-context-engineering/05-context-failure-patterns.md)
+
+## 07 知识检索（RAG）
+
+怎么让 Agent 基于外部知识回答？
+
+- [RAG 全景概述](./docs/07-rag-pipeline/01-rag-overview.md)
+- [分块与 Embedding](./docs/07-rag-pipeline/02-chunking-embedding.md)
+- [检索与重排序](./docs/07-rag-pipeline/03-retrieval-reranking.md)
+- [评估与优化](./docs/07-rag-pipeline/04-evaluation-optimization.md)
+- [动手搭建 RAG 系统](./docs/07-rag-pipeline/05-build-rag-system.md)
+- [GraphRAG](./docs/07-rag-pipeline/06-graphrag.md)
+
+## 08 记忆管理
+
+Agent 怎么记住之前发生的事？
+
+- [记忆分层架构](./docs/08-memory-management/01-memory-layers.md)
+- [记忆存储与检索](./docs/08-memory-management/02-memory-storage-retrieval.md)
+- [跨会话记忆](./docs/08-memory-management/03-cross-session-memory.md)
+- [记忆框架对比](./docs/08-memory-management/04-memory-frameworks.md)
+- [记忆框架实战](./docs/08-memory-management/05-frameworks-hands-on.md)
+
+## 09 框架与编排
+
+怎么用框架管理复杂 Agent？
+
+- [框架全景与选型](./docs/09-framework/01-framework-overview.md)
+- [LangChain](./docs/09-framework/02-langchain.md)
+- [LangGraph（上）](./docs/09-framework/03-langgraph-1.md)
+- [LangGraph（下）](./docs/09-framework/04-langgraph-2.md)
+- [CrewAI](./docs/09-framework/05-crewai.md)
+- [Dify](./docs/09-framework/06-dify.md)
+- [OpenAI SDK 与 Google ADK](./docs/09-framework/07-openai-sdk-google-adk.md)
+
+## 10 扩展协议
+
+MCP / A2A / AGENTS.md 是什么？
+
+- [协议全景](./docs/10-protocols/01-protocol-landscape.md)
+- [MCP 深入解析](./docs/10-protocols/02-mcp-in-depth.md)
+- [A2A 与未来协议](./docs/10-protocols/03-a2a-and-beyond.md)
+- [A2A 实战](./docs/10-protocols/04-a2a-in-practice.md)
+- [轻量级约定](./docs/10-protocols/05-lightweight-conventions.md)
+- [协议组合](./docs/10-protocols/06-protocol-composition.md)
+
+## 11 多 Agent 协作
+
+多个 Agent 怎么协作完成复杂任务？
+
+- [架构模式](./docs/11-multi-agent/01-architecture-patterns.md)
+- [角色设计](./docs/11-multi-agent/02-role-design.md)
+- [CrewAI 研究团队实战](./docs/11-multi-agent/03-crewai-research-team.md)
+- [LangGraph 多 Agent 工作流](./docs/11-multi-agent/04-langgraph-workflow.md)
+- [设计权衡](./docs/11-multi-agent/05-design-tradeoffs.md)
+
+## 12 评测
+
+怎么知道 Agent 好不好？
+
+- [评测体系设计](./docs/12-eval/01-evaluation-system.md)
+- [确定性评测](./docs/12-eval/02-deterministic-evaluation.md)
+- [LLM-as-Judge](./docs/12-eval/03-llm-as-judge.md)
+- [评测驱动开发](./docs/12-eval/04-eval-driven-development.md)
+- [生产环境评测](./docs/12-eval/05-production-evaluation.md)
+
+## 13 可观测
+
+怎么追踪 Agent 的行为和成本？
+
+- [可观测原则](./docs/13-observability/01-observability-principles.md)
+- [Tracing 实现](./docs/13-observability/02-tracing-implementation.md)
+- [性能分析](./docs/13-observability/03-performance-analysis.md)
+- [成本优化](./docs/13-observability/04-cost-optimization.md)
+- [生产监控](./docs/13-observability/05-production-monitoring.md)
+
+## 14 安全与治理
+
+怎么防止 Agent 越权和失控？
+
+- [Prompt 注入攻击](./docs/14-safety/01-prompt-injection.md)
+- [权限控制与沙箱](./docs/14-safety/02-access-control-and-sandbox.md)
+- [输出过滤与人机协作](./docs/14-safety/03-output-and-human-in-loop.md)
+- [安全实施指南](./docs/14-safety/04-security-implementation.md)
+
+## 15 产品交付
+
+怎么把 Agent 部署上线？
+
+- [系统架构设计](./docs/15-ship-to-prod/01-architecture.md)
+- [API 服务设计](./docs/15-ship-to-prod/02-api-service.md)
+- [部署方案](./docs/15-ship-to-prod/03-deployment.md)
+- [运维实践](./docs/15-ship-to-prod/04-operations.md)
 
 ---
 
+## 致谢
 
+知识体系参考 [Anthropic Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)、[OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)、[LangGraph Documentation](https://langchain-ai.github.io/langgraph/) 等权威资料，各篇文章末尾附有完整参考链接。
+
+## License
+
+[MIT](LICENSE)

@@ -14,7 +14,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在[全景概览](./01-mainstream-agents.md)中你看到了个人助理这个品类。Hermes Agent 是 Nous Research 开发的开源产品（2026 年 2 月发布），和 OpenClaw 定位类似但有一个关键差异：**它会自己成长**。
+你好，我是江小湖。在[全景概览](./02-mainstream-agents.md)中你看到了个人助理这个品类。Hermes Agent 是 Nous Research 开发的开源产品（2026 年 2 月发布），和 OpenClaw 定位类似但有一个关键差异：**它会自己成长**。
 
 ## Hermes Agent 是什么
 

@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="520" rx="16" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="20" font-weight="700" fill="#1E293B">AI Agent 系统化学习路径</text>
+  <text x="500" y="62" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="13" fill="#64748B">15 章 · 91 篇 · 从认知到上线的 5 个阶段</text>
+
+  <!-- ===== Stage Cards ===== -->
+
+  <!-- Stage 1: 认知建立 -->
+  <g transform="translate(32, 90)">
+    <rect width="170" height="160" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="170" height="36" rx="10" fill="#3B82F6"/>
+    <rect y="26" width="170" height="10" fill="#3B82F6"/>
+    <text x="85" y="24" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="white">STAGE 1</text>
+    <text x="85" y="58" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#1E293B">认知建立</text>
+    <text x="85" y="78" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#3B82F6">Ch.00 – 01</text>
+    <line x1="25" y1="88" x2="145" y2="88" stroke="#CBD5E1" stroke-width="0.5"/>
+    <text x="85" y="108" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">Agent 核心概念</text>
+    <text x="85" y="128" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">LLM 工作原理</text>
+    <text x="85" y="148" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="11" fill="#94A3B8">13 篇</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <line x1="207" y1="170" x2="225" y2="170" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: 基础技能 -->
+  <g transform="translate(228, 90)">
+    <rect width="170" height="160" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="170" height="36" rx="10" fill="#3B82F6"/>
+    <rect y="26" width="170" height="10" fill="#3B82F6"/>
+    <text x="85" y="24" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="white">STAGE 2</text>
+    <text x="85" y="58" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#1E293B">基础技能</text>
+    <text x="85" y="78" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#3B82F6">Ch.02 – 04</text>
+    <line x1="25" y1="88" x2="145" y2="88" stroke="#CBD5E1" stroke-width="0.5"/>
+    <text x="85" y="108" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">模型接入与选型</text>
+    <text x="85" y="128" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">Prompt · 工具调用</text>
+    <text x="85" y="148" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="11" fill="#94A3B8">18 篇</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <line x1="403" y1="170" x2="421" y2="170" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: 核心开发 -->
+  <g transform="translate(424, 90)">
+    <rect width="170" height="160" rx="10" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="170" height="36" rx="10" fill="#F59E0B"/>
+    <rect y="26" width="170" height="10" fill="#F59E0B"/>
+    <text x="85" y="24" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="white">STAGE 3</text>
+    <text x="85" y="58" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#1E293B">核心开发</text>
+    <text x="85" y="78" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#D97706">Ch.05 – 08</text>
+    <line x1="25" y1="88" x2="145" y2="88" stroke="#CBD5E1" stroke-width="0.5"/>
+    <text x="85" y="108" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">Agent 循环 · RAG</text>
+    <text x="85" y="128" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">记忆 · 上下文工程</text>
+    <text x="85" y="148" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="11" fill="#94A3B8">24 篇</text>
+  </g>
+
+  <!-- Arrow 3→4 -->
+  <line x1="599" y1="170" x2="617" y2="170" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: 进阶架构 -->
+  <g transform="translate(620, 90)">
+    <rect width="170" height="160" rx="10" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="170" height="36" rx="10" fill="#F59E0B"/>
+    <rect y="26" width="170" height="10" fill="#F59E0B"/>
+    <text x="85" y="24" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="white">STAGE 4</text>
+    <text x="85" y="58" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#1E293B">进阶架构</text>
+    <text x="85" y="78" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#D97706">Ch.09 – 11</text>
+    <line x1="25" y1="88" x2="145" y2="88" stroke="#CBD5E1" stroke-width="0.5"/>
+    <text x="85" y="108" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">LangGraph · MCP</text>
+    <text x="85" y="128" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">多 Agent 协作</text>
+    <text x="85" y="148" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="11" fill="#94A3B8">18 篇</text>
+  </g>
+
+  <!-- Arrow 4→5 -->
+  <line x1="795" y1="170" x2="813" y2="170" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 5: 工程交付 -->
+  <g transform="translate(816, 90)">
+    <rect width="152" height="160" rx="10" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="152" height="36" rx="10" fill="#22C55E"/>
+    <rect y="26" width="152" height="10" fill="#22C55E"/>
+    <text x="76" y="24" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="white">STAGE 5</text>
+    <text x="76" y="58" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#1E293B">工程交付</text>
+    <text x="76" y="78" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#16A34A">Ch.12 – 15</text>
+    <line x1="20" y1="88" x2="132" y2="88" stroke="#CBD5E1" stroke-width="0.5"/>
+    <text x="76" y="108" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">评测 · 可观测</text>
+    <text x="76" y="128" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">安全 · 部署上线</text>
+    <text x="76" y="148" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="11" fill="#94A3B8">18 篇</text>
+  </g>
+
+  <!-- ===== Bottom Section: Agent Loop ===== -->
+  <line x1="40" y1="280" x2="960" y2="280" stroke="#E2E8F0" stroke-width="1"/>
+
+  <text x="500" y="310" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="16" font-weight="700" fill="#1E293B">Agent 的核心：感知 → 推理 → 行动 → 反馈</text>
+
+  <!-- Loop cycle -->
+  <g transform="translate(500, 410)">
+    <!-- Circle background -->
+    <circle cx="0" cy="0" r="72" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- 4 nodes on circle -->
+    <!-- Top: 感知 -->
+    <circle cx="0" cy="-68" r="28" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="0" y="-64" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" font-weight="600" fill="#1E40AF">感知</text>
+    <text x="0" y="-48" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#64748B">Perceive</text>
+
+    <!-- Right: 推理 -->
+    <circle cx="68" cy="0" r="28" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="68" y="4" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" font-weight="600" fill="#B45309">推理</text>
+    <text x="68" y="18" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#64748B">Reason</text>
+
+    <!-- Bottom: 行动 -->
+    <circle cx="0" cy="68" r="28" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+    <text x="0" y="72" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" font-weight="600" fill="#15803D">行动</text>
+    <text x="0" y="86" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#64748B">Act</text>
+
+    <!-- Left: 反馈 -->
+    <circle cx="-68" cy="0" r="28" fill="#FFF7ED" stroke="#FB923C" stroke-width="1.5"/>
+    <text x="-68" y="4" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" font-weight="600" fill="#C2410C">反馈</text>
+    <text x="-68" y="18" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#64748B">Observe</text>
+
+    <!-- Arrows between nodes (curved) -->
+    <!-- Top→Right -->
+    <path d="M 22,-56 Q 56,-56 56,-22" fill="none" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <!-- Right→Bottom -->
+    <path d="M 56,22 Q 56,56 22,56" fill="none" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <!-- Bottom→Left -->
+    <path d="M -22,56 Q -56,56 -56,22" fill="none" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <!-- Left→Top -->
+    <path d="M -56,-22 Q -56,-56 -22,-56" fill="none" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Side labels for loop -->
+  <text x="640" y="360" font-family="PingFang SC, sans-serif" font-size="12" fill="#64748B">每一轮循环，Agent 都在：</text>
+  <text x="640" y="385" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">1. 读取用户输入和环境状态</text>
+  <text x="640" y="405" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">2. 用 LLM 推理下一步动作</text>
+  <text x="640" y="425" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">3. 调用工具执行具体操作</text>
+  <text x="640" y="445" font-family="PingFang SC, sans-serif" font-size="12" fill="#475569">4. 观察结果，决定继续还是停止</text>
+
+  <!-- Footer -->
+  <text x="500" y="505" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" fill="#94A3B8">LearnAgent · AI Agent 系统化学习指南</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="20" font-weight="bold" fill="#1E293B">AI Agent 系统化学习路径</text>
+
+  <!-- Phase 1: 认知建立 -->
+  <rect x="30" y="70" width="140" height="180" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="70" width="140" height="32" rx="10" fill="#3B82F6"/>
+  <rect x="30" y="92" width="140" height="10" fill="#3B82F6"/>
+  <text x="100" y="92" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="13" font-weight="bold" fill="white">认知建立</text>
+  <text x="100" y="120" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">00 生态认知</text>
+  <text x="100" y="142" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">01 LLM 基础</text>
+  <line x1="55" y1="160" x2="145" y2="160" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="100" y="178" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">建立全景认知</text>
+  <text x="100" y="195" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">理解 LLM 原理</text>
+  <text x="100" y="235" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="10" fill="#3B82F6">2 章 · 15 篇</text>
+
+  <!-- Arrow 1→2 -->
+  <path d="M175 160 L195 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 2: 基础技能 -->
+  <rect x="200" y="70" width="140" height="180" rx="10" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="200" y="70" width="140" height="32" rx="10" fill="#F59E0B"/>
+  <rect x="200" y="92" width="140" height="10" fill="#F59E0B"/>
+  <text x="270" y="92" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="13" font-weight="bold" fill="white">基础技能</text>
+  <text x="270" y="120" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">02 模型接入</text>
+  <text x="270" y="142" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">03 Prompt 工程</text>
+  <text x="270" y="164" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">04 工具调用</text>
+  <line x1="225" y1="180" x2="315" y2="180" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="270" y="198" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">调通模型 API</text>
+  <text x="270" y="215" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">精确控制输出</text>
+  <text x="270" y="235" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="10" fill="#F59E0B">3 章 · 18 篇</text>
+
+  <!-- Arrow 2→3 -->
+  <path d="M345 160 L365 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 3: 核心开发 -->
+  <rect x="370" y="70" width="140" height="180" rx="10" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="370" y="70" width="140" height="32" rx="10" fill="#22C55E"/>
+  <rect x="370" y="92" width="140" height="10" fill="#22C55E"/>
+  <text x="440" y="92" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="13" font-weight="bold" fill="white">核心开发</text>
+  <text x="440" y="120" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">05 Agent 循环</text>
+  <text x="440" y="142" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">06 记忆管理</text>
+  <text x="440" y="164" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">07 知识检索</text>
+  <text x="440" y="186" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">08 上下文工程</text>
+  <line x1="395" y1="200" x2="485" y2="200" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="440" y="218" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">从零构建 Agent</text>
+  <text x="440" y="235" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="10" fill="#22C55E">4 章 · 25 篇</text>
+
+  <!-- Arrow 3→4 -->
+  <path d="M515 160 L535 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 4: 进阶架构 -->
+  <rect x="540" y="70" width="140" height="180" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="540" y="70" width="140" height="32" rx="10" fill="#3B82F6"/>
+  <rect x="540" y="92" width="140" height="10" fill="#3B82F6"/>
+  <text x="610" y="92" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="13" font-weight="bold" fill="white">进阶架构</text>
+  <text x="610" y="120" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">09 框架与编排</text>
+  <text x="610" y="142" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">10 扩展协议</text>
+  <text x="610" y="164" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#475569">11 多 Agent 协作</text>
+  <line x1="565" y1="180" x2="655" y2="180" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="610" y="198" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">框架化管理</text>
+  <text x="610" y="215" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">MCP/A2A 协议</text>
+  <text x="610" y="235" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="10" fill="#3B82F6">3 章 · 18 篇</text>
+
+  <!-- Arrow 4→5 -->
+  <path d="M685 160 L705 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 5: 工程交付 -->
+  <rect x="710" y="70" width="70" height="180" rx="10" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="710" y="70" width="70" height="32" rx="10" fill="#F59E0B"/>
+  <rect x="710" y="92" width="70" height="10" fill="#F59E0B"/>
+  <text x="745" y="92" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="12" font-weight="bold" fill="white">交付</text>
+  <text x="745" y="118" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#475569">12 评测</text>
+  <text x="745" y="138" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#475569">13 安全</text>
+  <text x="745" y="158" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#475569">14 上线</text>
+  <text x="745" y="235" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="10" fill="#F59E0B">3 章 · 30 篇</text>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- Bottom section: Key concepts -->
+  <rect x="30" y="280" width="750" height="110" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="400" y="305" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="14" font-weight="bold" fill="#1E293B">三种 AI 应用形态</text>
+
+  <!-- Chatbot -->
+  <rect x="60" y="320" width="180" height="50" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="150" y="340" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="12" font-weight="bold" fill="#475569">Chatbot</text>
+  <text x="150" y="358" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">回答问题 · 无工具 · 无循环</text>
+
+  <!-- Arrow -->
+  <path d="M248 345 L288 345" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Workflow -->
+  <rect x="296" y="320" width="180" height="50" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="386" y="340" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="12" font-weight="bold" fill="#475569">Workflow</text>
+  <text x="386" y="358" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#94A3B8">执行流程 · 预设步骤 · 固定节点</text>
+
+  <!-- Arrow -->
+  <path d="M484 345 L524 345" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Agent (highlighted) -->
+  <rect x="532" y="316" width="220" height="58" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <text x="642" y="340" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="13" font-weight="bold" fill="#3B82F6">Agent</text>
+  <text x="642" y="358" text-anchor="middle" font-family="PingFang SC" font-size="10" fill="#3B82F6">解决问题 · 自主决策 · 动态循环</text>
+
+  <!-- Bottom: Core formula -->
+  <rect x="30" y="410" width="750" height="90" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="400" y="435" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="14" font-weight="bold" fill="#1E293B">Agent 核心机制</text>
+
+  <!-- Loop diagram: simplified -->
+  <rect x="120" y="450" width="80" height="35" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+  <text x="160" y="472" text-anchor="middle" font-family="PingFang SC" font-size="12" fill="#1E40AF">感知</text>
+
+  <path d="M205 467 L245 467" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#blueArrow)"/>
+
+  <rect x="253" y="450" width="80" height="35" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="293" y="472" text-anchor="middle" font-family="PingFang SC" font-size="12" fill="#92400E">推理</text>
+
+  <path d="M338 467 L378 467" stroke="#F59E0B" stroke-width="1.5" marker-end="url(#amberArrow)"/>
+
+  <rect x="386" y="450" width="80" height="35" rx="6" fill="#DCFCE7" stroke="#22C55E" stroke-width="1"/>
+  <text x="426" y="472" text-anchor="middle" font-family="PingFang SC" font-size="12" fill="#166534">行动</text>
+
+  <path d="M471 467 L511 467" stroke="#22C55E" stroke-width="1.5" marker-end="url(#greenArrow)"/>
+
+  <rect x="519" y="450" width="80" height="35" rx="6" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1"/>
+  <text x="559" y="472" text-anchor="middle" font-family="PingFang SC" font-size="12" fill="#475569">反馈</text>
+
+  <!-- Loop back arrow -->
+  <path d="M559 488 L559 498 L160 498 L160 488" stroke="#94A3B8" stroke-width="1.5" fill="none" marker-end="url(#grayArrow)"/>
+  <text x="360" y="512" text-anchor="middle" font-family="Segoe UI, PingFang SC" font-size="10" fill="#94A3B8">Agent Loop：持续循环直到任务完成</text>
+
+  <!-- More arrow markers -->
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#3B82F6"/>
+    </marker>
+    <marker id="amberArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#F59E0B"/>
+    </marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22C55E"/>
+    </marker>
+    <marker id="grayArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+</svg>

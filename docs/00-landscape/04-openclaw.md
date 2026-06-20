@@ -14,7 +14,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在[全景概览](./01-mainstream-agents.md)中你看到了个人助理这个品类。OpenClaw 是这个品类的代表——379K Stars，AI 开源项目第一。
+你好，我是江小湖。在[全景概览](./02-mainstream-agents.md)中你看到了个人助理这个品类。OpenClaw 是这个品类的代表——379K Stars，AI 开源项目第一。
 
 ## OpenClaw 是什么
 
@@ -138,7 +138,7 @@ openclaw gateway start
 - ClawHub Skills 生态（2300+）让它通过自然语言即可扩展
 - 数据完全在本地，不依赖云服务
 
-> 个人助理的另一个选择——[Hermes Agent 开源 Agent](./04-hermes-agent.md)，在模型自由度和编码编排上各有侧重。
+> 个人助理的另一个选择——[Hermes Agent 开源 Agent](./05-hermes-agent.md)，在模型自由度和编码编排上各有侧重。
 
 ## 参考链接
 

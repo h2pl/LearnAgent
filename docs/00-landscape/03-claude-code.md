@@ -15,7 +15,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。在[全景概览](./01-mainstream-agents.md)中你看到了编程 Agent 这个品类。Claude Code 是目前这个品类里关注度最高的产品——它定义了"编程 Agent 应该是什么样"。
+你好，我是江小湖。在[全景概览](./02-mainstream-agents.md)中你看到了编程 Agent 这个品类。Claude Code 是目前这个品类里关注度最高的产品——它定义了"编程 Agent 应该是什么样"。
 
 ## Claude Code 是什么
 
@@ -164,7 +164,7 @@ claude
 - 和 Cursor、Devin 定位互补——终端党用 Claude Code，IDE 党用 Cursor，后台任务用 Devin
 - CLAUDE.md 是每个项目应该创建的第一个文件
 
-> 编程 Agent 只是生态的一部分。接下来看看个人 AI 助理——[OpenClaw 个人助理](./03-openclaw.md)。
+> 编程 Agent 只是生态的一部分。接下来看看个人 AI 助理——[OpenClaw 个人助理](./04-openclaw.md)。
 
 ## 参考链接
 
