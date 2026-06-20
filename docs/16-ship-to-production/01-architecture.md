@@ -37,7 +37,7 @@
 **下层不依赖上层。** 能力层不知道编排层的存在，编排层不知道用户界面层的存在。这种分离让你可以在不触及下层的情况下替换上层组件。
 
 <p align="center">
-  <img src="../../assets/16-ship-to-prod/system-architecture-layers.svg" alt="四层架构数据流图" width="90%"/>
+  <img src="../../assets/16-ship-to-production/system-architecture-layers.svg" alt="四层架构数据流图" width="90%"/>
   <br/><em>图：Agent 系统四层架构与层间数据流</em>
 </p>
 
@@ -121,7 +121,7 @@ class AgentEngine:
 **步数上限**。`max_steps` 是安全阀。Agent 可能在某个状态卡住反复循环，步数上限确保它不会无限运行。
 
 <p align="center">
-  <img src="../../assets/16-ship-to-prod/agent-engine-internals.svg" alt="Agent 引擎内部结构图" width="90%"/>
+  <img src="../../assets/16-ship-to-production/agent-engine-internals.svg" alt="Agent 引擎内部结构图" width="90%"/>
   <br/><em>图：Agent 引擎内部结构——Orchestrator 编排六大模块</em>
 </p>
 

@@ -191,7 +191,7 @@ HPA 基于 CPU/内存使用率自动扩缩。Agent 引擎是 CPU 密集型（LLM
 Agent 引擎本身无状态，用 Deployment + HPA 即可。有状态组件（Redis、PostgreSQL）用 StatefulSet。
 
 <p align="center">
-  <img src="../../assets/16-ship-to-prod/deployment-topology.svg" alt="部署拓扑图" width="90%"/>
+  <img src="../../assets/16-ship-to-production/deployment-topology.svg" alt="部署拓扑图" width="90%"/>
   <br/><em>图：负载均衡→多实例→基础设施→外部API 完整拓扑</em>
 </p>
 
@@ -288,7 +288,7 @@ def should_block(new_tsr: float, baseline_tsr: float, threshold: float = 0.02) -
 这样单次评测的波动不会误阻断，但持续下降肯定被抓住。
 
 <p align="center">
-  <img src="../../assets/16-ship-to-prod/ci-cd-pipeline.svg" alt="CI/CD 流水线图" width="90%"/>
+  <img src="../../assets/16-ship-to-production/ci-cd-pipeline.svg" alt="CI/CD 流水线图" width="90%"/>
   <br/><em>图：从代码提交到流量切换——九阶段 + 三道门禁 + 回滚路径</em>
 </p>
 

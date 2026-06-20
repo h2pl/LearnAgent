@@ -23,7 +23,7 @@
 评测驱动开发 (Eval-Driven Development) 的核心思想是：**在修改 Agent 行为之前，先定义"什么是好的"**。
 
 <p align="center">
-  <img src="../../assets/13-eval/edd-workflow.svg" alt="EDD 工作流" width="95%"/>
+  <img src="../../assets/13-evaluation/edd-workflow.svg" alt="EDD 工作流" width="95%"/>
 </p>
 
 传统开发模式：
@@ -171,7 +171,7 @@ Scenario: 已发货订单取消
 ```
 
 <p align="center">
-  <img src="../../assets/13-eval/cicd-eval-gates.svg" alt="CI/CD 评测门禁设计：从 PR 提交到生产评测的分级门禁流程" width="95%"/>
+  <img src="../../assets/13-evaluation/cicd-eval-gates.svg" alt="CI/CD 评测门禁设计：从 PR 提交到生产评测的分级门禁流程" width="95%"/>
 </p>
 
 ### 门禁阈值设置

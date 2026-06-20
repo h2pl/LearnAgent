@@ -24,7 +24,7 @@
 ## 离线评测 vs 在线评测
 
 <p align="center">
-  <img src="../../assets/13-eval/offline-online-loop.svg" alt="离线评测与在线评测闭环" width="95%"/>
+  <img src="../../assets/13-evaluation/offline-online-loop.svg" alt="离线评测与在线评测闭环" width="95%"/>
 </p>
 
 | 维度 | 离线评测 | 在线评测 |
@@ -226,7 +226,7 @@ Trace: req_abc123
 这样评测集才能"保鲜"——始终保持对真实场景的覆盖。
 
 <p align="center">
-  <img src="../../assets/13-eval/production-eval-loop.svg" alt="生产环境评测闭环：离线评测与在线评测的数据打通与持续优化" width="95%"/>
+  <img src="../../assets/13-evaluation/production-eval-loop.svg" alt="生产环境评测闭环：离线评测与在线评测的数据打通与持续优化" width="95%"/>
 </p>
 
 ## 生产评测的落地路径

@@ -12,4 +12,4 @@
 | 04 | [LangGraph 实战：工作流编排](./04-langgraph-workflow.md) | 状态图驱动的多 Agent 协作，断点恢复与人机协作 |
 | 05 | [多 Agent 系统设计权衡](./05-design-tradeoffs.md) | 什么时候该拆、通信成本、错误传播、可观测性、演进路线 |
 
-> 学完本章后，请继续阅读 [13 — 评测](../13-eval/README.md)，学习如何评估你的 Agent 系统质量。
+> 学完本章后，请继续阅读 [13 — 评测](../13-evaluation/README.md)，学习如何评估你的 Agent 系统质量。

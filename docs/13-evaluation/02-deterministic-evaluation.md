@@ -50,7 +50,7 @@ Agent 输出
 ```
 
 <p align="center">
-  <img src="../../assets/13-eval/deterministic-eval-pipeline.svg" alt="确定性评测流水线：从代码检查到 LLM 评分的四层过滤机制" width="95%"/>
+  <img src="../../assets/13-evaluation/deterministic-eval-pipeline.svg" alt="确定性评测流水线：从代码检查到 LLM 评分的四层过滤机制" width="95%"/>
 </p>
 
 ## 代码检查
@@ -295,7 +295,7 @@ Agent 执行完成
 当需要为一个评测指标选择评测方法时，按以下顺序判断：
 
 <p align="center">
-  <img src="../../assets/13-eval/deterministic-decision-tree.svg" alt="评测方法选型决策树" width="95%"/>
+  <img src="../../assets/13-evaluation/deterministic-decision-tree.svg" alt="评测方法选型决策树" width="95%"/>
 </p>
 
 ### 各方法的投入产出

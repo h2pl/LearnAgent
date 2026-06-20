@@ -28,7 +28,7 @@ LLM 收到 Prompt 后做的事情很简单：根据这段文字，**预测最可
 实际发生的：  [system + user messages]     →   逐 Token 概率续写
 ```
 
-**Prompt 工程的本质：通过精心设计输入，引导 LLM 的概率分布朝你想要的方向偏移。** 不是"求"模型做好，而是给它足够的信号，让它"不得不"做好。你在 API 调用中设置的 `temperature`、`max_tokens` 等参数（详见[关键参数与调优](../03-model-access/02-key-parameters.md)）控制的是生成过程的随机性和长度，而 Prompt 控制的是**内容方向**——两者配合使用，才能精确控制输出。
+**Prompt 工程的本质：通过精心设计输入，引导 LLM 的概率分布朝你想要的方向偏移。** 不是"求"模型做好，而是给它足够的信号，让它"不得不"做好。你在 API 调用中设置的 `temperature`、`max_tokens` 等参数（详见[关键参数与调优](../03-model-access/02-key-parameters-and-tuning.md)）控制的是生成过程的随机性和长度，而 Prompt 控制的是**内容方向**——两者配合使用，才能精确控制输出。
 
 ## 三种消息角色
 

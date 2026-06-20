@@ -35,7 +35,7 @@ WebSocket: 建立连接 → 双向实时通信 → 随时中断
 大多数 Agent 系统从 REST + SSE 开始。WebSocket 在需要双向推送时引入。
 
 <p align="center">
-  <img src="../../assets/16-ship-to-prod/api-design-patterns.svg" alt="API设计模式对比" width="90%"/>
+  <img src="../../assets/16-ship-to-production/api-design-patterns.svg" alt="API设计模式对比" width="90%"/>
   <br/><em>图：三种 API 协议的通信模式、特性对比与适用场景</em>
 </p>
 
@@ -164,7 +164,7 @@ async def health():
 健康检查是负载均衡器和编排平台用来判断实例是否可用的依据。**健康检查不要检查所有依赖**——如果 LLM API 挂了但 Agent 还能返回缓存结果，这个实例应该仍然接收流量。健康检查只检查"该实例是否能处理请求"（Redis 连接、数据库连接），不检查"外部依赖是否可用"（那由监控系统负责）。
 
 <p align="center">
-  <img src="../../assets/16-ship-to-prod/request-lifecycle.svg" alt="Agent 请求完整生命周期" width="90%"/>
+  <img src="../../assets/16-ship-to-production/request-lifecycle.svg" alt="Agent 请求完整生命周期" width="90%"/>
   <br/><em>图：从接收请求到日志记录——七阶段的完整链路</em>
 </p>
 

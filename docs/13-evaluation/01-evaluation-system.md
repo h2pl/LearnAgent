@@ -45,7 +45,7 @@
 ## 三层评测体系
 
 <p align="center">
-  <img src="../../assets/13-eval/eval-three-layers.svg" alt="三层评测体系" width="95%"/>
+  <img src="../../assets/13-evaluation/eval-three-layers.svg" alt="三层评测体系" width="95%"/>
 </p>
 
 评测应该分层进行，**每层解决不同的问题**：
@@ -63,7 +63,7 @@
 业界评测不是只用 LLM-as-Judge，而是**多范式组合**。从最确定到最灵活，评测方法可以分为五类：
 
 <p align="center">
-  <img src="../../assets/13-eval/eval-method-spectrum.svg" alt="评测方法谱系" width="95%"/>
+  <img src="../../assets/13-evaluation/eval-method-spectrum.svg" alt="评测方法谱系" width="95%"/>
 </p>
 
 | 方法 | 原理 | 速度 | 可靠性 | 适用场景 | 代表实践 |
