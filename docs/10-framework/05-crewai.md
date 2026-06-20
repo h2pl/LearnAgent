@@ -345,7 +345,7 @@ print(result)
 - **与 LangGraph 的关系**：CrewAI 管"谁做什么"，LangGraph 管"怎么流转"，可以组合使用
 - **适合场景**：多角色协作、流水线式工作流、快速原型
 
-> 本章介绍了 Agent 框架的选型和使用。接下来请阅读 [10 — 扩展协议与标准](../11-protocols/README.md)，了解 Agent 生态的连接标准。
+> 本章介绍了 Agent 框架的选型和使用。接下来请阅读 [11 — 扩展协议](../11-protocols/README.md)，了解 Agent 生态的连接标准。
 
 ## 参考链接
 

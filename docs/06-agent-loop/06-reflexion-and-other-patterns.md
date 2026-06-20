@@ -246,7 +246,7 @@ E3 = Tool[args3]
 - 其他变体：ToT（思维树）、BoT（思维模板）、Voyager（持续学习）等
 - **选型原则**：从最简单的 ReAct 起步，按需加复杂度
 
-> 至此你已经掌握了 Agent 循环的所有主流范式。下一章 [06 — 上下文工程](../07-context-engineering/README.md) 会带你理解 Agent 最核心的瓶颈：上下文窗口有限，信息无限。
+> 至此你已经掌握了 Agent 循环的所有主流范式。下一章 [07 — 上下文工程](../07-context-engineering/README.md) 会带你理解 Agent 最核心的瓶颈：上下文窗口有限，信息无限。
 
 ## 参考链接
 

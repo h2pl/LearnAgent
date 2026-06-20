@@ -313,7 +313,7 @@ await cognee.cognify()  触发以下流水线：
 - **Cognee 是 Python 生态的最佳入口**：`add()` → `cognify()` → `search()`，三步完成 GraphRAG。
 - **GraphRAG 和朴素 RAG 不是替代关系**：80% 的场景朴素 RAG 够用，剩下的 20% 需要因果推理时才用到 GraphRAG。
 
-> RAG 的旅程到这里就完结了。你学会了从朴素 RAG 到 GraphRAG 的完整知识图谱。但外部知识只是信息源的一半——Agent 还需要记住自己的经历。进入 [08 — 记忆管理](../09-memory-management/README.md)，学怎么把对话历史、用户偏好、错误教训变成持久记忆。
+> RAG 的旅程到这里就完结了。你学会了从朴素 RAG 到 GraphRAG 的完整知识图谱。但外部知识只是信息源的一半——Agent 还需要记住自己的经历。进入 [09 — 记忆管理](../09-memory-management/README.md)，学怎么把对话历史、用户偏好、错误教训变成持久记忆。
 
 ## 参考链接
 

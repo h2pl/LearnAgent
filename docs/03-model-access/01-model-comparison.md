@@ -15,7 +15,7 @@
 
 你好，我是江小湖。[认识大语言模型（LLM）](../02-llm-basics/01-llm-overview.md) 一章帮你搞懂了 LLM 能做什么、局限在哪。现在面对第一个工程决策：模型这么多，到底该选哪个？
 
-在 [01 — LLM 基础](../02-llm-basics/README.md) 中，你已经了解了 LLM 的本质、Token 与 Embedding 的工作原理、Transformer 架构、以及模型从预训练到 RLHF 的完整训练流程。现在该动手了：面对市面上这么多模型，怎么选、怎么调、怎么用好。
+在 [02 — LLM 基础](../02-llm-basics/README.md) 中，你已经了解了 LLM 的本质、Token 与 Embedding 的工作原理、Transformer 架构、以及模型从预训练到 RLHF 的完整训练流程。现在该动手了：面对市面上这么多模型，怎么选、怎么调、怎么用好。
 
 在 Agent 开发中，"选哪个模型"是一个纯粹的工程决策，而不是技术信仰。选型有两个层面：**跨厂商选哪家**（Anthropic vs OpenAI vs 国产），以及**同厂商内选哪个型号**（Haiku vs Sonnet vs Opus）。本文覆盖这两个层面，再加上上下文窗口这个关键维度。
 

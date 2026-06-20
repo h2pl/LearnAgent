@@ -398,7 +398,7 @@ python github_issue_server.py
 - **远程部署用 Streamable HTTP**：`mcp.run(transport="sse")` 一行切换，但需要 HTTPS + 认证
 - **GitHub Issue 管理器是真实模板**：一个 80 行的 Server 覆盖了完整的工作流
 
-> 恭喜你，工具调用全部掌握。接下来，Agent 怎么知道"什么时候该做什么事"？怎么自主规划多步任务？请继续阅读 [05 — Agent 循环](../06-agent-loop/README.md)，了解 Agent 的核心架构。
+> 恭喜你，工具调用全部掌握。接下来，Agent 怎么知道"什么时候该做什么事"？怎么自主规划多步任务？请继续阅读 [06 — Agent 循环](../06-agent-loop/README.md)，了解 Agent 的核心架构。
 
 ## 参考链接
 

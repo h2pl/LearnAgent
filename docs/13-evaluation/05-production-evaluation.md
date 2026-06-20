@@ -187,7 +187,7 @@ Agent 对这类输入的处理能力可能不足。
 
 ## 评测与可观测性的数据打通
 
-评测和可观测性（参见 [可观测性与监控](../14-observability/01-observability-principles.md)）需要打通数据：
+评测和可观测性（参见 [可观测性与监控](../14-observability/README.md)）需要打通数据：
 
 ### Trace 关联评测结果
 

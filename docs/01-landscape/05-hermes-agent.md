@@ -150,7 +150,7 @@ curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scri
 - 6 种终端后端 + 无服务器支持，部署灵活
 - 和 OpenClaw 定位类似但各有侧重——选型取决于技术栈和平台需求
 
-> 到这里你已经了解了当前主流的 Agent 产品生态。下一章开始进入 Agent 底层原理——[01 — LLM 基础](../../02-llm-basics/README.md)。
+> 到这里你已经了解了当前主流的 Agent 产品生态。下一章开始进入 Agent 底层原理——[02 — LLM 基础](../../02-llm-basics/README.md)。
 
 ## 参考链接
 
