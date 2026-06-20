@@ -89,7 +89,7 @@ LLM 是什么？怎么工作、能做什么、不能做什么？
 - [关键参数与调优](./docs/03-model-access/02-key-parameters.md)
 - [LLM API 调用实战](./docs/03-model-access/03-api-calling.md)
 - [模型变体速查](./docs/03-model-access/04-model-variants-landscape.md)
-- [深度思考与推理能力](./docs/03-model-access/05-reasoning-models.md)
+- [深度思考与推理能力](./docs/03-model-access/05-deep-thinking-and-reasoning.md)
 - [模型本地部署实战](./docs/03-model-access/06-local-deployment.md)
 - [模型微调实战指南](./docs/03-model-access/07-finetuning-guide.md)
 
