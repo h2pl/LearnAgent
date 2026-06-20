@@ -2,7 +2,7 @@
 
 # LearnAgent
 
-## AI Agent 系统化学习指南
+## AI Agent 系统化学习 & 面试指南
 
 ![16 章节](https://img.shields.io/badge/16%20%E7%AB%A0%E8%8A%82-8A2BE2)
 ![91 文章](https://img.shields.io/badge/91%20%E7%AF%87%E6%96%87%E7%AB%A0-00BFFF)
