@@ -1,6 +1,8 @@
-﻿# 10 — 扩展协议
+﻿# 11 — 扩展协议
 
-协议让 Agent 突破单一模型和单一工具的边界，变成可插拔、可互操作的开放系统。
+框架帮你管好一个 Agent 内部的复杂度（上一章），但真实的 Agent 系统不是孤岛——它们需要互相通信、共享工具、跨平台协作。**协议就是让这一切成为可能的基础设施。**
+
+本章六篇文章从全局格局出发：MCP（工具层标准）、A2A（Agent 间通信）、轻量级约定（Skills/AGENTS.md），再到协议组合与选型。学完你就能理解整个 Agent 开放生态的拼图怎么拼。
 
 ## 目录
 
@@ -13,4 +15,4 @@
 | 05 | [轻量级约定：Skills 与 AGENTS.md](./05-lightweight-conventions.md) | Skills 结构化知识包格式、AGENTS.md 能力声明、本项目 skills/ 实践、厂商 Skills 实现对比（Claude Code / Copilot / Cursor） |
 | 06 | [协议组合与选型](./06-protocol-composition.md) | 分层采纳路线图、选型决策树、多协议组合模式（MCP+A2A、MCP+ANP 等）、OAP 全栈方案、MVP→生产演进路径 |
 
-> 学完本章后，请继续阅读 [11 — 多 Agent](../12-multi-agent/README.md)，进入多 Agent 协作的世界。
+> 学完本章后，请继续阅读 [12 — 多 Agent](../12-multi-agent/README.md)，进入多 Agent 协作的世界。

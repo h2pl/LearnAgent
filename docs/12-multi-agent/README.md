@@ -1,4 +1,4 @@
-﻿# 11 — 多 Agent
+﻿# 12 — 多 Agent
 
 [扩展协议](../11-protocols/01-protocol-landscape.md) 一章教会了你 Agent 之间怎么通信（A2A 协议）。本章解决更本质的问题：**系统该怎么拆、角色该怎么分、拆了之后怎么管**。多 Agent 不是技术问题，是架构问题。
 
@@ -12,4 +12,4 @@
 | 04 | [LangGraph 实战：工作流编排](./04-langgraph-workflow.md) | 状态图驱动的多 Agent 协作，断点恢复与人机协作 |
 | 05 | [多 Agent 系统设计权衡](./05-design-tradeoffs.md) | 什么时候该拆、通信成本、错误传播、可观测性、演进路线 |
 
-> 学完本章后，请继续阅读 [12 — 评估与追踪](../13-eval-trace/README.md)，学习如何评估你的 Agent 系统质量。
+> 学完本章后，请继续阅读 [13 — 评测](../13-eval/README.md)，学习如何评估你的 Agent 系统质量。

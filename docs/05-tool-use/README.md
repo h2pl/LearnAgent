@@ -1,6 +1,6 @@
-﻿# 04 — 工具调用
+﻿# 05 — 工具调用
 
-本章在整个体系中位于 [Prompt 工程](../04-prompt-engineering/README.md) 之后，解决 Agent 的"行动力"问题：怎么让 LLM 调用外部函数、API 和数据库，执行真实操作。学完本章，你的 Agent 将拥有与外部世界交互的手。
+本章在整个体系中位于 [Prompt 工程](../04-prompt-engineering/README.md)（上一章） 之后，解决 Agent 的"行动力"问题：怎么让 LLM 调用外部函数、API 和数据库，执行真实操作。学完本章，你的 Agent 将拥有与外部世界交互的手。
 
 ## 目录
 
@@ -12,7 +12,7 @@
 | 04 | [MCP 与工具生态](./04-mcp-and-tool-ecosystem.md) | Model Context Protocol，标准化工具层，2026 生态现状 |
 | 05 | [MCP 实战全流程](./05-mcp-in-practice.md) | 从零搭建 MCP Server，MCP Inspector 调试，客户端配置，远程部署，认证与错误处理 |
 
-> 学完本章后，请继续阅读 [05 — Agent 循环](../06-agent-loop/README.md)，了解 Agent 如何自主规划多步任务。
+> 学完本章后，请继续阅读 [06 — Agent 循环](../06-agent-loop/README.md)，了解 Agent 如何自主规划多步任务。
 
 ## 参考链接
 

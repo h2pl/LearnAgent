@@ -1,6 +1,8 @@
-﻿# 09 — 框架与编排
+﻿# 10 — 框架与编排
 
-用框架管理 Agent 的复杂性，把 demo 变成可靠系统。
+有了认知基础设施（循环、上下文、RAG、记忆），下一步是把这些能力**落地成可靠的产品级系统**。框架解决的就是这个"从 demo 到产品"的鸿沟。
+
+本章覆盖七篇内容：先通过 [框架全景与选型](./01-framework-overview.md) 建立决策框架，再逐个深入 LangChain（组件生态）、LangGraph（状态图编排）、CrewAI（多 Agent 协作）、Dify（低代码平台）、以及 OpenAI/Google 官方 SDK。学完你就能根据场景选对框架，而不只是会用某一个。
 
 ## 目录
 
@@ -14,4 +16,4 @@
 | 06 | [Dify 详解](./06-dify.md) | 低代码平台、可视化工作流、RAG 知识库、API 集成 |
 | 07 | [OpenAI Agents SDK 与 Google ADK](./07-openai-sdk-google-adk.md) | 厂商官方框架、Handoff、A2A 协议 |
 
-> 学完本章后，请继续阅读 [10 — 扩展协议与标准](../11-protocols/README.md)，了解 Agent 生态的连接标准。
+> 学完本章后，请继续阅读 [11 — 扩展协议](../11-protocols/README.md)，了解 Agent 生态的连接标准。
