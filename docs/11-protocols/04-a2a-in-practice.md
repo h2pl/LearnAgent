@@ -1,4 +1,4 @@
-﻿# A2A 实战：多 Agent 协作实现
+# A2A 实战：多 Agent 协作实现
 
 > 前一篇讲了 A2A 的概念和设计，本文实战——从装 SDK、写 Agent Card、实现 A2A Server，到完整的跨 Agent 任务委托。所有代码可运行，适合边读边练。
 

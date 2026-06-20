@@ -1,4 +1,4 @@
-﻿# 08 — 知识检索（RAG）
+# 08 — 知识检索（RAG）
 
 上下文窗口有限，不能什么都往里塞。**RAG（检索增强生成）的答案是：不塞全部，按需检索**——只把和当前问题最相关的信息放入上下文。六篇文章从 [原理概述](./01-rag-overview.md) 出发，深入 [文档切分与向量化](./02-chunking-embedding.md)、[检索与重排序](./03-retrieval-reranking.md)、[评测优化](./04-evaluation-optimization.md)，最后通过 [构建 RAG 系统](./05-build-rag-system.md) 和 [GraphRAG](./06-graphrag.md) 完成从基础到进阶的完整路径。
 

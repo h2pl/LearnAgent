@@ -1,4 +1,4 @@
-﻿# Hermes Agent 开源 Agent
+# Hermes Agent 开源 Agent
 
 > Nous Research 出品的开源个人 Agent（197K Stars）。不止是一个助理——它有**闭环学习机制**：从每次交互中创建技能、改进技能、积累知识。用越久越了解你。
 

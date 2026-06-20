@@ -1,4 +1,4 @@
-﻿# Transformer 内部原理
+# Transformer 内部原理
 
 > [认识大语言模型（LLM）](./01-llm-overview.md)已经介绍了 LLM 的核心原理"预测下一个词"，前面也讲过 Transformer 的历史意义。这篇聚焦 Transformer **内部的运作机制**——自注意力怎么算、多头注意力为什么强、因果掩码怎么防止作弊、KV Cache 怎么加速推理。理解这些，你才能读懂 LLM 为什么有上下文限制、为什么推理成本随长度飙升。
 

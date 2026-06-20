@@ -1,4 +1,4 @@
-﻿# LangChain 详解
+# LangChain 详解
 
 > LangChain 是目前最流行的 LLM 应用开发框架——理解它的核心概念、LCEL 组合语言、工具集成，以及什么时候该用、什么时候不该用。
 

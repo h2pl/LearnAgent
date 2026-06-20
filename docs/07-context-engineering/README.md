@@ -1,4 +1,4 @@
-﻿# 07 — 上下文工程
+# 07 — 上下文工程
 
 每一轮 Agent 循环都要往上下文窗口里塞东西——系统提示、工具定义、对话历史、工具返回结果……但窗口有限，信息无限。**上下文工程就是学会管理这个最稀缺的资源**。五篇文章从 [瓶颈分析](./01-context-window-bottleneck.md) 开始，依次讲解 [压缩策略](./02-context-compression.md)、[Token 预算](./03-token-budget-cost.md)、[卸载与隔离](./04-context-offloading-isolation.md)，最后总结 [失败模式与反模式](./05-context-failure-patterns.md)。
 

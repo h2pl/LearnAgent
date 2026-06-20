@@ -1,4 +1,4 @@
-﻿# 协议组合与选型
+# 协议组合与选型
 
 > 前面四篇介绍了一堆协议——MCP、A2A、ACP、ANP、AG-UI、OAP、Skills、AGENTS.md。现在回到最实际的问题：我的 Agent 到底该用哪些？怎么组合？从 MVP 到生产怎么一步步加？
 

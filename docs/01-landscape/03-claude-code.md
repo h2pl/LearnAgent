@@ -1,4 +1,4 @@
-﻿# Claude Code 编程 Agent
+# Claude Code 编程 Agent
 
 > Anthropic 的终端原生编程 Agent。在命令行里和你对话，直接操作文件和 Git。Anthropic 内部约 90% 的生产代码由它生成。133K GitHub Stars，SWE-bench Verified 72%。
 

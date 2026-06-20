@@ -1,4 +1,4 @@
-﻿# LangGraph 详解（二）
+# LangGraph 详解（二）
 
 > Checkpoint 让 Agent 能中断恢复、记住对话历史；Human-in-the-Loop 让 Agent 在关键步骤暂停，等待人类审批——从 demo 到生产的最后一块拼图。
 

@@ -1,4 +1,4 @@
-﻿# 12 — 多 Agent
+# 12 — 多 Agent
 
 多 Agent 解决的核心问题不是"怎么通信"，而是**系统该怎么拆、角色该怎么分、拆了之后怎么管**。五篇文章从 [架构模式](./01-architecture-patterns.md) 和 [角色设计](./02-role-design.md) 入手，通过 [CrewAI](./03-crewai-research-team.md) 和 [LangGraph](./04-langgraph-workflow.md) 两个实战案例落地，最后以 [设计权衡](./05-design-tradeoffs.md) 收尾。
 

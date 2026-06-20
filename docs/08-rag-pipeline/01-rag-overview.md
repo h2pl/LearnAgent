@@ -1,4 +1,4 @@
-﻿# RAG 原理概述
+# RAG 原理概述
 
 > RAG（Retrieval-Augmented Generation）是给 LLM 加外部知识的核心能力——先检索相关文档，再让模型基于这些文档生成答案，解决 LLM 知识过时和幻觉问题。
 

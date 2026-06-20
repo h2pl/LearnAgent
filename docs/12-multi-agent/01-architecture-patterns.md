@@ -1,4 +1,4 @@
-﻿# 多 Agent 架构模式
+# 多 Agent 架构模式
 
 > [扩展协议](../11-protocols/01-protocol-landscape.md) 一章解决了 Agent 之间"怎么通信"，本章解决"通信之后怎么设计"。四个核心架构模式——Orchestrator/Worker、Supervisor、Peer-to-Peer、Pipeline——各有适用场景。
 

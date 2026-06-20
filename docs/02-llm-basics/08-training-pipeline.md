@@ -1,4 +1,4 @@
-﻿# 从 Base 到 Chat
+# 从 Base 到 Chat
 
 > [LLM 发展简史](./03-llm-evolution.md)讲了从预训练范式到 ChatGPT 的历史脉络，这篇聚焦训练的**技术细节和实践影响**——预训练的数据怎么来、SFT 的数据长什么样、RLHF 和 DPO 到底有什么区别、LoRA 微调怎么做。理解这些，你才能判断什么时候该改 Prompt、什么时候该用 RAG、什么时候才值得微调。
 

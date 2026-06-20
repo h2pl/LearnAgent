@@ -1,4 +1,4 @@
-﻿# ReAct 模式
+# ReAct 模式
 
 > **ReAct** = **Re**(asoning) + **Act**(ing)，是 Agent 最经典的设计模式——模型交替进行推理（Thought）和行动（Action），用思维链驱动每一步决策，让 Agent"边想边做"。
 

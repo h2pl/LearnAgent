@@ -1,4 +1,4 @@
-﻿# MCP 与工具生态
+# MCP 与工具生态
 
 > MCP（Model Context Protocol）用一年时间从 Anthropic 的实验项目变成 AI 工具层的事实标准。2026 年，8,000+ 有效 Server、9700 万月 SDK 下载——它正在解决困扰行业多年的 N×M 工具集成问题。
 

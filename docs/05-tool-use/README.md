@@ -1,4 +1,4 @@
-﻿# 05 — 工具调用
+# 05 — 工具调用
 
 解决 Agent 的"行动力"问题——怎么让 LLM 调用外部函数、API 和数据库，执行真实操作。五篇文章从原理到实战：先理解 [工具调用机制](./01-tool-calling-mechanism.md) 和 [Schema 设计](./02-tool-schema-design.md)，再掌握 [多工具编排](./03-multi-tool-orchestration.md) 策略，最后通过 [MCP 生态](./04-mcp-and-tool-ecosystem.md) 和 [MCP 实战](./05-mcp-in-practice.md) 落地到生产级工具集成。
 

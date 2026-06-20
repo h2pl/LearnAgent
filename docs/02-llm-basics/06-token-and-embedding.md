@@ -1,4 +1,4 @@
-﻿# Token 与 Embedding：文本是如何变成向量的
+# Token 与 Embedding：文本是如何变成向量的
 
 > LLM 处理文本的最小单位不是"字"也不是"词"，而是 Token。本文从分词原理讲到 Embedding 向量化，帮你建立对 LLM 成本、上下文窗口和语义理解的完整认知。
 

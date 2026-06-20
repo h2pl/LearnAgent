@@ -1,4 +1,4 @@
-﻿# Reflexion 与其他 Agent 模式
+# Reflexion 与其他 Agent 模式
 
 > ReAct 和 Plan-and-Execute 是"主干范式"，但实战中还有**让 Agent 自我反思**（Reflexion）、**减少 LLM 调用次数**（ReWOO）、**树搜索式规划**（LATS）等进阶模式。本节把主流变体串成一张全景图，帮你根据任务特点选对范式。
 

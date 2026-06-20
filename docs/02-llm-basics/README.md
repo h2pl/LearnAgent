@@ -1,4 +1,4 @@
-﻿# 02 — LLM 基础
+# 02 — LLM 基础
 
 LLM 是 Agent 的大脑。在写 Prompt、调 API、搭 RAG 之前，你需要先建立对它的正确认知。
 

@@ -1,4 +1,4 @@
-﻿# RAG 评测与优化
+# RAG 评测与优化
 
 > RAG 系统上线前必须评测——检索质量决定答案质量，检索指标（Recall@K、MRR）量化检索效果，生成指标（Faithfulness、Relevancy）量化答案质量，两阶段都需要优化。
 

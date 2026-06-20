@@ -1,4 +1,4 @@
-﻿# LLM 的技术根基：从 NLP 到 Transformer
+# LLM 的技术根基：从 NLP 到 Transformer
 
 > 从规则系统到统计学习再到深度学习，NLP 六十年的积累最终催生了 Transformer。本文梳理这段技术演进，帮你理解 LLM 架构的来龙去脉。
 

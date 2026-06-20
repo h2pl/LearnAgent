@@ -1,4 +1,4 @@
-﻿# 04 — Prompt 工程
+# 04 — Prompt 工程
 
 通过文字精确控制模型行为。本章六篇文章从基础到进阶层层递进：先通过 [Prompt 工程入门](./01-introduction.md) 理解 LLM 如何处理 Prompt 和三种消息角色，然后掌握 [四种核心设计模式](./02-prompt-design-patterns.md)、[结构化输出](./03-structured-output.md) 和 [System Prompt 设计](./04-system-prompt.md)，最后用数据驱动的方法学习 [Prompt 鲁棒性](./05-prompt-robustness.md) 和 [调试评估](./06-prompt-debugging-and-evaluation.md)。
 

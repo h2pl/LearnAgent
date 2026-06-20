@@ -1,4 +1,4 @@
-﻿# OpenAI Agents SDK 与 Google ADK
+# OpenAI Agents SDK 与 Google ADK
 
 > 两大模型厂商各自的官方 Agent 框架——如果你已经锁定了 OpenAI 或 Google 的模型，用原厂框架是最短路径。
 

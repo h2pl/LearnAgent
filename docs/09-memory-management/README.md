@@ -1,4 +1,4 @@
-﻿# 09 — 记忆管理
+# 09 — 记忆管理
 
 Agent 不仅需要检索外部知识，还需要记住**自己的经历**——上次对话做了什么决策、用户偏好是什么、在哪出过错。**记忆管理让 Agent 从"金鱼记忆"变成"老搭档"**。五篇文章从 [三层记忆模型](./01-memory-layers.md) 开始，依次讲解 [存储与检索](./02-memory-storage-retrieval.md)、[跨会话记忆实践](./03-cross-session-memory.md)、[框架对比](./04-memory-frameworks.md) 和 [框架实战](./05-frameworks-hands-on.md)。
 

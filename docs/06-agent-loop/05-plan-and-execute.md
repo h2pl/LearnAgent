@@ -1,4 +1,4 @@
-﻿# Plan-and-Execute 模式
+# Plan-and-Execute 模式
 
 > ReAct 是"边想边做"，而 Plan-and-Execute 是"先想清楚再动手"——把规划和执行解耦：Planner 一次性产出完整计划，Executor 按步骤执行。适合需要长视野、跨多工具的复杂任务。
 

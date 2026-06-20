@@ -1,4 +1,4 @@
-﻿# Agent 模式全景
+# Agent 模式全景
 
 > Agent 不是只有 ReAct 一种范式——本章带你俯瞰五大主流模式：ReAct、Plan-and-Execute、Reflexion、ReWOO、 LATS，看清它们各自的设计哲学、适用场景与选型策略。后面的文章再逐个深入。
 

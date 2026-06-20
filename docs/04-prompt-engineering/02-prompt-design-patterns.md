@@ -1,4 +1,4 @@
-﻿# Prompt 设计模式：从推测到精准控制
+# Prompt 设计模式：从推测到精准控制
 
 > 掌握 Zero-shot、Few-shot、Chain-of-Thought 和角色设定四种核心 Prompt 模式，你就掌握了控制 LLM 行为的"元语言"——从凭感觉写进化为系统化精准控制。
 

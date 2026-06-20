@@ -1,4 +1,4 @@
-﻿# System Prompt 设计：定义 Agent 的核心行为
+# System Prompt 设计：定义 Agent 的核心行为
 
 > System Prompt 是 Agent 的"宪法"——角色、边界、安全规则、输出规范都在这里定义。掌握结构化 System Prompt 设计方法，能让你的 Agent 行为可预测、边界可控制、输出可依赖。
 

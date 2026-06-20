@@ -1,4 +1,4 @@
-﻿# 03 — 模型接入
+# 03 — 模型接入
 
 从选模型到跑通代码。本章按"选型→调参→调用→深入→部署→微调"的路径展开：先用 [主流模型对比](./01-model-comparison.md) 建立选型框架，接着掌握 [关键参数](./02-key-parameters-and-tuning.md) 的调优方法，然后通过 [API 调用实战](./03-api-calling.md) 获得第一手体验。之后再深入理解 [模型变体](./04-model-variants-landscape.md)、[推理模型](./05-deep-thinking-and-reasoning.md)、[本地部署](./06-local-deployment.md) 和 [微调](./07-finetuning-guide.md) 等高级话题。学完你将拥有一个支持多模型切换的对话服务。
 

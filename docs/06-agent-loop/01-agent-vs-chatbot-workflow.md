@@ -1,4 +1,4 @@
-﻿# Agent 与 Chatbot / Workflow 的区别
+# Agent 与 Chatbot / Workflow 的区别
 
 > Agent、Chatbot、Workflow 三者的核心差异在于"谁做决策"——Chatbot 是一问一答，Workflow 是预设流程，而 Agent 拥有自主决策循环，能根据观察动态调整行动。
 
