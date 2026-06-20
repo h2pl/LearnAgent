@@ -9,20 +9,16 @@
 
   <!-- Title -->
   <text x="550" y="42" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="22" font-weight="700" fill="#0F172A">AI Agent 知识体系全景</text>
-  <text x="550" y="66" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="13" fill="#64748B">5 层 · 16 章 · 从认知到交付的完整知识栈</text>
+  <text x="550" y="66" text-anchor="middle" font-family="Segoe UI, PingFang SC, sans-serif" font-size="13" fill="#64748B">5 层 · 从认知到交付的完整知识栈</text>
 
   <!-- ==================== LAYER 1: 认知建立 ==================== -->
   <g transform="translate(30, 90)">
-    <!-- Layer background -->
     <rect width="1040" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
-    <!-- Stage label -->
     <rect width="120" height="110" rx="12" fill="#3B82F6"/>
     <rect x="108" width="12" height="110" fill="#3B82F6"/>
     <text x="60" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.8)">STAGE 1</text>
     <text x="60" y="68" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="15" font-weight="700" fill="white">认知建立</text>
-    <text x="60" y="90" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Ch.00-01</text>
 
-    <!-- Chapter 00 -->
     <g transform="translate(140, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">Ch.00</text>
@@ -30,7 +26,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">Agent 概念 · 产品全景</text>
     </g>
 
-    <!-- Chapter 01 -->
     <g transform="translate(355, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">Ch.01</text>
@@ -46,9 +41,7 @@
     <rect x="108" width="12" height="110" fill="#3B82F6"/>
     <text x="60" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.8)">STAGE 2</text>
     <text x="60" y="68" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="15" font-weight="700" fill="white">基础技能</text>
-    <text x="60" y="90" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Ch.02-04</text>
 
-    <!-- Chapter 02 -->
     <g transform="translate(140, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">Ch.02</text>
@@ -56,7 +49,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">选型 · API · 本地部署</text>
     </g>
 
-    <!-- Chapter 03 -->
     <g transform="translate(355, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">Ch.03</text>
@@ -64,7 +56,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">设计模式 · 结构化输出</text>
     </g>
 
-    <!-- Chapter 04 -->
     <g transform="translate(570, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">Ch.04</text>
@@ -80,9 +71,7 @@
     <rect x="108" width="12" height="110" fill="#F59E0B"/>
     <text x="60" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.8)">STAGE 3</text>
     <text x="60" y="68" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="15" font-weight="700" fill="white">核心开发</text>
-    <text x="60" y="90" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Ch.05-08</text>
 
-    <!-- Chapter 05 -->
     <g transform="translate(140, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.05</text>
@@ -90,7 +79,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">ReAct · 规划 · 最小实现</text>
     </g>
 
-    <!-- Chapter 06 -->
     <g transform="translate(355, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.06</text>
@@ -98,7 +86,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">压缩 · 预算 · 隔离</text>
     </g>
 
-    <!-- Chapter 07 -->
     <g transform="translate(570, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.07</text>
@@ -106,7 +93,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">RAG · 分块 · GraphRAG</text>
     </g>
 
-    <!-- Chapter 08 -->
     <g transform="translate(785, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.08</text>
@@ -122,9 +108,7 @@
     <rect x="108" width="12" height="110" fill="#F59E0B"/>
     <text x="60" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.8)">STAGE 4</text>
     <text x="60" y="68" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="15" font-weight="700" fill="white">进阶架构</text>
-    <text x="60" y="90" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Ch.09-11</text>
 
-    <!-- Chapter 09 -->
     <g transform="translate(140, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.09</text>
@@ -132,7 +116,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">LangChain · LangGraph · Dify</text>
     </g>
 
-    <!-- Chapter 10 -->
     <g transform="translate(355, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.10</text>
@@ -140,7 +123,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">MCP · A2A · 轻量约定</text>
     </g>
 
-    <!-- Chapter 11 -->
     <g transform="translate(570, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#FDE68A" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#D97706">Ch.11</text>
@@ -156,9 +138,7 @@
     <rect x="108" width="12" height="110" fill="#22C55E"/>
     <text x="60" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.8)">STAGE 5</text>
     <text x="60" y="68" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="15" font-weight="700" fill="white">工程交付</text>
-    <text x="60" y="90" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Ch.12-15</text>
 
-    <!-- Chapter 12 -->
     <g transform="translate(140, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BBF7D0" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#16A34A">Ch.12</text>
@@ -166,7 +146,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">体系 · LLM-as-Judge</text>
     </g>
 
-    <!-- Chapter 13 -->
     <g transform="translate(355, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BBF7D0" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#16A34A">Ch.13</text>
@@ -174,7 +153,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">Tracing · 成本优化</text>
     </g>
 
-    <!-- Chapter 14 -->
     <g transform="translate(570, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BBF7D0" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#16A34A">Ch.14</text>
@@ -182,7 +160,6 @@
       <text x="16" y="64" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">注入防护 · 沙箱 · 人机协作</text>
     </g>
 
-    <!-- Chapter 15 -->
     <g transform="translate(785, 15)">
       <rect width="200" height="80" rx="8" fill="white" stroke="#BBF7D0" stroke-width="1" filter="url(#shadow)"/>
       <text x="16" y="24" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#16A34A">Ch.15</text>
@@ -194,11 +171,11 @@
   <!-- Bottom legend -->
   <g transform="translate(550, 740)">
     <rect x="-130" y="-10" width="16" height="16" rx="3" fill="#3B82F6"/>
-    <text x="-108" y="4" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">认知与基础 (Ch.00-04)</text>
+    <text x="-108" y="4" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">认知与基础</text>
     <rect x="50" y="-10" width="16" height="16" rx="3" fill="#F59E0B"/>
-    <text x="72" y="4" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">开发与架构 (Ch.05-11)</text>
+    <text x="72" y="4" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">开发与架构</text>
     <rect x="240" y="-10" width="16" height="16" rx="3" fill="#22C55E"/>
-    <text x="262" y="4" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">工程交付 (Ch.12-15)</text>
+    <text x="262" y="4" font-family="PingFang SC, sans-serif" font-size="11" fill="#64748B">工程交付</text>
   </g>
 
 </svg>
