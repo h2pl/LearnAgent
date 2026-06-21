@@ -122,7 +122,7 @@ def extract_frames(video_path, interval_sec=2):
 
 模型能准确识别 UI 元素：按钮、输入框、导航栏、对话框。这让"Agent 操控屏幕"成为可能。
 
-Claude Opus 4.7 在这个任务上最强——它能精确定位 UI 元素的位置坐标，输出结构化 JSON 描述界面布局。
+Claude Opus 4.8 在这个任务上最强——它能精确定位 UI 元素的位置坐标，输出结构化 JSON 描述界面布局。
 
 ### 文档与图表解读
 
