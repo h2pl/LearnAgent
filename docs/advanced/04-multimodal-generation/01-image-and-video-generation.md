@@ -24,7 +24,7 @@
 
 在讲 API 之前，先把生成侧和理解侧的关系讲清楚。
 
-[编码](../01-multimodal-fundamentals/06-encoding.md)、[融合](../01-multimodal-fundamentals/07-fusion.md)和[对齐](../01-multimodal-fundamentals/08-alignment-and-representation.md)讲了理解侧的三个核心机制。这些机制服务于 Transformer 架构，目标是"把多模态输入变成文字输出"。
+[表示学习](../01-multimodal-fundamentals/06-representation.md)、[翻译](../01-multimodal-fundamentals/07-translation.md)、[对齐](../01-multimodal-fundamentals/08-alignment.md)、[融合](../01-multimodal-fundamentals/09-fusion.md)和[协同学习](../01-multimodal-fundamentals/10-co-learning.md)讲了理解侧的五个核心机制。这些机制服务于 Transformer 架构，目标是"把多模态输入变成文字输出"。
 
 生成侧（图像/视频生成）用的是完全不同的技术栈：
 
