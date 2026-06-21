@@ -30,9 +30,14 @@
 
 | 章节 | 文章 | 内容 |
 |------|------|------|
-| 01 多模态基础 | [多模态 AI 全景](./01-multimodal-fundamentals/01-multimodal-landscape.md) | 什么是多模态、模态异质性、2026 模型全景、模态组合速查 |
-| | [多模态核心机制](./01-multimodal-fundamentals/02-core-mechanisms.md) | 理解 vs 生成两条路线、编码、融合、对齐 |
-| | [跨模态表示学习](./01-multimodal-fundamentals/03-cross-modal-representation.md) | CLIP 训练机制、对比学习、多模态嵌入模型、向量空间几何 |
+| 01 多模态基础 | [什么是多模态](./01-multimodal-fundamentals/01-什么是多模态.md) | 概念、单模态 vs 多模态、成熟的三个转折点 |
+| | [为什么需要多模态](./01-multimodal-fundamentals/02-为什么需要多模态.md) | 流水线方案的三大问题、原生方案的优势 |
+| | [模态异质性](./01-multimodal-fundamentals/03-模态异质性.md) | 四种模态的表示差异、模态组合速查 |
+| | [两条技术路线](./01-multimodal-fundamentals/04-两条技术路线.md) | 理解 vs 生成、架构对比、API 统一趋势 |
+| | [2026 模型全景与选型](./01-multimodal-fundamentals/05-模型全景与选型.md) | 模型梯队、能力对比、场景选型 |
+| | [编码](./01-multimodal-fundamentals/06-编码.md) | 文本/图像/音频编码、实践建议 |
+| | [融合](./01-multimodal-fundamentals/07-融合.md) | 三种融合策略、选型判断 |
+| | [对齐与表示学习](./01-multimodal-fundamentals/08-对齐与表示学习.md) | CLIP、对比学习、嵌入空间、局限性 |
 | 02 多模态视觉 | [视觉理解](./02-multimodal-vision/01-vision-understanding.md) | 图像/视频理解 API、Computer Use、视觉 RAG、成本优化 |
 | | [视频理解](./02-multimodal-vision/02-video-understanding.md) | 帧采样策略、长视频处理、时序推理、模型能力对比 |
 | | [文档与图表理解](./02-multimodal-vision/03-document-understanding.md) | PDF 解析、版面分析、表格提取、图表解读、方案选型 |
