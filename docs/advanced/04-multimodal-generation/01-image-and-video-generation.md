@@ -18,13 +18,13 @@
 
 你好，我是江小湖。前面讲了视觉理解（看）和语音交互（听说），这篇进入"创造"维度——让模型生成图片和视频。
 
-在[两条技术路线](../01-multimodal-fundamentals/04-两条技术路线.md)已经讲过，多模态 AI 有两条完全不同的技术路线。理解侧用的是 Transformer 架构，生成侧用的是扩散模型架构。两者从训练方式到推理过程都截然不同。这篇会系统讲清楚生成侧的完整机制，而不只是"够用就好"。
+在[两条技术路线](../01-multimodal-fundamentals/04-two-tech-routes.md)已经讲过，多模态 AI 有两条完全不同的技术路线。理解侧用的是 Transformer 架构，生成侧用的是扩散模型架构。两者从训练方式到推理过程都截然不同。这篇会系统讲清楚生成侧的完整机制，而不只是"够用就好"。
 
 ## 生成侧：一条完全不同的技术路线
 
 在讲 API 之前，先把生成侧和理解侧的关系讲清楚。
 
-[编码](../01-multimodal-fundamentals/06-编码.md)、[融合](../01-multimodal-fundamentals/07-融合.md)和[对齐](../01-multimodal-fundamentals/08-对齐与表示学习.md)讲了理解侧的三个核心机制。这些机制服务于 Transformer 架构，目标是"把多模态输入变成文字输出"。
+[编码](../01-multimodal-fundamentals/06-encoding.md)、[融合](../01-multimodal-fundamentals/07-fusion.md)和[对齐](../01-multimodal-fundamentals/08-alignment-and-representation.md)讲了理解侧的三个核心机制。这些机制服务于 Transformer 架构，目标是"把多模态输入变成文字输出"。
 
 生成侧（图像/视频生成）用的是完全不同的技术栈：
 
