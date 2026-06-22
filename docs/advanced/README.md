@@ -66,4 +66,7 @@
 | | [会话持久化](./cc-source-analysis/12-session-persistence/README.md) | 断点续传、checkpoint、状态恢复 |
 | | [可观测性](./cc-source-analysis/13-telemetry/README.md) | Span树、成本追踪、telemetry 1752行 |
 | | [设计哲学](./cc-source-analysis/14-design-philosophy/README.md) | 五个核心价值观、设计原则到技术实现 |
+| | [CLI 命令系统](./cc-source-analysis/15-cli-commands/README.md) | 40+ slash 命令、命令注册与分发、命令生命周期 |
+| | [终端 UI 框架](./cc-source-analysis/16-terminal-ui/README.md) | 自研 Ink 渲染器、React 组件树、焦点与动画 |
+| | [IDE 集成层](./cc-source-analysis/17-ide-integration/README.md) | Bridge 系统、IDE 桥接协议、远程会话管理 |
 
