@@ -1,369 +1,144 @@
-# 01 — 整体架构
+# 51 万行的真相
 
-## 导读
+2026 年 3 月，Anthropic 犯了一个低级错误。
 
-Claude Code 是 Anthropic 开发的 AI 编程助手，2026 年 3 月因 npm 包的 source map 配置失误，51 万行 TypeScript 源码意外泄露。这是目前最完整的商业级 AI Agent 架构实例。
+他们发布的 npm 包里，source map 配置失误，Claude Code 的完整源码意外泄露。1884 个 TypeScript 文件，51 万行代码，从入口到工具到权限到记忆，全部暴露在了公众面前。
 
-读完本章，你将理解：
-- Claude Code 不是"API 包装器"，而是完整的 Agent 操作系统
-- 51 万行代码中，AI 决策逻辑只占 1.6%，其余 98.4% 是工程基础设施
-- 五层架构的职责划分和模块依赖关系
-- Kernel + Harness 设计哲学：模型负责思考，Harness 负责兜底
+这是目前最完整的商业级 AI Agent 架构实例。不是论文里的架构图，不是 PPT 里的框图，是真正在生产环境跑着的、每天被成千上万开发者使用的代码。
 
-**TL;DR**：
-1. Claude Code 的核心是一个 88 行的 while 循环，但包裹着 40 万行的工程基础设施
-2. 五层架构：入口层 → Agent 循环层 → 工具执行层 → 权限控制层 → 系统提示层
-3. 设计哲学：不信任模型的自觉性，用工程系统让 AI "不出事"
+我花了两周时间把 51 万行代码翻了个底朝天。翻完之后，最大的感受不是"Claude Code 好厉害"，而是——**原来做一个好用的 Agent，跟模型能力的关系没那么大。**
 
----
+## 1.6%
 
-## 一、源码定位
+这个数字是整篇文章的核心，值得你记住：
 
-### 1.1 关键文件路径
+**51 万行代码中，真正跟 AI 决策相关的只占 1.6%。**
 
-| 文件 | 行数 | 职责 |
-|------|------|------|
-| `src/main.tsx` | 4683 | 主入口，启动编排 |
-| `src/query.ts` | 1729 | Agent 循环核心 |
-| `src/QueryEngine.ts` | 1295 | 查询引擎（Headless/SDK 模式） |
-| `src/Tool.ts` | 792 | 工具基类定义 |
-| `src/tools.ts` | 373 | 工具注册表 |
-| `src/services/api/claude.ts` | 3212 | LLM 统一调用层 |
-| `src/services/compact/compact.ts` | 1581 | 上下文压缩主逻辑 |
-| `src/tools/AgentTool/AgentTool.tsx` | 1320 | 子 Agent 调度 |
-| `src/memdir/memdir.ts` | 471 | 记忆持久化 |
-| `src/utils/permissions/` | 22+ 文件 | 权限系统 |
-
-### 1.2 代码规模分布
+剩下的 98.4% 是什么？权限管理、上下文压缩、会话存储、工具调度、启动优化、终端渲染、IDE 集成、MCP 协议、记忆系统、可观测性——全是工程基础设施。
 
 | 模块 | 文件数 | 代码行数 | 占比 | 职责 |
 |------|--------|----------|------|------|
 | 终端 UI | 389 | ~70,000 | 14% | React + Ink 渲染 |
-| 工具系统 | 184 | ~29,000 | 6% | 40+ 工具实现 |
+| 工具系统 | 184 | ~29,000 | 6% | 42 个工具实现 |
 | 命令系统 | 207 | ~15,000 | 3% | 40+ slash 命令 |
 | 权限安全 | - | ~60,000 | 12% | 多层权限检查 |
-| Agent 核心 | - | ~8,000 | 1.6% | while 循环 + 工具调度 |
+| Agent 核心 | - | ~8,000 | **1.6%** | while 循环 + 工具调度 |
 | 基础设施 | 564 | ~330,000 | 64% | 工具函数、类型定义 |
 
-**关键洞察**：51 万行代码中，真正跟 AI 决策相关的只占 1.6%。剩下的 98.4% 全是工程基础设施：权限管理、上下文压缩、会话存储、工具调度。
+换句话说，Claude Code 的核心就是一个 88 行的 while 循环。但包裹这个循环的，是 40 万行的工程基础设施。
 
-这个比例本身就说明一个问题：做一个好用的 AI 编程工具，模型能力只是起点，真正的壁垒在工程。
+这个比例本身就说明一个问题：**做一个好用的 AI 编程工具，模型能力只是起点，真正的壁垒在工程。**
 
-### 1.3 架构位置
+你可能觉得这很反直觉。我们天天讨论 GPT-5.5 vs Claude Opus 4.8 vs Gemini 3.1 Pro，讨论 benchmark 排名，讨论推理能力。但 Claude Code 用 51 万行代码告诉你：模型能力决定了 Agent 能做什么，工程能力决定了 Agent 能不能用。
+
+## 代码地图
+
+把 51 万行代码摊开看，Claude Code 的目录结构长这样：
 
 ```
-┌─────────────────────────────────────────┐
-│         CLI 入口层 (entrypoints/)        │
-│  cli.tsx → main.tsx → launchRepl()      │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│      Agent 循环层 (query.ts)            │
-│  while(true) { callModel → runTools }   │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│      工具执行层 (tools/)                │
-│  Tool.ts → toolExecution.ts → 40+ 工具  │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│      权限控制层 (permissions/)          │
-│  canUseTool() → 7 种模式 → ML 分类器    │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│      系统提示层 (prompts.ts)            │
-│  53KB 动态提示词 + 缓存冻结             │
-└─────────────────────────────────────────┘
+src/
+├── main.tsx              ← 主入口（4683 行）
+├── query.ts              ← Agent 循环（1612 行）
+├── QueryEngine.ts        ← 查询引擎（1234 行）
+├── Tool.ts               ← 工具基类（754 行）
+├── tools.ts              ← 工具注册表（373 行）
+│
+├── tools/                ← 42 个工具实现
+│   ├── AgentTool/        ← 子 Agent（1320 行 + 11 个文件）
+│   ├── BashTool/         ← Bash 执行
+│   ├── EditTool/         ← 文件编辑
+│   ├── ReadTool/         ← 文件读取
+│   └── ... 38 个其他工具
+│
+├── services/
+│   ├── api/claude.ts     ← LLM 统一调用层（3212 行）
+│   ├── compact/          ← 上下文压缩（2434 行，5 个文件）
+│   ├── analytics/        ← 可观测性
+│   └── mcp/              ← MCP 协议集成
+│
+├── memdir/               ← 记忆持久化（471 行）
+│
+├── utils/
+│   ├── permissions/      ← 权限系统（22+ 文件）
+│   ├── bash/             ← Bash 解析器（17+ 文件）
+│   ├── plugins/          ← 插件市场（40+ 文件）
+│   └── ... 300+ 工具文件
+│
+├── ink/                  ← 自研终端渲染器（96 文件）
+├── components/           ← React 组件（389 文件）
+├── hooks/                ← React hooks（104 文件）
+├── commands/             ← slash 命令（40+ 子目录）
+├── bridge/               ← IDE 集成层（25+ 文件）
+├── state/                ← 会话状态
+└── bootstrap/state.ts    ← 全局状态（1758 行，~150 个字段）
 ```
 
----
+几个关键文件值得记住：
 
-## 二、核心实现剖析
+| 文件 | 行数 | 职责 |
+|------|------|------|
+| `main.tsx` | 4683 | 主入口，启动编排 |
+| `query.ts` | 1612 | Agent 循环核心 |
+| `services/api/claude.ts` | 3212 | LLM 统一调用层 |
+| `services/compact/compact.ts` | 1581 | 上下文压缩主逻辑 |
+| `tools/AgentTool/AgentTool.tsx` | 1320 | 子 Agent 调度 |
+| `bootstrap/state.ts` | 1758 | 全局状态（~150 个字段） |
+| `Tool.ts` | 754 | 工具基类定义 |
 
-### 2.1 Kernel + Harness 架构
+注意 `bootstrap/state.ts`——1758 行，定义了约 150 个全局状态字段。这一个文件就说明了 Claude Code 的复杂度：一个 Agent 要记住的东西，远比你想的多。
 
-Claude Code 的核心，说出来可能让人意外，就是一个 while 循环：
+## 98.4% 在干什么
 
-```typescript
-// query.ts - 简化版
-while (true) {
-  // 1. 调用模型
-  const response = await callModel(messages);
-  
-  // 2. 执行模型请求的工具
-  if (response.tool_use) {
-    const results = await runTools(response.tool_use);
-    messages.push(...results);
-  }
-  
-  // 3. 判断是否继续
-  if (response.stop_reason === 'end_turn') {
-    break;
-  }
-}
+你可能会问：那 98.4% 的工程代码到底在干什么？
+
+举几个例子。
+
+**启动优化**。用户敲下 `claude` 到看到 REPL 界面，整个流程被压缩到约 135ms。怎么做到的？在 import 模块的 ~135ms 期间，同时启动 MDM 子进程和 macOS Keychain 读取，让 I/O 和模块加载并行。`--version` 命令做了 Fast-path 分发，零模块加载，12ms 退出。
+
+**权限管理**。三层防护：第一层在工具注册时就过滤掉被禁的工具（模型连看都看不到）；第二层每次工具调用都做规则验证；第三层没有匹配规则时实时问用户。7 种运行模式，8 级规则优先级，还有一个 ML 分类器在 auto 模式下自动判断安全性。
+
+**上下文压缩**。200K 的上下文窗口听着很大，但一个复杂的多文件调试 session 很快就填满了。Claude Code 设计了 5 层压缩机制，从便宜到贵依次触发：先削减工具输出预览，再删掉没用的工具结果，再压缩特定段落，再总结大段对话，最后才做全 session 总结。92% 的时候自动触发，能在便宜的层解决就不动贵的。
+
+**缓存保护**。50-70K token 的系统提示词被缓存在服务器端。如果中途切换某个 beta header，缓存就失效了，下次请求的成本增加 12 倍。Claude Code 设计了 Sticky-on Latch 机制——一旦启用某个 header，就保持开启，避免中途切换导致缓存失效。
+
+这些都不是"让 AI 更聪明"的工作，而是"让 AI 不出事"的工作。
+
+## Kernel + Harness
+
+研究者把 Claude Code 的架构叫做 **Kernel + Harness**：一个极薄的 AI 内核（Kernel），包在一个很厚的确定性外壳（Harness）里。
+
+Kernel 就是那个 88 行的 while 循环。模型读上下文，决定下一步干什么，调工具，观察结果，继续走。没有复杂的 planner，没有状态机，没有多步编排图。
+
+Harness 就是那 40 万行工程基础设施。权限管理、上下文压缩、会话存储、工具调度、启动优化、终端渲染——所有工程复杂度都在循环外面，不在里面。
+
+换句话说，Claude Code 不是靠精巧的编排逻辑让 AI "更聪明"，而是靠工程系统让 AI "不出事"。模型负责思考，Harness 负责兜底。
+
+这个分工清晰得让人意外。我们习惯了把 Agent 的"智能"归功于模型，但 Claude Code 告诉你：**智能是模型给的，可用性是工程给的。**
+
+## 三种运行模式
+
+Claude Code 不是一个程序，是三个。
+
+```
+REPL 模式（默认）    → 交互式终端，React/Ink 渲染
+Print 模式（-p）     → 非交互式管道，stdin 进 stdout 出
+SDK 模式             → 被其他程序调用，JSON 通信
 ```
 
-没有复杂的 planner，没有状态机，没有多步编排图。模型读上下文，决定下一步干什么，调工具，观察结果，继续走。整个过程是完全由模型驱动的，它自己决定什么时候停下来，什么时候再跑一轮。
+REPL 模式是给人用的。你在终端里敲 `claude`，看到一个漂亮的交互界面，可以打字、可以中断、可以看工具执行过程。
 
-研究者把这叫 **Kernel + Harness 架构**：一个极薄的 AI 内核，包在一个很厚的确定性外壳里，所有工程复杂度都在循环外面，不在里面。
+Print 模式是给脚本用的。`echo "帮我重构这个函数" | claude -p`，stdin 进 prompt，stdout 出结果，可以串在 CI/CD 里。
 
-换句话说，Claude Code 不是靠精巧的编排逻辑让 AI "更聪明"，而是靠工程系统让 AI "不出事"。模型负责思考，Harness 负责兜底。这个分工清晰得让人意外。
+SDK 模式是给开发者用的。TypeScript SDK 和 Python SDK 都可以调用 Claude Code 作为底层引擎，用 JSON 通信。
 
-### 2.2 五层架构详解
+三种模式共享同一套核心代码，但入口不同、初始化流程不同、UI 层不同。这也是为什么 `main.tsx` 有 4683 行——它要处理三种模式的所有分支。
 
-#### 第一层：CLI 入口层
+## 小结
 
-```typescript
-// main.tsx 前 20 行
-import { profileCheckpoint } from './utils/startupProfiler.js';
-profileCheckpoint('main_tsx_entry'); // 第一行开始计时
+51 万行代码，1.6% 是 AI 决策逻辑，98.4% 是工程基础设施。
 
-import { startMdmRawRead } from './utils/settings/mdm/rawRead.js';
-startMdmRawRead(); // 并行：MDM 配置子进程
+这不是 Claude Code 的"问题"，这是 Claude Code 的"答案"。它用 51 万行代码回答了一个问题：**做一个生产级 Agent，到底需要多少工程工作？**
 
-import { startKeychainPrefetch } from './utils/secureStorage/keychainPrefetch.js';
-startKeychainPrefetch(); // 并行：Keychain 预读（节省 65ms）
-```
+答案是：比你想象的多得多。
 
-入口层的设计思路：**把昂贵的 I/O 操作提前到 import 阶段并行执行**。因为 Node/Bun 的 import 本身需要 ~135ms 来加载模块，这段时间正好可以用来做异步预热。
-
-#### 第二层：Agent 循环层
-
-```typescript
-// query.ts - State 类型
-type State = {
-  messages: Message[]                    // 对话历史
-  toolUseContext: ToolUseContext         // 工具执行上下文
-  autoCompactTracking: ...               // 自动压缩追踪
-  maxOutputTokensRecoveryCount: number   // 输出截断恢复计数 (≤3)
-  hasAttemptedReactiveCompact: boolean   // 是否尝试过响应式压缩
-  turnCount: number                      // 当前轮次
-  transition: Continue | undefined       // 上次循环的继续原因
-}
-```
-
-循环状态是一个可变对象，跨迭代携带。当 LLM 的输出因 `max_output_tokens` 被截断时，循环不会直接结束，而是自动续写，最多重试 3 次。这保证了长回答不会被意外切断。
-
-#### 第三层：工具执行层
-
-```typescript
-// Tool.ts - 工具接口
-interface Tool {
-  name: string;
-  inputSchema: ZodSchema;
-  call(input, context): Promise<ToolResult>;
-  
-  // 元数据
-  prompt(): string;              // 向模型描述自己
-  isReadOnly(): boolean;         // 是否只读
-  isConcurrencySafe(): boolean;  // 能否并发
-  isDestructive(): boolean;      // 是否有破坏性
-  
-  // 权限
-  checkPermissions(): PermissionResult;
-}
-```
-
-工具不是简单的函数，而是带权限、描述、UI 的完整对象。每个工具都要告诉模型"我能做什么"，告诉权限系统"我有什么风险"，告诉 UI "我长什么样"。
-
-#### 第四层：权限控制层
-
-```typescript
-// 三层防护结构
-// 第 1 层：工具注册过滤
-// 被禁的工具直接从模型视野里移除，模型连看都看不到
-
-// 第 2 层：单次调用检查
-// 每次工具调用都根据工具名、参数、工作目录做规则验证
-
-// 第 3 层：交互式询问
-// 没有匹配规则时实时问用户，用户的回答变成当前 session 的规则
-```
-
-7 种运行模式，从 default（只对高风险操作询问）到 auto（ML 分类器自动判断）到 bypassPermissions（完全信任，用于沙箱环境）。
-
-8 级规则优先级：Policy → User → Project → Local → CLI flag → cliArg → command → session。
-
-设计哲学是：安全不应该是粗暴的全部拦截，而是精确地只拦那些真正需要人判断的操作。
-
-#### 第五层：系统提示层
-
-```typescript
-// 系统提示词 = 数百个碎片动态拼装
-systemPrompt = [
-  ...getBasePrompt(),           // 基础指令
-  ...getSafetyRules(),          // 安全守则（~5677 token）
-  ...getToolDescriptions(),     // 工具描述
-  ...getProjectContext(),       // 项目上下文（CLAUDE.md）
-  ...getModeSpecificRules(),    // 模式特定规则
-  ...getUserPreferences(),      // 用户偏好
-];
-```
-
-Claude Code 不是一个系统提示，而是数百个提示碎片在运行时动态拼装。根据模式、工具和上下文的不同，注入不同的提示片段。光是安全守则就有约 5,677 个 token——相当于两万字的行为规范，每次对话都带进去。
-
----
-
-## 三、关键设计点
-
-### 3.1 不信任模型的自觉性
-
-Claude Code 的设计哲学第一条：**不信任模型的自觉性**。
-
-模型只是一个文本生成器，它没有能力执行任何代码、读写任何文件。它的"指挥方式"非常简单：在生成的文本中嵌入一个结构化的指令，告诉运行时"我想用这个工具，参数是这些"。运行时识别出这个指令，执行工具，然后把结果喂回给模型。
-
-这意味着：
-- 模型不能直接访问文件系统
-- 模型不能直接执行命令
-- 模型不能直接修改状态
-- 所有操作都要经过工具系统 + 权限检查
-
-### 3.2 上下文是稀缺资源
-
-200K 的上下文窗口听着很大，实际跑一个复杂的多文件调试 session，填满的速度比想象的快。
-
-Claude Code 设计了 5 层压缩机制，从便宜到贵依次触发：
-
-1. Budget reduction — 削减工具输出的预览长度
-2. Snip — 删掉会话前面已经没用的工具结果
-3. Microcompact — 压缩特定段落
-4. Context collapse — 把大段对话总结成摘要
-5. Auto-compact — 全 session 总结，最后手段
-
-系统在上下文用到 92% 的时候自动触发，从第 1 层开始往下试，能在便宜的层解决就不动贵的。
-
-这个设计的好处是：大部分时候前两层就能腾出足够空间，不需要动到代价最大的全 session 总结。
-
-### 3.3 安全层要互不绕过
-
-权限系统的设计原则：**安全不应该是粗暴的全部拦截，而是精确地只拦那些真正需要人判断的操作**。
-
-三层防护结构：
-- 第 1 层（工具注册过滤）：被禁的工具直接从模型视野里移除
-- 第 2 层（单次调用检查）：每次工具调用都做规则验证
-- 第 3 层（交互式询问）：没有匹配规则时实时问用户
-
-8 级规则优先级确保：全局策略 > 用户配置 > 项目配置 > 临时设置。
-
-### 3.4 生态的关键是模型"感知到"自己的能力
-
-4 种扩展机制：
-- Hooks（零成本）— 事件触发的确定性脚本，模型完全不参与
-- Skills（低成本）— 可复用的动作模板，模型按需调用
-- Plugins（中成本）— 打包的工具集，有独立上下文
-- MCP（高成本）— 完整的外部服务集成
-
-不是所有事情都该用 MCP，确定性操作用 Hook，知识复用用 Skill，别什么都往 MCP 上堆。一个 MCP 服务的工具描述可能就占几千 token，接五六个 MCP 光工具列表就吃掉了你十分之一的上下文窗口。
-
-正确的思路是：能用 Hook 解决的不用 Skill，能用 Skill 解决的不上 MCP，越轻量越好。
-
----
-
-## 四、对比其他实现
-
-### 4.1 vs Hermes
-
-Hermes 是另一个开源 Agent 框架，核心差异：
-
-| 维度 | Claude Code | Hermes |
-|------|------------|--------|
-| 架构 | Kernel + Harness | 状态机驱动 |
-| 循环 | while(true) 简单循环 | 显式状态机 |
-| 权限 | 三层防护 + ML 分类器 | 基于角色的访问控制 |
-| 压缩 | 5 层渐进式 | 单层全量压缩 |
-| 扩展 | 4 种机制 | MCP 为主 |
-
-Hermes 的状态机更复杂，但 Claude Code 的简单循环 + 厚 Harness 更容易理解和调试。
-
-### 4.2 vs OpenClaw
-
-OpenClaw 是另一个商业级 Agent，核心差异：
-
-| 维度 | Claude Code | OpenClaw |
-|------|------------|----------|
-| 语言 | TypeScript | Python |
-| UI | React + Ink | 命令行 |
-| 权限 | 7 种模式 + 8 级优先级 | 简单的 allow/deny |
-| 记忆 | memdir + autoDream | 向量数据库 |
-| 子 Agent | Git Worktree 隔离 | 进程隔离 |
-
-OpenClaw 的 Python 生态更丰富，但 Claude Code 的 TypeScript 栈在终端 UI 和类型安全上更强。
-
-### 4.3 vs LearnAgent 自建
-
-LearnAgent 是我们自建的 Agent 系统，核心差异：
-
-| 维度 | Claude Code | LearnAgent |
-|------|------------|------------|
-| 规模 | 51 万行 | ~4000 行 |
-| 工具 | 40+ | 10+ |
-| 权限 | 完整三层防护 | 简单的 allow/deny |
-| 压缩 | 5 层渐进式 | 单层全量压缩 |
-| 子 Agent | 支持 | 不支持 |
-
-LearnAgent 是教学项目，聚焦核心概念，不追求生产级功能。
-
----
-
-## 五、面试考点
-
-### 5.1 高频问题
-
-**Q1: Claude Code 的核心架构是什么？**
-
-A: Kernel + Harness 架构。一个极薄的 AI 内核（88 行 while 循环），包在一个很厚的确定性外壳里（40 万行工程基础设施）。模型负责思考，Harness 负责兜底。
-
-**Q2: 为什么 51 万行代码中 AI 决策逻辑只占 1.6%？**
-
-A: 因为做一个好用的 AI 编程工具，模型能力只是起点，真正的壁垒在工程。权限管理、上下文压缩、会话存储、工具调度这些工程基础设施才是让 AI "不出事"的关键。
-
-**Q3: Claude Code 的五层架构是什么？**
-
-A: 
-1. CLI 入口层：Commander.js + React/Ink
-2. Agent 循环层：while(true) 状态机
-3. 工具执行层：40+ 工具的注册与调度
-4. 权限控制层：多层安全检查
-5. 系统提示层：53KB 动态提示词构建
-
-**Q4: 为什么用 while(true) 而不是状态机？**
-
-A: 因为整个过程是完全由模型驱动的，它自己决定什么时候停下来，什么时候再跑一轮。简单的 while 循环 + 厚 Harness 更容易理解和调试，不需要显式的状态机。
-
-**Q5: Claude Code 的权限系统如何设计？**
-
-A: 三层防护结构：
-- 第 1 层（工具注册过滤）：被禁的工具直接从模型视野里移除
-- 第 2 层（单次调用检查）：每次工具调用都做规则验证
-- 第 3 层（交互式询问）：没有匹配规则时实时问用户
-
-7 种运行模式，8 级规则优先级。设计哲学是：安全不应该是粗暴的全部拦截，而是精确地只拦那些真正需要人判断的操作。
-
----
-
-## 六、本章小结
-
-### Takeaway
-
-1. Claude Code 不是"API 包装器"，而是完整的 Agent 操作系统
-2. 51 万行代码中，AI 决策逻辑只占 1.6%，其余 98.4% 是工程基础设施
-3. Kernel + Harness 架构：模型负责思考，Harness 负责兜底
-
-### 思考题
-
-1. 为什么 Claude Code 选择 while(true) 而不是显式状态机？
-2. 5 层压缩机制的设计哲学是什么？
-3. 三层权限防护结构如何防止绕过？
-4. 4 种扩展机制的成本差异是什么？
-5. CLAUDE.md 为什么享有"永不删除"的特权？
-
----
-
-## 参考资料
-
-- [Claude Code 源码泄露分析](https://jingkaitang.github.io/writing/claude-code-source-code-leak/)
-- [51 万行代码 AI 只占 1.6%](https://blog.csdn.net/wuShiJingZuo/article/details/160836992)
-- [Claude Code 源码架构深度解析 V2.1](https://raw.githubusercontent.com/tvytlx/ai-agent-deep-dive/master/ai-agent-deep-dive-v2.1.pdf)
-- [MBZUAI/UCL 论文：Dive into Claude Code](https://arxiv.org/abs/2604.14228)
+下一章，我们深入五层架构，看看这 51 万行代码是怎么组织的。
