@@ -52,13 +52,18 @@
 | | [多模态 RAG](./05-multimodal-integration/02-multimodal-rag.md) | 多模态检索、CLIP 索引、视觉知识库、框架支持 |
 | | [多模态 Agent](./05-multimodal-integration/03-multimodal-agents.md) | Computer Use、视觉 grounding、Agent 规划、方案对比 |
 | 06 多模态工程 | [多模态工程实践](./06-multimodal-engineering/02-multimodal-in-production.md) | 评估指标、成本模型、可观测性、安全治理、上线 checklist |
-| 07 CC源码解析 | [query.ts Agent循环](./07-cc-source-analysis/01-query-ts-agent-loop.md) | 600行while True、turn计数、stop_reason、并发工具执行 |
-| | [Tool.ts 工具系统](./07-cc-source-analysis/02-tool-ts-tool-system.md) | buildTool工厂、Schema自动生成、权限回调 |
-| | [API调用层](./07-cc-source-analysis/03-api-service.md) | 统一调用、重试、token追踪 |
-| | [系统提示](./07-cc-source-analysis/04-system-prompt.md) | 提示组装、前缀缓存冻结 |
-| | [上下文压缩](./07-cc-source-analysis/05-context-compaction.md) | 三级压缩、首尾保留+中间摘要 |
-| | [记忆系统](./07-cc-source-analysis/06-memory-memdir.md) | 文件级持久记忆、反思提炼 |
-| | [子Agent](./07-cc-source-analysis/07-agent-tool.md) | 上下文隔离、消息路由 |
-| | [权限系统](./07-cc-source-analysis/08-permissions.md) | 分级权限、危险模式拦截 |
-| | [可观测性](./07-cc-source-analysis/09-telemetry.md) | Span树、成本追踪 |
+| 07 CC源码解析 | [整体架构](./07-cc-source-analysis/01-architecture-overview/README.md) | 51万行代码全景、模块划分、1.6% AI决策逻辑 |
+| | [启动流程](./07-cc-source-analysis/02-bootstrap/README.md) | entrypoints/bootstrap、启动优化、并行预取 |
+| | [Agent 循环](./07-cc-source-analysis/03-agent-loop/README.md) | query.ts 1729行 while True、turn管理、stop_reason |
+| | [工具系统](./07-cc-source-analysis/04-tool-system/README.md) | Tool.ts buildTool工厂、Schema生成、权限回调 |
+| | [LLM 调用层](./07-cc-source-analysis/05-llm-calling/README.md) | 3419行统一调用、重试、token追踪、多模型路由 |
+| | [系统提示](./07-cc-source-analysis/06-system-prompt/README.md) | 提示组装、缓存冻结、DYNAMIC_BOUNDARY |
+| | [上下文压缩](./07-cc-source-analysis/07-context-compaction/README.md) | 五层压缩管线、autoCompact、microCompact |
+| | [记忆系统](./07-cc-source-analysis/08-memory/README.md) | memdir文件级持久、autoDream反思提炼 |
+| | [子Agent](./07-cc-source-analysis/09-subagent/README.md) | AgentTool 2657行、上下文隔离、Git Worktree |
+| | [权限系统](./07-cc-source-analysis/10-permissions/README.md) | 七种权限模式、ML分类器、危险模式拦截 |
+| | [扩展机制](./07-cc-source-analysis/11-extensibility/README.md) | MCP + Skills + Hooks + Plugins 四种扩展方式 |
+| | [会话持久化](./07-cc-source-analysis/12-session-persistence/README.md) | 断点续传、checkpoint、状态恢复 |
+| | [可观测性](./07-cc-source-analysis/13-telemetry/README.md) | Span树、成本追踪、telemetry 1752行 |
+| | [设计哲学](./07-cc-source-analysis/14-design-philosophy/README.md) | 五个核心价值观、设计原则到技术实现 |
 
