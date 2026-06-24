@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+    <filter id="card"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.06"/></filter>
+  </defs>
+
+  <rect width="960" height="420" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">实时语音交互架构 — 经典级联 vs 端到端</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">2026 年业界两种主流方案的技术对比</text>
+
+  <!-- 经典级联方案 -->
+  <rect x="20" y="75" width="455" height="190" rx="10" fill="white" filter="url(#card)"/>
+  <rect x="20" y="75" width="455" height="4" rx="2" fill="#D97706"/>
+  <text x="247" y="102" text-anchor="middle" font-size="14" font-weight="700" fill="#D97706">经典级联方案（Cascade Pipeline）</text>
+  <text x="247" y="120" text-anchor="middle" font-size="10" fill="#64748B">5 个组件 · 高可控 · 业界 85% 产品采用</text>
+
+  <rect x="40" y="135" width="60" height="36" rx="6" fill="#F1F5F9"/><text x="70" y="157" text-anchor="middle" font-size="10" fill="#475569">VAD</text>
+  <text x="105" y="157" font-size="10" fill="#94A3B8">~30ms</text>
+  <text x="135" y="157" font-size="12" fill="#94A3B8">→</text>
+
+  <rect x="160" y="135" width="60" height="36" rx="6" fill="#F1F5F9"/><text x="190" y="157" text-anchor="middle" font-size="10" fill="#475569">ASR</text>
+  <text x="225" y="157" font-size="10" fill="#94A3B8">~150ms</text>
+  <text x="260" y="157" font-size="12" fill="#94A3B8">→</text>
+
+  <rect x="285" y="135" width="60" height="36" rx="6" fill="#F1F5F9"/><text x="315" y="157" text-anchor="middle" font-size="10" fill="#475569">Turn</text>
+  <text x="350" y="157" font-size="10" fill="#94A3B8">~200ms</text>
+  <text x="375" y="157" font-size="12" fill="#94A3B8">→</text>
+
+  <rect x="400" y="135" width="50" height="36" rx="6" fill="#F1F5F9"/><text x="425" y="157" text-anchor="middle" font-size="10" fill="#475569">LLM</text>
+
+  <text x="40" y="195" font-size="10" fill="#64748B">语音检测</text><text x="160" y="195" font-size="10" fill="#64748B">语音→文字</text><text x="285" y="195" font-size="10" fill="#64748B">话轮判断</text><text x="400" y="195" font-size="10" fill="#64748B">推理</text>
+
+  <rect x="40" y="213" width="410" height="36" rx="6" fill="#E2E8F0"/>
+  <text x="245" y="236" text-anchor="middle" font-size="10" fill="#475569">总延迟 ~930ms（未经优化） → 优化后 ~600ms + 网络 RTT → 总体 ~700-800ms</text>
+
+  <!-- 端到端方案 -->
+  <rect x="490" y="75" width="450" height="190" rx="10" fill="white" filter="url(#card)"/>
+  <rect x="490" y="75" width="450" height="4" rx="2" fill="#2563EB"/>
+  <text x="715" y="102" text-anchor="middle" font-size="14" font-weight="700" fill="#2563EB">端到端方案（Speech-to-Speech LLM）</text>
+  <text x="715" y="120" text-anchor="middle" font-size="10" fill="#64748B">1 个模型 · 低延迟 · 情感表达自然</text>
+
+  <rect x="530" y="140" width="370" height="50" rx="6" fill="#DBEAFE"/>
+  <text x="715" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">单一多模态模型（内建 ASR + LLM + TTS）</text>
+  <text x="715" y="178" text-anchor="middle" font-size="10" fill="#475569">GPT-4o Realtime API · Moshi（开源）</text>
+
+  <rect x="530" y="210" width="175" height="40" rx="6" fill="white"/>
+  <text x="617" y="228" text-anchor="middle" font-size="10" font-weight="600" fill="#059669">GPT-4o Realtime</text>
+  <text x="617" y="244" text-anchor="middle" font-size="9" fill="#64748B">延迟 ~320ms · 黑盒</text>
+
+  <rect x="725" y="210" width="175" height="40" rx="6" fill="white"/>
+  <text x="812" y="228" text-anchor="middle" font-size="10" font-weight="600" fill="#8B5CF6">Moshi（开源）</text>
+  <text x="812" y="244" text-anchor="middle" font-size="9" fill="#64748B">延迟 ~200ms · 可本地部署</text>
+
+  <!-- 底部对比 -->
+  <rect x="20" y="285" width="920" height="120" rx="8" fill="white" filter="url(#card)"/>
+  <text x="480" y="312" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">选型依据</text>
+
+  <rect x="45" y="328" width="200" height="60" rx="6" fill="#D97706" opacity="0.06"/>
+  <text x="145" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#D97706">级联方案适合</text>
+  <text x="145" y="370" text-anchor="middle" font-size="10" fill="#64748B">AI客服/销售 · 实时翻译</text>
+  <text x="145" y="384" text-anchor="middle" font-size="9" fill="#94A3B8">需要精确控制每步输出</text>
+
+  <rect x="270" y="328" width="200" height="60" rx="6" fill="#2563EB" opacity="0.06"/>
+  <text x="370" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">端到端方案适合</text>
+  <text x="370" y="370" text-anchor="middle" font-size="10" fill="#64748B">情感陪伴 · 歌唱 · 闲聊</text>
+  <text x="370" y="384" text-anchor="middle" font-size="9" fill="#94A3B8">需要自然情感表达</text>
+
+  <rect x="495" y="328" width="420" height="60" rx="6" fill="#059669" opacity="0.06"/>
+  <text x="705" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">混合方案（业界趋势）</text>
+  <text x="705" y="370" text-anchor="middle" font-size="10" fill="#64748B">简单对话用级联（便宜可控）· 情感场景用端到端（延迟低）</text>
+  <text x="705" y="384" text-anchor="middle" font-size="9" fill="#94A3B8">参考: LiveKit + CosyVoice2 + GPT-4o-mini</text>
+</svg>

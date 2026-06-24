@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+    <filter id="card"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.06"/></filter>
+  </defs>
+
+  <rect width="960" height="380" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">多模态应用部署架构 — 混合模式</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">实时处理轻量任务 + 异步处理重量任务</text>
+
+  <!-- 用户端 -->
+  <rect x="20" y="80" width="120" height="50" rx="8" fill="white" filter="url(#card)"/>
+  <text x="80" y="102" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">客户端</text>
+  <text x="80" y="118" text-anchor="middle" font-size="10" fill="#64748B">Web · App · API</text>
+
+  <line x1="140" y1="105" x2="190" y2="105" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- API Gateway -->
+  <rect x="195" y="80" width="130" height="50" rx="8" fill="white" filter="url(#card)"/>
+  <text x="260" y="102" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">API 网关</text>
+  <text x="260" y="118" text-anchor="middle" font-size="10" fill="#64748B">鉴权 · 路由 · 限流</text>
+
+  <!-- 分叉 -->
+  <line x1="325" y1="90" x2="380" y2="60" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="325" y1="105" x2="380" y2="105" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="325" y1="120" x2="380" y2="150" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- 实时管线 -->
+  <rect x="385" y="32" width="250" height="55" rx="6" fill="white" filter="url(#card)"/>
+  <rect x="385" y="32" width="250" height="4" rx="2" fill="#059669"/>
+  <text x="510" y="55" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">实时管线（轻量任务）</text>
+  <text x="510" y="72" text-anchor="middle" font-size="9" fill="#64748B">简单图片分析 · 实时对话 · UI审查</text>
+
+  <!-- 异步管线 -->
+  <rect x="385" y="135" width="250" height="55" rx="6" fill="white" filter="url(#card)"/>
+  <rect x="385" y="135" width="250" height="4" rx="2" fill="#D97706"/>
+  <text x="510" y="158" text-anchor="middle" font-size="11" font-weight="600" fill="#D97706">异步管线（重量任务）</text>
+  <text x="510" y="175" text-anchor="middle" font-size="9" fill="#64748B">批量审核 · 视频分析 · 大规模文档</text>
+
+  <!-- 任务队列 -->
+  <rect x="385" y="80" width="250" height="65" rx="6" fill="white" filter="url(#card)" opacity="0.9"/>
+  <text x="510" y="103" text-anchor="middle" font-size="10" font-weight="600" fill="#2563EB">任务路由与队列</text>
+  <text x="510" y="120" text-anchor="middle" font-size="9" fill="#64748B">轻量→实时 · 重量→入队</text>
+  <text x="510" y="136" text-anchor="middle" font-size="9" fill="#64748B">优先级: P0用户 > P1内部</text>
+
+  <!-- 底部: 基础设施 -->
+  <rect x="25" y="220" width="910" height="140" rx="8" fill="white" filter="url(#card)"/>
+  <text x="480" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">基础设施与监控</text>
+
+  <rect x="55" y="270" width="145" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="127" y="293" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">多模型池</text>
+  <text x="127" y="310" text-anchor="middle" font-size="9" fill="#64748B">GPT-4o · Gemini · Claude</text>
+  <text x="127" y="322" text-anchor="middle" font-size="8" fill="#94A3B8">本地: LLaVA · Qwen-VL</text>
+
+  <rect x="225" y="270" width="145" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="297" y="293" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">缓存与存储</text>
+  <text x="297" y="310" text-anchor="middle" font-size="9" fill="#64748B">Redis · 向量数据库</text>
+  <text x="297" y="322" text-anchor="middle" font-size="8" fill="#94A3B8">Prompt缓存 · 结果缓存</text>
+
+  <rect x="395" y="270" width="145" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="467" y="293" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">可观测性</text>
+  <text x="467" y="310" text-anchor="middle" font-size="9" fill="#64748B">OpenTelemetry · Grafana</text>
+  <text x="467" y="322" text-anchor="middle" font-size="8" fill="#94A3B8">Trace · Metrics · Logs</text>
+
+  <rect x="565" y="270" width="145" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="637" y="293" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">安全层</text>
+  <text x="637" y="310" text-anchor="middle" font-size="9" fill="#64748B">输入过滤 · 输出审核</text>
+  <text x="637" y="322" text-anchor="middle" font-size="8" fill="#94A3B8">速率限制 · 沙箱</text>
+
+  <rect x="735" y="270" width="175" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="822" y="293" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">成本控制</text>
+  <text x="822" y="310" text-anchor="middle" font-size="9" fill="#64748B">模型路由 · 预算熔断</text>
+  <text x="822" y="322" text-anchor="middle" font-size="8" fill="#94A3B8">分级预算 P0-P3</text>
+</svg>
