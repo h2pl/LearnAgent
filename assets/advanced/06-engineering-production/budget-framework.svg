@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="280" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">分级预算管控框架</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">按业务优先级分配模型预算</text>
+
+  <!-- P0 -->
+  <rect x="20" y="80" width="220" height="85" rx="8" fill="white"/>
+  <rect x="20" y="80" width="220" height="4" rx="2" fill="#EF4444"/>
+  <text x="130" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#EF4444">P0 · 关键任务</text>
+  <text x="130" y="128" text-anchor="middle" font-size="11" fill="#334155">GPT-4o · high分辨率</text>
+  <text x="130" y="146" text-anchor="middle" font-size="11" fill="#64748B">财报分析·合同审查</text>
+  <text x="130" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#EF4444">预算占比 30%</text>
+
+  <!-- P1 -->
+  <rect x="260" y="80" width="220" height="85" rx="8" fill="white"/>
+  <rect x="260" y="80" width="220" height="4" rx="2" fill="#D97706"/>
+  <text x="370" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#D97706">P1 · 重要任务</text>
+  <text x="370" y="128" text-anchor="middle" font-size="11" fill="#334155">GPT-4o · standard</text>
+  <text x="370" y="146" text-anchor="middle" font-size="11" fill="#64748B">图片审核·UI审查</text>
+  <text x="370" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">预算占比 40%</text>
+
+  <!-- P2 -->
+  <rect x="500" y="80" width="220" height="85" rx="8" fill="white"/>
+  <rect x="500" y="80" width="220" height="4" rx="2" fill="#2563EB"/>
+  <text x="610" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#2563EB">P2 · 常规任务</text>
+  <text x="610" y="128" text-anchor="middle" font-size="11" fill="#334155">GPT-4o-mini</text>
+  <text x="610" y="146" text-anchor="middle" font-size="11" fill="#64748B">分类·标签·简单问答</text>
+  <text x="610" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">预算占比 25%</text>
+
+  <!-- P3 -->
+  <rect x="740" y="80" width="200" height="85" rx="8" fill="white"/>
+  <rect x="740" y="80" width="200" height="4" rx="2" fill="#94A3B8"/>
+  <text x="840" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">P3 · 低优任务</text>
+  <text x="840" y="128" text-anchor="middle" font-size="11" fill="#334155">批量异步·后台</text>
+  <text x="840" y="146" text-anchor="middle" font-size="11" fill="#64748B">历史回填·数据清理</text>
+  <text x="840" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#94A3B8">预算占比 5%</text>
+
+  <!-- 底部: 熔断 -->
+  <rect x="20" y="185" width="920" height="80" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">日预算熔断机制</text>
+
+  <rect x="50" y="230" width="250" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="175" y="249" text-anchor="middle" font-size="10" fill="#475569">80%告警线 → 通知运营</text>
+
+  <rect x="330" y="230" width="250" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="455" y="249" text-anchor="middle" font-size="10" fill="#475569">100%熔断 → 全部降级到mini</text>
+
+  <rect x="610" y="230" width="300" height="28" rx="5" fill="#DBEAFE"/>
+  <text x="760" y="249" text-anchor="middle" font-size="10" fill="#2563EB">日预算 = 前30天日均 × 1.2（留20%余量）</text>
+</svg>

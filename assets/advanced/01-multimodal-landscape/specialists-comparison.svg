@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="320" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">专精产品：单一维度做到天花板</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">四大领域的标杆产品对比</text>
+
+  <!-- Midjourney -->
+  <rect x="20" y="80" width="220" height="140" rx="8" fill="white"/>
+  <rect x="20" y="80" width="220" height="4" rx="2" fill="#D97706"/>
+  <text x="130" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#D97706">Midjourney</text>
+  <text x="130" y="126" text-anchor="middle" font-size="10" fill="#64748B">图像生成</text>
+  <text x="130" y="152" text-anchor="middle" font-size="10" fill="#334155">审美天花板 · 光影质感独一档</text>
+  <text x="130" y="172" text-anchor="middle" font-size="10" fill="#334155">Discord/Web端 · $10-60/月</text>
+  <text x="130" y="196" text-anchor="middle" font-size="9" fill="#EF4444">✗ 中文文字渲染弱</text>
+  <text x="130" y="212" text-anchor="middle" font-size="9" fill="#EF4444">✗ 不支持局部编辑</text>
+
+  <!-- ElevenLabs -->
+  <rect x="260" y="80" width="220" height="140" rx="8" fill="white"/>
+  <rect x="260" y="80" width="220" height="4" rx="2" fill="#2563EB"/>
+  <text x="370" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#2563EB">ElevenLabs</text>
+  <text x="370" y="126" text-anchor="middle" font-size="10" fill="#64748B">语音合成 TTS</text>
+  <text x="370" y="152" text-anchor="middle" font-size="10" fill="#334155">语音自然度/情感控制天花板</text>
+  <text x="370" y="172" text-anchor="middle" font-size="10" fill="#334155">29语言克隆 · API</text>
+  <text x="370" y="196" text-anchor="middle" font-size="9" fill="#EF4444">✗ 不支持实时对话</text>
+  <text x="370" y="212" text-anchor="middle" font-size="9" fill="#EF4444">✗ 延迟偏高 ~1-2s</text>
+
+  <!-- Suno -->
+  <rect x="500" y="80" width="220" height="140" rx="8" fill="white"/>
+  <rect x="500" y="80" width="220" height="4" rx="2" fill="#8B5CF6"/>
+  <text x="610" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#8B5CF6">Suno</text>
+  <text x="610" y="126" text-anchor="middle" font-size="10" fill="#64748B">音乐生成</text>
+  <text x="610" y="152" text-anchor="middle" font-size="10" fill="#334155">一句话→完整歌曲</text>
+  <text x="610" y="172" text-anchor="middle" font-size="10" fill="#334155">作词+编曲+人声 30秒出歌</text>
+  <text x="610" y="196" text-anchor="middle" font-size="9" fill="#059669">✓ 中文古风意外出色</text>
+  <text x="610" y="212" text-anchor="middle" font-size="9" fill="#EF4444">✗ 精控不足·版权灰区</text>
+
+  <!-- Runway -->
+  <rect x="740" y="80" width="200" height="140" rx="8" fill="white"/>
+  <rect x="740" y="80" width="200" height="4" rx="2" fill="#059669"/>
+  <text x="840" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#059669">Runway</text>
+  <text x="840" y="126" text-anchor="middle" font-size="10" fill="#64748B">视频生成</text>
+  <text x="840" y="152" text-anchor="middle" font-size="10" fill="#334155">专业工具链·运动笔刷</text>
+  <text x="840" y="172" text-anchor="middle" font-size="10" fill="#334155">关键帧·风格迁移·4K</text>
+  <text x="840" y="196" text-anchor="middle" font-size="9" fill="#059669">✓ 专业创作首选</text>
+  <text x="840" y="212" text-anchor="middle" font-size="9" fill="#EF4444">✗ $35/月起·学习曲线</text>
+
+  <!-- 底部: 全能vs专精 -->
+  <rect x="20" y="235" width="920" height="70" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">规律</text>
+  <text x="200" y="288" text-anchor="middle" font-size="11" fill="#475569">日常需求 → 全能型 (ChatGPT)</text>
+  <text x="530" y="288" text-anchor="middle" font-size="11" fill="#2563EB">专业质量 → 专精型</text>
+  <text x="780" y="288" text-anchor="middle" font-size="11" fill="#059669">创作需求 → 先试专精型</text>
+</svg>

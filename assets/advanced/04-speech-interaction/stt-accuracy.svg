@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="300" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Whisper 版本选择指南</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">从 Tiny 到 Large-v3：参数量·精度·速度的权衡</text>
+
+  <!-- 柱状图: 英文 WER -->
+  <text x="60" y="260" font-size="10" fill="#64748B">Tiny</text>
+  <rect x="55" y="175" width="45" height="85" rx="3" fill="#94A3B8"/>
+  <text x="77" y="168" text-anchor="middle" font-size="11" font-weight="600" fill="#94A3B8">8.5%</text>
+  <text x="77" y="158" text-anchor="middle" font-size="8" fill="#64748B">39M</text>
+
+  <text x="140" y="260" font-size="10" fill="#64748B">Base</text>
+  <rect x="135" y="195" width="45" height="65" rx="3" fill="#94A3B8"/>
+  <text x="157" y="188" text-anchor="middle" font-size="11" font-weight="600" fill="#94A3B8">6.7%</text>
+  <text x="157" y="178" text-anchor="middle" font-size="8" fill="#64748B">74M</text>
+
+  <text x="220" y="260" font-size="10" fill="#64748B">Small</text>
+  <rect x="215" y="215" width="45" height="45" rx="3" fill="#2563EB" opacity="0.4"/>
+  <text x="237" y="208" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">4.8%</text>
+  <text x="237" y="198" text-anchor="middle" font-size="8" fill="#64748B">244M</text>
+
+  <text x="300" y="260" font-size="10" fill="#64748B">Medium</text>
+  <rect x="295" y="225" width="45" height="35" rx="3" fill="#2563EB" opacity="0.6"/>
+  <text x="317" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">3.8%</text>
+  <text x="317" y="208" text-anchor="middle" font-size="8" fill="#64748B">769M</text>
+
+  <text x="380" y="260" font-size="10" fill="#64748B">Large</text>
+  <rect x="375" y="232" width="45" height="28" rx="3" fill="#2563EB"/>
+  <text x="397" y="225" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">3.2%</text>
+  <text x="397" y="215" text-anchor="middle" font-size="8" fill="#64748B">1.55B</text>
+
+  <text x="300" y="278" text-anchor="middle" font-size="10" fill="#64748B">英文 WER（词错误率）↓ 越低越好</text>
+
+  <!-- 右侧: 选型表 -->
+  <rect x="500" y="80" width="440" height="200" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="720" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Whisper 选型指南</text>
+
+  <rect x="520" y="125" width="400" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="540" y="144" font-size="10" fill="#334155">实时/边缘 →</text><text x="620" y="144" font-size="10" font-weight="600" fill="#2563EB">Tiny/Base</text><text x="700" y="144" font-size="9" fill="#64748B">39-74M·1GB VRAM</text>
+
+  <rect x="520" y="160" width="400" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="540" y="179" font-size="10" fill="#334155">通用场景 →</text><text x="620" y="179" font-size="10" font-weight="600" fill="#D97706">Small/Medium</text><text x="720" y="179" font-size="9" fill="#64748B">244-769M·2-5GB</text>
+
+  <rect x="520" y="195" width="400" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="540" y="214" font-size="10" fill="#334155">最高精度 →</text><text x="620" y="214" font-size="10" font-weight="600" fill="#059669">Large-v3</text><text x="695" y="214" font-size="9" fill="#64748B">1.55B·10GB VRAM</text>
+
+  <rect x="520" y="230" width="400" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="540" y="249" font-size="10" fill="#334155">中文优化 →</text><text x="620" y="249" font-size="10" font-weight="600" fill="#8B5CF6">Large-v3 + initial_prompt</text>
+
+  <text x="720" y="272" text-anchor="middle" font-size="9" fill="#64748B">替代: faster-whisper 提速4倍 · DeepGram 实时&lt;300ms · 通义听悟 中文会议</text>
+</svg>
