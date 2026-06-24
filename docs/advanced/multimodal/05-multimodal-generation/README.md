@@ -1,4 +1,4 @@
-# 04 — 多模态生成
+# 05 — 多模态生成
 
 从理解到创造。覆盖扩散模型驱动的图像生成、视频生成，以及 2026 年原生多模态输出的新趋势。
 
@@ -15,5 +15,5 @@
 | [原生多模态输出](./03-native-multimodal-output.md) | GPT-4o 原生生图、Claude image output、统一输出趋势 |
 | [生成模型选型与实战](./04-generation-practice.md) | 场景选型、Prompt 策略、成本控制 |
 
-> 上一篇：[03 — 语音交互](../03-speech-interaction/README.md)
-> 下一篇：[05 — 工程落地](../05-engineering-production/README.md)
+> 上一篇：[04 — 语音交互](../04-speech-interaction/README.md)
+> 下一篇：[06 — 工程落地](../06-engineering-production/README.md)

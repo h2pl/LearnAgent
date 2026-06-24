@@ -1,4 +1,4 @@
-# 05 — 工程落地
+# 06 — 工程落地
 
 从 demo 到生产的最后一公里。补齐评估体系、多模态 RAG、成本建模、部署监控和安全管理。
 
@@ -16,4 +16,4 @@
 | [生产部署与监控](./04-deployment-monitoring.md) | 灰度上线、可观测性、fallback 策略 |
 | [安全与治理](./05-safety-governance.md) | 图像注入攻击、生成内容合规、隐私保护 |
 
-> 上一篇：[04 — 多模态生成](../04-multimodal-generation/README.md)
+> 上一篇：[05 — 多模态生成](../05-multimodal-generation/README.md)
