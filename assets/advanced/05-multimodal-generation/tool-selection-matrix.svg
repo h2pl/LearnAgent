@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="300" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">图像生成工具选型矩阵</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">按五个决策维度排序</text>
+
+  <rect x="20" y="80" width="180" height="40" rx="6" fill="#2563EB" opacity="0.08"/>
+  <text x="110" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">工具</text>
+  <rect x="208" y="80" width="130" height="40" rx="6" fill="#2563EB" opacity="0.08"/>
+  <text x="273" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">精度</text>
+  <rect x="346" y="80" width="130" height="40" rx="6" fill="#2563EB" opacity="0.08"/>
+  <text x="411" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">迭代编辑</text>
+  <rect x="484" y="80" width="130" height="40" rx="6" fill="#2563EB" opacity="0.08"/>
+  <text x="549" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">成本</text>
+  <rect x="622" y="80" width="130" height="40" rx="6" fill="#2563EB" opacity="0.08"/>
+  <text x="687" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">中文</text>
+  <rect x="760" y="80" width="180" height="40" rx="6" fill="#2563EB" opacity="0.08"/>
+  <text x="850" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">最适合</text>
+
+  <rect x="20" y="128" width="920" height="32" rx="5" fill="#F1F5F9"/>
+  <text x="110" y="149" text-anchor="middle" font-size="11" fill="#334155">Midjourney</text>
+  <text x="273" y="149" text-anchor="middle" font-size="11" fill="#059669">★★★★★</text>
+  <text x="411" y="149" text-anchor="middle" font-size="11" fill="#EF4444">★★☆☆☆</text>
+  <text x="549" y="149" text-anchor="middle" font-size="11" fill="#D97706">$10-60/月</text>
+  <text x="687" y="149" text-anchor="middle" font-size="11" fill="#EF4444">弱</text>
+  <text x="850" y="149" text-anchor="middle" font-size="10" fill="#64748B">追求画质的个人</text>
+
+  <rect x="20" y="164" width="920" height="32" rx="5" fill="white"/>
+  <text x="110" y="185" text-anchor="middle" font-size="11" fill="#334155">DALL-E (ChatGPT)</text>
+  <text x="273" y="185" text-anchor="middle" font-size="11" fill="#D97706">★★★★☆</text>
+  <text x="411" y="185" text-anchor="middle" font-size="11" fill="#2563EB">★★★★☆</text>
+  <text x="549" y="185" text-anchor="middle" font-size="11" fill="#059669">$20/月</text>
+  <text x="687" y="185" text-anchor="middle" font-size="11" fill="#D97706">中</text>
+  <text x="850" y="185" text-anchor="middle" font-size="10" fill="#64748B">方便优先的用户</text>
+
+  <rect x="20" y="200" width="920" height="32" rx="5" fill="#F1F5F9"/>
+  <text x="110" y="221" text-anchor="middle" font-size="11" fill="#334155">GPT-4o 原生输出</text>
+  <text x="273" y="221" text-anchor="middle" font-size="11" fill="#D97706">★★★★☆</text>
+  <text x="411" y="221" text-anchor="middle" font-size="11" fill="#059669">★★★★★</text>
+  <text x="549" y="221" text-anchor="middle" font-size="11" fill="#059669">$20/月</text>
+  <text x="687" y="221" text-anchor="middle" font-size="11" fill="#059669">强</text>
+  <text x="850" y="221" text-anchor="middle" font-size="10" fill="#64748B">反复修改的需求</text>
+
+  <rect x="20" y="236" width="920" height="32" rx="5" fill="white"/>
+  <text x="110" y="257" text-anchor="middle" font-size="11" fill="#334155">SD/Flux 本地</text>
+  <text x="273" y="257" text-anchor="middle" font-size="11" fill="#D97706">★★★☆☆</text>
+  <text x="411" y="257" text-anchor="middle" font-size="11" fill="#D97706">★★★☆☆</text>
+  <text x="549" y="257" text-anchor="middle" font-size="11" fill="#059669">$0-15/月</text>
+  <text x="687" y="257" text-anchor="middle" font-size="11" fill="#D97706">中</text>
+  <text x="850" y="257" text-anchor="middle" font-size="10" fill="#64748B">大批量·定制·隐私</text>
+
+  <text x="480" y="288" text-anchor="middle" font-size="10" fill="#64748B">规律: 精度→Midjourney | 迭代→GPT-4o | 量→SD | 方便→ChatGPT</text>
+</svg>

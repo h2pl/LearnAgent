@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="300" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">多模态应用的三种用户画像</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">从个人到企业：使用量·每日请求·推荐方案</text>
+
+  <rect x="20" y="85" width="295" height="195" rx="10" fill="white" filter="url(#shadow)"/>
+  <rect x="20" y="85" width="295" height="4" rx="2" fill="#059669"/>
+  <text x="167" y="115" text-anchor="middle" font-size="15" font-weight="700" fill="#059669">轻量用户</text>
+  <text x="167" y="136" text-anchor="middle" font-size="11" fill="#64748B">个人开发·偶尔使用</text>
+  <text x="167" y="160" text-anchor="middle" font-size="12" fill="#334155">每天 10-30 次请求</text>
+  <text x="167" y="182" text-anchor="middle" font-size="11" fill="#2563EB">ChatGPT Plus $20/月</text>
+  <text x="167" y="202" text-anchor="middle" font-size="11" fill="#334155">或 Midjourney $10/月</text>
+  <text x="167" y="228" text-anchor="middle" font-size="12" fill="#D97706">月费用 ≈ $5-20</text>
+  <text x="167" y="254" text-anchor="middle" font-size="10" fill="#64748B">不推荐自建·方便第一</text>
+
+  <rect x="335" y="85" width="295" height="195" rx="10" fill="white" filter="url(#shadow)"/>
+  <rect x="335" y="85" width="295" height="4" rx="2" fill="#D97706"/>
+  <text x="482" y="115" text-anchor="middle" font-size="15" font-weight="700" fill="#D97706">中度用户</text>
+  <text x="482" y="136" text-anchor="middle" font-size="11" fill="#64748B">SaaS创业·日百次API</text>
+  <text x="482" y="160" text-anchor="middle" font-size="12" fill="#334155">每天 100-500 次请求</text>
+  <text x="482" y="182" text-anchor="middle" font-size="11" fill="#2563EB">模型路由(mini先筛)</text>
+  <text x="482" y="202" text-anchor="middle" font-size="11" fill="#334155">Prompt缓存+结果缓存</text>
+  <text x="482" y="228" text-anchor="middle" font-size="12" fill="#D97706">月费用 ≈ $30-100</text>
+  <text x="482" y="254" text-anchor="middle" font-size="10" fill="#64748B">必须实施优化策略</text>
+
+  <rect x="650" y="85" width="290" height="195" rx="10" fill="white" filter="url(#shadow)"/>
+  <rect x="650" y="85" width="290" height="4" rx="2" fill="#EF4444"/>
+  <text x="795" y="115" text-anchor="middle" font-size="15" font-weight="700" fill="#EF4444">企业用户</text>
+  <text x="795" y="136" text-anchor="middle" font-size="11" fill="#64748B">日均万次·多模态全链路</text>
+  <text x="795" y="160" text-anchor="middle" font-size="12" fill="#334155">每天 5000+ 次请求</text>
+  <text x="795" y="182" text-anchor="middle" font-size="11" fill="#2563EB">本地部署SD/开源VLM</text>
+  <text x="795" y="202" text-anchor="middle" font-size="11" fill="#334155">混合云+分级预算</text>
+  <text x="795" y="228" text-anchor="middle" font-size="12" fill="#EF4444">月费用 ≈ $300-2000</text>
+  <text x="795" y="254" text-anchor="middle" font-size="10" fill="#64748B">全栈优化+安全合规</text>
+</svg>

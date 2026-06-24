@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="280" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">六种模态数据特征</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">数据规模·信息密度·处理难点的数量级差异</text>
+
+  <rect x="20" y="80" width="148" height="120" rx="8" fill="white"/>
+  <text x="94" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#2563EB">文本</text>
+  <text x="94" y="128" text-anchor="middle" font-size="10" fill="#64748B">1D Token序列</text>
+  <text x="94" y="150" text-anchor="middle" font-size="9" fill="#475569">密度: 低 · 1x基准</text>
+  <text x="94" y="168" text-anchor="middle" font-size="9" fill="#059669">成熟度: ★★★★★</text>
+  <text x="94" y="186" text-anchor="middle" font-size="9" fill="#94A3B8">~2000 Token/篇</text>
+
+  <rect x="175" y="80" width="148" height="120" rx="8" fill="white"/>
+  <text x="249" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#D97706">图像</text>
+  <text x="249" y="128" text-anchor="middle" font-size="10" fill="#64748B">2D 像素网格</text>
+  <text x="249" y="150" text-anchor="middle" font-size="9" fill="#475569">密度: 高 · 100x</text>
+  <text x="249" y="168" text-anchor="middle" font-size="9" fill="#D97706">成熟度: ★★★★☆</text>
+  <text x="249" y="186" text-anchor="middle" font-size="9" fill="#94A3B8">300万像素/张</text>
+
+  <rect x="330" y="80" width="148" height="120" rx="8" fill="white"/>
+  <text x="404" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#EF4444">视频</text>
+  <text x="404" y="128" text-anchor="middle" font-size="10" fill="#64748B">3D 时空体</text>
+  <text x="404" y="150" text-anchor="middle" font-size="9" fill="#475569">密度: 极高 · 1000x</text>
+  <text x="404" y="168" text-anchor="middle" font-size="9" fill="#EF4444">成熟度: ★★☆☆☆</text>
+  <text x="404" y="186" text-anchor="middle" font-size="9" fill="#94A3B8">18.7亿/10秒</text>
+
+  <rect x="485" y="80" width="148" height="120" rx="8" fill="white"/>
+  <text x="559" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#8B5CF6">音频</text>
+  <text x="559" y="128" text-anchor="middle" font-size="10" fill="#64748B">1D波形 → 2D频谱</text>
+  <text x="559" y="150" text-anchor="middle" font-size="9" fill="#475569">密度: 中 · 10x</text>
+  <text x="559" y="168" text-anchor="middle" font-size="9" fill="#8B5CF6">成熟度: ★★★☆☆</text>
+  <text x="559" y="186" text-anchor="middle" font-size="9" fill="#94A3B8">16K采样点/秒</text>
+
+  <rect x="640" y="80" width="148" height="120" rx="8" fill="white"/>
+  <text x="714" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#0EA5E9">3D/点云</text>
+  <text x="714" y="128" text-anchor="middle" font-size="10" fill="#64748B">三维坐标</text>
+  <text x="714" y="150" text-anchor="middle" font-size="9" fill="#475569">密度: 高 · 稀疏</text>
+  <text x="714" y="168" text-anchor="middle" font-size="9" fill="#94A3B8">成熟度: ★★☆☆☆</text>
+  <text x="714" y="186" text-anchor="middle" font-size="9" fill="#94A3B8">百万级点云</text>
+
+  <rect x="795" y="80" width="145" height="120" rx="8" fill="white"/>
+  <text x="867" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#059669">结构化</text>
+  <text x="867" y="128" text-anchor="middle" font-size="10" fill="#64748B">表格·JSON·图</text>
+  <text x="867" y="150" text-anchor="middle" font-size="9" fill="#475569">密度: 低</text>
+  <text x="867" y="168" text-anchor="middle" font-size="9" fill="#059669">成熟度: ★★★★★</text>
+  <text x="867" y="186" text-anchor="middle" font-size="9" fill="#94A3B8">天然有序</text>
+
+  <!-- 底部 -->
+  <rect x="20" y="215" width="920" height="50" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="240" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">核心挑战：把六种不同数学结构的数据放进同一个模型</text>
+  <text x="480" y="258" text-anchor="middle" font-size="10" fill="#64748B">文本是离散序列 · 图像是连续网格 · 视频是时空体 · 音频是波形 — 表示·对齐·融合 三步统一</text>
+</svg>

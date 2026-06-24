@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="280" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">VLM 实战流水线：从上传到回答</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">一张财报截图的分析全过程（步骤1-4 + 时间分解）</text>
+
+  <rect x="20" y="80" width="220" height="75" rx="6" fill="white"/>
+  <text x="130" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">① 预处理</text>
+  <text x="130" y="125" text-anchor="middle" font-size="10" fill="#64748B">图文→Token+Embedding</text>
+  <text x="130" y="142" text-anchor="middle" font-size="9" fill="#94A3B8">&lt;10ms · 图576+文50 Token</text>
+
+  <text x="248" y="122" font-size="14" fill="#94A3B8">→</text>
+
+  <rect x="265" y="80" width="220" height="75" rx="6" fill="white"/>
+  <text x="375" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">② 拼接</text>
+  <text x="375" y="125" text-anchor="middle" font-size="10" fill="#64748B">626 Token输入Transformer</text>
+  <text x="375" y="142" text-anchor="middle" font-size="9" fill="#94A3B8">&lt;1ms</text>
+
+  <text x="493" y="122" font-size="14" fill="#94A3B8">→</text>
+
+  <rect x="510" y="80" width="220" height="75" rx="6" fill="white"/>
+  <text x="620" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">③ 推理</text>
+  <text x="620" y="125" text-anchor="middle" font-size="10" fill="#64748B">32层Transformer·自注意力</text>
+  <text x="620" y="142" text-anchor="middle" font-size="9" fill="#94A3B8">~300ms · 逐层加深理解</text>
+
+  <text x="738" y="122" font-size="14" fill="#94A3B8">→</text>
+
+  <rect x="755" y="80" width="185" height="75" rx="6" fill="white"/>
+  <text x="847" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#8B5CF6">④ 输出</text>
+  <text x="847" y="125" text-anchor="middle" font-size="10" fill="#64748B">逐Token生成回答</text>
+  <text x="847" y="142" text-anchor="middle" font-size="9" fill="#94A3B8">~200ms</text>
+
+  <!-- 底部细节 -->
+  <rect x="20" y="175" width="920" height="90" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Transformer 层内变化</text>
+
+  <text x="80" y="225" font-size="10" fill="#64748B">L1-L6</text>
+  <text x="180" y="225" font-size="10" fill="#D97706">各模态内部自注意力</text>
+
+  <text x="380" y="225" font-size="10" fill="#64748B">L7-L12</text>
+  <text x="520" y="225" font-size="10" fill="#2563EB">跨模态关注建立·图文关联</text>
+
+  <text x="720" y="225" font-size="10" fill="#64748B">L13-L24</text>
+  <text x="840" y="225" font-size="10" fill="#059669">深度融合·全局理解形成</text>
+
+  <text x="380" y="252" text-anchor="middle" font-size="10" fill="#94A3B8">总延迟: 0.5-2秒 · Token消耗: ~1200 (输入626+输出~574)</text>
+</svg>
