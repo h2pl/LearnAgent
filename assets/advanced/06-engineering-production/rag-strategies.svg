@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="220" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">多模态 RAG 检索策略对比</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">三种图像索引策略的优劣与适用场景</text>
+
+  <rect x="20" y="80" width="295" height="80" rx="8" fill="white"/>
+  <rect x="20" y="80" width="295" height="4" rx="2" fill="#94A3B8"/>
+  <text x="167" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">描述检索</text>
+  <text x="167" y="126" text-anchor="middle" font-size="10" fill="#64748B">VLM生成描述→文字Embedding</text>
+  <text x="167" y="144" text-anchor="middle" font-size="9" fill="#EF4444">✗ 信息损失·丢失视觉细节</text>
+
+  <rect x="335" y="80" width="295" height="80" rx="8" fill="white"/>
+  <rect x="335" y="80" width="295" height="4" rx="2" fill="#2563EB"/>
+  <text x="482" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">CLIP/SigLIP 嵌入</text>
+  <text x="482" y="126" text-anchor="middle" font-size="10" fill="#64748B">直接图片→向量·无中介</text>
+  <text x="482" y="144" text-anchor="middle" font-size="9" fill="#D97706">△ 粗粒度·文档类弱</text>
+
+  <rect x="650" y="80" width="290" height="80" rx="8" fill="white"/>
+  <rect x="650" y="80" width="290" height="4" rx="2" fill="#059669"/>
+  <text x="795" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">多向量混合 ← 推荐</text>
+  <text x="795" y="126" text-anchor="middle" font-size="10" fill="#64748B">CLIP+文字+描述+元数据</text>
+  <text x="795" y="144" text-anchor="middle" font-size="9" fill="#059669">✓ 多路检索+RRF融合</text>
+
+  <!-- 底部 -->
+  <rect x="20" y="175" width="920" height="32" rx="6" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="196" text-anchor="middle" font-size="11" fill="#2563EB">生产最佳实践：多向量混合检索 + RRF融合 + VLM重排序 → 最佳精度与召回平衡</text>
+</svg>

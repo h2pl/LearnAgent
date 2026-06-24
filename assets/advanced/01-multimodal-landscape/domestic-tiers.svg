@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="260" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">国内全能对话产品梯队</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">2026年竞争格局：四梯队·10+产品</text>
+
+  <rect x="20" y="80" width="220" height="95" rx="8" fill="white"/>
+  <rect x="20" y="80" width="220" height="4" rx="2" fill="#2563EB"/>
+  <text x="130" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#2563EB">豆包</text>
+  <text x="130" y="128" text-anchor="middle" font-size="10" fill="#64748B">月活 3.15亿 · 国内第一</text>
+  <text x="130" y="148" text-anchor="middle" font-size="9" fill="#334155">字节全生态 · 免费</text>
+  <text x="130" y="166" text-anchor="middle" font-size="9" fill="#059669">中文语音·生图·视频全链路</text>
+
+  <rect x="260" y="80" width="220" height="95" rx="8" fill="white"/>
+  <rect x="260" y="80" width="220" height="4" rx="2" fill="#D97706"/>
+  <text x="370" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#D97706">通义千问</text>
+  <text x="370" y="128" text-anchor="middle" font-size="10" fill="#64748B">阿里全矩阵 · B端强</text>
+  <text x="370" y="148" text-anchor="middle" font-size="9" fill="#334155">千问+万相+听悟全家桶</text>
+  <text x="370" y="166" text-anchor="middle" font-size="9" fill="#D97706">电商生图·语音转写独有</text>
+
+  <rect x="500" y="80" width="220" height="95" rx="8" fill="white"/>
+  <rect x="500" y="80" width="220" height="4" rx="2" fill="#059669"/>
+  <text x="610" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#059669">Kimi · DeepSeek</text>
+  <text x="610" y="128" text-anchor="middle" font-size="10" fill="#64748B">垂直强者</text>
+  <text x="610" y="148" text-anchor="middle" font-size="9" fill="#334155">Kimi: 长文档百万字级</text>
+  <text x="610" y="166" text-anchor="middle" font-size="9" fill="#334155">DeepSeek: 开源·高性价比</text>
+
+  <rect x="740" y="80" width="200" height="95" rx="8" fill="white"/>
+  <rect x="740" y="80" width="200" height="4" rx="2" fill="#8B5CF6"/>
+  <text x="840" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#8B5CF6">追赶者</text>
+  <text x="840" y="128" text-anchor="middle" font-size="10" fill="#64748B">文心·元宝·MiniMax</text>
+  <text x="840" y="148" text-anchor="middle" font-size="9" fill="#334155">阶跃星辰·Step-2</text>
+  <text x="840" y="166" text-anchor="middle" font-size="9" fill="#94A3B8">持续迭代中</text>
+
+  <!-- 趋势 -->
+  <rect x="20" y="195" width="920" height="50" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="218" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">竞争维度：字节(用户+生态) vs 阿里(全矩阵+B端) vs 垂直(单维极致) vs 追赶者(场景壁垒)</text>
+  <text x="480" y="238" text-anchor="middle" font-size="10" fill="#64748B">不是一家独大 · 四个梯队在不同领域各有强项</text>
+</svg>

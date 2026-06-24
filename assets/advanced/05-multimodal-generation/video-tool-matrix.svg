@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="260" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">视频生成选型速查</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">六款产品按场景·预算·核心优势排列</text>
+
+  <rect x="20" y="80" width="150" height="40" rx="6" fill="#F1F5F9"/>
+  <text x="95" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">产品</text>
+  <rect x="178" y="80" width="110" height="40" rx="6" fill="#F1F5F9"/>
+  <text x="233" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">画质</text>
+  <rect x="296" y="80" width="140" height="40" rx="6" fill="#F1F5F9"/>
+  <text x="366" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">核心优势</text>
+  <rect x="444" y="80" width="110" height="40" rx="6" fill="#F1F5F9"/>
+  <text x="499" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">月成本</text>
+  <rect x="562" y="80" width="160" height="40" rx="6" fill="#F1F5F9"/>
+  <text x="642" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">最适合</text>
+  <rect x="730" y="80" width="210" height="40" rx="6" fill="#F1F5F9"/>
+  <text x="835" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">当前局限</text>
+
+  <rect x="20" y="125" width="920" height="28" rx="5" fill="white"/>
+  <text x="95" y="144" font-size="10" fill="#334155">Runway Gen-4</text>
+  <text x="233" y="144" font-size="10" fill="#059669">★★★★★</text>
+  <text x="366" y="144" font-size="9" fill="#334155">专业工具链·运动笔刷</text>
+  <text x="499" y="144" font-size="9" fill="#334155">$35/月</text>
+  <text x="642" y="144" font-size="9" fill="#64748B">专业创作者</text>
+  <text x="835" y="144" font-size="9" fill="#64748B">学习曲线·英文优先</text>
+
+  <rect x="20" y="157" width="920" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="95" y="176" font-size="10" fill="#334155">可灵(国产)</text>
+  <text x="233" y="176" font-size="10" fill="#D97706">★★★★☆</text>
+  <text x="366" y="176" font-size="9" fill="#334155">运动物理感·免费的</text>
+  <text x="499" y="176" font-size="9" fill="#059669">¥0-50/月</text>
+  <text x="642" y="176" font-size="9" fill="#64748B">中文日常使用</text>
+  <text x="835" y="176" font-size="9" fill="#64748B">5-10秒·复杂动作</text>
+
+  <rect x="20" y="189" width="920" height="28" rx="5" fill="white"/>
+  <text x="95" y="208" font-size="10" fill="#334155">Seedance(字节)</text>
+  <text x="233" y="208" font-size="10" fill="#D97706">★★★★☆</text>
+  <text x="366" y="208" font-size="9" fill="#334155">人物一致性·生态闭环</text>
+  <text x="499" y="208" font-size="9" fill="#059669">¥0-50/月</text>
+  <text x="642" y="208" font-size="9" fill="#64748B">短视频创作者</text>
+  <text x="835" y="208" font-size="9" fill="#64748B">镜头控制不足</text>
+
+  <rect x="20" y="221" width="920" height="28" rx="5" fill="#F1F5F9"/>
+  <text x="95" y="240" font-size="10" fill="#334155">Pika·Luma·Veo</text>
+  <text x="233" y="240" font-size="10" fill="#D97706">★★★☆☆</text>
+  <text x="366" y="240" font-size="9" fill="#334155">各有特色·轻量/3D/生态</text>
+  <text x="499" y="240" font-size="9" fill="#334155">$0-30/月</text>
+  <text x="642" y="240" font-size="9" fill="#64748B">多样化需求</text>
+  <text x="835" y="240" font-size="9" fill="#64748B">画质/可用范围有限</text>
+</svg>

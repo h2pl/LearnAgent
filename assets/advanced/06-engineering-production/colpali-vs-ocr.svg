@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="260" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">ColPali vs 传统OCR — PDF检索方式对比</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">为什么 ColPali 是 PDF 检索的范式转变</text>
+
+  <!-- 传统OCR -->
+  <rect x="20" y="80" width="440" height="85" rx="8" fill="white" filter="url(#shadow)"/>
+  <rect x="20" y="80" width="440" height="4" rx="2" fill="#94A3B8"/>
+  <text x="240" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">传统 OCR + Embedding</text>
+  <text x="240" y="128" text-anchor="middle" font-size="10" fill="#64748B">PDF → OCR提取文字 → 文字Embedding → 检索</text>
+  <text x="240" y="148" text-anchor="middle" font-size="9" fill="#EF4444">✗ 丢失：表格结构·版面信息·图片内容·图表颜色</text>
+
+  <rect x="480" y="80" width="460" height="85" rx="8" fill="white" filter="url(#shadow)"/>
+  <rect x="480" y="80" width="460" height="4" rx="2" fill="#059669"/>
+  <text x="710" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#059669">ColPali：视觉页面嵌入</text>
+  <text x="710" y="128" text-anchor="middle" font-size="10" fill="#64748B">PDF → 页面截图 → VLM直接编码整页 → 检索</text>
+  <text x="710" y="148" text-anchor="middle" font-size="9" fill="#059669">✓ 保留：文字+表格+图表+版式·全部视觉信息</text>
+
+  <!-- 底部对比 -->
+  <rect x="20" y="185" width="920" height="60" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="160" y="215" text-anchor="middle" font-size="11" fill="#475569">传统OCR精度</text><text x="160" y="235" text-anchor="middle" font-size="12" font-weight="700" fill="#EF4444">60-70%</text>
+  <text x="370" y="215" text-anchor="middle" font-size="11" fill="#475569">ColPali精度</text><text x="370" y="235" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">85-95%</text>
+  <text x="560" y="215" text-anchor="middle" font-size="11" fill="#475569">最适合</text><text x="560" y="235" text-anchor="middle" font-size="11" fill="#2563EB">学术论文·财务报表·设计文档·法律合同</text>
+  <text x="810" y="215" text-anchor="middle" font-size="11" fill="#475569">原理</text><text x="810" y="235" text-anchor="middle" font-size="11" fill="#64748B">不看文字看排版·不识字符识结构</text>
+</svg>

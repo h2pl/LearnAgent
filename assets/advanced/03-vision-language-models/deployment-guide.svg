@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="240" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">图像理解选型：开源自部署 vs API调用</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">根据场景·精度·成本选择最佳 VLM 方案</text>
+
+  <rect x="20" y="80" width="295" height="70" rx="8" fill="white"/>
+  <text x="167" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">本地原型·低预算</text>
+  <text x="167" y="128" text-anchor="middle" font-size="10" fill="#334155">LLaVA 1.5-7B</text>
+  <text x="167" y="146" text-anchor="middle" font-size="9" fill="#64748B">RTX 3090·16GB·社区最大</text>
+
+  <rect x="330" y="80" width="295" height="70" rx="8" fill="white"/>
+  <text x="477" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">中文文档·OCR</text>
+  <text x="477" y="128" text-anchor="middle" font-size="10" fill="#334155">Qwen2-VL-7B/72B</text>
+  <text x="477" y="146" text-anchor="middle" font-size="9" fill="#64748B">定位框选·多图理解·全系列</text>
+
+  <rect x="640" y="80" width="300" height="70" rx="8" fill="white"/>
+  <text x="790" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">最高精度·复杂推理</text>
+  <text x="790" y="128" text-anchor="middle" font-size="10" fill="#334155">GPT-4o API · Claude API</text>
+  <text x="790" y="146" text-anchor="middle" font-size="9" fill="#64748B">不需要自建·按量付费</text>
+
+  <!-- 底部 -->
+  <rect x="20" y="170" width="920" height="55" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="200" y="198" text-anchor="middle" font-size="10" fill="#334155">移动端 → MiniCPM-V / Qwen2-VL-2B</text>
+  <text x="520" y="198" text-anchor="middle" font-size="10" fill="#334155">3D视觉 → InternVL</text>
+  <text x="780" y="198" text-anchor="middle" font-size="10" fill="#334155">微调 → Qwen2-VL (开源·文档好)</text>
+  <text x="480" y="218" text-anchor="middle" font-size="9" fill="#64748B">GPU需求: 3B模型→2GB | 7B→16GB | 72B→4×A100</text>
+</svg>
