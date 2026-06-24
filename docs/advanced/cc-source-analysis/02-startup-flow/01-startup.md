@@ -1,5 +1,18 @@
 # 02 — 启动流程
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/startup-pipeline.svg" alt="启动流程" width="90%"/>
+  <br/>
+  <em>135ms 冷启动的 5 个阶段与优化策略</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/init-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 02-startup-flow 配图</em>
+</p>
 ## 导读
 
 Claude Code 的启动过程是一个精心设计的性能优化案例。从用户敲下 `claude` 到看到 REPL 界面，整个流程被压缩到约 135ms（冷启动），这背后是一套"能并行就并行、能延迟就延迟、能跳过就跳过"的工程哲学。

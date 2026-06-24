@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/execution-pipeline.svg" alt="工具执行管道" width="90%"/>
+  <br/>
+  <em>4 层流水线：发现 → 校验 → 调度 → 收集</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/tool-types.svg" alt="工具类型概览" width="90%"/>
+  <br/>
+  <em>42 个内置工具的 6 大分类</em>
+</p>
+
+
 ## Tool 接口：21 个方法搞定的统一抽象
 
 `Tool.ts`（793 行）定义了所有工具的通用接口。这个接口有 21 个方法，但每个工具不需要全部实现——`buildTool` 工厂函数会给缺省的方法填充安全默认值。

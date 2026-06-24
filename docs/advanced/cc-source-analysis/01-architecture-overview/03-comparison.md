@@ -21,7 +21,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/01-architecture-overview/code-distribution.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 01 配图</em>
+</p>
+
 ## 代码规模与定位
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/01-architecture-overview/comparison.svg" alt="三大Agent框架对比" width="90%"/>
+  <br/>
+  <em>Claude Code、Hermes、OpenClaw 三大框架核心指标对比</em>
+</p>
 
 | 框架 | 代码行数 | 语言 | 定位 |
 |------|---------|------|------|

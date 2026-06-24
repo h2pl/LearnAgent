@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/></marker>
+    <marker id="arrowDanger" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#EF4444"/></marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#059669"/></marker>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="12"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">命令四阶段状态机</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748B">handlePromptSubmit.ts 的完整执行流程，含分支条件与中断处理</text>
+
+  <!-- Phase 1: Parse -->
+  <rect x="40" y="85" width="200" height="120" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="140" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">① 解析 Parse</text>
+  <line x1="60" y1="120" x2="220" y2="120" stroke="#93C5FD" stroke-width="1"/>
+  <text x="140" y="140" text-anchor="middle" font-size="10" fill="#1D4ED8">输入 .trim() === ''?</text>
+  <text x="140" y="155" text-anchor="middle" font-size="10" fill="#1D4ED8">以 / 开头 → slash命令</text>
+  <text x="140" y="170" text-anchor="middle" font-size="10" fill="#1D4ED8">:q / :wq → 映射为 /exit</text>
+  <text x="140" y="185" text-anchor="middle" font-size="10" fill="#1D4ED8">提取 commandName + args</text>
+
+  <!-- Phase 2: Queue -->
+  <rect x="280" y="85" width="200" height="120" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="380" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">② 排队 Queue</text>
+  <line x1="300" y1="120" x2="460" y2="120" stroke="#93C5FD" stroke-width="1"/>
+  <text x="380" y="140" text-anchor="middle" font-size="10" fill="#1D4ED8">queryGuard.isActive?</text>
+  <text x="380" y="155" text-anchor="middle" font-size="10" fill="#1D4ED8">→ enqueue()入FIFO队列</text>
+  <text x="380" y="170" text-anchor="middle" font-size="10" fill="#1D4ED8">→ idle: 直接执行</text>
+  <text x="380" y="185" text-anchor="middle" font-size="10" fill="#1D4ED8">immediate命令绕过队列</text>
+
+  <!-- Phase 3: Execute -->
+  <rect x="520" y="85" width="200" height="120" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="620" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">③ 执行 Execute</text>
+  <line x1="540" y1="120" x2="700" y2="120" stroke="#93C5FD" stroke-width="1"/>
+  <text x="620" y="140" text-anchor="middle" font-size="10" fill="#1D4ED8">prompt → getPromptForCommand</text>
+  <text x="620" y="155" text-anchor="middle" font-size="10" fill="#1D4ED8">local → call(args, context)</text>
+  <text x="620" y="170" text-anchor="middle" font-size="10" fill="#1D4ED8">local-jsx → load() + call()</text>
+  <text x="620" y="185" text-anchor="middle" font-size="10" fill="#1D4ED8">queryGuard.reserve()加锁</text>
+
+  <!-- Phase 4: Cleanup -->
+  <rect x="760" y="85" width="160" height="120" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="840" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">④ 清理 Cleanup</text>
+  <line x1="775" y1="120" x2="905" y2="120" stroke="#93C5FD" stroke-width="1"/>
+  <text x="840" y="140" text-anchor="middle" font-size="10" fill="#1D4ED8">onDone回调调用</text>
+  <text x="840" y="155" text-anchor="middle" font-size="10" fill="#1D4ED8">清理local-jsx UI</text>
+  <text x="840" y="170" text-anchor="middle" font-size="10" fill="#1D4ED8">cancelReservation()</text>
+  <text x="840" y="185" text-anchor="middle" font-size="10" fill="#1D4ED8">释放Guard锁</text>
+
+  <!-- Arrows between phases -->
+  <line x1="240" y1="145" x2="280" y2="145" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="480" y1="145" x2="520" y2="145" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="145" x2="760" y2="145" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Branch conditions -->
+  <rect x="40" y="225" width="200" height="80" rx="6" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="140" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#991B1B">空输入</text>
+  <text x="140" y="265" text-anchor="middle" font-size="9" fill="#B91C1C">直接return丢弃</text>
+  <text x="140" y="282" text-anchor="middle" font-size="9" fill="#B91C1C">不进入状态机</text>
+
+  <line x1="140" y1="205" x2="140" y2="225" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrowDanger)"/>
+
+  <!-- Interrupt branch -->
+  <rect x="280" y="225" width="200" height="80" rx="6" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="380" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#991B1B">工具可中断?</text>
+  <text x="380" y="265" text-anchor="middle" font-size="9" fill="#B91C1C">hasInterruptibleToolInProgress</text>
+  <text x="380" y="282" text-anchor="middle" font-size="9" fill="#B91C1C">→ abortController.abort()</text>
+
+  <line x1="380" y1="205" x2="380" y2="225" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrowDanger)"/>
+
+  <!-- Bridge Safe branch -->
+  <rect x="520" y="225" width="200" height="80" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="620" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">Bridge安全?</text>
+  <text x="620" y="265" text-anchor="middle" font-size="9" fill="#047857">prompt→ 默认允许</text>
+  <text x="620" y="282" text-anchor="middle" font-size="9" fill="#047857">local-jsx→ 默认拒绝</text>
+
+  <line x1="620" y1="205" x2="620" y2="225" stroke="#059669" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrowGreen)"/>
+
+  <!-- Flow summary at bottom -->
+  <rect x="40" y="330" width="880" height="155" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="60" y="355" font-size="14" font-weight="700" fill="#1E293B">三种命令执行路径</text>
+
+  <rect x="60" y="370" width="260" height="55" rx="6" fill="#EFF6FF"/>
+  <text x="190" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">prompt命令（如 /commit）</text>
+  <text x="190" y="408" text-anchor="middle" font-size="9" fill="#3B82F6">getPromptForCommand → 提示词注入 → LLM执行</text>
+
+  <rect x="340" y="370" width="260" height="55" rx="6" fill="#FFFBEB"/>
+  <text x="470" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#92400E">local命令（如 /cost）</text>
+  <text x="470" y="408" text-anchor="middle" font-size="9" fill="#B45309">call(args,context) → 纯工程逻辑，无LLM</text>
+
+  <rect x="620" y="370" width="280" height="55" rx="6" fill="#ECFDF5"/>
+  <text x="760" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">local-jsx命令（如 /init）</text>
+  <text x="760" y="408" text-anchor="middle" font-size="9" fill="#047857">load()+call() → 返回React组件 → setToolJSX渲染终端</text>
+
+  <text x="480" y="465" text-anchor="middle" font-size="10" fill="#64748B">核心保障: queryGuard.reserve() 防止并发执行 | Remote → skipSlashCommands 防止退出本地session</text>
+</svg>

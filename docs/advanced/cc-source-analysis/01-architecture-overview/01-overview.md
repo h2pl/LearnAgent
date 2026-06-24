@@ -24,7 +24,7 @@
 剩下的 98.4% 是什么？启动优化、权限管理、上下文压缩、会话持久化、终端渲染、工具调度、MCP 集成、可观测性——这些不是让模型"更聪明"，而是让模型"不闯祸"。
 
 <p align="center">
-  <img src="../../../assets/advanced/cc-source-analysis/code-distribution.svg" alt="Claude Code 代码分布" width="90%"/>
+  <img src="../../../../assets/cc-source-analysis/01-architecture-overview/code-distribution.svg" alt="Claude Code 代码分布" width="90%"/>
   <br/>
   <em>Claude Code 代码分布：AI 决策逻辑仅占 1.6%</em>
 </p>

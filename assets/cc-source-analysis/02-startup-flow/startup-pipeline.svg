@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960">
+  <defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter></defs>
+  <rect width="960" height="400" fill="#F8FAFC" rx="8"/>
+  <text x="480" y="34" text-anchor="middle" font-family="PingFang SC" font-size="18" font-weight="bold" fill="#1e293b">Claude Code 启动流程</text>
+  <text x="480" y="54" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#64748b">135ms 冷启动的 5 个阶段</text>
+
+  <g filter="url(#s)"><rect x="40" y="75" width="165" height="52" rx="6" fill="#2563EB"/><text x="122" y="99" text-anchor="middle" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#fff">1. 依赖注入</text><text x="122" y="117" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="rgba(255,255,255,0.8)">IoC Container</text></g>
+  <text x="215" y="105" font-family="Segoe UI" font-size="14" fill="#94A3B8">→</text>
+  <g filter="url(#s)"><rect x="233" y="75" width="165" height="52" rx="6" fill="#2563EB"/><text x="315" y="99" text-anchor="middle" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#fff">2. 配置加载</text><text x="315" y="117" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="rgba(255,255,255,0.8)">Config → State</text></g>
+  <text x="408" y="105" font-family="Segoe UI" font-size="14" fill="#94A3B8">→</text>
+  <g filter="url(#s)"><rect x="426" y="75" width="165" height="52" rx="6" fill="#059669"/><text x="508" y="99" text-anchor="middle" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#fff">3. 环境检测</text><text x="508" y="117" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="rgba(255,255,255,0.8)">Node/Git/OS</text></g>
+  <text x="601" y="105" font-family="Segoe UI" font-size="14" fill="#94A3B8">→</text>
+  <g filter="url(#s)"><rect x="619" y="75" width="165" height="52" rx="6" fill="#059669"/><text x="701" y="99" text-anchor="middle" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#fff">4. 入口路由</text><text x="701" y="117" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="rgba(255,255,255,0.8)">Stdio/Pipe/IDE</text></g>
+  <text x="794" y="105" font-family="Segoe UI" font-size="14" fill="#94A3B8">→</text>
+  <g filter="url(#s)"><rect x="812" y="75" width="108" height="52" rx="6" fill="#D97706"/><text x="866" y="99" text-anchor="middle" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#fff">5. 启动</text><text x="866" y="117" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="rgba(255,255,255,0.8)">Loop</text></g>
+
+  <text x="60" y="170" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#1e293b">优化策略</text>
+  <g filter="url(#s)"><rect x="60" y="185" width="260" height="42" rx="5" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/><text x="190" y="210" text-anchor="middle" font-family="Segoe UI,PingFang SC" font-size="12" fill="#1E40AF">并行加载：IoC + Config 同时初始化</text></g>
+  <g filter="url(#s)"><rect x="350" y="185" width="260" height="42" rx="5" fill="#F0FDF4" stroke="#059669" stroke-width="1"/><text x="480" y="210" text-anchor="middle" font-family="Segoe UI,PingFang SC" font-size="12" fill="#047857">延迟初始化：按需加载模块</text></g>
+  <g filter="url(#s)"><rect x="640" y="185" width="260" height="42" rx="5" fill="#FFF7ED" stroke="#D97706" stroke-width="1"/><text x="770" y="210" text-anchor="middle" font-family="Segoe UI,PingFang SC" font-size="12" fill="#B45309">条件跳过：无 Git 跳过 git helper</text></g>
+
+  <text x="60" y="270" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#1e293b">关键数据</text>
+  <rect x="60" y="288" width="200" height="36" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="80" y="311" font-family="PingFang SC" font-size="12" fill="#475569">入口文件</text>
+  <text x="200" y="311" text-anchor="end" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#2563EB">main.tsx (303行)</text>
+  <rect x="280" y="288" width="200" height="36" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="300" y="311" font-family="PingFang SC" font-size="12" fill="#475569">配置字段</text>
+  <text x="420" y="311" text-anchor="end" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#2563EB">~150 个</text>
+  <rect x="500" y="288" width="200" height="36" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="520" y="311" font-family="PingFang SC" font-size="12" fill="#475569">冷启动</text>
+  <text x="640" y="311" text-anchor="end" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#059669">135ms</text>
+  <rect x="720" y="288" width="200" height="36" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="740" y="311" font-family="PingFang SC" font-size="12" fill="#475569">State 字段</text>
+  <text x="860" y="311" text-anchor="end" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#2563EB">4683 行</text>
+</svg>

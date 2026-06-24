@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/12-session-persistence/session-state.svg" alt="会话状态" width="90%"/>
+  <br/>
+  <em>150 个字段的持久化与 Resume 机制</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/12-session-persistence/state-fields.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 12-session-persistence 配图</em>
+</p>
 ## Checkpoint 机制
 
 Checkpoint 是状态的一个"快照"——在关键节点保存完整状态，以便后续恢复。Claude Code 的 checkpoint 策略是**自动 + 手动**结合：

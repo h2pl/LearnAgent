@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter><filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs><rect width="960" height="360" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">遥测架构</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">事件的分层分发</text><g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#7C3AED"/><text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">三层 Sink 架构</text></g><g filter="url(#s)"><rect x="60" y="135" width="840" height="50" rx="6" fill="#2563EB"/>
+<text x="480.0" y="157" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Analytics Sink</text>
+<text x="70" y="175" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">用户行为分析 · GrowthBook</text>
+</g><g filter="url(#s)"><rect x="60" y="195" width="840" height="50" rx="6" fill="#059669"/>
+<text x="480.0" y="217" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">OTLP Sink</text>
+<text x="70" y="235" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">分布式追踪 · Datadog</text>
+</g><g filter="url(#s)"><rect x="60" y="255" width="840" height="50" rx="6" fill="#D97706"/>
+<text x="480.0" y="277" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Metrics Sink</text>
+<text x="70" y="295" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">性能指标 · 自定义聚合</text>
+</g><text x="480" y="335" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#94A3B8">约 40 个事件类型，统一通过 TelemetryService 分发到三层 Sink</text></svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter><filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs><rect width="960" height="430" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Ink 渲染架构</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">六层终端 UI 栈</text><g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#059669"/><text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">Ink 渲染器六层架构</text></g><g filter="url(#s)"><rect x="60" y="130" width="840" height="42" rx="6" fill="#2563EB"/>
+<text x="480.0" y="152" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">应用层</text>
+<text x="70" y="162" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">89 个 React 组件, 包括对话/工具栏/状态栏</text>
+</g><g filter="url(#s)"><rect x="60" y="178" width="840" height="42" rx="6" fill="#059669"/>
+<text x="480.0" y="200" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Ink 核心</text>
+<text x="70" y="210" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">React → 终端绑定, 自研 Custom Reconciler</text>
+</g><g filter="url(#s)"><rect x="60" y="226" width="840" height="42" rx="6" fill="#D97706"/>
+<text x="480.0" y="248" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Screen 缓冲</text>
+<text x="70" y="258" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">双缓冲 + 增量 Diff, 只刷变化行</text>
+</g><g filter="url(#s)"><rect x="60" y="274" width="840" height="42" rx="6" fill="#7C3AED"/>
+<text x="480.0" y="296" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">CharPool</text>
+<text x="70" y="306" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">字符资源池, ASCII 快路径</text>
+</g><g filter="url(#s)"><rect x="60" y="322" width="840" height="42" rx="6" fill="#DB2777"/>
+<text x="480.0" y="344" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">ANSI 控制</text>
+<text x="70" y="354" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">颜色/光标/清除, 终端底层指令</text>
+</g><g filter="url(#s)"><rect x="60" y="370" width="840" height="42" rx="6" fill="#2563EB"/>
+<text x="480.0" y="392" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">PTY 输入</text>
+<text x="70" y="402" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">stdin 原始模式, 按键→React 事件</text>
+</g></svg>

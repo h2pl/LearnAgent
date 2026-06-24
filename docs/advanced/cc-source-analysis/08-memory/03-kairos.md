@@ -18,6 +18,19 @@ Claude Code 的答案是 **KAIROS**，一个后台守护进程。这个名字来
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/08-memory/memory-architecture.svg" alt="记忆系统架构" width="90%"/>
+  <br/>
+  <em>memdir 持久化 + autoDream 反思 + 三层检索</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/08-memory/memdir-structure.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 08-memory 配图</em>
+</p>
 ## KAIROS 的职责边界
 
 KAIROS 不是一个独立进程，而是 Claude Code 主进程里的一个**后台任务调度器**。它的职责范围很明确：

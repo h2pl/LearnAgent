@@ -17,6 +17,13 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/11-extensibility/extension-types.svg" alt="四种扩展对比" width="90%"/>
+  <br/>
+  <em>Hook → Skill → Plugin → MCP</em>
+</p>
+
+
 ## Skill 与工具的区别
 
 很多人把 Skill 和工具混为一谈，但它们是完全不同的东西：

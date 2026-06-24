@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 390" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter><filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs><rect width="960" height="390" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">MCP 协议集成</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">Client-Server 双向通信</text><g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#7C3AED"/><text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">MCP 协议架构</text></g><g filter="url(#s)"><rect x="60" y="130" width="840" height="48" rx="6" fill="##2563EB"/>
+<text x="480.0" y="152" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">MCP Client: Agent 侧：发起 tool 调用请求</text>
+<text x="70" y="168" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><g filter="url(#s)"><rect x="60" y="188" width="840" height="48" rx="6" fill="##059669"/>
+<text x="480.0" y="210" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">JSON-RPC 2.0: 标准 RPC 协议，stdio/SSE 双传输</text>
+<text x="70" y="226" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><g filter="url(#s)"><rect x="60" y="246" width="840" height="48" rx="6" fill="##D97706"/>
+<text x="480.0" y="268" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">MCP Server: 工具侧：注册 + 响应 tool 调用</text>
+<text x="70" y="284" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><g filter="url(#s)"><rect x="60" y="304" width="840" height="48" rx="6" fill="##7C3AED"/>
+<text x="480.0" y="326" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">动态发现: list_tools → call_tool，零配置</text>
+<text x="70" y="342" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g></svg>

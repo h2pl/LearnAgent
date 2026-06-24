@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/></marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/></marker>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#D97706"/></marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#059669"/></marker>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="12"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">Bridge 协议四角色架构</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748B">Mobile/Web Client → API Server → Local Agent → IDE Extension 的协作模型</text>
+
+  <!-- Role 1: Mobile/Web Client -->
+  <rect x="40" y="90" width="200" height="130" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="140" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">📱 Mobile/Web Client</text>
+  <line x1="60" y1="128" x2="220" y2="128" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="140" y="148" text-anchor="middle" font-size="10" fill="#3B82F6">claude.ai 前端</text>
+  <text x="140" y="165" text-anchor="middle" font-size="10" fill="#3B82F6">iOS / Android App</text>
+  <text x="140" y="182" text-anchor="middle" font-size="10" fill="#3B82F6">Web Dashboard</text>
+  <text x="140" y="199" text-anchor="middle" font-size="10" fill="#3B82F6">发送: user_message / slash_command</text>
+  <text x="140" y="216" text-anchor="middle" font-size="10" fill="#3B82F6">接收: text / tool_use / thinking</text>
+
+  <!-- Role 2: Bridge API Server -->
+  <rect x="320" y="90" width="320" height="130" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
+  <text x="480" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">🔀 Bridge API Server</text>
+  <line x1="340" y1="128" x2="620" y2="128" stroke="#FDE68A" stroke-width="1"/>
+  <text x="480" y="148" text-anchor="middle" font-size="10" fill="#B45309">消息路由 : 客户端 ↔ Agent 中转</text>
+  <text x="480" y="165" text-anchor="middle" font-size="10" fill="#B45309">会话管理 : Session 创建/状态/超时24h</text>
+  <text x="480" y="182" text-anchor="middle" font-size="10" fill="#B45309">JWT签发 : 认证与授权</text>
+  <text x="480" y="199" text-anchor="middle" font-size="10" fill="#B45309">Work Secret分发 : 三阶段握手</text>
+  <text x="480" y="216" text-anchor="middle" font-size="10" fill="#B45309">传输 : V1(polling) / V2(websocket)</text>
+
+  <!-- Role 3: Local Agent Process -->
+  <rect x="320" y="260" width="320" height="130" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <text x="480" y="288" text-anchor="middle" font-size="14" font-weight="700" fill="#065F46">🤖 Local Agent Process</text>
+  <line x1="340" y1="298" x2="620" y2="298" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="480" y="318" text-anchor="middle" font-size="10" fill="#047857">bridgeMain.ts : Work轮询 + Session实例化</text>
+  <text x="480" y="335" text-anchor="middle" font-size="10" fill="#047857">replBridge.ts (102KB) : 连接管理</text>
+  <text x="480" y="352" text-anchor="middle" font-size="10" fill="#047857">bridgeMessaging.ts : 消息解析+去重+校验</text>
+  <text x="480" y="369" text-anchor="middle" font-size="10" fill="#047857">processUserInput : 与本地输入相同路径</text>
+  <text x="480" y="386" text-anchor="middle" font-size="10" fill="#047857">capacityWake : 远程唤醒sleep中的Agent</text>
+
+  <!-- Role 4: IDE Extension -->
+  <rect x="720" y="90" width="200" height="130" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="820" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#991B1B">🖥️ IDE Extension</text>
+  <line x1="740" y1="128" x2="900" y2="128" stroke="#FECACA" stroke-width="1"/>
+  <text x="820" y="148" text-anchor="middle" font-size="10" fill="#B91C1C">VS Code / Cursor / Windsurf</text>
+  <text x="820" y="165" text-anchor="middle" font-size="10" fill="#B91C1C">+ 15种 JetBrains IDE</text>
+  <text x="820" y="182" text-anchor="middle" font-size="10" fill="#B91C1C">文件编辑同步</text>
+  <text x="820" y="199" text-anchor="middle" font-size="10" fill="#B91C1C">光标位置/选区传递</text>
+  <text x="820" y="216" text-anchor="middle" font-size="10" fill="#B91C1C">idePathConversion: WSL路径转换</text>
+
+  <!-- Arrows between roles -->
+  <line x1="240" y1="155" x2="320" y2="155" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="280" y="148" text-anchor="middle" font-size="8" fill="#3B82F6">WebSocket</text>
+
+  <line x1="640" y1="155" x2="720" y2="155" stroke="#D97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="680" y="148" text-anchor="middle" font-size="8" fill="#B45309">SDKMessage</text>
+
+  <line x1="480" y1="220" x2="480" y2="260" stroke="#D97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="510" y="245" font-size="9" fill="#B45309">JWT Sessions</text>
+
+  <line x1="480" y1="390" x2="480" y2="420" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Bottom: unified protocol -->
+  <rect x="40" y="425" width="880" height="55" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="480" y="448" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">统一 SDKMessage 协议</text>
+  <text x="480" y="468" text-anchor="middle" font-size="10" fill="#64748B">进站: user_message | tool_approval | slash_command | control_request  出站: text | tool_use | tool_result | thinking</text>
+</svg>

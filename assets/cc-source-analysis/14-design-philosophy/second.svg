@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 256" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter></defs><rect width="960" height="256" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Feature Flags</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">44 个功能开关的灰度控制</text><g filter="url(#s)"><rect x="60" y="90" width="840" height="44" rx="5" fill="#2563EB"/>
+<text x="80" y="114" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">增量发布</text>
+<text x="80" y="130" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">新功能 → Feature Flag → 灰度 → 全量</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="142" width="840" height="44" rx="5" fill="#D97706"/>
+<text x="80" y="166" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">紧急回滚</text>
+<text x="80" y="182" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">故障 → Flag 关闭 → 回退</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="194" width="840" height="44" rx="5" fill="#059669"/>
+<text x="80" y="218" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">实验验证</text>
+<text x="80" y="234" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">A/B 测试 → Flag 控制 → 数据分析</text>
+</g>
+</svg>

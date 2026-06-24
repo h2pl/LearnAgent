@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/></marker>
+    <marker id="arrowDown" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/></marker>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="12"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">命令的四层来源架构</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748B">内置命令、Skills、Plugin命令、动态Skills如何汇聚到统一接口</text>
+
+  <!-- Layer 1: Built-in Commands -->
+  <rect x="40" y="85" width="200" height="80" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="140" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">内置命令</text>
+  <text x="140" y="130" text-anchor="middle" font-size="10" fill="#3B82F6">COMMANDS() — memoize缓存</text>
+  <text x="140" y="148" text-anchor="middle" font-size="9" fill="#60A5FA">/commit /init /compact 等 40+</text>
+
+  <!-- Layer 2: Skills Directory -->
+  <rect x="260" y="85" width="200" height="80" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="360" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">Skills目录</text>
+  <text x="360" y="130" text-anchor="middle" font-size="10" fill="#3B82F6">~/.claude/skills/ + 项目.claude/</text>
+  <text x="360" y="148" text-anchor="middle" font-size="9" fill="#60A5FA">用户自定义 / Bundled内置</text>
+
+  <!-- Layer 3: Plugin Commands -->
+  <rect x="480" y="85" width="200" height="80" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="580" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">Plugin命令</text>
+  <text x="580" y="130" text-anchor="middle" font-size="10" fill="#3B82F6">getPluginCommands()</text>
+  <text x="580" y="148" text-anchor="middle" font-size="9" fill="#60A5FA">MCP插件 / 内置插件</text>
+
+  <!-- Layer 4: Dynamic Skills -->
+  <rect x="700" y="85" width="220" height="80" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="810" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">动态Skills</text>
+  <text x="810" y="130" text-anchor="middle" font-size="10" fill="#3B82F6">getDynamicSkills()</text>
+  <text x="810" y="148" text-anchor="middle" font-size="9" fill="#60A5FA">运行时Agent创建</text>
+
+  <!-- Arrows to convergence -->
+  <line x1="140" y1="165" x2="300" y2="200" stroke="#2563EB" stroke-width="1.5"/>
+  <line x1="360" y1="165" x2="360" y2="200" stroke="#2563EB" stroke-width="1.5"/>
+  <line x1="580" y1="165" x2="480" y2="200" stroke="#2563EB" stroke-width="1.5"/>
+  <line x1="810" y1="165" x2="660" y2="200" stroke="#2563EB" stroke-width="1.5"/>
+
+  <!-- Convergence: loadAllCommands -->
+  <rect x="200" y="195" width="560" height="50" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="480" y="218" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">loadAllCommands(cwd) → 汇聚为 Command[]</text>
+  <text x="480" y="236" text-anchor="middle" font-size="10" fill="#DBEAFE">memoize 按 cwd 缓存，优先级：bundled→builtinPlugin→skillDir→workflow→plugin→COMMANDS</text>
+
+  <line x1="480" y1="245" x2="480" y2="280" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Filter chain -->
+  <rect x="40" y="290" width="280" height="55" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="180" y="312" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">过滤 1: availability</text>
+  <text x="180" y="330" text-anchor="middle" font-size="10" fill="#B45309">claude-ai / console 订阅检查</text>
+
+  <rect x="340" y="290" width="280" height="55" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="480" y="312" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">过滤 2: isEnabled</text>
+  <text x="480" y="330" text-anchor="middle" font-size="10" fill="#B45309">Feature Flag / GrowthBook A/B实验</text>
+
+  <rect x="640" y="290" width="280" height="55" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="780" y="312" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">过滤 3: 动态去重</text>
+  <text x="780" y="330" text-anchor="middle" font-size="10" fill="#B45309">动态Skills去重后插入</text>
+
+  <!-- Arrows between filters -->
+  <line x1="320" y1="317" x2="340" y2="317" stroke="#D97706" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="620" y1="317" x2="640" y2="317" stroke="#D97706" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Final output -->
+  <line x1="780" y1="345" x2="780" y2="370" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="780" y1="370" x2="480" y2="370" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="480" y1="370" x2="480" y2="390" stroke="#D97706" stroke-width="1.5"/>
+
+  <rect x="280" y="395" width="400" height="45" rx="8" fill="#059669" filter="url(#shadow)"/>
+  <text x="480" y="415" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">getCommands() → 可用命令列表</text>
+  <text x="480" y="432" text-anchor="middle" font-size="10" fill="#D1FAE5">输出给 slash补全 / 帮助系统 / 模型Skill Tool调用</text>
+
+  <!-- Side note -->
+  <rect x="40" y="455" width="880" height="30" rx="6" fill="#F1F5F9"/>
+  <text x="480" y="476" text-anchor="middle" font-size="10" fill="#64748B">DCE: USER_TYPE ≠ ant 时，29个内部命令被完全消除 | 惰性加载: /insights的119KB模块仅按需import</text>
+</svg>

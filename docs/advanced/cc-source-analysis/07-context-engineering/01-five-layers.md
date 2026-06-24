@@ -15,6 +15,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/compression-layers.svg" alt="上下文压缩" width="90%"/>
+  <br/>
+  <em>200K Token 窗口的 5 层压缩机制</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/autocompact-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 07-context-engineering 配图</em>
+</p>
 ## 为什么是 5 层而不是 1 层
 
 一个直觉的想法是：上下文快满了，直接做个全对话总结不就行了？

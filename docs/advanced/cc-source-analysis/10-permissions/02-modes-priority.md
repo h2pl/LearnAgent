@@ -18,6 +18,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/10-permissions/permission-architecture.svg" alt="权限系统" width="90%"/>
+  <br/>
+  <em>7 种权限模式 + ML 安全分类器</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/10-permissions/permission-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 10-permissions 配图</em>
+</p>
 ## 7 种运行模式
 
 Claude Code 定义了 7 种运行模式，每种模式对应一种"信任级别"和"自动化程度"：

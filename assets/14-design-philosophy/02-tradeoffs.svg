@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="500" fill="#F8FAFC" rx="12"/>
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">第 14 章核心取舍</text>
+
+  <!-- 3 tradeoff sections -->
+  <rect x="20" y="65" width="295" height="180" rx="8" fill="white" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="167" y="95" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">Undercover Mode</text>
+  <text x="167" y="118" text-anchor="middle" font-size="11" fill="#64748B">信息阻断的艺术</text>
+  <line x1="40" y1="130" x2="295" y2="130" stroke="#E2E8F0"/>
+  <text x="40" y="152" font-size="12" fill="#334155">默认 ON，不可关闭</text>
+  <text x="40" y="172" font-size="12" fill="#334155">DCE 消除外部构建</text>
+  <text x="40" y="192" font-size="12" fill="#334155">NEVER 泄露模型代号</text>
+  <text x="40" y="212" font-size="12" fill="#334155">隐藏使用AI这件事</text>
+  <text x="40" y="232" font-size="12" fill="#64748B" font-style="italic">代价：额外的自我审查token</text>
+
+  <rect x="332" y="65" width="295" height="180" rx="8" fill="white" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="480" y="95" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">监督悖论</text>
+  <text x="480" y="118" text-anchor="middle" font-size="11" fill="#64748B">信任与验证的平衡</text>
+  <line x1="352" y1="130" x2="607" y2="130" stroke="#E2E8F0"/>
+  <text x="352" y="152" font-size="12" fill="#334155">四维信任梯度：</text>
+  <text x="352" y="172" font-size="12" fill="#334155">① terminalFocus (在场/离开)</text>
+  <text x="352" y="192" font-size="12" fill="#334155">② 操作可逆性 (可逆/不可逆)</text>
+  <text x="352" y="212" font-size="12" fill="#334155">③ 授权范围 (单次/范围)</text>
+  <text x="352" y="232" font-size="12" fill="#64748B" font-style="italic">代价：每次新场景需重新确认</text>
+
+  <rect x="645" y="65" width="295" height="180" rx="8" fill="white" stroke="#059669" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="792" y="95" text-anchor="middle" font-size="16" font-weight="700" fill="#065F46">模型 vs 工程边界</text>
+  <text x="792" y="118" text-anchor="middle" font-size="11" fill="#64748B">复杂度分配</text>
+  <line x1="665" y1="130" x2="920" y2="130" stroke="#E2E8F0"/>
+  <text x="665" y="152" font-size="12" fill="#334155">精确计算 → 工程</text>
+  <text x="665" y="172" font-size="12" fill="#334155">语义理解 → 模型</text>
+  <text x="665" y="192" font-size="12" fill="#334155">安全约束 → 工程+审查</text>
+  <text x="665" y="212" font-size="12" fill="#334155">压缩=工程(43KB代码)</text>
+  <text x="665" y="232" font-size="12" fill="#64748B" font-style="italic">记忆选择=模型(side-query)</text>
+
+  <!-- Bottom: Anti-distillation + KAIROS + Flags -->
+  <rect x="20" y="265" width="450" height="95" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+  <text x="40" y="290" font-size="14" font-weight="600" fill="#1E40AF">Anti-Distillation 双层防御</text>
+  <text x="40" y="312" font-size="12" fill="#3B82F6">防御1: fake_tools — 注入虚构工具定义，污染训练数据</text>
+  <text x="40" y="332" font-size="12" fill="#3B82F6">防御2: CONNECTOR_TEXT — 服务器端摘要推理链，只返回签名</text>
+  <text x="40" y="352" font-size="12" fill="#64748B" font-style="italic">不阻止蒸馏，让蒸馏结果不可靠</text>
+
+  <rect x="490" y="265" width="450" height="95" rx="6" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+  <text x="510" y="290" font-size="14" font-weight="600" fill="#92400E">KAIROS 未公开自主模式</text>
+  <text x="510" y="312" font-size="12" fill="#B45309">24/7后台运行，独占工具: Push通知/文件交付/PR订阅</text>
+  <text x="510" y="332" font-size="12" fill="#B45309">每日日志只追加不删除，autoDream夜间整理记忆</text>
+  <text x="510" y="352" font-size="12" fill="#64748B" font-style="italic">核心挑战：主动性与克制的平衡</text>
+
+  <!-- Feature Flags -->
+  <rect x="20" y="380" width="920" height="100" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="480" y="408" text-anchor="middle" font-size="14" font-weight="600" fill="#475569">44 个 Feature Flags + 20+ 未发布特性</text>
+  <text x="480" y="432" text-anchor="middle" font-size="12" fill="#64748B">DCE 消除 | GrowthBook A/B 测试 | 紧急远程关机 | 完整功能渐进式打开</text>
+  <text x="480" y="455" text-anchor="middle" font-size="11" fill="#94A3B8">BUDDY · BRIDGE_MODE · KAIROS · ULTRAPLAN · DAEMON · FORK_SUBAGENT · TORCH · VOICE_MODE · ...</text>
+</svg>

@@ -17,6 +17,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/execution-pipeline.svg" alt="工具执行管道" width="90%"/>
+  <br/>
+  <em>4 层流水线：发现 → 校验 → 调度 → 收集</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/tool-types.svg" alt="工具类型概览" width="90%"/>
+  <br/>
+  <em>42 个内置工具的 6 大分类</em>
+</p>
+
+
 ## 分批策略：按安全性分组
 
 `toolOrchestration.ts` 的核心函数是 `partitionToolCalls`。它不关心工具的名字，只关心一个布尔值：`isConcurrencySafe`。

@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/startup-pipeline.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析系列配图</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/init-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 02-startup-flow 配图</em>
+</p>
 ## Commander 参数解析
 
 `main.tsx` 用 Commander 定义了 50 多个命令行选项：

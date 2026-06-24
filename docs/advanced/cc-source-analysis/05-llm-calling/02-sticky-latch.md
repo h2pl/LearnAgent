@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/05-llm-calling/callmodel-pipeline.svg" alt="LLM 调用流水线" width="90%"/>
+  <br/>
+  <em>callModel() 内部的 6 阶段处理</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/05-llm-calling/retry-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 05-llm-calling 配图</em>
+</p>
 ## Prompt Cache 为什么这么重要
 
 Claude Code 的系统提示词在 50-70K token 之间。如果每次 API 调用都要重新上传这些 token，会产生两个后果：

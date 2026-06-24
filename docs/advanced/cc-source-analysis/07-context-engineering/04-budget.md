@@ -15,6 +15,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/compression-layers.svg" alt="上下文压缩" width="90%"/>
+  <br/>
+  <em>200K Token 窗口的 5 层压缩机制</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/autocompact-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 07-context-engineering 配图</em>
+</p>
 ## Token 预算的分配模型
 
 以 Claude Sonnet 4.6（200K 上下文窗口）为例，Token 预算的分配如下：

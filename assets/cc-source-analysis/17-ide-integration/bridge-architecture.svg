@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter><filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs><rect width="960" height="410" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Bridge 协议与 IDE 集成</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">Agent 如何走出终端</text><g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#7C3AED"/><text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">Bridge 协议</text></g><g filter="url(#s)"><rect x="60" y="135" width="840" height="50" rx="6" fill="#2563EB"/>
+<text x="480.0" y="157" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">SDK: 客户端发起, 提供编辑器上下文</text>
+<text x="70" y="175" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><g filter="url(#s)"><rect x="60" y="193" width="840" height="50" rx="6" fill="#059669"/>
+<text x="480.0" y="215" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Bridge: 协议翻译, WebSocket + 管道</text>
+<text x="70" y="233" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><g filter="url(#s)"><rect x="60" y="251" width="840" height="50" rx="6" fill="#D97706"/>
+<text x="480.0" y="273" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Claude: Agent 执行, 返回结果</text>
+<text x="70" y="291" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><g filter="url(#s)"><rect x="60" y="309" width="840" height="50" rx="6" fill="#7C3AED"/>
+<text x="480.0" y="331" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Server: 会话管理, 多连接路由</text>
+<text x="70" y="349" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)"></text>
+</g><text x="480" y="380" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#94A3B8">WebSocket 双传输 + SDKMessage 协议 + 18 种 IDE 进程检测</text></svg>

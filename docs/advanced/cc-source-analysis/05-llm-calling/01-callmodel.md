@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/05-llm-calling/callmodel-pipeline.svg" alt="LLM 调用流水线" width="90%"/>
+  <br/>
+  <em>callModel() 内部的 6 阶段处理</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/05-llm-calling/retry-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 05-llm-calling 配图</em>
+</p>
 ## 3420 行的职责分解
 
 `claude.ts` 不是一个"API 调用工具"——它是一个完整的调用管线。按照职责可以分成六个阶段：

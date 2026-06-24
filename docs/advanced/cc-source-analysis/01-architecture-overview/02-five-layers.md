@@ -19,10 +19,16 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/01-architecture-overview/comparison.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 01 配图</em>
+</p>
+
 ## 整体分层
 
 <p align="center">
-  <img src="../../../assets/advanced/cc-source-analysis/five-layers.svg" alt="Claude Code 五层架构" width="90%"/>
+  <img src="../../../../assets/cc-source-analysis/01-architecture-overview/five-layers.svg" alt="Claude Code 五层架构" width="90%"/>
   <br/>
   <em>Claude Code 五层架构：从入口到模型调用</em>
 </p>

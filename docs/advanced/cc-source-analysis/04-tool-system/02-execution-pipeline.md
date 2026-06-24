@@ -18,6 +18,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/execution-pipeline.svg" alt="工具执行管道" width="90%"/>
+  <br/>
+  <em>4 层流水线：发现 → 校验 → 调度 → 收集</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/tool-types.svg" alt="工具类型概览" width="90%"/>
+  <br/>
+  <em>42 个内置工具的 6 大分类</em>
+</p>
+
+
 ## 8 步流水线全景
 
 `toolExecution.ts` 的入口是 `runToolUse()`，它是一个 async generator——每一步都可能 yield 消息更新给 Agent 循环，让 UI 实时反映执行状态。

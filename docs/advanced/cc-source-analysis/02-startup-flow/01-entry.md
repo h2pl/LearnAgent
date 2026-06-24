@@ -14,6 +14,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/startup-pipeline.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析系列配图</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/init-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 02-startup-flow 配图</em>
+</p>
 ## 为什么入口不是 main.tsx
 
 大多数人会以为 `claude` 命令的入口是 `src/main.tsx`，因为它的文件名最像主文件。但实际上，真正的入口是 `src/entrypoints/cli.tsx`。

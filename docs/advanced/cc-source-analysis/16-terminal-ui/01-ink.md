@@ -19,6 +19,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/16-terminal-ui/ink-architecture.svg" alt="Ink 渲染" width="90%"/>
+  <br/>
+  <em>六层终端 UI 栈</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/16-terminal-ui/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 16-terminal-ui 配图</em>
+</p>
 ## 从 React DOM 到 React Terminal
 
 浏览器 React 的渲染链是：

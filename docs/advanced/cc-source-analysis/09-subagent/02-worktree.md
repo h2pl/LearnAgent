@@ -18,6 +18,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/09-subagent/subagent-architecture.svg" alt="子 Agent 隔离" width="90%"/>
+  <br/>
+  <em>AgentTool + Worktree + 上下文压缩</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/09-subagent/worktree-isolation.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 09-subagent 配图</em>
+</p>
 ## 为什么用 Git Worktree
 
 先对比几种隔离方案：

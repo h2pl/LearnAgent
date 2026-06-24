@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/compression-layers.svg" alt="上下文压缩" width="90%"/>
+  <br/>
+  <em>200K Token 窗口的 5 层压缩机制</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/autocompact-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 07-context-engineering 配图</em>
+</p>
 ## microcompact：by tool_use_id 的点状压缩
 
 microcompact 的设计非常简洁——它只做一件事：**找到某个 tool_use_id 对应的结果消息，把它替换成短摘要。**

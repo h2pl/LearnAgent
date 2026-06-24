@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 350" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter><filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs><rect width="960" height="350" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">四种扩展方式对比</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">Hook/Skill/Plugin/MCP</text><g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#2563EB"/><text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">Claude Code 四种扩展方式</text></g><g filter="url(#s)"><rect x="60" y="140" width="200" height="120" rx="6" fill="#2563EB"/>
+<text x="160.0" y="162" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Hook</text>
+<text x="70" y="250" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">生命周期拦截，pre/post 事件</text>
+</g><text x="270" y="205" font-family="Segoe UI" font-size="20" fill="#94A3B8">→</text>
+<g filter="url(#s)"><rect x="280" y="140" width="200" height="120" rx="6" fill="#059669"/>
+<text x="380.0" y="162" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Skill</text>
+<text x="290" y="250" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">可复用工作流，SKILL.md</text>
+</g><text x="490" y="205" font-family="Segoe UI" font-size="20" fill="#94A3B8">→</text>
+<g filter="url(#s)"><rect x="500" y="140" width="200" height="120" rx="6" fill="#D97706"/>
+<text x="600.0" y="162" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">Plugin</text>
+<text x="510" y="250" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">npm 包扩展，独立安装</text>
+</g><text x="710" y="205" font-family="Segoe UI" font-size="20" fill="#94A3B8">→</text>
+<g filter="url(#s)"><rect x="720" y="140" width="200" height="120" rx="6" fill="#7C3AED"/>
+<text x="820.0" y="162" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">MCP</text>
+<text x="730" y="250" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">外部工具生态，标准协议</text>
+</g><text x="480" y="310" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#64748b">Hook → Skill → Plugin → MCP，扩展能力递增，复杂度也递增</text></svg>

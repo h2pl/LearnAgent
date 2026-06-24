@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" width="960">
+<defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter>
+<filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs>
+<rect width="960" height="450" fill="#F8FAFC" rx="8"/>
+<text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">System Prompt 动态拼装</text>
+<text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">53KB 提示词的 6 层组装过程</text>
+<g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#2563EB"/>
+<text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">53KB System Prompt 的动态拼装流程</text>
+</g>
+<g filter="url(#s)"><rect x="40" y="135" width="140" height="38" rx="5" fill="#2563EB"/>
+<text x="110.0" y="160" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">基础模板</text>
+</g>
+<g filter="url(#s)"><rect x="190" y="135" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="200" y="160" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">prompts.ts 核心指令 + 行为规范 ~4KB</text>
+</g>
+<g filter="url(#s)"><rect x="40" y="183" width="140" height="38" rx="5" fill="#2563EB"/>
+<text x="110.0" y="208" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">CONNECTOR_TEXT</text>
+</g>
+<g filter="url(#s)"><rect x="190" y="183" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="200" y="208" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">Anti-Distillation 隐藏文本</text>
+</g>
+<g filter="url(#s)"><rect x="40" y="231" width="140" height="38" rx="5" fill="#2563EB"/>
+<text x="110.0" y="256" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">工具注册表</text>
+</g>
+<g filter="url(#s)"><rect x="190" y="231" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="200" y="256" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">42 个工具的 JSON Schema 定义</text>
+</g>
+<g filter="url(#s)"><rect x="40" y="279" width="140" height="38" rx="5" fill="#2563EB"/>
+<text x="110.0" y="304" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">动态注入</text>
+</g>
+<g filter="url(#s)"><rect x="190" y="279" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="200" y="304" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">CLAUDE.md + Skills + MCP Config</text>
+</g>
+<g filter="url(#s)"><rect x="40" y="327" width="140" height="38" rx="5" fill="#2563EB"/>
+<text x="110.0" y="352" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">上下文拼装</text>
+</g>
+<g filter="url(#s)"><rect x="190" y="327" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="200" y="352" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">消息历史 + Token 预算裁剪</text>
+</g>
+<g filter="url(#s)"><rect x="40" y="375" width="140" height="38" rx="5" fill="#2563EB"/>
+<text x="110.0" y="400" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">缓存命中</text>
+</g>
+<g filter="url(#s)"><rect x="190" y="375" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="200" y="400" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">Prompt Caching 前缀匹配 90% 命中率</text>
+</g>
+<text x="480" y="420" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#94A3B8">最终 Prompt 约 50-70K Token，前 4K 可用于 Prompt Caching</text>
+</svg>

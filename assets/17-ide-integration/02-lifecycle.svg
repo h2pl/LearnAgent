@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/></marker>
+  </defs>
+  <rect width="960" height="520" fill="#F8FAFC" rx="12"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">Bridge 消息完整生命周期</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748B">从用户输入到客户端通知的7步闭环流程</text>
+
+  <!-- Step 1 -->
+  <rect x="40" y="85" width="120" height="80" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="100" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">步骤 1</text>
+  <text x="100" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">用户输入</text>
+  <text x="100" y="150" text-anchor="middle" font-size="9" fill="#DBEAFE">fix the login bug</text>
+
+  <line x1="160" y1="125" x2="220" y2="125" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <rect x="225" y="85" width="120" height="80" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="285" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">步骤 2</text>
+  <text x="285" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">API Server</text>
+  <text x="285" y="150" text-anchor="middle" font-size="9" fill="#DBEAFE">路由到Session</text>
+
+  <line x1="345" y1="125" x2="405" y2="125" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 -->
+  <rect x="410" y="85" width="120" height="80" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="470" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">步骤 3</text>
+  <text x="470" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">replBridge</text>
+  <text x="470" y="150" text-anchor="middle" font-size="9" fill="#DBEAFE">JWT建立连接</text>
+
+  <line x1="530" y1="125" x2="590" y2="125" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <rect x="595" y="85" width="120" height="80" rx="8" fill="#D97706" filter="url(#shadow)"/>
+  <text x="655" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">步骤 4</text>
+  <text x="655" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">解析+校验</text>
+  <text x="655" y="150" text-anchor="middle" font-size="9" fill="#FDE68A">handleIngressMsg</text>
+
+  <line x1="715" y1="125" x2="775" y2="125" stroke="#D97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 5 -->
+  <rect x="780" y="85" width="140" height="80" rx="8" fill="#D97706" filter="url(#shadow)"/>
+  <text x="850" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">步骤 5</text>
+  <text x="850" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">排队enqueue</text>
+  <text x="850" y="150" text-anchor="middle" font-size="9" fill="#FDE68A">若Agent正活跃</text>
+
+  <line x1="655" y1="165" x2="655" y2="200" stroke="#D97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 6 -->
+  <rect x="300" y="205" width="360" height="70" rx="8" fill="#059669" filter="url(#shadow)"/>
+  <text x="480" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">步骤 6: Agent 执行</text>
+  <text x="480" y="252" text-anchor="middle" font-size="10" fill="#D1FAE5">processUserInput → query() → tool执行 → output收集</text>
+  <text x="480" y="268" text-anchor="middle" font-size="10" fill="#D1FAE5">路径与本地输入完全相同 — 共享handlePromptSubmit</text>
+
+  <line x1="480" y1="275" x2="480" y2="315" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 7 -->
+  <rect x="300" y="320" width="360" height="70" rx="8" fill="#059669" filter="url(#shadow)"/>
+  <text x="480" y="345" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">步骤 7: 客户端通知</text>
+  <text x="480" y="367" text-anchor="middle" font-size="10" fill="#D1FAE5">text流式推送 | tool_use/tool_result状态更新</text>
+  <text x="480" y="383" text-anchor="middle" font-size="10" fill="#D1FAE5">echo去重(BoundedUUIDSet) | SessionActivity流</text>
+
+  <!-- Bridge Safe sidebar -->
+  <rect x="40" y="205" width="220" height="120" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="150" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#991B1B">Bridge Safe 防火墙</text>
+  <line x1="60" y1="238" x2="240" y2="238" stroke="#FECACA" stroke-width="1"/>
+  <text x="150" y="258" text-anchor="middle" font-size="10" fill="#B91C1C">prompt命令 → 默认允许</text>
+  <text x="150" y="276" text-anchor="middle" font-size="10" fill="#B91C1C">local-jsx → 默认阻止</text>
+  <text x="150" y="294" text-anchor="middle" font-size="10" fill="#B91C1C">local → 白名单检查</text>
+  <text x="150" y="312" text-anchor="middle" font-size="10" fill="#B91C1C">skipSlashCommands flag</text>
+
+  <!-- Bottom: Key mechanisms -->
+  <rect x="40" y="410" width="280" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="180" y="435" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">Work Polling 轮询</text>
+  <text x="180" y="455" text-anchor="middle" font-size="9" fill="#3B82F6">bridgeMain持续轮询claim_work</text>
+  <text x="180" y="472" text-anchor="middle" font-size="9" fill="#3B82F6">Agent提前启动等待工作分配</text>
+  <text x="180" y="489" text-anchor="middle" font-size="9" fill="#3B82F6">三阶段握手: Poll → Receive → Ingress</text>
+
+  <rect x="340" y="410" width="280" height="90" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="480" y="435" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">会话生命周期</text>
+  <text x="480" y="455" text-anchor="middle" font-size="9" fill="#B45309">CREATED→CONNECTED→ACTIVE→COMPLETED</text>
+  <text x="480" y="472" text-anchor="middle" font-size="9" fill="#B45309">24小时超时自动清理</text>
+  <text x="480" y="489" text-anchor="middle" font-size="9" fill="#B45309">Exponential Backoff重连: 1s→60s</text>
+
+  <rect x="640" y="410" width="280" height="90" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="780" y="435" text-anchor="middle" font-size="12" font-weight="700" fill="#065F46">多客户端同步</text>
+  <text x="780" y="455" text-anchor="middle" font-size="9" fill="#047857">Mobile+Web+VS Code同时连接</text>
+  <text x="780" y="472" text-anchor="middle" font-size="9" fill="#047857">共享同一Session Activity流</text>
+  <text x="780" y="489" text-anchor="middle" font-size="9" fill="#047857">单Agent实例: 所有输入排队同一路径</text>
+</svg>

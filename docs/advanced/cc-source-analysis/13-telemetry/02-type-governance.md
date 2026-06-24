@@ -21,6 +21,19 @@ Claude Code 处理的是用户的代码、文件路径、终端命令。这些�
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/13-telemetry/telemetry-sinks.svg" alt="遥测架构" width="90%"/>
+  <br/>
+  <em>事件的分层分发：Analytics/OTLP/Metrics</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/13-telemetry/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 13-telemetry 配图</em>
+</p>
 ## never 类型的防御机制
 
 `metadata.ts` 的第 57 行定义了一个奇怪的类型：

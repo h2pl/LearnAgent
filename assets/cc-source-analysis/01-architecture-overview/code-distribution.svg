@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/>
+    </filter>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="420" fill="#F8FAFC" rx="8"/>
+
+  <text x="480" y="36" text-anchor="middle" font-family="PingFang SC, Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Claude Code 源码分布</text>
+  <text x="480" y="56" text-anchor="middle" font-family="Segoe UI,PingFang SC" font-size="12" fill="#64748b">51 万行 TypeScript 的去向</text>
+
+  <!-- 最大的分类 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="80" width="840" height="56" rx="6" fill="url(#purple)"/>
+    <text x="80" y="108" font-family="PingFang SC,Segoe UI" font-size="14" font-weight="bold" fill="#fff">🔧 工程基础设施</text>
+    <text x="200" y="108" font-family="Segoe UI,PingFang SC" font-size="13" fill="rgba(255,255,255,0.85)">工具系统 · 权限控制 · 终端渲染 · IDE 集成 · 测试 · 配置</text>
+    <text x="860" y="108" text-anchor="end" font-family="Segoe UI" font-size="16" font-weight="bold" fill="rgba(255,255,255,0.9)">~500K (98%)</text>
+  </g>
+
+  <!-- 次大类 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="150" width="500" height="44" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+    <text x="80" y="176" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#1E40AF">Agent 循环与系统提示</text>
+    <text x="460" y="176" text-anchor="end" font-family="Segoe UI" font-size="12" fill="#64748b">~21K (4.1%)</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="205" width="480" height="44" rx="6" fill="#F0FDF4" stroke="#059669" stroke-width="1"/>
+    <text x="80" y="231" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#047857">终端 UI (Ink 组件)</text>
+    <text x="440" y="231" text-anchor="end" font-family="Segoe UI" font-size="12" fill="#64748b">~15K (2.9%)</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="260" width="320" height="44" rx="6" fill="#FFF7ED" stroke="#D97706" stroke-width="1"/>
+    <text x="80" y="286" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#B45309">测试代码</text>
+    <text x="280" y="286" text-anchor="end" font-family="Segoe UI" font-size="12" fill="#64748b">~8K (1.6%)</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="315" width="280" height="44" rx="6" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1"/>
+    <text x="80" y="341" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#5B21B6">AI 决策逻辑</text>
+    <text x="240" y="341" text-anchor="end" font-family="Segoe UI" font-size="12" fill="#64748b">~8K (1.6%)</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="370" width="180" height="36" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="80" y="393" font-family="PingFang SC" font-size="12" fill="#64748b">LLM 调用封装</text>
+    <text x="220" y="393" text-anchor="end" font-family="Segoe UI" font-size="12" fill="#64748b">~3K</text>
+  </g>
+
+  <!-- 右侧说明 -->
+  <text x="630" y="200" font-family="PingFang SC" font-size="13" font-weight="bold" fill="#1e293b">核心发现</text>
+  <text x="630" y="225" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">AI 决策代码仅占 1.6%</text>
+  <text x="630" y="248" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">剩余 98% 是工程基础设施</text>
+  <text x="630" y="280" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">→ 做 Agent，工程化才是主菜</text>
+</svg>

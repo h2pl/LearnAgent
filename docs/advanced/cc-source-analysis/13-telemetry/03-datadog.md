@@ -19,6 +19,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/13-telemetry/telemetry-sinks.svg" alt="遥测架构" width="90%"/>
+  <br/>
+  <em>事件的分层分发：Analytics/OTLP/Metrics</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/13-telemetry/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 13-telemetry 配图</em>
+</p>
 ## Datadog 日志的结构
 
 每条发往 Datadog 的日志是一个 `DatadogLog` 对象。理解它的结构是理解整个 Datadog 集成的基础：

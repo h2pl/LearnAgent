@@ -15,6 +15,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/03-agent-loop/loop-flow.svg" alt="Agent 循环" width="90%"/>
+  <br/>
+  <em>感知 → 决策 → 行动的 while 循环</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/03-agent-loop/turn-state.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 03-agent-loop 配图</em>
+</p>
 ## 为什么需要流式执行
 
 传统做法是：模型一次输出多个 `tool_use`，主循环收集完所有工具调用，再批量执行。Claude Code 不走这条路。

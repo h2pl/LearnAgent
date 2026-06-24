@@ -17,6 +17,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/15-cli-commands/command-flow.svg" alt="命令分发" width="90%"/>
+  <br/>
+  <em>40+ slash 命令的注册与过滤</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/15-cli-commands/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 15-cli-commands 配图</em>
+</p>
 ## 四阶段状态机
 
 `handlePromptSubmit.ts` 实现了一个清晰的四阶段状态机：

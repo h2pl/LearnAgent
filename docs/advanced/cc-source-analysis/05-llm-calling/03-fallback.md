@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/05-llm-calling/callmodel-pipeline.svg" alt="LLM 调用流水线" width="90%"/>
+  <br/>
+  <em>callModel() 内部的 6 阶段处理</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/05-llm-calling/retry-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 05-llm-calling 配图</em>
+</p>
 ## Fallback 触发链路
 
 Fallback 的触发是一个两阶段过程。首先 `withRetry` 在重试耗尽后抛出 `FallbackTriggeredError`：

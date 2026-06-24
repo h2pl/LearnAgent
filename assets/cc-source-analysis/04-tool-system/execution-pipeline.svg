@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960">
+<defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter>
+<filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs>
+<rect width="960" height="440" fill="#F8FAFC" rx="8"/>
+<text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">工具执行管道</text>
+<text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">从注册到执行的 4 层流水线</text>
+<g filter="url(#sh)"><rect x="60" y="80" width="840" height="44" rx="6" fill="#2563EB"/>
+<text x="480" y="108" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">Tool Interface — 42 个工具的统一切口</text>
+</g>
+<g filter="url(#s)"><rect x="80" y="145" width="800" height="46" rx="5" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+<text x="100" y="175" font-family="PingFang SC,Segoe UI" font-size="13" font-weight="bold" fill="#1e293b">① 工具发现</text>
+<text x="220" y="175" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">Tool 接口 · buildTool 注册 · Zod Schema</text>
+</g>
+<g filter="url(#s)"><rect x="80" y="207" width="800" height="46" rx="5" fill="#fff" stroke="#7C3AED" stroke-width="2"/>
+<text x="100" y="237" font-family="PingFang SC,Segoe UI" font-size="13" font-weight="bold" fill="#1e293b">② 参数校验</text>
+<text x="220" y="237" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">Zod 类型检查 · 默认值填充 · 必填验证</text>
+</g>
+<g filter="url(#s)"><rect x="80" y="269" width="800" height="46" rx="5" fill="#fff" stroke="#D97706" stroke-width="2"/>
+<text x="100" y="299" font-family="PingFang SC,Segoe UI" font-size="13" font-weight="bold" fill="#1e293b">③ 并发调度</text>
+<text x="220" y="299" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">Promise.all · 依赖排序 · 超时控制</text>
+</g>
+<g filter="url(#s)"><rect x="80" y="331" width="800" height="46" rx="5" fill="#fff" stroke="#059669" stroke-width="2"/>
+<text x="100" y="361" font-family="PingFang SC,Segoe UI" font-size="13" font-weight="bold" fill="#1e293b">④ 结果收集</text>
+<text x="220" y="361" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">增量渲染 · 权限日志 · 错误恢复</text>
+</g>
+<text x="480" y="196" text-anchor="middle" font-family="Segoe UI" font-size="14" fill="#CBD5E1">↓</text>
+<text x="480" y="258" text-anchor="middle" font-family="Segoe UI" font-size="14" fill="#CBD5E1">↓</text>
+<text x="480" y="410" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#94A3B8">每个工具都实现相同的 Tool 接口，由 ToolExecutionPipeline 统一调度</text>
+</svg>

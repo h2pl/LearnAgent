@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 308" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter></defs><rect width="960" height="308" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">89个React组件</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">Ink组件树的组织</text><g filter="url(#s)"><rect x="60" y="90" width="840" height="44" rx="5" fill="#2563EB"/>
+<text x="80" y="114" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">对话区</text>
+<text x="80" y="130" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">MessageList, UserBubble, AssistantBubble</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="142" width="840" height="44" rx="5" fill="#059669"/>
+<text x="80" y="166" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">工具区</text>
+<text x="80" y="182" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">ToolUseCard, DiffView, ApprovalPrompt</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="194" width="840" height="44" rx="5" fill="#D97706"/>
+<text x="80" y="218" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">状态栏</text>
+<text x="80" y="234" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">TokenCounter, ModelIndicator, ProgressBar</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="246" width="840" height="44" rx="5" fill="#7C3AED"/>
+<text x="80" y="270" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">输入区</text>
+<text x="80" y="286" font-family="Segoe UI,PingFang SC" font-size="10" fill="rgba(255,255,255,0.85)">InputBox, Autocomplete, FilePicker</text>
+</g>
+</svg>

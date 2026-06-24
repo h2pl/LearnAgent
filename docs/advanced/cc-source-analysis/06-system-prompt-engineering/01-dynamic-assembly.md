@@ -15,6 +15,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/06-system-prompt-engineering/dynamic-assembly.svg" alt="System Prompt 拼装" width="90%"/>
+  <br/>
+  <em>53KB 提示词的 6 层组装过程</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/06-system-prompt-engineering/cache-strategy.svg" alt="Prompt Caching" width="90%"/>
+  <br/>
+  <em>三级缓存策略降低 API 调用成本</em>
+</p>
+
+
 ## 碎片化架构：40+ 个 section 函数
 
 `prompts.ts` 的核心函数是 `getSystemPrompt()`。它不返回一个大字符串，而是一个 `string[]`——每个元素是一个独立的提示碎片：

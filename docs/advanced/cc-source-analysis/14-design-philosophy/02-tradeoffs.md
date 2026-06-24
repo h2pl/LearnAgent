@@ -4,7 +4,11 @@
 
 你好，我是江小湖。
 
-[上一篇文章](./01-values-principles.md) 讲了 Claude Code 的 5 个价值观和 13 条原则如何在代码中落地。但原则之间有时会互相冲突——安全 vs 效率、自主 vs 监督、模型能力 vs 工程基建。真正的工程智慧不在原则本身，而在原则之间的**取舍**。
+[上一篇文章](./01-values-principles.md) 讲了 Claude Code 的 5 个价值观和 13 条原则如何在代码中落地。但原则之间有时会互相冲突——安全 vs 效率、自主 vs 监督、模型能力 vs 工程基建。**真正的工程智慧不在原则本身，而在原则之间的取舍。**
+
+> **Why（为什么需要看取舍）**：原则是干净的，现实是冲突的。只看原则会让人觉得"这很容易"，但工程的价值恰好在于当两个原则冲突时，你选择了哪一个。
+>
+> **How much（代价）**：本章的每个案例都标明了取舍的代价——Undercover Mode的自我审查开销、监督悖论的效率损失、边界判断的可能误判——这些不是为了说明设计"完美"，而是为了说明**好设计是知情的选择**。
 
 本文深入三个具体的取舍案例，每个都揭示了 Claude Code 团队对 Agent 系统本质的理解。
 
@@ -18,6 +22,19 @@
 - [Feature Flag 工程学](#feature-flag-工程学)
 - [总结](#总结)
 - [参考链接](#参考链接)
+
+<p align="center">
+  <img src="../../assets/14-design-philosophy/02-tradeoffs.svg" alt="Claude Code工程取舍三维权衡图" width="90%"/>
+  <br/>
+  <em>安全vs效率、自主vs监督、模型vs工程 — 三大核心张力</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/14-design-philosophy/design-values.svg" alt="设计哲学" width="90%"/>
+  <br/>
+  <em>5 价值观 13 原则的工程落地</em>
+</p>
+
 
 ## Undercover Mode：信息阻断的艺术
 
@@ -47,7 +64,7 @@ export function isUndercover(): boolean {
 
 核心决策：**默认是 ON，只有在确认是内部仓库时才关闭。没有强制关闭的选项。**
 
-为什么？注释给出了答案：`// There is NO force-OFF.`——理由是"If we're not confident we're in an internal repo, we stay undercover." 宁可过度安全也不冒险。这体现了 Anthropic 的安全文化：不是"确认危险才防护"，而是"不确定安全就防护"。
+**为什么这样设计？**注释给出了答案：`// There is NO force-OFF.`——理由是"If we're not confident we're in an internal repo, we stay undercover." **宁可过度安全也不冒险。** 这体现了 Anthropic 的安全文化：不是"确认危险才防护"，而是"不确定安全就防护"。**代价是即使在安全环境下也可能有信息阻断开销，但 Anthropic 的判断是"多花一些 token 做信息审查，远好过一次身份暴露。"**
 
 ### 设计决策 2：死代码消除——对外部构建完全不可见
 
@@ -91,7 +108,7 @@ function getUndercoverInstructions(): string {
 
 > 如果我们给 Agent 足够的能力自主工作，它就可能在不需要我们的时候做错事；如果我们每次都要求人类确认，Agent 就失去了自主工作的价值。
 
-Claude Code 的解决方案是一个**信任梯度**：
+**这个悖论在任何 Agent 系统中都无法彻底解决**——但可以通过信任梯度将决策空间分层。**Claude Code 的方案不是找一个固定平衡点，而是建立一个多维的信任梯度**让不同情境下调用不同的自动决策规则：
 
 ```
 完全自主 ←——————————————————————→ 完全人工

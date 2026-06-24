@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960">
+<defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter>
+<filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs>
+<rect width="960" height="440" fill="#F8FAFC" rx="8"/>
+<text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">跨会话记忆系统</text>
+<text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">memdir 持久化 + autoDream 反思 + 三层检索</text>
+<g filter="url(#sh)"><rect x="60" y="80" width="840" height="40" rx="6" fill="#2563EB"/>
+<text x="480" y="105" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">Claude Code 记忆系统架构</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="130" width="130" height="38" rx="5" fill="#2563EB"/>
+<text x="125.0" y="155" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">📁 memdir/</text>
+</g>
+<g filter="url(#s)"><rect x="200" y="130" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="210" y="155" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">文件系统持久化，.md + frontmatter</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="178" width="130" height="38" rx="5" fill="#059669"/>
+<text x="125.0" y="203" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">🔍 三层检索</text>
+</g>
+<g filter="url(#s)"><rect x="200" y="178" width="400" height="38" rx="5" fill="#fff" stroke="#059669" stroke-width="1"/>
+<text x="210" y="203" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">关键词 → TF-IDF → 语义相似度</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="226" width="130" height="38" rx="5" fill="#D97706"/>
+<text x="125.0" y="251" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">💭 autoDream</text>
+</g>
+<g filter="url(#s)"><rect x="200" y="226" width="400" height="38" rx="5" fill="#fff" stroke="#D97706" stroke-width="1"/>
+<text x="210" y="251" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">后台 LLM 反思，自动提炼高质量记忆</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="274" width="130" height="38" rx="5" fill="#7C3AED"/>
+<text x="125.0" y="299" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">⚡ KAIROS 守护</text>
+</g>
+<g filter="url(#s)"><rect x="200" y="274" width="400" height="38" rx="5" fill="#fff" stroke="#7C3AED" stroke-width="1"/>
+<text x="210" y="299" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">后台进程，持续刷新记忆新鲜度</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="322" width="130" height="38" rx="5" fill="#DB2777"/>
+<text x="125.0" y="347" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">📊 四层过滤</text>
+</g>
+<g filter="url(#s)"><rect x="200" y="322" width="400" height="38" rx="5" fill="#fff" stroke="#DB2777" stroke-width="1"/>
+<text x="210" y="347" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">source_session · weight · recency · relevance</text>
+</g>
+<g filter="url(#s)"><rect x="60" y="370" width="130" height="38" rx="5" fill="#2563EB"/>
+<text x="125.0" y="395" text-anchor="middle" font-family="PingFang SC,Segoe UI" font-size="12" font-weight="bold" fill="#fff">🔄 双向链接</text>
+</g>
+<g filter="url(#s)"><rect x="200" y="370" width="400" height="38" rx="5" fill="#fff" stroke="#2563EB" stroke-width="1"/>
+<text x="210" y="395" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">记忆间 [[wiki-link]] 形成知识图谱</text>
+</g>
+
+</svg>

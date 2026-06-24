@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 370" width="960"><defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter></defs><rect width="960" height="370" fill="#F8FAFC" rx="8"/><text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">memdir 目录结构</text><text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">文件系统持久化的记忆层级</text><text x="60" y="90" font-family="Consolas,monospace" font-size="12" fill="#2563EB">memdir/</text>
+<text x="400" y="90" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">记忆根目录，文件系统存储</text>
+<text x="60" y="122" font-family="Consolas,monospace" font-size="12" fill="#2563EB">├── memories/</text>
+<text x="400" y="122" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">用户持久的记忆文件 (.md)</text>
+<text x="60" y="154" font-family="Consolas,monospace" font-size="12" fill="#3B82F6">│   └── YYYY-MM-DD-title.md</text>
+<text x="400" y="154" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">每个文件一条记忆 + frontmatter</text>
+<text x="60" y="186" font-family="Consolas,monospace" font-size="12" fill="#059669">├── sessions/</text>
+<text x="400" y="186" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">临时会话级记忆</text>
+<text x="60" y="218" font-family="Consolas,monospace" font-size="12" fill="#059669">│   └── <session-id>/</text>
+<text x="400" y="218" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">按会话 ID 隔离</text>
+<text x="60" y="250" font-family="Consolas,monospace" font-size="12" fill="#D97706">├── index.json</text>
+<text x="400" y="250" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">快速检索索引</text>
+<text x="60" y="282" font-family="Consolas,monospace" font-size="12" fill="#7C3AED">└── config/</text>
+<text x="400" y="282" font-family="Segoe UI,PingFang SC" font-size="11" fill="#64748b">记忆系统配置</text>
+<text x="480" y="340" text-anchor="middle" font-family="PingFang SC" font-size="11" fill="#94A3B8">文件系统即数据库：可 cat 查看，可 git diff 追踪</text></svg>

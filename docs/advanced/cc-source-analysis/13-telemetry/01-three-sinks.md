@@ -19,6 +19,19 @@ Claude Code 的可观测性架构藏在一个不起眼的目录里：`src/servic
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/13-telemetry/telemetry-sinks.svg" alt="遥测架构" width="90%"/>
+  <br/>
+  <em>事件的分层分发：Analytics/OTLP/Metrics</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/13-telemetry/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 13-telemetry 配图</em>
+</p>
 ## Sink 接口与事件队列
 
 整个 analytics 模块的入口是 `index.ts`，它定义了一个极简的 Sink 接口：

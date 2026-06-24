@@ -19,6 +19,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/10-permissions/permission-architecture.svg" alt="权限系统" width="90%"/>
+  <br/>
+  <em>7 种权限模式 + ML 安全分类器</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/10-permissions/permission-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 10-permissions 配图</em>
+</p>
 ## 为什么 Bash 是最危险的工具
 
 Bash 工具的特殊性在于它的**表达能力**——它不是一个单一操作，而是一个完整的编程环境：

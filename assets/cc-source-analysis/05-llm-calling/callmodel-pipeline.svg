@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" width="960">
+<defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter>
+<filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.08"/></filter></defs>
+<rect width="960" height="340" fill="#F8FAFC" rx="8"/>
+<text x="480" y="34" text-anchor="middle" font-family="PingFang SC,Segoe UI,sans-serif" font-size="18" font-weight="bold" fill="#1e293b">LLM 调用 6 阶段流水线</text>
+<text x="480" y="54" text-anchor="middle" font-family="Segoe UI,PingFang SC,sans-serif" font-size="12" fill="#64748b">callModel() 内部的 3420 行逻辑</text>
+<g filter="url(#s)"><rect x="20" y="85" width="290" height="95" rx="6" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+<rect x="20" y="85" width="290" height="32" rx="6" fill="#2563EB"/>
+<rect x="20" y="101" width="290" height="16" fill="#2563EB"/>
+<text x="165" y="107" text-anchor="middle" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#fff">1. 消息预处理</text>
+<text x="36" y="143" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">截断 · 角色过滤 · 注入缓存</text>
+<text x="36" y="163" font-family="Segoe UI" font-size="10" fill="#94A3B8">callModel() 内部子步骤</text>
+</g>
+<g filter="url(#s)"><rect x="330" y="85" width="290" height="95" rx="6" fill="#fff" stroke="#1D4ED8" stroke-width="2"/>
+<rect x="330" y="85" width="290" height="32" rx="6" fill="#1D4ED8"/>
+<rect x="330" y="101" width="290" height="16" fill="#1D4ED8"/>
+<text x="475" y="107" text-anchor="middle" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#fff">2. API 请求构建</text>
+<text x="346" y="143" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">格式转换 · 参数注入 · 重试计数</text>
+<text x="346" y="163" font-family="Segoe UI" font-size="10" fill="#94A3B8">callModel() 内部子步骤</text>
+</g>
+<g filter="url(#s)"><rect x="640" y="85" width="290" height="95" rx="6" fill="#fff" stroke="#059669" stroke-width="2"/>
+<rect x="640" y="85" width="290" height="32" rx="6" fill="#059669"/>
+<rect x="640" y="101" width="290" height="16" fill="#059669"/>
+<text x="785" y="107" text-anchor="middle" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#fff">3. 流式接收</text>
+<text x="656" y="143" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">SSE 解析 · delta 累加 · block 聚合</text>
+<text x="656" y="163" font-family="Segoe UI" font-size="10" fill="#94A3B8">callModel() 内部子步骤</text>
+</g>
+<g filter="url(#s)"><rect x="20" y="205" width="290" height="95" rx="6" fill="#fff" stroke="#D97706" stroke-width="2"/>
+<rect x="20" y="205" width="290" height="32" rx="6" fill="#D97706"/>
+<rect x="20" y="221" width="290" height="16" fill="#D97706"/>
+<text x="165" y="227" text-anchor="middle" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#fff">4. Sticky Latch</text>
+<text x="36" y="263" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">工具锁定 · 防止幻觉切换</text>
+<text x="36" y="283" font-family="Segoe UI" font-size="10" fill="#94A3B8">callModel() 内部子步骤</text>
+</g>
+<g filter="url(#s)"><rect x="330" y="205" width="290" height="95" rx="6" fill="#fff" stroke="#7C3AED" stroke-width="2"/>
+<rect x="330" y="205" width="290" height="32" rx="6" fill="#7C3AED"/>
+<rect x="330" y="221" width="290" height="16" fill="#7C3AED"/>
+<text x="475" y="227" text-anchor="middle" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#fff">5. Token 统计</text>
+<text x="346" y="263" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">Usage 追踪 · Beta 字段兼容</text>
+<text x="346" y="283" font-family="Segoe UI" font-size="10" fill="#94A3B8">callModel() 内部子步骤</text>
+</g>
+<g filter="url(#s)"><rect x="640" y="205" width="290" height="95" rx="6" fill="#fff" stroke="#DB2777" stroke-width="2"/>
+<rect x="640" y="205" width="290" height="32" rx="6" fill="#DB2777"/>
+<rect x="640" y="221" width="290" height="16" fill="#DB2777"/>
+<text x="785" y="227" text-anchor="middle" font-family="PingFang SC" font-size="12" font-weight="bold" fill="#fff">6. Fallback 处理</text>
+<text x="656" y="263" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">529 重试 · 模型降级 · 错误恢复</text>
+<text x="656" y="283" font-family="Segoe UI" font-size="10" fill="#94A3B8">callModel() 内部子步骤</text>
+</g>
+
+</svg>

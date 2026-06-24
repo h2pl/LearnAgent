@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/06-system-prompt-engineering/cache-strategy.svg" alt="Prompt Caching" width="90%"/>
+  <br/>
+  <em>三级缓存策略降低 API 调用成本</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/06-system-prompt-engineering/dynamic-assembly.svg" alt="System Prompt 拼装" width="90%"/>
+  <br/>
+  <em>53KB 提示词的 6 层组装过程</em>
+</p>
+
+
 ## 两层缓存架构
 
 Anthropic 的 Prompt Caching 支持两种 scope：

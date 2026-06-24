@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960">
+  <defs><filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1e293b" flood-opacity="0.06"/></filter></defs>
+  <rect width="960" height="380" fill="#F8FAFC" rx="8"/>
+  <text x="480" y="34" text-anchor="middle" font-family="PingFang SC" font-size="18" font-weight="bold" fill="#1e293b">Agent 循环：感知 → 决策 → 行动</text>
+  <text x="480" y="54" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#64748b">Claude Code 的 while 循环驱动模型调用与工具执行</text>
+
+  <!-- 三大阶段 -->
+  <g filter="url(#s)"><rect x="40" y="80" width="280" height="250" rx="8" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <rect x="40" y="80" width="280" height="38" rx="8" fill="#2563EB"/><rect x="40" y="102" width="280" height="16" fill="#2563EB"/>
+    <text x="180" y="104" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">1. 感知 (Perceive)</text>
+    <text x="60" y="145" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• System Prompt 拼装</text>
+    <text x="60" y="167" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 会话历史注入</text>
+    <text x="60" y="189" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 工具定义注入</text>
+    <text x="60" y="211" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• Token 预算检查</text>
+    <text x="60" y="240" font-family="PingFang SC" font-size="10" fill="#94A3B8">QueryEngine.buildPrompt()</text>
+  </g>
+
+  <text x="340" y="210" font-family="Segoe UI" font-size="24" fill="#94A3B8">→</text>
+
+  <g filter="url(#s)"><rect x="362" y="80" width="236" height="250" rx="8" fill="#fff" stroke="#D97706" stroke-width="2"/>
+    <rect x="362" y="80" width="236" height="38" rx="8" fill="#D97706"/><rect x="362" y="102" width="236" height="16" fill="#D97706"/>
+    <text x="480" y="104" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">2. 决策 (Decide)</text>
+    <text x="382" y="145" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 发送请求到 API</text>
+    <text x="382" y="167" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 流式接收响应</text>
+    <text x="382" y="189" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 解析 tool_use</text>
+    <text x="382" y="211" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• Sticky-on Latch</text>
+    <text x="382" y="240" font-family="PingFang SC" font-size="10" fill="#94A3B8">StreamingToolExecutor</text>
+  </g>
+
+  <text x="618" y="210" font-family="Segoe UI" font-size="24" fill="#94A3B8">→</text>
+
+  <g filter="url(#s)"><rect x="640" y="80" width="280" height="250" rx="8" fill="#fff" stroke="#059669" stroke-width="2"/>
+    <rect x="640" y="80" width="280" height="38" rx="8" fill="#059669"/><rect x="640" y="102" width="280" height="16" fill="#059669"/>
+    <text x="780" y="104" text-anchor="middle" font-family="PingFang SC" font-size="14" font-weight="bold" fill="#fff">3. 行动 (Act)</text>
+    <text x="660" y="145" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 并发执行工具</text>
+    <text x="660" y="167" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 权限检查</text>
+    <text x="660" y="189" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 结果收集</text>
+    <text x="660" y="211" font-family="Segoe UI,PingFang SC" font-size="11" fill="#475569">• 写入会话历史</text>
+    <text x="660" y="240" font-family="PingFang SC" font-size="10" fill="#94A3B8">ToolExecutionPipeline</text>
+  </g>
+
+  <!-- 底部循环 -->
+  <text x="480" y="360" text-anchor="middle" font-family="PingFang SC" font-size="13" fill="#64748b">循环直到：模型返回 stop_reason → 或无工具调用 → 或达到 max_turns</text>
+</svg>

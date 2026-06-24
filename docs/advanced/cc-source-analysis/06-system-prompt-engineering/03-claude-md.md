@@ -15,6 +15,13 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/06-system-prompt-engineering/dynamic-assembly.svg" alt="System Prompt 拼装" width="90%"/>
+  <br/>
+  <em>53KB 提示词的 6 层组装过程</em>
+</p>
+
+
 ## CLAUDE.md：永不删除的项目上下文
 
 CLAUDE.md 是 Claude Code 的项目配置文件——放在项目根目录，描述项目的技术栈、编码规范、架构约束。它的特殊之处在于：**在自动压缩时，CLAUDE.md 的内容永远不会被删除。**

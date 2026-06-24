@@ -28,6 +28,19 @@ Claude Code 提供了四种扩展方式，它们的成本从低到高排列：
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/11-extensibility/extension-types.svg" alt="四种扩展对比" width="90%"/>
+  <br/>
+  <em>Hook → Skill → Plugin → MCP</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/11-extensibility/mcp-architecture.svg" alt="MCP 协议" width="90%"/>
+  <br/>
+  <em>Client-Server 双向通信</em>
+</p>
+
+
 ## Hook：修改行为的钩子点
 
 Hook 是成本最低的扩展方式。它允许在 Claude Code 的特定执行点**注入自定义逻辑**——不需要创建新文件，不需要启动新进程，只需要声明一个钩子函数。

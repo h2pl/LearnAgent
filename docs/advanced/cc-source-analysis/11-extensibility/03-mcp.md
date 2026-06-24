@@ -19,6 +19,19 @@ MCP 的核心思想是：**不要让每个 LLM 应用都重新发明工具连接
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/11-extensibility/mcp-architecture.svg" alt="MCP 协议" width="90%"/>
+  <br/>
+  <em>Client-Server 双向通信</em>
+</p>
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/11-extensibility/extension-types.svg" alt="四种扩展对比" width="90%"/>
+  <br/>
+  <em>Hook → Skill → Plugin → MCP</em>
+</p>
+
+
 ## MCP 的协议设计
 
 MCP 是一个基于 **JSON-RPC 2.0** 的协议，通信方式支持 stdio、HTTP 和 Server-Sent Events (SSE)。协议定义了三种核心原语：

@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/03-agent-loop/loop-flow.svg" alt="Agent 循环" width="90%"/>
+  <br/>
+  <em>感知 → 决策 → 行动的 while 循环</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/03-agent-loop/turn-state.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 03-agent-loop 配图</em>
+</p>
 ## 循环的本质
 
 Agent 循环的逻辑可以简化成下面这段代码：

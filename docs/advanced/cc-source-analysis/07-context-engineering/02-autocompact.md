@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/compression-layers.svg" alt="上下文压缩" width="90%"/>
+  <br/>
+  <em>200K Token 窗口的 5 层压缩机制</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/07-context-engineering/autocompact-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 07-context-engineering 配图</em>
+</p>
 ## 触发阈值：不是到了 200K 才开始压
 
 autocompact 的触发不是等到上下文满了才动手——它是**提前触发**的：

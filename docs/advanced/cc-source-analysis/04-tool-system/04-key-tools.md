@@ -15,6 +15,20 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/tool-types.svg" alt="工具类型概览" width="90%"/>
+  <br/>
+  <em>42 个内置工具的 6 大分类</em>
+</p>
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/04-tool-system/execution-pipeline.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析系列配图</em>
+</p>
+
+
 ## BashTool：最复杂的工具
 
 BashTool 是 Claude Code 里代码量最大的单一工具目录——16 个文件，总规模超过 40 万字符。它的复杂度来源于一个矛盾：Bash 是图灵完备的，没有显式 API 限制，任何安全策略都必须靠代码强制执行。

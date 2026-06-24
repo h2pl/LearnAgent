@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/></marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/></marker>
+  </defs>
+  <rect width="960" height="520" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">价值观到代码模块的映射</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748B">五个核心价值观如何投影到具体的源码文件中</text>
+
+  <!-- Row: Values -->
+  <rect x="40" y="82" width="160" height="56" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="120" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">安全第一</text>
+  <text x="120" y="126" text-anchor="middle" font-size="10" fill="#DBEAFE">Safety First</text>
+
+  <rect x="220" y="82" width="160" height="56" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="300" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">人类监督</text>
+  <text x="300" y="126" text-anchor="middle" font-size="10" fill="#DBEAFE">Human Oversight</text>
+
+  <rect x="400" y="82" width="160" height="56" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="480" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">谨慎行动</text>
+  <text x="480" y="126" text-anchor="middle" font-size="10" fill="#DBEAFE">Measured Action</text>
+
+  <rect x="580" y="82" width="160" height="56" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="660" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">透明诚实</text>
+  <text x="660" y="126" text-anchor="middle" font-size="10" fill="#DBEAFE">Transparent Honesty</text>
+
+  <rect x="760" y="82" width="160" height="56" rx="8" fill="#2563EB" filter="url(#shadow)"/>
+  <text x="840" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">用户优先</text>
+  <text x="840" y="126" text-anchor="middle" font-size="10" fill="#DBEAFE">UX First</text>
+
+  <!-- Mapping arrows -->
+  <line x1="120" y1="138" x2="180" y2="175" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <line x1="300" y1="138" x2="300" y2="175" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <line x1="480" y1="138" x2="460" y2="175" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <line x1="660" y1="138" x2="620" y2="175" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <line x1="840" y1="138" x2="800" y2="175" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- Module 1: cyberRiskInstruction -->
+  <rect x="40" y="180" width="200" height="110" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="140" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#991B1B">cyberRiskInstruction.ts</text>
+  <text x="140" y="225" text-anchor="middle" font-size="10" fill="#B91C1C">Safeguards团队独立管控</text>
+  <text x="140" y="243" text-anchor="middle" font-size="10" fill="#B91C1C">1549字节安全红线</text>
+  <text x="140" y="261" text-anchor="middle" font-size="10" fill="#B91C1C">修改需三人审查</text>
+  <text x="140" y="279" text-anchor="middle" font-size="10" fill="#B91C1C">永不被feature flag覆盖</text>
+
+  <!-- Module 2: prompts.ts -->
+  <rect x="260" y="180" width="200" height="110" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="360" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#1E40AF">prompts.ts (915行)</text>
+  <text x="360" y="225" text-anchor="middle" font-size="10" fill="#1D4ED8">一次性批准≠持久授权</text>
+  <text x="360" y="243" text-anchor="middle" font-size="10" fill="#1D4ED8">最小干预/不加戏</text>
+  <text x="360" y="261" text-anchor="middle" font-size="10" fill="#1D4ED8">透明汇报不造假</text>
+  <text x="360" y="279" text-anchor="middle" font-size="10" fill="#1D4ED8">无语义回溯输出</text>
+
+  <!-- Module 3: undercover.ts -->
+  <rect x="480" y="180" width="200" height="110" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="580" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">undercover.ts (90行)</text>
+  <text x="580" y="225" text-anchor="middle" font-size="10" fill="#B45309">默认ON，无强制关闭</text>
+  <text x="580" y="243" text-anchor="middle" font-size="10" fill="#B45309">禁止模型代号泄露</text>
+  <text x="580" y="261" text-anchor="middle" font-size="10" fill="#B45309">DCE消除外部构建</text>
+  <text x="580" y="279" text-anchor="middle" font-size="10" fill="#B45309">信息阻断式防御</text>
+
+  <!-- Module 4: claudemd.ts -->
+  <rect x="700" y="180" width="220" height="110" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="810" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#065F46">claudemd.ts (127KB)</text>
+  <text x="810" y="225" text-anchor="middle" font-size="10" fill="#047857">多层优先链加载</text>
+  <text x="810" y="243" text-anchor="middle" font-size="10" fill="#047857">200行/25KB硬限制</text>
+  <text x="810" y="261" text-anchor="middle" font-size="10" fill="#047857">防止MEMORY膨胀</text>
+  <text x="810" y="279" text-anchor="middle" font-size="10" fill="#047857">用户指令持久化保护</text>
+
+  <!-- Section: 13 Principles -->
+  <rect x="40" y="310" width="880" height="30" rx="6" fill="#F1F5F9"/>
+  <text x="480" y="331" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">↓ 13条工程法则 ↓</text>
+
+  <rect x="40" y="350" width="280" height="65" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="180" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">可缓存原则</text>
+  <text x="180" y="388" text-anchor="middle" font-size="9" fill="#64748B">DYNAMIC_BOUNDARY分隔线</text>
+  <text x="180" y="404" text-anchor="middle" font-size="9" fill="#64748B">缓存命中省30%-40%成本</text>
+
+  <rect x="340" y="350" width="280" height="65" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="480" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">风险分层原则</text>
+  <text x="480" y="388" text-anchor="middle" font-size="9" fill="#64748B">可逆随便做 / 不可逆一定问</text>
+  <text x="480" y="404" text-anchor="middle" font-size="9" fill="#64748B">BashTool安全分级实现</text>
+
+  <rect x="640" y="350" width="280" height="65" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="780" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">上下文隔离原则</text>
+  <text x="780" y="388" text-anchor="middle" font-size="9" fill="#64748B">子Agent独立上下文</text>
+  <text x="780" y="404" text-anchor="middle" font-size="9" fill="#64748B">显式信息传递机制</text>
+
+  <!-- Bottom summary -->
+  <rect x="40" y="430" width="880" height="70" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4"/>
+  <text x="480" y="455" text-anchor="middle" font-size="12" fill="#475569">
+    <tspan font-weight="700" fill="#1E293B">USER_TYPE === 'ant' 分叉：</tspan>
+    DCE将内部版本完全从外部构建消除
+  </text>
+  <text x="480" y="478" text-anchor="middle" font-size="11" fill="#64748B">安全设计不是贴在首页的标语——是编译进代码的组织架构投影</text>
+</svg>

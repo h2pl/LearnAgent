@@ -15,6 +15,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/startup-pipeline.svg" alt="启动流程" width="90%"/>
+  <br/>
+  <em>135ms 冷启动的 5 个阶段与优化策略</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/02-startup-flow/init-flow.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 02-startup-flow 配图</em>
+</p>
 ## main.tsx 顶部的三个副作用
 
 打开 `main.tsx`，你会看到它并不是从 import Commander 开始的。前三个有效语句是副作用：

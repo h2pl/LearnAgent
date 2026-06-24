@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="520" fill="#F8FAFC" rx="12"/>
+
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#1E293B">组件分层架构（89个React组件）</text>
+  <text x="480" y="58" text-anchor="middle" font-size="12" fill="#64748B">从 Screen 层到 Ink 渲染原语 — 五层组件图谱及关键模块大小</text>
+
+  <!-- Layer 1: Screens -->
+  <rect x="40" y="80" width="880" height="75" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="60" y="105" font-size="14" font-weight="700" fill="#1E40AF">Screen层</text>
+  <text x="60" y="125" font-size="10" fill="#3B82F6">页面导航：AppState.currentScreen 切换</text>
+
+  <rect x="160" y="88" width="180" height="35" rx="4" fill="#DBEAFE"/>
+  <text x="250" y="110" text-anchor="middle" font-size="10" font-weight="600" fill="#1E3A8A">REPL.tsx</text>
+  <text x="340" y="110" font-size="10" fill="#EF4444">900KB</text>
+
+  <rect x="360" y="88" width="160" height="35" rx="4" fill="#DBEAFE"/>
+  <text x="440" y="110" text-anchor="middle" font-size="10" font-weight="600" fill="#1E3A8A">Doctor.tsx</text>
+  <text x="520" y="110" font-size="10" fill="#D97706">73KB</text>
+
+  <rect x="540" y="88" width="180" height="35" rx="4" fill="#DBEAFE"/>
+  <text x="630" y="110" text-anchor="middle" font-size="10" font-weight="600" fill="#1E3A8A">ResumeConversation</text>
+  <text x="720" y="110" font-size="10" fill="#D97706">60KB</text>
+
+  <!-- Layer 2: Providers -->
+  <rect x="40" y="170" width="880" height="55" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
+  <text x="60" y="195" font-size="14" font-weight="700" fill="#92400E">Provider层</text>
+  <text x="60" y="215" font-size="10" fill="#B45309">状态注入：Context 分层提供</text>
+
+  <rect x="170" y="182" width="160" height="30" rx="4" fill="#FEF3C7"/>
+  <text x="250" y="201" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">AppStateContext</text>
+
+  <rect x="345" y="182" width="120" height="30" rx="4" fill="#FEF3C7"/>
+  <text x="405" y="201" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">StatsContext</text>
+
+  <rect x="480" y="182" width="130" height="30" rx="4" fill="#FEF3C7"/>
+  <text x="545" y="201" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">FpsMetricsContext</text>
+
+  <rect x="625" y="182" width="130" height="30" rx="4" fill="#FEF3C7"/>
+  <text x="690" y="201" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">TerminalSizeContext</text>
+
+  <rect x="770" y="182" width="130" height="30" rx="4" fill="#FEF3C7"/>
+  <text x="835" y="201" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">FocusContext</text>
+
+  <!-- Layer 3: Feature Components -->
+  <rect x="40" y="240" width="880" height="75" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <text x="60" y="265" font-size="14" font-weight="700" fill="#065F46">Feature Components 功能组件</text>
+
+  <rect x="60" y="278" width="140" height="28" rx="4" fill="#D1FAE5"/>
+  <text x="130" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#065F46">Messages.tsx 148KB</text>
+
+  <rect x="210" y="278" width="130" height="28" rx="4" fill="#D1FAE5"/>
+  <text x="275" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#065F46">Spinner.tsx 88KB</text>
+
+  <rect x="350" y="278" width="150" height="28" rx="4" fill="#D1FAE5"/>
+  <text x="425" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#065F46">FullscreenLayout 85KB</text>
+
+  <rect x="510" y="278" width="130" height="28" rx="4" fill="#D1FAE5"/>
+  <text x="575" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#065F46">StatusLine.tsx 49KB</text>
+
+  <rect x="650" y="278" width="130" height="28" rx="4" fill="#D1FAE5"/>
+  <text x="715" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#065F46">Markdown.tsx 28KB</text>
+
+  <rect x="790" y="278" width="115" height="28" rx="4" fill="#D1FAE5"/>
+  <text x="847" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#065F46">TextInput.tsx</text>
+
+  <!-- Layer 4: Shared UI -->
+  <rect x="40" y="330" width="880" height="50" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="60" y="353" font-size="14" font-weight="700" fill="#475569">Shared UI 共享组件</text>
+  <text x="200" y="354" font-size="10" fill="#64748B">Divider | VirtualList | ToolUseRenderer | MarkdownTable (47KB) | IdeOnboardingDialog (16KB)</text>
+
+  <!-- Layer 5: Ink Primitives -->
+  <rect x="40" y="395" width="880" height="55" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="60" y="418" font-size="14" font-weight="700" fill="#991B1B">Ink Primitives 渲染原语</text>
+  <text x="60" y="438" font-size="10" fill="#B91C1C">Ink 框架提供：Box(21KB) | Text(17KB) | ScrollBox(32KB) | Button(16KB) | Link | Newline | FocusManager</text>
+
+  <!-- Side annotations -->
+  <rect x="40" y="465" width="880" height="40" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="480" y="482" text-anchor="middle" font-size="10" fill="#64748B">状态管理：setAppState(updater) → React Reconciler → Ink渲染 单向数据流 | 双模式：REPL(流式) + Fullscreen(面板分割)</text>
+  <text x="480" y="498" text-anchor="middle" font-size="10" fill="#64748B">动画：useAnimationFrame 60fps帧动画 + React Compiler自动memo减少重渲染</text>
+</svg>

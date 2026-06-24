@@ -19,6 +19,19 @@ Bridge 就是实现这一切的协议层。
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/17-ide-integration/bridge-architecture.svg" alt="Bridge 协议" width="90%"/>
+  <br/>
+  <em>Agent 如何走出终端集成 IDE</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/17-ide-integration/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 17-ide-integration 配图</em>
+</p>
 ## Bridge 的四个角色
 
 ```text

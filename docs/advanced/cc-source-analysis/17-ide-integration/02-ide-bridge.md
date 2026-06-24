@@ -16,6 +16,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/17-ide-integration/bridge-architecture.svg" alt="Bridge 协议" width="90%"/>
+  <br/>
+  <em>Agent 如何走出终端集成 IDE</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/17-ide-integration/second.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 17-ide-integration 配图</em>
+</p>
 ## IDE 检测：进程树扫描
 
 Claude Code 支持 18 种 IDE（VS Code、Cursor、Windsurf + 15 种 JetBrains IDE）。检测方式不是轮询端口——而是**扫描进程树**。

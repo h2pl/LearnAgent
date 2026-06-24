@@ -14,6 +14,19 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/03-agent-loop/loop-flow.svg" alt="Agent 循环" width="90%"/>
+  <br/>
+  <em>感知 → 决策 → 行动的 while 循环</em>
+</p>
+
+
+
+<p align="center">
+  <img src="../../../../assets/cc-source-analysis/03-agent-loop/turn-state.svg" alt="" width="90%"/>
+  <br/>
+  <em>Claude Code 源码解析 03-agent-loop 配图</em>
+</p>
 ## 为什么需要 5 层预处理
 
 Claude Code 面向真实项目。一次调试可能涉及十几个文件、几十次 Bash 命令、成百上千行工具输出。如果把这些内容原封不动地塞进上下文，200K 窗口很快就被撑满。
