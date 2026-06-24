@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+    <filter id="card"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.06"/></filter>
+  </defs>
+  <rect width="960" height="340" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">生产环境 Fallback 降级策略</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">每个 API 调用都要有"如果这一步失败了怎么办"的预案</text>
+
+  <rect x="25" y="80" width="175" height="110" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="25" y="80" width="175" height="4" rx="2" fill="#EF4444"/>
+  <text x="112" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#EF4444">API 超时</text>
+  <text x="112" y="128" text-anchor="middle" font-size="9" fill="#64748B">原因: 图片太大/网络</text>
+  <text x="112" y="148" text-anchor="middle" font-size="9" fill="#475569">重试1次 → 降图分辨率</text>
+  <text x="112" y="166" text-anchor="middle" font-size="9" fill="#2563EB">→ 小模型兜底</text>
+  <text x="112" y="184" text-anchor="middle" font-size="9" fill="#94A3B8">概率 ~1%</text>
+
+  <rect x="215" y="80" width="175" height="110" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="215" y="80" width="175" height="4" rx="2" fill="#D97706"/>
+  <text x="302" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">速率限制</text>
+  <text x="302" y="128" text-anchor="middle" font-size="9" fill="#64748B">原因: API额度耗尽</text>
+  <text x="302" y="148" text-anchor="middle" font-size="9" fill="#475569">排队等待 + 退避</text>
+  <text x="302" y="166" text-anchor="middle" font-size="9" fill="#2563EB">→ 返回"稍后重试"</text>
+  <text x="302" y="184" text-anchor="middle" font-size="9" fill="#94A3B8">概率 ~0.5%</text>
+
+  <rect x="405" y="80" width="175" height="110" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="405" y="80" width="175" height="4" rx="2" fill="#059669"/>
+  <text x="492" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">图片被拒</text>
+  <text x="492" y="128" text-anchor="middle" font-size="9" fill="#64748B">原因: 内容安全/过大</text>
+  <text x="492" y="148" text-anchor="middle" font-size="9" fill="#475569">自动压缩+降分辨率</text>
+  <text x="492" y="166" text-anchor="middle" font-size="9" fill="#2563EB">→ 重试</text>
+  <text x="492" y="184" text-anchor="middle" font-size="9" fill="#94A3B8">概率 ~3%</text>
+
+  <rect x="595" y="80" width="175" height="110" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="595" y="80" width="175" height="4" rx="2" fill="#8B5CF6"/>
+  <text x="682" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#8B5CF6">安全拦截</text>
+  <text x="682" y="128" text-anchor="middle" font-size="9" fill="#64748B">原因: NSFW/违规</text>
+  <text x="682" y="148" text-anchor="middle" font-size="9" fill="#475569">不重试·直接返回</text>
+  <text x="682" y="166" text-anchor="middle" font-size="9" fill="#EF4444">→ 安全提示</text>
+  <text x="682" y="184" text-anchor="middle" font-size="9" fill="#94A3B8">概率 ~2%</text>
+
+  <rect x="785" y="80" width="150" height="110" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="785" y="80" width="150" height="4" rx="2" fill="#94A3B8"/>
+  <text x="860" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">空响应</text>
+  <text x="860" y="128" text-anchor="middle" font-size="9" fill="#64748B">原因: 模型内部错误</text>
+  <text x="860" y="148" text-anchor="middle" font-size="9" fill="#475569">重试 → 小模型</text>
+  <text x="860" y="166" text-anchor="middle" font-size="9" fill="#2563EB">→ 兜底回答</text>
+  <text x="860" y="184" text-anchor="middle" font-size="9" fill="#94A3B8">概率 ~1%</text>
+
+  <!-- 底部: 关键原则 -->
+  <rect x="25" y="210" width="910" height="115" rx="8" fill="white" filter="url(#card)"/>
+  <text x="480" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Fallback 设计原则</text>
+
+  <rect x="50" y="260" width="260" height="48" rx="6" fill="#F1F5F9"/>
+  <text x="180" y="280" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">指数退避重试</text>
+  <text x="180" y="298" text-anchor="middle" font-size="9" fill="#64748B">第1次等2s → 第2次等4s → 兜底</text>
+
+  <rect x="335" y="260" width="260" height="48" rx="6" fill="#F1F5F9"/>
+  <text x="465" y="280" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">永远有兜底方案</text>
+  <text x="465" y="298" text-anchor="middle" font-size="9" fill="#64748B">小模型或不依赖AI的静态回答</text>
+
+  <rect x="620" y="260" width="300" height="48" rx="6" fill="#F1F5F9"/>
+  <text x="770" y="280" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">自动回滚条件</text>
+  <text x="770" y="298" text-anchor="middle" font-size="9" fill="#64748B">准确率&lt;90% 或 延迟&gt;3s 或 投诉率&gt;1%</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+    <filter id="card"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.06"/></filter>
+  </defs>
+  <rect width="960" height="340" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">理解 vs 生成：两条技术路线</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">Transformer 体系 vs 扩散模型体系 — 架构、训练、推理的根本差异</text>
+
+  <!-- 理解侧 -->
+  <rect x="20" y="80" width="450" height="120" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="20" y="80" width="450" height="4" rx="2" fill="#2563EB"/>
+  <text x="245" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#2563EB">理解侧（Transformer 体系）</text>
+  <text x="245" y="126" text-anchor="middle" font-size="10" fill="#64748B">输入多模态 → 输出文字或结构化信息</text>
+
+  <rect x="40" y="140" width="100" height="28" rx="5" fill="#DBEAFE"/>
+  <text x="90" y="159" text-anchor="middle" font-size="11" fill="#2563EB">一次前向传播</text>
+  <rect x="155" y="140" width="100" height="28" rx="5" fill="#DBEAFE"/>
+  <text x="205" y="159" text-anchor="middle" font-size="11" fill="#2563EB">毫秒~秒级</text>
+  <rect x="270" y="140" width="100" height="28" rx="5" fill="#DBEAFE"/>
+  <text x="320" y="159" text-anchor="middle" font-size="11" fill="#2563EB">GPT-4o·Claude</text>
+  <rect x="385" y="140" width="65" height="28" rx="5" fill="#059669" opacity="0.15"/>
+  <text x="417" y="159" text-anchor="middle" font-size="11" fill="#059669">成熟</text>
+
+  <text x="245" y="190" text-anchor="middle" font-size="10" fill="#64748B">核心问题：如何把异构输入映射到同一个语义空间？</text>
+
+  <!-- 生成侧 -->
+  <rect x="490" y="80" width="450" height="120" rx="8" fill="white" filter="url(#card)"/>
+  <rect x="490" y="80" width="450" height="4" rx="2" fill="#D97706"/>
+  <text x="715" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#D97706">生成侧（扩散模型体系）</text>
+  <text x="715" y="126" text-anchor="middle" font-size="10" fill="#64748B">输入文字 → 输出图像/视频/音频</text>
+
+  <rect x="510" y="140" width="100" height="28" rx="5" fill="#FEF3C7"/>
+  <text x="560" y="159" text-anchor="middle" font-size="11" fill="#D97706">数十~上百步迭代</text>
+  <rect x="625" y="140" width="100" height="28" rx="5" fill="#FEF3C7"/>
+  <text x="675" y="159" text-anchor="middle" font-size="11" fill="#D97706">秒~分钟级</text>
+  <rect x="740" y="140" width="100" height="28" rx="5" fill="#FEF3C7"/>
+  <text x="790" y="159" text-anchor="middle" font-size="11" fill="#D97706">Midjourney·SD</text>
+  <rect x="855" y="140" width="65" height="28" rx="5" fill="#D97706" opacity="0.15"/>
+  <text x="887" y="159" text-anchor="middle" font-size="11" fill="#D97706">发展中</text>
+
+  <text x="715" y="190" text-anchor="middle" font-size="10" fill="#64748B">核心问题：如何从噪声中逐步恢复出高质量内容？</text>
+
+  <!-- 底部融合 -->
+  <rect x="20" y="220" width="920" height="105" rx="8" fill="white" filter="url(#card)"/>
+  <text x="480" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">2026 趋势：两条路线正在融合</text>
+
+  <rect x="60" y="268" width="250" height="45" rx="6" fill="#DBEAFE"/>
+  <text x="185" y="288" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">GPT-4o 原生统一</text>
+  <text x="185" y="304" text-anchor="middle" font-size="9" fill="#64748B">同一Transformer做理解和原生生图</text>
+
+  <rect x="340" y="268" width="250" height="45" rx="6" fill="#F1F5F9"/>
+  <text x="465" y="288" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Gemini 全模态</text>
+  <text x="465" y="304" text-anchor="middle" font-size="9" fill="#64748B">原生架构支持理解和图片生成</text>
+
+  <rect x="620" y="268" width="295" height="45" rx="6" fill="#F1F5F9"/>
+  <text x="767" y="288" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">现状</text>
+  <text x="767" y="304" text-anchor="middle" font-size="9" fill="#64748B">理解侧成熟度远高于生成侧·看懂比画好容易</text>
+</svg>

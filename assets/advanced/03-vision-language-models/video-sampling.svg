@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+    <filter id="card"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.06"/></filter>
+  </defs>
+  <rect width="960" height="340" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">视频采样策略对比</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">四种抽帧方案 + 原生连续处理</text>
+
+  <rect x="20" y="80" width="220" height="110" rx="6" fill="white" filter="url(#card)"/>
+  <text x="130" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">均匀采样</text>
+  <text x="130" y="122" text-anchor="middle" font-size="10" fill="#64748B">每N秒抽一帧</text>
+  <text x="130" y="142" text-anchor="middle" font-size="9" fill="#475569">适合: 讲座·演示</text>
+  <text x="130" y="158" text-anchor="middle" font-size="9" fill="#94A3B8">常见: 16-64帧</text>
+  <text x="130" y="176" text-anchor="middle" font-size="9" fill="#EF4444">不适: 混合内容视频</text>
+
+  <rect x="255" y="80" width="220" height="110" rx="6" fill="white" filter="url(#card)"/>
+  <text x="365" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">关键帧检测</text>
+  <text x="365" y="122" text-anchor="middle" font-size="10" fill="#64748B">按画面变化量找关键帧</text>
+  <text x="365" y="142" text-anchor="middle" font-size="9" fill="#475569">适合: 体育·动作片</text>
+  <text x="365" y="158" text-anchor="middle" font-size="9" fill="#94A3B8">变化大处多抽</text>
+  <text x="365" y="176" text-anchor="middle" font-size="9" fill="#EF4444">不适: 对话类</text>
+
+  <rect x="490" y="80" width="220" height="110" rx="6" fill="white" filter="url(#card)"/>
+  <text x="600" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">场景分割</text>
+  <text x="600" y="122" text-anchor="middle" font-size="10" fill="#64748B">先切场景·每场景关键帧</text>
+  <text x="600" y="142" text-anchor="middle" font-size="9" fill="#475569">适合: 会议·多场景</text>
+  <text x="600" y="158" text-anchor="middle" font-size="9" fill="#94A3B8">不遗漏任何场景</text>
+  <text x="600" y="176" text-anchor="middle" font-size="9" fill="#EF4444">不适: 单场景长镜头</text>
+
+  <rect x="725" y="80" width="215" height="110" rx="6" fill="white" filter="url(#card)"/>
+  <text x="832" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#8B5CF6">自适应密度</text>
+  <text x="832" y="122" text-anchor="middle" font-size="10" fill="#64748B">信息密度高处多抽</text>
+  <text x="832" y="142" text-anchor="middle" font-size="9" fill="#475569">适合: 混合内容视频</text>
+  <text x="832" y="158" text-anchor="middle" font-size="9" fill="#94A3B8">最智能但最复杂</text>
+  <text x="832" y="176" text-anchor="middle" font-size="9" fill="#EF4444">需预处理步骤</text>
+
+  <!-- 底部: Gemini原生 -->
+  <rect x="20" y="210" width="920" height="55" rx="8" fill="#2563EB" opacity="0.06"/>
+  <text x="480" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#2563EB">Besondere: Gemini 原生连续处理</text>
+  <text x="480" y="255" text-anchor="middle" font-size="10" fill="#64748B">所有帧在同一Transformer中通过自注意力交互 · 时序一致性最佳 · 按视频时长计费</text>
+
+  <!-- 成本对比 -->
+  <rect x="20" y="280" width="920" height="45" rx="6" fill="white" filter="url(#card)"/>
+  <text x="120" y="305" text-anchor="middle" font-size="10" fill="#64748B">抽帧+GPT-4o</text><text x="120" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">$0.03/次</text>
+  <text x="310" y="305" text-anchor="middle" font-size="10" fill="#64748B">抽帧64帧+GPT-4o</text><text x="310" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#D97706">$0.12/次</text>
+  <text x="500" y="305" text-anchor="middle" font-size="10" fill="#64748B">Gemini 1分钟</text><text x="500" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#EF4444">$0.30/次</text>
+  <text x="690" y="305" text-anchor="middle" font-size="10" fill="#64748B">开元方案</text><text x="690" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">免费</text>
+  <text x="870" y="305" text-anchor="middle" font-size="10" fill="#64748B">Gemini 10分钟</text><text x="870" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#EF4444">$3.00/次</text>
+</svg>

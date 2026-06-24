@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="Segoe UI, PingFang SC, sans-serif">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="960" height="340" fill="#F8FAFC" rx="12" filter="url(#shadow)"/>
+  <text x="480" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">图像生成 Prompt 五维度体系</text>
+  <text x="480" y="56" text-anchor="middle" font-size="12" fill="#64748B">高质量 Prompt = 主体 × 环境 × 风格 × 光影 × 参数</text>
+
+  <rect x="25" y="80" width="175" height="105" rx="8" fill="white"/>
+  <rect x="25" y="80" width="175" height="4" rx="2" fill="#2563EB"/>
+  <text x="112" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#2563EB">① 主体</text>
+  <text x="112" y="128" text-anchor="middle" font-size="10" fill="#64748B">你要画什么？</text>
+  <text x="112" y="150" text-anchor="middle" font-size="9" fill="#475569">品种·颜色·姿态·表情</text>
+  <text x="112" y="168" text-anchor="middle" font-size="9" fill="#94A3B8">如:橘色虎斑猫·绿眼睛</text>
+
+  <rect x="215" y="80" width="175" height="105" rx="8" fill="white"/>
+  <rect x="215" y="80" width="175" height="4" rx="2" fill="#D97706"/>
+  <text x="302" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#D97706">② 环境</text>
+  <text x="302" y="128" text-anchor="middle" font-size="10" fill="#64748B">在什么地方？</text>
+  <text x="302" y="150" text-anchor="middle" font-size="9" fill="#475569">材质·视角·氛围</text>
+  <text x="302" y="168" text-anchor="middle" font-size="9" fill="#94A3B8">如:窗台·巴黎雨天·书+咖啡</text>
+
+  <rect x="405" y="80" width="175" height="105" rx="8" fill="white"/>
+  <rect x="405" y="80" width="175" height="4" rx="2" fill="#059669"/>
+  <text x="492" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#059669">③ 风格</text>
+  <text x="492" y="128" text-anchor="middle" font-size="10" fill="#64748B">什么画风？</text>
+  <text x="492" y="150" text-anchor="middle" font-size="9" fill="#475569">写实·油画·赛博朋克</text>
+  <text x="492" y="168" text-anchor="middle" font-size="9" fill="#94A3B8">如:电影感·85mm·浅景深</text>
+
+  <rect x="595" y="80" width="175" height="105" rx="8" fill="white"/>
+  <rect x="595" y="80" width="175" height="4" rx="2" fill="#8B5CF6"/>
+  <text x="682" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#8B5CF6">④ 光影</text>
+  <text x="682" y="128" text-anchor="middle" font-size="10" fill="#64748B">什么光线？</text>
+  <text x="682" y="150" text-anchor="middle" font-size="9" fill="#475569">光源·方向·色温</text>
+  <text x="682" y="168" text-anchor="middle" font-size="9" fill="#94A3B8">如:黄金时段·百叶窗·暖调</text>
+
+  <rect x="785" y="80" width="150" height="105" rx="8" fill="white"/>
+  <rect x="785" y="80" width="150" height="4" rx="2" fill="#EF4444"/>
+  <text x="860" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#EF4444">⑤ 参数</text>
+  <text x="860" y="128" text-anchor="middle" font-size="10" fill="#64748B">技术细节</text>
+  <text x="860" y="150" text-anchor="middle" font-size="9" fill="#475569">分辨率·宽高比·版本</text>
+  <text x="860" y="168" text-anchor="middle" font-size="9" fill="#94A3B8">如:--ar 16:9 --v 6</text>
+
+  <!-- 底部: 迭代策略 -->
+  <rect x="25" y="205" width="910" height="120" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="480" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">三遍迭代法</text>
+
+  <rect x="50" y="255" width="270" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="185" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#D97706">第一遍：方向探索</text>
+  <text x="185" y="298" text-anchor="middle" font-size="10" fill="#64748B">极简Prompt·锁定方向·不纠结</text>
+
+  <rect x="345" y="255" width="270" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="480" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">第二遍：质量提升</text>
+  <text x="480" y="298" text-anchor="middle" font-size="10" fill="#64748B">加风格·光影·环境·审视细节</text>
+
+  <rect x="640" y="255" width="270" height="55" rx="6" fill="#F1F5F9"/>
+  <text x="775" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">第三遍：精修</text>
+  <text x="775" y="298" text-anchor="middle" font-size="10" fill="#64748B">调整Prompt·排除不需要元素</text>
+
+  <text x="480" y="318" text-anchor="middle" font-size="10" fill="#D97706">不期望第一遍完美 · 三遍法核心 = 快速迭代 · 每遍不超过5分钟</text>
+</svg>
