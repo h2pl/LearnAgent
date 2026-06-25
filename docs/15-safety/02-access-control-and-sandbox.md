@@ -153,6 +153,84 @@ Agent: 执行取消操作
 | 容器级 | 中 | 中 | 代码执行 |
 | 虚拟机级 | 高 | 高 | 不可信代码 |
 
+### OS 级沙箱工具：Seatbelt 与 bubblewrap
+
+容器级沙箱（Docker）和虚拟机级沙箱（Firecracker/gVisor）适合服务端部署，但在**本地 Agent**（如 Claude Code、Cursor）场景中，Agent 运行在用户电脑上，不可能为每次工具调用启动一个 Docker 容器。这时需要更轻量的 OS 原生沙箱。
+
+#### macOS：Seatbelt（sandbox-exec）
+
+Seatbelt 是 macOS 内置的沙箱机制，通过 `.sb` 配置文件声明进程权限边界。Claude Code 的 Shell 工具就使用 Seatbelt 来限制子进程的权限。
+
+```scheme
+;; seatbelt-agent.sb — Agent 工具执行的沙箱配置
+(version 1)
+
+;; 默认拒绝所有操作
+(deny default)
+
+;; 允许读取系统基础文件
+(allow file-read*
+  (subpath "/usr/lib")
+  (subpath "/System/Library")
+  (subpath "/private/var/select"))
+
+;; 允许在指定工作目录内读写
+(allow file-read* file-write*
+  (subpath "/tmp/agent-workspace"))
+
+;; 允许基础网络查询（DNS 解析）
+(allow network-outbound
+  (remote unix-socket (regex #"^/var/run/resolv")))
+
+;; 禁止一切其他网络操作
+(deny network*)
+
+;; 允许进程基础操作
+(allow process-exec process-fork signal)
+```
+
+```bash
+# 在 Seatbelt 沙箱中执行 Agent 的工具调用
+sandbox-exec -f seatbelt-agent.sb /bin/bash -c "ls /tmp/agent-workspace"
+```
+
+**Seatbelt 的特点**：零依赖（macOS 原生）、启动极快（微秒级）、配置声明式。但它是 macOS 专有的，Linux 上需要替代方案。
+
+#### Linux：bubblewrap（bwrap）
+
+bubblewrap 是 Linux 上最轻量的沙箱工具，通过 Linux namespace 实现进程隔离。它不需要 root 权限，不需要守护进程，Flatpak 就用它来沙箱化应用。
+
+```bash
+# 在 bubblewrap 沙箱中执行 Agent 的工具调用
+bwrap \
+  --ro-bind /usr /usr \                    # 只读挂载系统目录
+  --ro-bind /lib /lib \                    # 只读挂载库文件
+  --ro-bind /bin /bin \                    # 只读挂载基础命令
+  --bind /tmp/agent-workspace /workspace \ # 读写挂载工作目录
+  --tmpfs /tmp \                           # 临时文件系统
+  --unshare-net \                          # 禁止网络
+  --unshare-ipc \                          # 隔离 IPC
+  --unshare-pid \                          # 隔离进程树
+  --die-with-parent \                      # 父进程退出时杀掉子进程
+  --new-session \                          # 新建终端会话
+  --chdir /workspace \
+  /bin/bash -c "python3 agent_tool.py"
+```
+
+#### Seatbelt vs bubblewrap 对比
+
+| 维度 | Seatbelt (macOS) | bubblewrap (Linux) |
+|------|-----------------|-------------------|
+| 隔离机制 | TrustedBSD 强制访问控制 | Linux namespace (mount/pid/net/ipc) |
+| 配置方式 | `.sb` 声明式文件 | 命令行参数 |
+| 需要 root | 否 | 否 |
+| 启动开销 | 微秒级 | 毫秒级 |
+| 网络隔离 | 配置文件声明 | `--unshare-net` |
+| 文件系统 | subpath 白名单 | `--ro-bind` / `--bind` 挂载 |
+| 生产使用 | Claude Code | Flatpak, 部分 Agent 框架 |
+
+**面试考点**：当被问到"Agent 工具调用的安全隔离怎么做"时，从三层回答：① 服务端用 Docker/Firecracker 容器隔离 ② 本地 Agent 用 OS 原生沙箱（macOS Seatbelt / Linux bwrap）③ 轻量场景用进程级限制（资源限额 + 超时 + import 白名单）。能说出 Seatbelt 和 bwrap 的具体用法会非常加分，说明你理解的不只是框架层面的抽象概念，而是真正落地过的工程实现。
+
 ### 安全策略
 
 ```yaml
@@ -217,3 +295,5 @@ Agent 工作目录: /tmp/agent-data/{session_id}/
 - [Anthropic — Tool Use Safety](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)
 - [Firecracker MicroVM](https://firecracker-microvm.github.io/)
 - [gVisor — Container Security](https://gvisor.dev/)
+- [Apple — Sandbox Initialization (Seatbelt)](https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/) — macOS 沙箱机制官方文档
+- [bubblewrap — Minimal Sandboxing for Linux](https://github.com/containers/bubblewrap) — Linux 轻量级沙箱工具

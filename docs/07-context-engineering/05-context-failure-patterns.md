@@ -12,6 +12,7 @@
 - [七个常见反模式](#七个常见反模式)
 - [不同规模的工程路线图](#不同规模的工程路线图)
 - [诊断工具：你的上下文健康吗](#诊断工具你的上下文健康吗)
+- [死循环检测与熔断](#死循环检测与熔断)
 - [总结](#总结)
 - [参考链接](#参考链接)
 
@@ -123,6 +124,54 @@ messages = [
 | **分层工具空间** | 只暴露原子函数（read/write/search/shell），其余工具通过 Shell/Python 间接调用 |
 | **工具遮蔽** | 工具定义始终在上文中，但通过控制解码屏蔽当前不可用的工具 |
 | **精简提示** | 每个工具定义控制在 50 tokens 以内，只保留名称 + 一句话描述 + 参数列表 |
+| **渐进式披露** | 按需分层加载信息，不一次性全量注入（见下文详解） |
+
+#### 渐进式披露（Progressive Disclosure）
+
+渐进式披露是从 UI 设计借来的概念：**不要一次把所有信息都展示给模型，而是按当前步骤的需要逐层加载**。它是"工具按需加载"的泛化版本——不只是工具，任何上下文内容（文档片段、历史对话、系统指令）都应该分层按需注入。
+
+**三级披露模型**：
+
+| 层级 | 内容 | 注入时机 | 典型 Token 量 |
+|------|------|---------|--------------|
+| **L1 摘要层** | 工具名称 + 一句话描述、文档标题 + 摘要、历史对话摘要 | 始终在上下文中 | ~500 tokens |
+| **L2 详情层** | 工具完整 Schema、文档关键段落、历史对话原文 | 当前任务需要时按需注入 | ~2000 tokens/项 |
+| **L3 原始层** | 工具返回值全文、完整文档、原始日志 | 工具执行后或明确需要时注入，用完即卸载 | 按需 |
+
+```python
+# 渐进式披露的实现示例
+class ProgressiveDisclosure:
+    """三级信息披露管理器"""
+
+    def __init__(self):
+        self.l1_summaries: list[str] = []    # 始终在上下文
+        self.l2_details: dict[str, str] = {}  # 按需注入
+        self.l3_raw: dict[str, str] = {}      # 用完即卸载
+
+    def build_context(self, current_task: str) -> list[str]:
+        """根据当前任务构建上下文"""
+        context = list(self.l1_summaries)  # L1 始终保留
+
+        # L2：根据任务相关性筛选需要注入的详情
+        relevant_keys = self._rank_relevance(current_task, self.l2_details)
+        for key in relevant_keys[:5]:  # 最多注入 5 项 L2 详情
+            context.append(self.l2_details[key])
+
+        return context
+
+    def inject_l3(self, key: str) -> str:
+        """临时注入 L3 原始数据，标记为用完即卸载"""
+        return self.l3_raw.get(key, "")
+
+    def evict_l3(self, context: list[str], key: str):
+        """工具执行完毕后卸载 L3 数据，替换为摘要"""
+        raw = self.l3_raw.get(key, "")
+        summary = f"[{key} 执行结果摘要: {raw[:100]}...]"
+        # 替换原文为摘要，释放上下文空间
+        return [summary if key in item else item for item in context]
+```
+
+**面试考点**：渐进式披露与"工具按需加载"的区别在于作用域——按需加载只针对工具定义，渐进式披露覆盖所有上下文内容（系统提示、文档、历史对话、工具返回值）。生产级 Agent（如 Claude Code）的三层提示组装（stable/context/volatile）本质上就是渐进式披露的实现。
 
 ### 4. 上下文冲突（Context Clash）
 
@@ -370,6 +419,76 @@ class ContextHealthCheck:
         report["issues"] = issues if issues else ["✅ 健康"]
         return report
 ```
+
+## 死循环检测与熔断
+
+上下文健康度诊断解决的是"上下文质量"问题，但还有一个更紧急的工程问题：**Agent 陷入死循环**。这不是上下文失效模式，而是执行控制失效——Agent 反复执行相同或等价的操作，消耗 Token 但不产生进展。
+
+### 三种死循环模式
+
+| 模式 | 表现 | 根因 |
+|------|------|------|
+| **工具重复调用** | 同一个工具被用相同参数反复调用 | Agent 不理解错误返回、或期望不同结果 |
+| **错误重试风暴** | 工具报错 → Agent 微调参数 → 再次报错 → 继续微调 | 缺少"此路不通"的判断能力 |
+| **上下文无进展** | 连续 N 轮对话后，上下文中没有新增有效信息 | Agent 在原地打转，反复推理但不采取行动 |
+
+```python
+class LoopDetector:
+    """Agent 死循环检测器——三种检测策略组合使用"""
+
+    def __init__(self, max_repeated_calls: int = 3,
+                 max_error_retries: int = 3,
+                 stall_threshold: int = 5):
+        self.max_repeated_calls = max_repeated_calls
+        self.max_error_retries = max_error_retries
+        self.stall_threshold = stall_threshold
+        self.call_history: list[tuple[str, dict]] = []  # (tool_name, params)
+        self.error_streak: int = 0
+        self.progress_counter: int = 0
+
+    def on_tool_call(self, tool_name: str, params: dict) -> str | None:
+        """工具调用前检测，返回熔断原因或 None"""
+        entry = (tool_name, params)
+        self.call_history.append(entry)
+
+        # 检测 1：相同工具 + 相同参数的重复调用
+        if self.call_history.count(entry) >= self.max_repeated_calls:
+            return f"loop_detected: {tool_name} 已用相同参数调用 {self.max_repeated_calls} 次"
+
+        # 检测 2：连续错误重试
+        self.progress_counter += 1
+        return None
+
+    def on_tool_error(self) -> str | None:
+        """工具报错时检测"""
+        self.error_streak += 1
+        self.progress_counter = 0  # 错误不算进展
+        if self.error_streak >= self.max_error_retries:
+            return f"error_storm: 连续 {self.error_streak} 次工具调用失败"
+        return None
+
+    def on_tool_success(self):
+        """工具成功时重置错误计数"""
+        self.error_streak = 0
+        self.progress_counter = 0
+
+    def on_turn_end(self) -> str | None:
+        """每轮结束时检测上下文是否无进展"""
+        self.progress_counter += 1
+        if self.progress_counter >= self.stall_threshold:
+            return f"stall_detected: 连续 {self.stall_threshold} 轮无有效进展"
+        return None
+```
+
+**熔断后的处理策略**：
+
+| 熔断类型 | 处理方式 |
+|---------|---------|
+| 工具重复调用 | 将错误信息注入上下文，提示 Agent"此工具已多次返回相同结果，请换一种方法" |
+| 错误重试风暴 | 终止当前工具调用链，用摘要替代详细错误历史，让 Agent 重新规划 |
+| 上下文无进展 | 强制压缩上下文 + 注入"请总结当前进展并明确下一步"的引导提示 |
+
+**与第 16 章的衔接**：死循环的完整工程实现（超时控制、轮次上限、熔断器状态机）在 [Agent 系统架构设计](../16-ship-to-production/01-architecture.md) 中有详细代码。本节聚焦于上下文工程维度的**检测信号**——什么时候从上下文的内容特征判断 Agent 已经陷入循环。
 
 <p align="center">
   <img src="../../assets/07-context-engineering/context-health-check.svg" alt="ContextHealthCheck诊断流程" width="90%"/>
