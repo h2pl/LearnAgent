@@ -13,7 +13,7 @@
 - [总结](#总结)
 - [参考链接](#参考链接)
 
-你好，我是江小湖。从 [LLM 基础](../02-llm-basics/README.md) 到 [生产环境评测实践](../13-evaluation/05-production-evaluation.md)，前面一直在关注 Agent 的"能力"——怎么让它更聪明、更准确、更高效。但能力越强，**滥用能力的风险也越大**。
+你好，我是江小湖。[上一篇文章《Agent 上线后，它到底还健康吗？》](../14-observability/05-production-monitoring.md) 收了可观测性的尾。从 [LLM 基础](../02-llm-basics/README.md) 到 [生产环境评测实践](../13-evaluation/05-production-evaluation.md)，前面一直在关注 Agent 的"能力"——怎么让它更聪明、更准确、更高效。但能力越强，**滥用能力的风险也越大**。
 
 一个没有安全防护的 Agent，就像一个把保险柜钥匙挂在门口的公司——不是一定会被偷，但完全不设防。
 
