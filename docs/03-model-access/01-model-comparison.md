@@ -228,5 +228,6 @@ GPT-5.4 引入了**可配置推理模式**（reasoning_effort 参数），单次
 - [Arena Leaderboard](https://arena.ai/leaderboard) — 基于人类盲测的模型排名
 - [Arena Agent Leaderboard](https://arena.ai/leaderboard/agent) — Agent 工具编排能力专项排名
 - [Artificial Analysis — LLM Benchmarks](https://artificialanalysis.ai/) — 详细的成本、速度、能力多维对比图表
+- [AIHOT 大模型 API 价格对比](https://aihot.news/leaderboard/prices) — 横向比较厂商官方输入、输出和缓存命中单价，按页面列出的用量口径估算成本。
 - [Anthropic — Model Comparison](https://docs.anthropic.com/en/docs/about-claude/models) — Claude 各型号官方对比
 - [OpenAI — Model Overview](https://platform.openai.com/docs/models) — GPT 家族各版本说明
